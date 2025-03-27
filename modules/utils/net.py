@@ -105,4 +105,5 @@ def get_list_of_nigerian_states_and_cities():
         resp = req.json()
     except Exception as e:
         resp = []
+    return resp
 
