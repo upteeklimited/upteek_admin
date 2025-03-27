@@ -10,7 +10,7 @@ from sqlalchemy.orm import relationship
 
 class SystemConfiguration(Base):
 
-    __tablename__ = "settings"
+    __tablename__ = "system_configurations"
      
     id = Column(BigInteger, primary_key=True, index=True)
     name = Column(String, nullable=True)
