@@ -16,15 +16,18 @@ def run_seed(db: Session):
         #         'status': True,
         #         'message': 'Seeders ran successfully!'
         #     }
-        print(run_geo_seeder(db=db))
-        print(run_user_seeder(db=db))
+        data = []
+        data['goe'] = run_geo_seeder(db=db)
+        # print(run_user_seeder(db=db))
         return {
             'status': True,
-            'message': 'Seeders ran successfully!'
+            'message': 'Seeders ran successfully!',
+            'data': data
         }
     except Exception as e:
         err = "Stack Trace - %s \n" % (traceback.format_exc())
         return {
             'status': False,
-            'message': err
+            'message': err,
+            'data': None
         }
