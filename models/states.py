@@ -19,14 +19,13 @@ class State(Base):
     latitude = Column(String, nullable=True)
     longitude = Column(String, nullable=True)
     status = Column(SmallInteger, default=0)
-    created_by = Column(BigInteger, default=0)
     deleted_at = Column(TIMESTAMP(timezone=True), nullable=True)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_state(db: Session, country_id: int = 0, name: str = None, capital: str = None, latitude: str = None,  longitude: str = None, status: int = 0, created_by: int = 0):
-    state = State(country_id=country_id, name=name, capital=capital, latitude=latitude, longitude=longitude, status=status, created_by=created_by, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
+def create_state(db: Session, country_id: int = 0, name: str = None, capital: str = None, latitude: str = None,  longitude: str = None, status: int = 0):
+    state = State(country_id=country_id, name=name, capital=capital, latitude=latitude, longitude=longitude, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(state)
     db.flush()
     return state
