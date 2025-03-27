@@ -19,14 +19,13 @@ class City(Base):
     longitude = Column(String, nullable=True)
     is_capital = Column(SmallInteger, default=0)
     status = Column(SmallInteger, default=0)
-    created_by = Column(BigInteger, default=0)
     deleted_at = Column(TIMESTAMP(timezone=True), nullable=True)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_city(db: Session, state_id: int = 0, name: str = None, latitude: str = None,  longitude: str = None, is_capital: int = 0, status: int = 0, created_by: int = 0):
-    city = City(state_id=state_id, name=name, latitude=latitude, longitude=longitude, is_capital=is_capital, status=status, created_by=created_by, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
+def create_city(db: Session, state_id: int = 0, name: str = None, latitude: str = None,  longitude: str = None, is_capital: int = 0, status: int = 0):
+    city = City(state_id=state_id, name=name, latitude=latitude, longitude=longitude, is_capital=is_capital, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(city)
     db.flush()
     return city

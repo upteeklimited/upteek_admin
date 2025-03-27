@@ -19,13 +19,13 @@ def run_geo_seeder(db: Session):
                         state_name = main_state['state'] + " State"
                     else:
                         state_name = main_state['state']
-                    state = create_state(db=db, name=state_name, capital=main_state['capital'], country_id=ng_country.id, created_by=1, status=1)
+                    state = create_state(db=db, name=state_name, capital=main_state['capital'], country_id=ng_country.id, status=1)
                     state_cities = main_state['cities']
                     if len(state_cities) > 0:
                         for j in range(len(state_cities)):
-                            create_city(db=db, name=state_cities[j], state_id=state.id, created_by=1, status=1)
+                            create_city(db=db, name=state_cities[j], state_id=state.id, status=1)
                     state_lgas = main_state['lgas']
                     if len(state_lgas) > 0:
                         for k in range(len(state_lgas)):
-                            create_lga(db=db, name=state_lgas[k], state_id=state.id, created_by=1, status=1)
+                            create_lga(db=db, name=state_lgas[k], state_id=state.id, status=1)
     return True
