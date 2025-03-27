@@ -6,22 +6,22 @@ import traceback
 
 def run_seed(db: Session):
     try:
-        tru = truncate_all_tables(db=db)
-        if tru['status'] == False:
-            return tru
-        else:
-            print(run_geo_seeder(db=db))
-            print(run_user_seeder(db=db))
-            return {
-                'status': True,
-                'message': 'Seeders ran successfully!'
-            }
-        # print(run_geo_seeder(db=db))
-        # print(run_user_seeder(db=db))
-        # return {
-        #     'status': True,
-        #     'message': 'Seeders ran successfully!'
-        # }
+        # tru = truncate_all_tables(db=db)
+        # if tru['status'] == False:
+        #     return tru
+        # else:
+        #     print(run_geo_seeder(db=db))
+        #     print(run_user_seeder(db=db))
+        #     return {
+        #         'status': True,
+        #         'message': 'Seeders ran successfully!'
+        #     }
+        print(run_geo_seeder(db=db))
+        print(run_user_seeder(db=db))
+        return {
+            'status': True,
+            'message': 'Seeders ran successfully!'
+        }
     except Exception as e:
         err = "Stack Trace - %s \n" % (traceback.format_exc())
         return {
