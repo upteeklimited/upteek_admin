@@ -136,51 +136,51 @@ def truncate_all_tables(db: Session):
         db.rollback()
         return {"status": False, "message": str(e)}
 
-def import_models_from_directory():
-    """
-    Dynamically import all models from the models directory
+# def import_models_from_directory():
+#     """
+#     Dynamically import all models from the models directory
     
-    This function does the following:
-    1. Walks through the models directory
-    2. Imports all Python modules
-    3. Finds all SQLAlchemy model classes that inherit from Base
-    """
-    model_classes = []
+#     This function does the following:
+#     1. Walks through the models directory
+#     2. Imports all Python modules
+#     3. Finds all SQLAlchemy model classes that inherit from Base
+#     """
+#     model_classes = []
     
-    # Iterate through all modules in the models package
-    for _, module_name, _ in pkgutil.iter_modules(models.__path__):
-        try:
-            # Import the module
-            module = importlib.import_module(f'models.{module_name}')
+#     # Iterate through all modules in the models package
+#     for _, module_name, _ in pkgutil.iter_modules(models.__path__):
+#         try:
+#             # Import the module
+#             module = importlib.import_module(f'models.{module_name}')
             
-            # Find all classes in the module that inherit from Base
-            for name, obj in inspect.getmembers(module):
-                if (inspect.isclass(obj) and 
-                    issubclass(obj, Base) and 
-                    obj is not Base and 
-                    hasattr(obj, '__tablename__')):
-                    model_classes.append(obj)
-        except ImportError as e:
-            print(f"Error importing module {module_name}: {e}")
+#             # Find all classes in the module that inherit from Base
+#             for name, obj in inspect.getmembers(module):
+#                 if (inspect.isclass(obj) and 
+#                     issubclass(obj, Base) and 
+#                     obj is not Base and 
+#                     hasattr(obj, '__tablename__')):
+#                     model_classes.append(obj)
+#         except ImportError as e:
+#             print(f"Error importing module {module_name}: {e}")
     
-    return model_classes
+#     return model_classes
 
-def create_tables():
-    try:
-        # Import all model classes
-        models_to_create = import_models_from_directory()
+# def create_tables():
+#     try:
+#         # Import all model classes
+#         models_to_create = import_models_from_directory()
         
-        # Create all tables
-        Base.metadata.create_all(bind=engine)
+#         # Create all tables
+#         Base.metadata.create_all(bind=engine)
         
-        # Return the names of tables that were created
-        return {
-            "status": "success", 
-            "tables_created": [model.__tablename__ for model in models_to_create]
-        }
-    except Exception as e:
-        # Handle any errors during table creation
-        return {
-            "status": "error", 
-            "message": str(e)
-        }
+#         # Return the names of tables that were created
+#         return {
+#             "status": "success", 
+#             "tables_created": [model.__tablename__ for model in models_to_create]
+#         }
+#     except Exception as e:
+#         # Handle any errors during table creation
+#         return {
+#             "status": "error", 
+#             "message": str(e)
+#         }
