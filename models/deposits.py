@@ -10,7 +10,7 @@ from sqlalchemy.orm import relationship
 
 class Deposit(Base):
 
-    __tablename__ = "accounts"
+    __tablename__ = "deposits"
      
     id = Column(BigInteger, primary_key=True, index=True)
     user_id = Column(BigInteger, default=0)
