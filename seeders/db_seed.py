@@ -16,7 +16,7 @@ def run_seed(db: Session):
         #         'status': True,
         #         'message': 'Seeders ran successfully!'
         #     }
-        data = []
+        data = {}
         data['goe'] = run_geo_seeder(db=db)
         # print(run_user_seeder(db=db))
         return {
