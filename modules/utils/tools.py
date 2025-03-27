@@ -15,6 +15,7 @@ import importlib
 import pkgutil
 import inspect
 import models
+import traceback
 
 config = load_env_config()
 
@@ -134,7 +135,8 @@ def truncate_all_tables(db: Session):
 
     except Exception as e:
         db.rollback()
-        return {"status": False, "message": str(e)}
+        err = "Stack Trace - %s \n" % (traceback.format_exc())
+        return {"status": False, "message": err}
 
 # def import_models_from_directory():
 #     """
