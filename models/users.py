@@ -20,6 +20,8 @@ class User(Base):
     phone_number = Column(String, nullable=True)
     password = Column(String, nullable=True)
     device_token = Column(String, nullable=True)
+    external_provider = Column(String, nullable=True)
+    external_reference = Column(String, nullable=True)
     user_type = Column(Integer, default=0)
     role = Column(Integer, default=0)
     status = Column(SmallInteger, default=0)
@@ -28,8 +30,8 @@ class User(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_user(db: Session, country_id: int = 0, merchant_id: int = 0, username: str = None, email: str = None, phone_number: str = None, password: str = None, device_token: str = None, user_type: int = 0, role: int = 0, status: int = 0):
-    user = User(country_id=country_id, merchant_id=merchant_id, username=username, email=email, phone_number=phone_number, password=password, device_token=device_token, user_type=user_type, role=role, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
+def create_user(db: Session, country_id: int = 0, merchant_id: int = 0, username: str = None, email: str = None, phone_number: str = None, password: str = None, device_token: str = None, external_provider: str = None, external_reference: str = None, user_type: int = 0, role: int = 0, status: int = 0):
+    user = User(country_id=country_id, merchant_id=merchant_id, username=username, email=email, phone_number=phone_number, password=password, device_token=device_token, external_provider=external_provider, external_reference=external_reference, user_type=user_type, role=role, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(user)
     db.flush()
     return user
