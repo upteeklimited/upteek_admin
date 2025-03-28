@@ -21,7 +21,7 @@ class Setting(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_setting(db: Session, user_id: int = 0, email_notification: int = 0, sms_notification: int = 0):
+def create_setting(db: Session, user_id: int = None, email_notification: int = 0, sms_notification: int = 0):
     setting = Setting(user_id=user_id, email_notification=email_notification, sms_notification=sms_notification, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(setting)
     db.flush()

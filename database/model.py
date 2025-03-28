@@ -48,14 +48,15 @@ from models.user_devices import UserDevice, create_user_device, update_user_devi
 from models.users import User, create_user, update_user, delete_user, force_delete_user, get_single_user_by_id, get_single_user_by_email, get_single_user_by_phone_number, get_single_user_by_username, get_single_user_by_any_main_details, get_users, get_users_by_country_id, get_users_by_merchant_id, get_users_by_user_type, get_users_by_role, get_users_by_user_type_and_role
 import string
 import random
+from database.db import get_laravel_datetime
 
 def id_generator(size=15, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
 
-def create_user_with_relevant_rows(db: Session, country_id: int = 0, username: str = None, email: str = None, phone_number: str = None, password: str = None, user_type: int = 0, role: int = 0, first_name: str = None, other_name: str = None, last_name: str = None, is_merchant: bool=False, merchant_name: str = None):
+def create_user_with_relevant_rows(db: Session, country_id: int = None, username: str = None, email: str = None, phone_number: str = None, password: str = None, user_type: int = 0, role: int = 0, first_name: str = None, other_name: str = None, last_name: str = None, is_merchant: bool=False, merchant_name: str = None):
     user = create_user(db=db, country_id=country_id, username=username, email=email, phone_number=phone_number, password=password, user_type=user_type, role=role, status=1)
-    create_profile(db=db, user_id=user.id, first_name=first_name, other_name=other_name, last_name=last_name)
+    create_profile(db=db, user_id=user.id, first_name=first_name, other_name=other_name, last_name=last_name, level_one_approved_by=1, level_one_approved_at=get_laravel_datetime())
     create_setting(db=db, user_id=user.id)
     if is_merchant == True:
         merchant = create_merchant(db=db, user_id=user.id, name=merchant_name)
