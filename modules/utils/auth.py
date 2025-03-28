@@ -7,9 +7,11 @@ from datetime import datetime, timedelta
 import dateparser
 import time
 from settings.config import load_env_config
-from database.model import create_auth_token, get_last_login_auth_token_by_user_id, ping_auth_token, get_last_login_auth_token_by_admin_id, get_admin_by_id
+from database.model import create_auth_token, get_latest_user_auth_token, get_single_user_by_id
 from database.db import session
 import hashlib
+import json
+from settings.constants import USER_TYPES
 
 config = load_env_config()
 
@@ -45,38 +47,40 @@ class AuthHandler():
         payload = {
             'exp': datetime.now() + timedelta(days=365, minutes=5),
             'iat': datetime.now(),
-            'sub': user
+            'sub': json.dumps(user)
         }
         expired_at = (datetime.now() + timedelta(days=365, minutes=5)).strftime("%Y/%m/%d %H:%M:%S")
         token = jwt.encode(payload, self.secret, algorithm="HS256")
-        admin_id = user['id']
-        create_auth_token(db=self.db, admin_id=admin_id, token=token, status=1, expired_at=expired_at)
+        user_id = user['id']
+        create_auth_token(db=self.db, user_id=user_id, token_type="auth", token_value=token, status=1, expired_at=expired_at)
         return token
 
     def decode_token(self, token: str = None):
         try:
             payload = jwt.decode(token, self.secret, algorithms=["HS256"])
-            admin_id = payload['sub']['id']
-            admin = get_admin_by_id(db=self.db, id=admin_id)
-            if admin is None:
+            sub_data = json.loads(payload['sub'])
+            user_id = sub_data['sub']['id']
+            user = get_single_user_by_id(db=self.db, id=user_id)
+            if user is None:
                 raise HTTPException(status_code=401, detail='User does not exist')
             else:
-                auth_token = get_last_login_auth_token_by_admin_id(db=self.db, admin_id=admin_id)
+                auth_token = get_latest_user_auth_token(db=self.db, user_id=user_id)
                 if auth_token is None:
                     raise HTTPException(status_code=401, detail='Empty Auth Token')
                 else:
-                    if auth_token.token != token:
+                    if auth_token.token_value != token:
                         raise HTTPException(status_code=401, detail='Invalid Auth Token')
                     else:
                         if auth_token.status == 0:
                             raise HTTPException(status_code=401, detail='Token Expired')
                         else:
-                            deleted_at = admin.deleted_at
+                            if user.user_type != USER_TYPES['admin']['num']:
+                                raise HTTPException(status_code=401, detail='Invalid User Type')
+                            deleted_at = user.deleted_at
                             if deleted_at is not None:
-                                raise HTTPException(status_code=401, detail='Admin is deleted')
+                                raise HTTPException(status_code=401, detail='User is deleted')
                             else:
-                                ping_auth_token(db=self.db, id=auth_token.id)
-                                return payload['sub']
+                                return sub_data
         
         except jwt.ExpiredSignatureError:
             raise HTTPException(status_code=401, detail='Signature has expired')
