@@ -55,7 +55,7 @@ def id_generator(size=15, chars=string.ascii_uppercase + string.digits):
 
 
 def create_user_with_relevant_rows(db: Session, country_id: int = None, username: str = None, email: str = None, phone_number: str = None, password: str = None, user_type: int = 0, role: int = 0, first_name: str = None, other_name: str = None, last_name: str = None, is_merchant: bool=False, merchant_name: str = None):
-    user = create_user(db=db, country_id=country_id, username=username, email=email, phone_number=phone_number, password=password, user_type=user_type, role=role, status=1)
+    user = create_user(db=db, country_id=country_id, merchant_id=None, username=username, email=email, phone_number=phone_number, password=password, user_type=user_type, role=role, status=1)
     create_profile(db=db, user_id=user.id, first_name=first_name, other_name=other_name, last_name=last_name, level_one_approved_by=1, level_one_approved_at=get_laravel_datetime())
     create_setting(db=db, user_id=user.id)
     if is_merchant == True:
