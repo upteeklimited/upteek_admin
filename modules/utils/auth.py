@@ -31,7 +31,7 @@ def generate_apple_client_secret():
         'alg': 'ES256',
         'kid': config['apple_key_id']
     }
-    key = config('APPLE_PRIVATE_KEY')
+    key = config['apple_private_key']
     return auth_jwt.encode(headers, payload, key).decode('utf-8')
 
 # Initialize OAuth
