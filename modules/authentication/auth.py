@@ -3,7 +3,7 @@ from fastapi import Request
 from database.model import get_single_user_by_email_and_user_type, get_single_user_by_phone_number_and_user_type, get_single_user_by_username_user_type, get_single_user_by_any_main_details, get_single_profile_by_user_id, get_single_setting_by_user_id, update_user, create_token, get_latest_user_token_by_type, update_token_by_user_id_and_token_type, get_latest_user_token_by_type_and_status, get_single_user_by_id, update_token
 from modules.utils.net import get_ip_info, process_phone_number
 from modules.utils.tools import process_schema_dictionary
-from modules.utils.auth import AuthHandler, oauth, get_next_few_minutes, check_if_time_as_pass_now
+from modules.utils.auth import AuthHandler, get_next_few_minutes, check_if_time_as_pass_now
 from modules.messaging.email import e_send_token
 from sqlalchemy.orm import Session
 import random
@@ -238,6 +238,6 @@ def get_user_details(db: Session, user_id: int=0):
             'data': data,
         }
 
-async def sso_google(request: Request):
-    token = await oauth.google.authorize_access_token(request)
-    user_info = token.get('userinfo')
+# async def sso_google(request: Request):
+#     token = await oauth.google.authorize_access_token(request)
+#     user_info = token.get('userinfo')
