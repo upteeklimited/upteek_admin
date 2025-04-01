@@ -25,7 +25,7 @@ async def finalize_passwordless(request: Request, fields: FinalisePasswordLessRe
     return req
 
 @router.post("/verify_token_email", response_model=PlainResponse, responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
-async def finalize_passwordless(request: Request, fields: VerifyEmailTokenRequest, db: Session = Depends(get_session)):
+async def verify_token_email(request: Request, fields: VerifyEmailTokenRequest, db: Session = Depends(get_session)):
     req = verify_email_token(db=db, email=fields.email, token_str=fields.token_str)
     return req
 
