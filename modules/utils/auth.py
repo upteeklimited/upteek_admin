@@ -17,67 +17,67 @@ from authlib.jose import jwt as auth_jwt
 
 config = load_env_config()
 
-def generate_apple_client_secret():
-    global config
-    now = datetime.now(UTC)
-    payload = {
-        'iss': config['apple_team_id'],
-        'iat': now,
-        'exp': now + timedelta(days=180),
-        'aud': 'https://appleid.apple.com',
-        'sub': config['apple_client_id']
-    }
-    headers = {
-        'alg': 'ES256',
-        'kid': config['apple_key_id']
-    }
-    key = config['apple_private_key']
-    return auth_jwt.encode(headers, payload, key).decode('utf-8')
+# def generate_apple_client_secret():
+#     global config
+#     now = datetime.now(UTC)
+#     payload = {
+#         'iss': config['apple_team_id'],
+#         'iat': now,
+#         'exp': now + timedelta(days=180),
+#         'aud': 'https://appleid.apple.com',
+#         'sub': config['apple_client_id']
+#     }
+#     headers = {
+#         'alg': 'ES256',
+#         'kid': config['apple_key_id']
+#     }
+#     key = config['apple_private_key']
+#     return auth_jwt.encode(headers, payload, key).decode('utf-8')
 
 # Initialize OAuth
-oauth = OAuth()
+# oauth = OAuth()
 
-# Register OAuth providers
-oauth.register(
-    name='google',
-    client_id=config['google_client_id'],
-    client_secret=config['google_client_secret'],
-    server_metadata_url='https://accounts.google.com/.well-known/openid-configuration',
-    client_kwargs={
-        'scope': 'openid email profile',
-        'prompt': 'select_account',  # Forces account selection
-    },
-    authorize_params={
-        'access_type': 'offline',  # For refresh tokens
-    }
-)
+# # Register OAuth providers
+# oauth.register(
+#     name='google',
+#     client_id=config['google_client_id'],
+#     client_secret=config['google_client_secret'],
+#     server_metadata_url='https://accounts.google.com/.well-known/openid-configuration',
+#     client_kwargs={
+#         'scope': 'openid email profile',
+#         'prompt': 'select_account',  # Forces account selection
+#     },
+#     authorize_params={
+#         'access_type': 'offline',  # For refresh tokens
+#     }
+# )
 
-oauth.register(
-    name='facebook',
-    client_id=config['facebook_client_id'],
-    client_secret=config['facebook_client_secret'],
-    authorize_url='https://www.facebook.com/v12.0/dialog/oauth',
-    access_token_url='https://graph.facebook.com/v12.0/oauth/access_token',
-    api_base_url='https://graph.facebook.com/v12.0/',
-    client_kwargs={
-        'scope': 'email public_profile',
-        'token_endpoint_auth_method': 'client_secret_post'  # Facebook requires this
-    }
-)
+# oauth.register(
+#     name='facebook',
+#     client_id=config['facebook_client_id'],
+#     client_secret=config['facebook_client_secret'],
+#     authorize_url='https://www.facebook.com/v12.0/dialog/oauth',
+#     access_token_url='https://graph.facebook.com/v12.0/oauth/access_token',
+#     api_base_url='https://graph.facebook.com/v12.0/',
+#     client_kwargs={
+#         'scope': 'email public_profile',
+#         'token_endpoint_auth_method': 'client_secret_post'  # Facebook requires this
+#     }
+# )
 
-# Apple requires special handling
-oauth.register(
-    name='apple',
-    client_id=config['apple_client_id'],  # Service ID from Apple Developer
-    client_secret=generate_apple_client_secret(),  # Generated JWT (see below)
-    authorize_url='https://appleid.apple.com/auth/authorize',
-    access_token_url='https://appleid.apple.com/auth/token',
-    api_base_url='https://appleid.apple.com',
-    client_kwargs={
-        'scope': 'email name',
-        'response_mode': 'form_post'  # Apple requires POST for auth response
-    }
-)
+# # Apple requires special handling
+# oauth.register(
+#     name='apple',
+#     client_id=config['apple_client_id'],  # Service ID from Apple Developer
+#     client_secret=generate_apple_client_secret(),  # Generated JWT (see below)
+#     authorize_url='https://appleid.apple.com/auth/authorize',
+#     access_token_url='https://appleid.apple.com/auth/token',
+#     api_base_url='https://appleid.apple.com',
+#     client_kwargs={
+#         'scope': 'email name',
+#         'response_mode': 'form_post'  # Apple requires POST for auth response
+#     }
+# )
 
 def get_next_few_minutes(minutes: int=0):
     current_time = datetime.now()
