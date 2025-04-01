@@ -6,12 +6,16 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi_pagination import add_pagination
 import sys, traceback
 
+
+from routers.authentication import auth
+
 #system routes
 from routers import seed
 
 # Main app section here
 app = FastAPI(title="Upteek Admin")
 
+app.include_router(auth.router)
 app.include_router(seed.router)
 
 #Test routers

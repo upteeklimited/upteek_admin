@@ -35,5 +35,13 @@ def load_env_config():
         'smtp2go_address': os.getenv('SMTP2GO_ADDRESS'),
         'geocode_url': os.getenv('GEOCODE_URL'),
         'geocode_key': os.getenv('GEOCODE_KEY'),
+        'google_client_id': os.getenv('GOOGLE_CLIENT_ID'),
+        'google_client_secret': os.getenv('GOOGLE_CLIENT_SECRET'),
+        'facebook_client_id': os.getenv('FACEBOOK_CLIENT_ID'),
+        'facebook_client_secret': os.getenv('FACEBOOK_CLIENT_SECRET'),
+        'apple_client_id': os.getenv('APPLE_CLIENT_ID'),
+        'apple_team_id': os.getenv('APPLE_TEAM_ID'),
+        'apple_key_id': os.getenv('APPLE_KEY_ID'),
+        'apple_private_key': os.getenv('APPLE_PRIVATE_KEY'),
     }
 

@@ -62,11 +62,20 @@ def get_single_user_by_id(db: Session, id: int=0):
 def get_single_user_by_email(db: Session, email: str = None):
     return db.query(User).filter_by(email = email).first()
 
+def get_single_user_by_email_and_user_type(db: Session, email: str = None, user_type: int = 0):
+    return db.query(User).filter(and_(User.email == email, User.user_type == user_type)).first()
+
 def get_single_user_by_phone_number(db: Session, phone_number: str = None):
     return db.query(User).filter_by(phone_number = phone_number).first()
 
+def get_single_user_by_phone_number_and_user_type(db: Session, phone_number: str = None, user_type: int = 0):
+    return db.query(User).filter(and_(User.phone_number == phone_number, User.user_type == user_type)).first()
+
 def get_single_user_by_username(db: Session, username: str = None):
     return db.query(User).filter_by(username = username).first()
+
+def get_single_user_by_username_user_type(db: Session, username: str = None, user_type: int = 0):
+    return db.query(User).filter(and_(User.username == username, User.user_type == user_type)).first()
 
 def get_single_user_by_any_main_details(db: Session, email: str = None, phone_number: str = None, username: str = None):
     return db.query(User).filter(or_(User.email == email, User.phone_number == phone_number, User.username == username)).first()

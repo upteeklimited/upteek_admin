@@ -14,19 +14,18 @@ class AuthToken(Base):
      
     id = Column(BigInteger, primary_key=True, index=True)
     user_id = Column(BigInteger, default=0)
-    email = Column(String, nullable=True)
-    phone_number = Column(String, nullable=True)
-    token_type = Column(String, nullable=True)
-    token_value = Column(String, nullable=True)
+    token = Column(String, nullable=True)
+    device_token = Column(String, nullable=True)
     status = Column(SmallInteger, default=0)
     expired_at = Column(TIMESTAMP(timezone=True), nullable=True)
+    last_ping_at = Column(TIMESTAMP(timezone=True), nullable=True)
     deleted_at = Column(TIMESTAMP(timezone=True), nullable=True)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_auth_token(db: Session, user_id: int = 0, email: str = None, phone_number: str = None, token_type: str = None, token_value: str = None, status: int = 0, expired_at: str = None):
-    auth_token = AuthToken(user_id=user_id, email=email, phone_number=phone_number, token_type=token_type, token_value=token_value, status=status, expired_at=expired_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
+def create_auth_token(db: Session, user_id: int = 0, token: str = None, device_token: str = None, status: int = 0, expired_at: str = None, last_ping_at: str = None):
+    auth_token = AuthToken(user_id=user_id, token=token, device_token=device_token, status=status, expired_at=expired_at, last_ping_at=last_ping_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(auth_token)
     db.flush()
     return auth_token
