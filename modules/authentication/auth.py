@@ -15,64 +15,72 @@ from settings.constants import USER_TYPES
 auth = AuthHandler()
 
 def login_with_email(db: Session, email: str=None, password: str=None, fbt: str=None):
-    user = get_single_user_by_email_and_user_type(db=db, email=email, user_type=USER_TYPES['admin']['num'])
-    if user is None:
-        return {
-            'status': False,
-            'message': 'Email not correct',
-            'data': None
-        }
-    else:
-        if not auth.verify_password(plain_password=password, hashed_password=user.password):
+    try:
+        user = get_single_user_by_email_and_user_type(db=db, email=email, user_type=USER_TYPES['admin']['num'])
+        if user is None:
             return {
                 'status': False,
-                'message': 'Password Incorrect',
+                'message': 'Email not correct',
                 'data': None
             }
         else:
-            if user.status == 0:
+            if not auth.verify_password(plain_password=password, hashed_password=user.password):
                 return {
                     'status': False,
-                    'message': 'This account has been locked',
+                    'message': 'Password Incorrect',
                     'data': None
                 }
-            if user.deleted_at is not None:
+            else:
+                if user.status == 0:
+                    return {
+                        'status': False,
+                        'message': 'This account has been locked',
+                        'data': None
+                    }
+                if user.deleted_at is not None:
+                    return {
+                        'status': False,
+                        'message': 'This account has been deactivated',
+                        'data': None
+                    }
+                payload = {
+                    'id': user.id,
+                    'country_id': user.country_id,
+                    'username': user.username,
+                    'phone_number': user.phone_number,
+                    'user_type': user.user_type,
+                    'role': user.role,
+                }
+                token = auth.encode_token(user=payload, device_token=fbt)
+                da = {
+                    'device_token': fbt
+                }
+                update_user(db=db, id=user.id, values=da)
+                profile = get_single_profile_by_user_id(db=db, user_id=user.id)
+                setting = get_single_setting_by_user_id(db=db, user_id=user.id)
+                data = {
+                    'access_token': token,
+                    'id': user.id,
+                    'username': user.username,
+                    'phone_number': user.phone_number,
+                    'email': user.email,
+                    'user_type': user.user_type,
+                    'role': user.role,
+                    'profile': profile,
+                    'setting': setting,
+                }
                 return {
-                    'status': False,
-                    'message': 'This account has been deactivated',
-                    'data': None
+                    'status': True,
+                    'message': 'Login Success',
+                    'data': data,
                 }
-            payload = {
-                'id': user.id,
-                'country_id': user.country_id,
-                'username': user.username,
-                'phone_number': user.phone_number,
-                'user_type': user.user_type,
-                'role': user.role,
-            }
-            token = auth.encode_token(user=payload, device_token=fbt)
-            da = {
-                'device_token': fbt
-            }
-            update_user(db=db, id=user.id, values=da)
-            profile = get_single_profile_by_user_id(db=db, user_id=user.id)
-            setting = get_single_setting_by_user_id(db=db, user_id=user.id)
-            data = {
-                'access_token': token,
-                'id': user.id,
-                'username': user.username,
-                'phone_number': user.phone_number,
-                'email': user.email,
-                'user_type': user.user_type,
-                'role': user.role,
-                'profile': profile,
-                'setting': setting,
-            }
-            return {
-                'status': True,
-                'message': 'Login Success',
-                'data': data,
-            }
+    except Exception as e:
+        err = "Stack Trace - %s \n" % (traceback.format_exc())
+        return {
+            'status': False,
+            'message': err,
+            'data': None
+        }
 
 def send_email_token(db: Session, email: str=None):
     user = get_single_user_by_email_and_user_type(db=db, email=email, user_type=USER_TYPES['admin']['num'])
