@@ -107,7 +107,7 @@ class AuthHandler():
     def verify_password(self, plain_password: str=None, hashed_password: str=None):
         return self.pwd_context.verify(plain_password, hashed_password)
 
-    def encode_token(self, db: Session, user: Dict={}, device_token: str = None):
+    def encode_token(self, user: Dict={}, device_token: str = None):
         payload = {
             'exp': datetime.now() + timedelta(days=365, minutes=5),
             'iat': datetime.now(),
@@ -116,7 +116,7 @@ class AuthHandler():
         expired_at = (datetime.now() + timedelta(days=365, minutes=5)).strftime("%Y/%m/%d %H:%M:%S")
         token = jwt.encode(payload, self.secret, algorithm="HS256")
         user_id = user['id']
-        create_auth_token(db=db, user_id=user_id, token=token, device_token=device_token, status=1, expired_at=expired_at)
+        create_auth_token(db=self.db, user_id=user_id, token=token, device_token=device_token, status=1, expired_at=expired_at, commit=True)
         return token
 
     def decode_token(self, token: str = None):
@@ -144,9 +144,7 @@ class AuthHandler():
                             if deleted_at is not None:
                                 raise HTTPException(status_code=401, detail='User is deleted')
                             else:
-                                update_auth_token(db=self.db, id=auth_token.id, values={'last_ping_at': get_laravel_datetime()})
-                                if has_uncommitted_changes(db=self.db):
-                                    self.db.commit()
+                                update_auth_token(db=self.db, id=auth_token.id, values={'last_ping_at': get_laravel_datetime()}, commit=True)
                                 return sub_data
         
         except jwt.ExpiredSignatureError:

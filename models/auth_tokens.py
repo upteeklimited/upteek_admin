@@ -24,16 +24,23 @@ class AuthToken(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_auth_token(db: Session, user_id: int = 0, token: str = None, device_token: str = None, status: int = 0, expired_at: str = None, last_ping_at: str = None):
+def create_auth_token(db: Session, user_id: int = 0, token: str = None, device_token: str = None, status: int = 0, expired_at: str = None, last_ping_at: str = None, commit: bool=False):
     auth_token = AuthToken(user_id=user_id, token=token, device_token=device_token, status=status, expired_at=expired_at, last_ping_at=last_ping_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(auth_token)
-    db.flush()
+    if commit == False:
+        db.flush
+    else:
+        db.commit()
+        db.refresh(auth_token)
     return auth_token
 
-def update_auth_token(db: Session, id: int=0, values: Dict={}):
+def update_auth_token(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(AuthToken).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def delete_auth_token(db: Session, id: int=0):
@@ -42,12 +49,12 @@ def delete_auth_token(db: Session, id: int=0):
         'deleted_at': get_laravel_datetime(),
     }
     db.query(AuthToken).filter_by(id = id).update(values)
-    db.flush()
+    db.commit()
     return True
 
 def force_delete_auth_token(db: Session, id: int=0):
     db.query(AuthToken).filter_by(id = id).delete()
-    db.flush()
+    db.commit()
     return True
 
 def get_single_auth_token_by_id(db: Session, id: int=0):

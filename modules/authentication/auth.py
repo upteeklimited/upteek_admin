@@ -51,7 +51,7 @@ def login_with_email(db: Session, email: str=None, password: str=None, fbt: str=
                     'user_type': user.user_type,
                     'role': user.role,
                 }
-                token = auth.encode_token(db=db, user=payload, device_token=fbt)
+                token = auth.encode_token(user=payload, device_token=fbt)
                 da = {
                     'device_token': fbt
                 }
