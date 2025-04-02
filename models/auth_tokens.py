@@ -43,6 +43,15 @@ def update_auth_token(db: Session, id: int=0, values: Dict={}, commit: bool=Fals
         db.commit()
     return True
 
+def update_user_auth_token(db: Session, user_id: int=0, values: Dict={}, commit: bool=False):
+    values['updated_at'] = get_laravel_datetime()
+    db.query(AuthToken).filter_by(user_id = user_id).update(values)
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+    return True
+
 def delete_auth_token(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),

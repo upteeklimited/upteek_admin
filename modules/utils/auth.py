@@ -7,7 +7,7 @@ from datetime import datetime, timedelta, UTC
 import dateparser
 import time
 from settings.config import load_env_config
-from database.model import create_auth_token, get_latest_user_auth_token, get_single_user_by_id, update_auth_token
+from database.model import create_auth_token, get_latest_user_auth_token, get_single_user_by_id, update_auth_token, update_user_auth_token
 from database.db import session, has_uncommitted_changes, get_laravel_datetime
 from sqlalchemy.orm import Session
 import hashlib
@@ -116,6 +116,7 @@ class AuthHandler():
         expired_at = (datetime.now() + timedelta(days=365, minutes=5)).strftime("%Y/%m/%d %H:%M:%S")
         token = jwt.encode(payload, self.secret, algorithm="HS256")
         user_id = user['id']
+        update_user_auth_token(db=self.db, user_id=user_id, values={'status': 0}, commit=True)
         create_auth_token(db=self.db, user_id=user_id, token=token, device_token=device_token, status=1, expired_at=expired_at, commit=True)
         return token
 
