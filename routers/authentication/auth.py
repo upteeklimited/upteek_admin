@@ -9,7 +9,7 @@ router = APIRouter(
     tags=["admin_auth"]
 )
 
-@router.post("/login_email", response_model=AuthResponseModel, responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
+@router.post("/login_email")
 async def login_email(request: Request, fields: LoginEmailRequest, db: Session = Depends(get_session)):
     req = login_with_email(db=db, email=fields.email, password=fields.password, fbt=fields.fbt)
     return req
