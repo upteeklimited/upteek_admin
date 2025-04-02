@@ -10,7 +10,7 @@ router = APIRouter(
 )
 
 @router.post("/login_email")
-async def login_email(request: Request, fields: LoginEmailRequest, db: Session = Depends(get_db)):
+async def login_email(request: Request, fields: LoginEmailRequest, db: Session = Depends(get_session)):
     req = login_with_email(db=db, email=fields.email, password=fields.password, fbt=fields.fbt)
     return req
 
