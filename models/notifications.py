@@ -22,30 +22,43 @@ class Notification(Base):
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
-def create_notification(db: Session, user_id: int = 0, title: str = None, body: str = None, meta_data: str = None, status: int = 0):
+def create_notification(db: Session, user_id: int = 0, title: str = None, body: str = None, meta_data: str = None, status: int = 0, commit: bool=False):
     notification = Notification(user_id=user_id, title=title, body=body, meta_data=meta_data, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(notification)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(notification)
     return notification
 
-def update_notification(db: Session, id: int=0, values: Dict={}):
+def update_notification(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(Notification).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_notification(db: Session, id: int=0):
+def delete_notification(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(Notification).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_notification(db: Session, id: int=0):
+def force_delete_notification(db: Session, id: int=0, commit: bool=False):
     db.query(Notification).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_all_notifications(db: Session, filters: Dict={}):

@@ -22,30 +22,43 @@ class Currency(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_currency(db: Session, name: str = None, code: str = None, symbol: str = None, status: int = 0):
+def create_currency(db: Session, name: str = None, code: str = None, symbol: str = None, status: int = 0, commit: bool=False):
     currency = Currency(name=name, code=code, symbol=symbol, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(currency)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(currency)
     return currency
 
-def update_currency(db: Session, id: int=0, values: Dict={}):
+def update_currency(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(Currency).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_currency(db: Session, id: int=0):
+def delete_currency(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(Currency).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_currency(db: Session, id: int=0):
+def force_delete_currency(db: Session, id: int=0, commit: bool=False):
     db.query(Currency).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_currency_by_id(db: Session, id: int=0):

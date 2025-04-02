@@ -27,30 +27,43 @@ class Medium(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_medium(db: Session, mediumable_type: str = None, mediumable_id: int = 0, file_type: str = None, file_name: str = None, file_description: str = None, file_path: str = None,  file_url: str = None, meta_data: str = None, status: int = 0):
+def create_medium(db: Session, mediumable_type: str = None, mediumable_id: int = 0, file_type: str = None, file_name: str = None, file_description: str = None, file_path: str = None,  file_url: str = None, meta_data: str = None, status: int = 0, commit: bool=False):
     medium = Medium(mediumable_type=mediumable_type, mediumable_id=mediumable_id, file_type=file_type, file_name=file_name, file_description=file_description, file_path=file_path, file_url=file_url, meta_data=meta_data, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(medium)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(medium)
     return medium
 
-def update_medium(db: Session, id: int=0, values: Dict={}):
+def update_medium(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(Medium).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_medium(db: Session, id: int=0):
+def delete_medium(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(Medium).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_medium(db: Session, id: int=0):
+def force_delete_medium(db: Session, id: int=0, commit: bool=False):
     db.query(Medium).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_medium_by_id(db: Session, id: int=0):

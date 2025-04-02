@@ -25,30 +25,43 @@ class Operator(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_operator(db: Session, country_id: int = 0, category_id: int = 0, name: str = None, description: str = None, code: str = None, logo: str = None, status: int = 0):
+def create_operator(db: Session, country_id: int = 0, category_id: int = 0, name: str = None, description: str = None, code: str = None, logo: str = None, status: int = 0, commit: bool=False):
     operator = Operator(country_id=country_id, category_id=category_id, name=name, description=description, code=code, logo=logo, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(operator)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(operator)
     return operator
 
-def update_operator(db: Session, id: int=0, values: Dict={}):
+def update_operator(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(Operator).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_operator(db: Session, id: int=0):
+def delete_operator(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(Operator).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_operator(db: Session, id: int=0):
+def force_delete_operator(db: Session, id: int=0, commit: bool=False):
     db.query(Operator).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_operator_by_id(db: Session, id: int=0):

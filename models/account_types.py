@@ -25,30 +25,43 @@ class AccountType(Base):
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
-def create_account_type(db: Session, product_id: int = 0, name: str = None, description: str = None, account_code: str = None, status: int = 0, created_by: int = 0, authorized_by: int = 0, authorized_at: str = None):
+def create_account_type(db: Session, product_id: int = 0, name: str = None, description: str = None, account_code: str = None, status: int = 0, created_by: int = 0, authorized_by: int = 0, authorized_at: str = None, commit: bool=False):
     account_type = AccountType(product_id=product_id, name=name, description=description, account_code=account_code, status=status, created_by=created_by, authorized_by=authorized_by, authorized_at=authorized_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(account_type)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(account_type)
     return account_type
 
-def update_account_type(db: Session, id: int=0, values: Dict={}):
+def update_account_type(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(AccountType).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_account_type(db: Session, id: int=0):
+def delete_account_type(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(AccountType).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_account_type(db: Session, id: int=0):
+def force_delete_account_type(db: Session, id: int=0, commit: bool=False):
     db.query(AccountType).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_account_type_by_id(db: Session, id: int=0):

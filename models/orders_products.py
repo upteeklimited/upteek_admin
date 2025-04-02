@@ -24,30 +24,43 @@ class OrderProduct(Base):
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
-def create_order_product(db: Session, product_id: int = 0, order_id: int = 0, quantity: int = 0, extra_quantity: int = 0, amount: float = 0, meta_data: str = None, status: int = 0):
+def create_order_product(db: Session, product_id: int = 0, order_id: int = 0, quantity: int = 0, extra_quantity: int = 0, amount: float = 0, meta_data: str = None, status: int = 0, commit: bool=False):
     order_product = OrderProduct(product_id=product_id, order_id=order_id, quantity=quantity, extra_quantity=extra_quantity, amount=amount, meta_data=meta_data, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(order_product)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(order_product)
     return order_product
 
-def update_order_product(db: Session, id: int=0, values: Dict={}):
+def update_order_product(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(OrderProduct).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_order_product(db: Session, id: int=0):
+def delete_order_product(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(OrderProduct).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_order_product(db: Session, id: int=0):
+def force_delete_order_product(db: Session, id: int=0, commit: bool=False):
     db.query(OrderProduct).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_all_orders_products(db: Session, filters: Dict={}):

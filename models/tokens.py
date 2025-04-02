@@ -25,43 +25,62 @@ class Token(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_token(db: Session, user_id: int = 0, email: str = None, phone_number: str = None, token_type: str = None, token_value: str = None, status: int = 0, expired_at: str = None):
+def create_token(db: Session, user_id: int = 0, email: str = None, phone_number: str = None, token_type: str = None, token_value: str = None, status: int = 0, expired_at: str = None, commit: bool=False):
     token = Token(user_id=user_id, email=email, phone_number=phone_number, token_type=token_type, token_value=token_value, status=status, expired_at=expired_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(token)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(token)
     return token
 
-def update_token(db: Session, id: int=0, values: Dict={}):
+def update_token(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(Token).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def update_token_by_user_id(db: Session, user_id: int, values: Dict={}):
+def update_token_by_user_id(db: Session, user_id: int, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(Token).filter(Token.user_id == user_id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def update_token_by_user_id_and_token_type(db: Session, user_id: int=0, token_type: str=None, values: Dict={}):
+def update_token_by_user_id_and_token_type(db: Session, user_id: int=0, token_type: str=None, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(Token).filter(and_(Token.user_id == user_id, Token.token_type == token_type)).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 
-def delete_token(db: Session, id: int=0):
+def delete_token(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(Token).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_token(db: Session, id: int=0):
+def force_delete_token(db: Session, id: int=0, commit: bool=False):
     db.query(Token).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_token_by_id(db: Session, id: int=0):

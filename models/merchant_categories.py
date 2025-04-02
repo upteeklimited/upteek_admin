@@ -22,30 +22,43 @@ class MerchantCategory(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_merchant_category(db: Session, industry_id: int = 0, name: str = None, description: str = None, status: int = 0):
+def create_merchant_category(db: Session, industry_id: int = 0, name: str = None, description: str = None, status: int = 0, commit: bool=False):
     merchant_category = MerchantCategory(industry_id=industry_id, name=name, description=description, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(merchant_category)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(merchant_category)
     return merchant_category
 
-def update_merchant_category(db: Session, id: int=0, values: Dict={}):
+def update_merchant_category(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(MerchantCategory).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_merchant_category(db: Session, id: int=0):
+def delete_merchant_category(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(MerchantCategory).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_merchant_category(db: Session, id: int=0):
+def force_delete_merchant_category(db: Session, id: int=0, commit: bool=False):
     db.query(MerchantCategory).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_merchant_category_by_id(db: Session, id: int=0):

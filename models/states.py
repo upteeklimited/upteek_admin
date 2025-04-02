@@ -24,30 +24,43 @@ class State(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_state(db: Session, country_id: int = 0, name: str = None, capital: str = None, latitude: str = None,  longitude: str = None, status: int = 0):
+def create_state(db: Session, country_id: int = 0, name: str = None, capital: str = None, latitude: str = None,  longitude: str = None, status: int = 0, commit: bool=False):
     state = State(country_id=country_id, name=name, capital=capital, latitude=latitude, longitude=longitude, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(state)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(state)
     return state
 
-def update_state(db: Session, id: int=0, values: Dict={}):
+def update_state(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(State).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_state(db: Session, id: int=0):
+def delete_state(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(State).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_state(db: Session, id: int=0):
+def force_delete_state(db: Session, id: int=0, commit: bool=False):
     db.query(State).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_state_by_id(db: Session, id: int=0):

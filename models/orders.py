@@ -58,30 +58,43 @@ class Order(Base):
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
-def create_order(db: Session, user_id: int = 0, merchant_id: int = 0, currency_id: int = 0, card_id: int = 0, account_id: int = 0, financial_product_id: int = 0, order_type: int = 0, sub_total: float = 0, delivery_fee: float = 0, VAT: float = 0, discount: float = 0, total_amount: float = 0, estimated_delivery_time: str = None, payment_type: int = 0, order_detail: str = None, pick_up_pin: str = None, delivery_pin: str = None, is_gift: int = 0, receiver_phone_number: str = None, receiver_house_number: str = None, receiver_street: str = None, receiver_nearest_bus_stop: str = None, receiver_city: str = None, receiver_state: str = None, receiver_country: str = None, receiver_latitude: str = None, receiver_longitude: str = None, rejection_reason: str = None, cancellation_reason: str = None, is_scheduled: int = 0, scheduled_at: str = None, preparation_at: str = None, ready_at: str = None, picked_up_at: str = None, delivered_at: str = None, rejected_at: str = None, cancelled_at: str = None, status: int = 0, created_by: int = 0, authorized_by: int = 0, authorized_at: str = None):
+def create_order(db: Session, user_id: int = 0, merchant_id: int = 0, currency_id: int = 0, card_id: int = 0, account_id: int = 0, financial_product_id: int = 0, order_type: int = 0, sub_total: float = 0, delivery_fee: float = 0, VAT: float = 0, discount: float = 0, total_amount: float = 0, estimated_delivery_time: str = None, payment_type: int = 0, order_detail: str = None, pick_up_pin: str = None, delivery_pin: str = None, is_gift: int = 0, receiver_phone_number: str = None, receiver_house_number: str = None, receiver_street: str = None, receiver_nearest_bus_stop: str = None, receiver_city: str = None, receiver_state: str = None, receiver_country: str = None, receiver_latitude: str = None, receiver_longitude: str = None, rejection_reason: str = None, cancellation_reason: str = None, is_scheduled: int = 0, scheduled_at: str = None, preparation_at: str = None, ready_at: str = None, picked_up_at: str = None, delivered_at: str = None, rejected_at: str = None, cancelled_at: str = None, status: int = 0, created_by: int = 0, authorized_by: int = 0, authorized_at: str = None, commit: bool=False):
     order = Order(user_id=user_id, merchant_id=merchant_id, currency_id=currency_id, card_id=card_id, account_id=account_id, financial_product_id=financial_product_id, order_type=order_type, sub_total=sub_total, delivery_fee=delivery_fee, VAT=VAT, discount=discount, total_amount=total_amount, estimated_delivery_time=estimated_delivery_time, payment_type=payment_type, order_detail=order_detail, pick_up_pin=pick_up_pin, delivery_pin=delivery_pin, is_gift=is_gift, receiver_phone_number=receiver_phone_number, receiver_house_number=receiver_house_number, receiver_street=receiver_street, receiver_nearest_bus_stop=receiver_nearest_bus_stop, receiver_city=receiver_city, receiver_state=receiver_state, receiver_country=receiver_country, receiver_latitude=receiver_latitude, receiver_longitude=receiver_longitude, rejection_reason=rejection_reason, cancellation_reason=cancellation_reason, is_scheduled=is_scheduled, scheduled_at=scheduled_at, preparation_at=preparation_at, ready_at=ready_at, picked_up_at=picked_up_at, delivered_at=delivered_at, rejected_at=rejected_at, cancelled_at=cancelled_at, status=status, created_by=created_by, authorized_by=authorized_by, authorized_at=authorized_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(order)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(order)
     return order
 
-def update_order(db: Session, id: int=0, values: Dict={}):
+def update_order(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(Order).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_order(db: Session, id: int=0):
+def delete_order(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(Order).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_order(db: Session, id: int=0):
+def force_delete_order(db: Session, id: int=0, commit: bool=False):
     db.query(Order).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_order_by_id(db: Session, id: int=0):

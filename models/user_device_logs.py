@@ -24,30 +24,43 @@ class UserDeviceLog(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_user_device_log(db: Session, user_device_id: int = 0, latitude: str = None, longitude: str = None, resource_path: str = None, ip_address: str = None, status: int = 0):
+def create_user_device_log(db: Session, user_device_id: int = 0, latitude: str = None, longitude: str = None, resource_path: str = None, ip_address: str = None, status: int = 0, commit: bool=False):
     user_device_log = UserDeviceLog(user_device_id=user_device_id, latitude=latitude, longitude=longitude, resource_path=resource_path, ip_address=ip_address, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(user_device_log)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(user_device_log)
     return user_device_log
 
-def update_user_device_log(db: Session, id: int=0, values: Dict={}):
+def update_user_device_log(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(UserDeviceLog).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_user_device_log(db: Session, id: int=0):
+def delete_user_device_log(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(UserDeviceLog).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_user_device_log(db: Session, id: int=0):
+def force_delete_user_device_log(db: Session, id: int=0, commit: bool=False):
     db.query(UserDeviceLog).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_user_device_log_by_id(db: Session, id: int=0):

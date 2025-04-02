@@ -22,30 +22,43 @@ class TransactionFee(Base):
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
-def create_transaction_fee(db: Session, transaction_type_id: int = 0, from_amount: float = 0, to_amount: float = 0, amount: float = 0, status: int = 0):
+def create_transaction_fee(db: Session, transaction_type_id: int = 0, from_amount: float = 0, to_amount: float = 0, amount: float = 0, status: int = 0, commit: bool=False):
     transaction_fee = TransactionFee(transaction_type_id=transaction_type_id, from_amount=from_amount, to_amount=to_amount, amount=amount, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(transaction_fee)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(transaction_fee)
     return transaction_fee
 
-def update_transaction_fee(db: Session, id: int=0, values: Dict={}):
+def update_transaction_fee(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(TransactionFee).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_transaction_fee(db: Session, id: int=0):
+def delete_transaction_fee(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(TransactionFee).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_transaction_fee(db: Session, id: int=0):
+def force_delete_transaction_fee(db: Session, id: int=0, commit: bool=False):
     db.query(TransactionFee).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_all_transaction_fees(db: Session, filters: Dict={}):

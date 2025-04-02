@@ -37,30 +37,43 @@ class Bill(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_bill(db: Session, country_id: int = 0, category_id: int = 0, service_id: int = 0, provider_id: int = 0, operator_id: int = 0, name: str = None, description: str = None, short_name: str = None, label: str = None, code: str = None, amount: float = 0, minimum_amount: float = 0, maximum_amount: float = 0, fee: float = 0, commission: float = 0, is_airtime: int = 0, is_data: int = 0, is_flat: int = 0, status: int = 0):
+def create_bill(db: Session, country_id: int = 0, category_id: int = 0, service_id: int = 0, provider_id: int = 0, operator_id: int = 0, name: str = None, description: str = None, short_name: str = None, label: str = None, code: str = None, amount: float = 0, minimum_amount: float = 0, maximum_amount: float = 0, fee: float = 0, commission: float = 0, is_airtime: int = 0, is_data: int = 0, is_flat: int = 0, status: int = 0, commit: bool=False):
     bill = Bill(country_id=country_id, category_id=category_id, service_id=service_id, provider_id=provider_id, operator_id=operator_id, name=name, description=description, short_name=short_name, label=label, code=code, amount=amount, minimum_amount=minimum_amount, maximum_amount=maximum_amount, fee=fee, commission=commission, is_airtime=is_airtime, is_data=is_data, is_flat=is_flat, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(bill)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(bill)
     return bill
 
-def update_bill(db: Session, id: int=0, values: Dict={}):
+def update_bill(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(Bill).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_bill(db: Session, id: int=0):
+def delete_bill(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(Bill).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_bill(db: Session, id: int=0):
+def force_delete_bill(db: Session, id: int=0, commit: bool=False):
     db.query(Bill).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_bill_by_id(db: Session, id: int=0):

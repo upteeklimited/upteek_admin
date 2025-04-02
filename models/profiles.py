@@ -53,36 +53,52 @@ class Profile(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_profile(db: Session, user_id: int = 0, first_name: str = None, other_name: str = None, last_name: str = None, mothers_maiden_name: str = None, date_of_birth: str = None, gender: str = None, bio: str = None, marital_status: str = None, avatar: str = None, id_document_file: str = None, id_document_type: str = None, id_document_value: str = None, selfie: str = None, bvn: str = None, bvn_status: int = 0, bvn_meta_data: str = None, nin: str = None, nin_status: int = 0, nin_meta_data: str = None, kyc_level: int = 0, compliance_status: int = 0, level_one_approved_by: int = 0, level_one_rejected_by: int = 0, level_one_approved_at: str = None, level_one_rejected_at: str = None, level_two_approved_by: int = 0, level_two_rejected_by: int = 0, level_two_approved_at: str = None, level_two_rejected_at: str = None, level_three_approved_by: int = 0, level_three_rejected_by: int = 0, level_three_approved_at: str = None, level_three_rejected_at: str = None, status: int = 0):
+def create_profile(db: Session, user_id: int = 0, first_name: str = None, other_name: str = None, last_name: str = None, mothers_maiden_name: str = None, date_of_birth: str = None, gender: str = None, bio: str = None, marital_status: str = None, avatar: str = None, id_document_file: str = None, id_document_type: str = None, id_document_value: str = None, selfie: str = None, bvn: str = None, bvn_status: int = 0, bvn_meta_data: str = None, nin: str = None, nin_status: int = 0, nin_meta_data: str = None, kyc_level: int = 0, compliance_status: int = 0, level_one_approved_by: int = 0, level_one_rejected_by: int = 0, level_one_approved_at: str = None, level_one_rejected_at: str = None, level_two_approved_by: int = 0, level_two_rejected_by: int = 0, level_two_approved_at: str = None, level_two_rejected_at: str = None, level_three_approved_by: int = 0, level_three_rejected_by: int = 0, level_three_approved_at: str = None, level_three_rejected_at: str = None, status: int = 0, commit: bool=False):
     profile = Profile(user_id=user_id, first_name=first_name, other_name=other_name, last_name=last_name, mothers_maiden_name=mothers_maiden_name, date_of_birth=date_of_birth, gender=gender, bio=bio, marital_status=marital_status, avatar=avatar, id_document_file=id_document_file, id_document_type=id_document_type, id_document_value=id_document_value, selfie=selfie, bvn=bvn, bvn_status=bvn_status, bvn_meta_data=bvn_meta_data, nin=nin, nin_status=nin_status, nin_meta_data=nin_meta_data, kyc_level=kyc_level, compliance_status=compliance_status, level_one_approved_by=level_one_approved_by, level_one_rejected_by=level_one_rejected_by, level_one_approved_at=level_one_approved_at, level_one_rejected_at=level_one_rejected_at, level_two_approved_by=level_two_approved_by, level_two_rejected_by=level_two_rejected_by, level_two_approved_at=level_two_approved_at, level_two_rejected_at=level_two_rejected_at, level_three_approved_by=level_three_approved_by, level_three_rejected_by=level_three_rejected_by, level_three_approved_at=level_three_approved_at, level_three_rejected_at=level_three_rejected_at, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(profile)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(profile)
     return profile
 
-def update_profile(db: Session, id: int=0, values: Dict={}):
+def update_profile(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(Profile).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def update_profile_by_user_id(db: Session, user_id: int=0, values: Dict={}):
+def update_profile_by_user_id(db: Session, user_id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(Profile).filter_by(user_id = user_id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_profile(db: Session, id: int=0):
+def delete_profile(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(Profile).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_profile(db: Session, id: int=0):
+def force_delete_profile(db: Session, id: int=0, commit: bool=False):
     db.query(Profile).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_profile_by_id(db: Session, id: int=0):

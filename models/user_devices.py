@@ -35,30 +35,43 @@ class UserDevice(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_user_device(db: Session, user_id: int = 0, name: str = None, app_version: str = None, build_number: str = None, device_brand: str = None, device_id: str = None, platform: str = None, platform_version: str = None, operating_system: str = None, browser: str = None, fbt: str = None, last_ip_address: str = None, last_latitude: str = None, last_longitude: str = None, fingerprint: str = None, is_mobile: int = 0, status: int = 0):
+def create_user_device(db: Session, user_id: int = 0, name: str = None, app_version: str = None, build_number: str = None, device_brand: str = None, device_id: str = None, platform: str = None, platform_version: str = None, operating_system: str = None, browser: str = None, fbt: str = None, last_ip_address: str = None, last_latitude: str = None, last_longitude: str = None, fingerprint: str = None, is_mobile: int = 0, status: int = 0, commit: bool=False):
     user_device = UserDevice(user_id=user_id, name=name, app_version=app_version, build_number=build_number, device_brand=device_brand, device_id=device_id, platform=platform, platform_version=platform_version, operating_system=operating_system, browser=browser, fbt=fbt, last_ip_address=last_ip_address, last_latitude=last_latitude, last_longitude=last_longitude, fingerprint=fingerprint, is_mobile=is_mobile, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(user_device)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(user_device)
     return user_device
 
-def update_user_device(db: Session, id: int=0, values: Dict={}):
+def update_user_device(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(UserDevice).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_user_device(db: Session, id: int=0):
+def delete_user_device(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(UserDevice).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_user_device(db: Session, id: int=0):
+def force_delete_user_device(db: Session, id: int=0, commit: bool=False):
     db.query(UserDevice).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_user_device_by_id(db: Session, id: int=0):

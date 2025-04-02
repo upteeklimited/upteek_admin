@@ -28,30 +28,43 @@ class GeneralLedgerAccount(Base):
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
-def create_general_ledger_account(db: Session, type_id: int = 0, parent_id: int = 0, name: str = None, account_number: str = None, description: str = None, balance: float = 0, status: int = 0, manager_id: int = 0, created_by: int = 0, authorized_by: int = 0, authorized_at: str = None):
+def create_general_ledger_account(db: Session, type_id: int = 0, parent_id: int = 0, name: str = None, account_number: str = None, description: str = None, balance: float = 0, status: int = 0, manager_id: int = 0, created_by: int = 0, authorized_by: int = 0, authorized_at: str = None, commit: bool=False):
     general_ledger_account = GeneralLedgerAccount(type_id=type_id, parent_id=parent_id, name=name, account_number=account_number, description=description, balance=balance, status=status, manager_id=manager_id, created_by=created_by, authorized_by=authorized_by, authorized_at=authorized_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(general_ledger_account)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(general_ledger_account)
     return general_ledger_account
 
-def update_general_ledger_account(db: Session, id: int=0, values: Dict={}):
+def update_general_ledger_account(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(GeneralLedgerAccount).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_general_ledger_account(db: Session, id: int=0):
+def delete_general_ledger_account(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(GeneralLedgerAccount).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_general_ledger_account(db: Session, id: int=0):
+def force_delete_general_ledger_account(db: Session, id: int=0, commit: bool=False):
     db.query(GeneralLedgerAccount).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_general_ledger_account_by_id(db: Session, id: int=0):

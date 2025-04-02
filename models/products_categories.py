@@ -21,30 +21,43 @@ class ProductCategory(Base):
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
-def create_product_category(db: Session, category_id: int = 0, product_id: int = 0, meta_data: str = None, status: int = 0):
+def create_product_category(db: Session, category_id: int = 0, product_id: int = 0, meta_data: str = None, status: int = 0, commit: bool=False):
     product_category = ProductCategory(category_id=category_id, product_id=product_id, meta_data=meta_data, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(product_category)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(product_category)
     return product_category
 
-def update_product_category(db: Session, id: int=0, values: Dict={}):
+def update_product_category(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(ProductCategory).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_product_category(db: Session, id: int=0):
+def delete_product_category(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(ProductCategory).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_product_category(db: Session, id: int=0):
+def force_delete_product_category(db: Session, id: int=0, commit: bool=False):
     db.query(ProductCategory).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_all_products_categories(db: Session, filters: Dict={}):

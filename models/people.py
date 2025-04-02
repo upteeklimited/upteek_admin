@@ -35,30 +35,43 @@ class Person(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_person(db: Session, personable_type: str = None, personable_id: int = 0, person_type: str = None, first_name: str = None, other_name: str = None, last_name: str = None,  mothers_maiden_name: str = None, date_of_birth: str = None, gender: str = None, marital_status: str = None, bio: str = None, avatar: str = None, nationality: str = None, id_document_file: str = None, id_document_type: str = None, id_document_value: str = None, status: int = 0):
+def create_person(db: Session, personable_type: str = None, personable_id: int = 0, person_type: str = None, first_name: str = None, other_name: str = None, last_name: str = None,  mothers_maiden_name: str = None, date_of_birth: str = None, gender: str = None, marital_status: str = None, bio: str = None, avatar: str = None, nationality: str = None, id_document_file: str = None, id_document_type: str = None, id_document_value: str = None, status: int = 0, commit: bool=False):
     person = Person(personable_type=personable_type, personable_id=personable_id, person_type=person_type, first_name=first_name, other_name=other_name, last_name=last_name, mothers_maiden_name=mothers_maiden_name, date_of_birth=date_of_birth, gender=gender, marital_status=marital_status, bio=bio, avatar=avatar, nationality=nationality, id_document_file=id_document_file, id_document_type=id_document_type, id_document_value=id_document_value, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(person)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(person)
     return person
 
-def update_person(db: Session, id: int=0, values: Dict={}):
+def update_person(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(Person).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_person(db: Session, id: int=0):
+def delete_person(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(Person).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_person(db: Session, id: int=0):
+def force_delete_person(db: Session, id: int=0, commit: bool=False):
     db.query(Person).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_person_by_id(db: Session, id: int=0):

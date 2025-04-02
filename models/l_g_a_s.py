@@ -23,30 +23,43 @@ class LGA(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_lga(db: Session, state_id: int = 0, name: str = None, latitude: str = None,  longitude: str = None, status: int = 0):
+def create_lga(db: Session, state_id: int = 0, name: str = None, latitude: str = None,  longitude: str = None, status: int = 0, commit: bool=False):
     lga = LGA(state_id=state_id, name=name, latitude=latitude, longitude=longitude, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(lga)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(lga)
     return lga
 
-def update_lga(db: Session, id: int=0, values: Dict={}):
+def update_lga(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(LGA).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_lga(db: Session, id: int=0):
+def delete_lga(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(LGA).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_lga(db: Session, id: int=0):
+def force_delete_lga(db: Session, id: int=0, commit: bool=False):
     db.query(LGA).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_lga_by_id(db: Session, id: int=0):

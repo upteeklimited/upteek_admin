@@ -22,30 +22,43 @@ class CountryCurrency(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_country_currency(db: Session, country_id: int = 0, currency_id: int = 0, is_main: int = 0, status: int = 0):
+def create_country_currency(db: Session, country_id: int = 0, currency_id: int = 0, is_main: int = 0, status: int = 0, commit: bool=False):
     cc = CountryCurrency(country_id=country_id, currency_id=currency_id, is_main=is_main, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(cc)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(cc)
     return cc
 
-def update_country_currency(db: Session, id: int=0, values: Dict={}):
+def update_country_currency(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(CountryCurrency).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_country_currency(db: Session, id: int=0):
+def delete_country_currency(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(CountryCurrency).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_country_currency(db: Session, id: int=0):
+def force_delete_country_currency(db: Session, id: int=0, commit: bool=False):
     db.query(CountryCurrency).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_country_currency_by_id(db: Session, id: int=0):

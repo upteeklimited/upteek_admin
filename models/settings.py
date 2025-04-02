@@ -21,36 +21,52 @@ class Setting(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_setting(db: Session, user_id: int = 0, email_notification: int = 0, sms_notification: int = 0):
+def create_setting(db: Session, user_id: int = 0, email_notification: int = 0, sms_notification: int = 0, commit: bool=False):
     setting = Setting(user_id=user_id, email_notification=email_notification, sms_notification=sms_notification, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(setting)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(setting)
     return setting
 
-def update_setting(db: Session, id: int=0, values: Dict={}):
+def update_setting(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(Setting).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def update_setting_by_user_id(db: Session, user_id: int=0, values: Dict={}):
+def update_setting_by_user_id(db: Session, user_id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(Setting).filter_by(user_id = user_id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_setting(db: Session, id: int=0):
+def delete_setting(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(Setting).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_setting(db: Session, id: int=0):
+def force_delete_setting(db: Session, id: int=0, commit: bool=False):
     db.query(Setting).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_setting_by_id(db: Session, id: int=0):

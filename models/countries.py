@@ -29,30 +29,43 @@ class Country(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_country(db: Session, name: str = None, language: str = None, code: str = None, code_two: str = None, area_code: str = None, base_timezone: str = None, latitude: str = None,  longitude: str = None, flag: str = None, visibility: int = 0, status: int = 0, created_by: int = 0):
+def create_country(db: Session, name: str = None, language: str = None, code: str = None, code_two: str = None, area_code: str = None, base_timezone: str = None, latitude: str = None,  longitude: str = None, flag: str = None, visibility: int = 0, status: int = 0, commit: bool=False):
     country = Country(name=name, language=language, code=code, code_two=code_two, area_code=area_code, base_timezone=base_timezone, latitude=latitude, longitude=longitude, flag=flag, visibility=visibility, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(country)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(country)
     return country
 
-def update_country(db: Session, id: int=0, values: Dict={}):
+def update_country(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(Country).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_country(db: Session, id: int=0):
+def delete_country(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(Country).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_country(db: Session, id: int=0):
+def force_delete_country(db: Session, id: int=0, commit: bool=False):
     db.query(Country).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_country_by_id(db: Session, id: int=0):

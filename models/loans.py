@@ -39,30 +39,43 @@ class Loan(Base):
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
-def create_loan(db: Session, application_id: int = 0, user_id: int = 0, merchant_id: int = 0, account_id: int = 0, loan_account_id: int = 0, gl_account_id: int = 0, restructured_application_id: int = 0, card_id: int = 0, amount: float = 0, unpaid_principal: float = 0, unearned_interest: float = 0, is_paid: int = 0, is_provisioned: int = 0, is_restructured: int = 0, is_write_off: int = 0, meta_data: str = None, status: int = 0, past_due_at: str = None, doubtful_at: str = None, substandard_at: str = None, deliquent_at: str = None, provisioned_at: str = None, deleted_at: str = None):
+def create_loan(db: Session, application_id: int = 0, user_id: int = 0, merchant_id: int = 0, account_id: int = 0, loan_account_id: int = 0, gl_account_id: int = 0, restructured_application_id: int = 0, card_id: int = 0, amount: float = 0, unpaid_principal: float = 0, unearned_interest: float = 0, is_paid: int = 0, is_provisioned: int = 0, is_restructured: int = 0, is_write_off: int = 0, meta_data: str = None, status: int = 0, past_due_at: str = None, doubtful_at: str = None, substandard_at: str = None, deliquent_at: str = None, provisioned_at: str = None, deleted_at: str = None, commit: bool=False):
     loan = Loan(application_id=application_id, user_id=user_id, merchant_id=merchant_id, account_id=account_id, loan_account_id=loan_account_id, gl_account_id=gl_account_id, restructured_application_id=restructured_application_id, card_id=card_id, amount=amount, unpaid_principal=unpaid_principal, unearned_interest=unearned_interest, is_paid=is_paid, is_provisioned=is_provisioned, is_restructured=is_restructured, is_write_off=is_write_off, meta_data=meta_data, status=status, past_due_at=past_due_at, doubtful_at=doubtful_at, substandard_at=substandard_at, deliquent_at=deliquent_at, provisioned_at=provisioned_at, deleted_at=deleted_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(loan)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(loan)
     return loan
 
-def update_loan(db: Session, id: int=0, values: Dict={}):
+def update_loan(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(Loan).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_loan(db: Session, id: int=0):
+def delete_loan(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(Loan).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_loan(db: Session, id: int=0):
+def force_delete_loan(db: Session, id: int=0, commit: bool=False):
     db.query(Loan).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_loan_by_id(db: Session, id: int=0):

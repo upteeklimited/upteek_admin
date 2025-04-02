@@ -32,30 +32,43 @@ class Address(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_address(db: Session, country_id: int = 0, state_id: int = 0, city_id: int = 0, lga_id: int = 0, addressable_type: str = None, addressable_id: int = 0, house_number: str = None, street: str = None, nearest_bus_stop: str = None, latitude: str = None,  longitude: str = None, meta_data: str = None, is_primary: int = 0, status: int = 0):
+def create_address(db: Session, country_id: int = 0, state_id: int = 0, city_id: int = 0, lga_id: int = 0, addressable_type: str = None, addressable_id: int = 0, house_number: str = None, street: str = None, nearest_bus_stop: str = None, latitude: str = None,  longitude: str = None, meta_data: str = None, is_primary: int = 0, status: int = 0, commit: bool=False):
     address = Address(country_id=country_id, state_id=state_id, city_id=city_id, lga_id=lga_id, addressable_type=addressable_type, addressable_id=addressable_id, house_number=house_number, street=street, nearest_bus_stop=nearest_bus_stop, latitude=latitude, longitude=longitude, meta_data=meta_data, is_primary=is_primary, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(address)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(address)
     return address
 
-def update_address(db: Session, id: int=0, values: Dict={}):
+def update_address(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(Address).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_address(db: Session, id: int=0):
+def delete_address(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(Address).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_address(db: Session, id: int=0):
+def force_delete_address(db: Session, id: int=0, commit: bool=False):
     db.query(Address).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_address_by_id(db: Session, id: int=0):

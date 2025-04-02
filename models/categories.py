@@ -25,30 +25,43 @@ class Category(Base):
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
-def create_category(db: Session, merchant_id: int = 0, category_id: int = 0, name: str = None, description: str = None, status: int = 0, created_by: int = 0, authorized_by: int = 0, authorized_at: str = None):
+def create_category(db: Session, merchant_id: int = 0, category_id: int = 0, name: str = None, description: str = None, status: int = 0, created_by: int = 0, authorized_by: int = 0, authorized_at: str = None, commit: bool=False):
     category = Category(merchant_id=merchant_id, category_id=category_id, name=name, description=description, status=status, created_by=created_by, authorized_by=authorized_by, authorized_at=authorized_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(category)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(category)
     return category
 
-def update_category(db: Session, id: int=0, values: Dict={}):
+def update_category(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(Category).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_category(db: Session, id: int=0):
+def delete_category(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(Category).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_category(db: Session, id: int=0):
+def force_delete_category(db: Session, id: int=0, commit: bool=False):
     db.query(Category).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_category_by_id(db: Session, id: int=0):

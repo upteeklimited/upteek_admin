@@ -24,30 +24,43 @@ class City(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_city(db: Session, state_id: int = 0, name: str = None, latitude: str = None,  longitude: str = None, is_capital: int = 0, status: int = 0):
+def create_city(db: Session, state_id: int = 0, name: str = None, latitude: str = None,  longitude: str = None, is_capital: int = 0, status: int = 0, commit: bool=False):
     city = City(state_id=state_id, name=name, latitude=latitude, longitude=longitude, is_capital=is_capital, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(city)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(city)
     return city
 
-def update_city(db: Session, id: int=0, values: Dict={}):
+def update_city(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(City).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_city(db: Session, id: int=0):
+def delete_city(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(City).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_city(db: Session, id: int=0):
+def force_delete_city(db: Session, id: int=0, commit: bool=False):
     db.query(City).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_city_by_id(db: Session, id: int=0):

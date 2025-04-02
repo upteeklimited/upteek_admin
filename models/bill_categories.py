@@ -24,30 +24,43 @@ class BillCategory(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
 
-def create_bill_category(db: Session, country_id: int = 0, category_id: int = 0, name: str = None, description: str = None, code: str = None, status: int = 0):
+def create_bill_category(db: Session, country_id: int = 0, category_id: int = 0, name: str = None, description: str = None, code: str = None, status: int = 0, commit: bool=False):
     bill_category = BillCategory(country_id=country_id, category_id=category_id, name=name, description=description, code=code, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(bill_category)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(bill_category)
     return bill_category
 
-def update_bill_category(db: Session, id: int=0, values: Dict={}):
+def update_bill_category(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(BillCategory).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def delete_bill_category(db: Session, id: int=0):
+def delete_bill_category(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
     db.query(BillCategory).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
-def force_delete_bill_category(db: Session, id: int=0):
+def force_delete_bill_category(db: Session, id: int=0, commit: bool=False):
     db.query(BillCategory).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_bill_category_by_id(db: Session, id: int=0):
