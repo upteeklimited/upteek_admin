@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Request, Depends, HTTPException
-from database.db import get_session
+from database.db import get_session, get_db
 from sqlalchemy.orm import Session
 from modules.authentication.auth import auth, login_with_email, send_email_token, finalise_passwordless_login, verify_email_token, get_user_details
 from database.schema import ErrorResponse, PlainResponse, PlainResponseData, LoginEmailRequest, SendEmailTokenRequest, FinalisePasswordLessRequest, AuthResponseModel, UserDetailsResponseModel, VerifyEmailTokenRequest
@@ -10,7 +10,7 @@ router = APIRouter(
 )
 
 @router.post("/login_email")
-async def login_email(request: Request, fields: LoginEmailRequest, db: Session = Depends(get_session)):
+async def login_email(request: Request, fields: LoginEmailRequest, db: Session = Depends(get_db)):
     req = login_with_email(db=db, email=fields.email, password=fields.password, fbt=fields.fbt)
     return req
 
