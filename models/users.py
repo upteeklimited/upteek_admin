@@ -33,13 +33,20 @@ class User(Base):
 def create_user(db: Session, country_id: int = 0, merchant_id: int = 0, username: str = None, email: str = None, phone_number: str = None, password: str = None, device_token: str = None, external_provider: str = None, external_reference: str = None, user_type: int = 0, role: int = 0, status: int = 0, commit: bool=False):
     user = User(country_id=country_id, merchant_id=merchant_id, username=username, email=email, phone_number=phone_number, password=password, device_token=device_token, external_provider=external_provider, external_reference=external_reference, user_type=user_type, role=role, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(user)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+        db.refresh(user)
     return user
 
 def update_user(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
     db.query(User).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def delete_user(db: Session, id: int=0, commit: bool=False):
@@ -48,12 +55,18 @@ def delete_user(db: Session, id: int=0, commit: bool=False):
         'deleted_at': get_laravel_datetime(),
     }
     db.query(User).filter_by(id = id).update(values)
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def force_delete_user(db: Session, id: int=0, commit: bool=False):
     db.query(User).filter_by(id = id).delete()
-    db.flush()
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
     return True
 
 def get_single_user_by_id(db: Session, id: int=0):
