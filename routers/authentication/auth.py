@@ -9,23 +9,23 @@ router = APIRouter(
     tags=["admin_auth"]
 )
 
-@router.post("/login_email")
-async def login_email(request: Request, fields: LoginEmailRequest, db: Session = Depends(get_session)):
+@router.post("/login_email", response_model=AuthResponseModel, responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
+async def login_email(request: Request, fields: LoginEmailRequest, db: Session = Depends(get_db)):
     req = login_with_email(db=db, email=fields.email, password=fields.password, fbt=fields.fbt)
     return req
 
 @router.post("/send_token_email", response_model=PlainResponse, responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
-async def send_token_email(request: Request, fields: SendEmailTokenRequest, db: Session = Depends(get_session)):
+async def send_token_email(request: Request, fields: SendEmailTokenRequest, db: Session = Depends(get_db)):
     req = send_email_token(db=db, email=fields.email)
     return req
 
 @router.post("/finalize_passwordless", response_model=AuthResponseModel, responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
-async def finalize_passwordless(request: Request, fields: FinalisePasswordLessRequest, db: Session = Depends(get_session)):
+async def finalize_passwordless(request: Request, fields: FinalisePasswordLessRequest, db: Session = Depends(get_db)):
     req = finalise_passwordless_login(db=db, email=fields.email, token_str=fields.token_str, fbt=fields.fbt)
     return req
 
 @router.post("/verify_token_email", response_model=PlainResponse, responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
-async def verify_token_email(request: Request, fields: VerifyEmailTokenRequest, db: Session = Depends(get_session)):
+async def verify_token_email(request: Request, fields: VerifyEmailTokenRequest, db: Session = Depends(get_db)):
     req = verify_email_token(db=db, email=fields.email, token_str=fields.token_str)
     return req
 

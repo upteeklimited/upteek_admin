@@ -56,8 +56,8 @@ class UserDetailsResponseModel(BaseModel):
     username: Optional[str] = None
     phone_number: Optional[str] = None
     email: Optional[str] = None
-    user_type: Optional[str] = None
-    role: Optional[str] = None
+    user_type: Optional[int] = 0
+    role: Optional[int] = 0
     profile: Optional[ProfileModel] = None
     setting: Optional[SettingModel] = None
     
