@@ -29,7 +29,7 @@ async def verify_token_email(request: Request, fields: VerifyEmailTokenRequest, 
     req = verify_email_token(db=db, email=fields.email, token_str=fields.token_str)
     return req
 
-@router.get("/details", response_model=UserDetailsResponseModel, responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
+@router.get("/details")
 async def details(request: Request, user=Depends(auth.auth_wrapper), db: Session = Depends(get_session)):
     return get_user_details(db=db, user_id=user['id'])
 
