@@ -123,7 +123,7 @@ class AuthHandler():
         try:
             payload = jwt.decode(token, self.secret, algorithms=["HS256"])
             sub_data = json.loads(payload['sub'])
-            user_id = sub_data['sub']['id']
+            user_id = sub_data['id']
             user = get_single_user_by_id(db=self.db, id=user_id)
             if user is None:
                 raise HTTPException(status_code=401, detail='User does not exist')
