@@ -7,8 +7,8 @@ from datetime import datetime, timedelta, UTC
 import dateparser
 import time
 from settings.config import load_env_config
-from database.model import create_auth_token, get_latest_user_auth_token, get_single_user_by_id
-from database.db import session
+from database.model import create_auth_token, get_latest_user_auth_token, get_single_user_by_id, update_auth_token
+from database.db import session, has_uncommitted_changes, get_laravel_datetime
 from sqlalchemy.orm import Session
 import hashlib
 import json
@@ -132,7 +132,7 @@ class AuthHandler():
                 if auth_token is None:
                     raise HTTPException(status_code=401, detail='Empty Auth Token')
                 else:
-                    if auth_token.token_value != token:
+                    if auth_token.token != token:
                         raise HTTPException(status_code=401, detail='Invalid Auth Token')
                     else:
                         if auth_token.status == 0:
@@ -144,6 +144,7 @@ class AuthHandler():
                             if deleted_at is not None:
                                 raise HTTPException(status_code=401, detail='User is deleted')
                             else:
+                                update_auth_token(db=self.db, id=auth_token.id, values={'last_ping_at': get_laravel_datetime()})
                                 return sub_data
         
         except jwt.ExpiredSignatureError:

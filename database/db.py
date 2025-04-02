@@ -2,6 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session, mapper
 from settings.config import load_env_config
+from sqlalchemy.orm import Session
 from datetime import datetime, date, timedelta
 
 config = load_env_config()
@@ -75,3 +76,12 @@ def compare_laravel_datetime_with_today(datetime_str=None):
             return True
         else:
             return False
+
+def has_uncommitted_changes(db: Session) -> bool:
+    return db.dirty or db.new or db.deleted
+
+def is_object_modified(db: Session, obj) -> bool:
+    return db.is_modified(obj)
+
+def has_active_transaction(db: Session) -> bool:
+    return db.in_transaction()
