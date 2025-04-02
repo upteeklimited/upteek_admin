@@ -160,6 +160,24 @@ class AuthHandler():
         user = self.decode_token(auth.credentials)
         return user
     
+    def auth_super_admin_wrapper(self, auth: HTTPAuthorizationCredentials = Security(security)):
+        user = self.decode_token(auth.credentials)
+        if user['role'] != USER_TYPES['admin']['roles']['super']['num']:
+            raise HTTPException(status_code=401, detail="Resource not available for this role")
+        return user
+    
+    def auth_authorizer_admin_wrapper(self, auth: HTTPAuthorizationCredentials = Security(security)):
+        user = self.decode_token(auth.credentials)
+        if user['role'] != USER_TYPES['admin']['roles']['auth']['num']:
+            raise HTTPException(status_code=401, detail="Resource not available for this role")
+        return user
+    
+    def auth_entry_admin_wrapper(self, auth: HTTPAuthorizationCredentials = Security(security)):
+        user = self.decode_token(auth.credentials)
+        if user['role'] != USER_TYPES['admin']['roles']['entry']['num']:
+            raise HTTPException(status_code=401, detail="Resource not available for this role")
+        return user
+    
     # def auth_user_wrapper(self, auth: HTTPAuthorizationCredentials = Security(security)):
     #     user = self.decode_token(auth.credentials)
     #     return user
