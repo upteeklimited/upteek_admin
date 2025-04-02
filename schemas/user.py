@@ -63,3 +63,11 @@ class UserDetailsResponseModel(BaseModel):
     
     class Config:
         orm_mode = True
+
+class UserResponseModel(BaseModel):
+    status: bool
+    message: str
+    data: UserDetailsResponseModel
+    
+    class Config:
+        orm_mode = True

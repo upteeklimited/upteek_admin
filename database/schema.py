@@ -1,3 +1,3 @@
 from schemas.auth import LoginEmailRequest, SendEmailTokenRequest, FinalisePasswordLessRequest, VerifyEmailTokenRequest
 from schemas.resp import ErrorResponse, PlainResponse, PlainResponseData
-from schemas.user import AuthResponseModel, UserDetailsResponseModel
+from schemas.user import AuthResponseModel, UserDetailsResponseModel, UserResponseModel
