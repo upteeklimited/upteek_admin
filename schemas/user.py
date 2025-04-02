@@ -67,7 +67,7 @@ class UserDetailsResponseModel(BaseModel):
 class UserResponseModel(BaseModel):
     status: bool
     message: str
-    data: UserDetailsResponseModel
+    data: Optional[UserDetailsResponseModel] = None
     
     class Config:
         orm_mode = True
