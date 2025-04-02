@@ -9,6 +9,7 @@ import time
 from settings.config import load_env_config
 from database.model import create_auth_token, get_latest_user_auth_token, get_single_user_by_id
 from database.db import session
+from sqlalchemy.orm import Session
 import hashlib
 import json
 from settings.constants import USER_TYPES
@@ -106,7 +107,7 @@ class AuthHandler():
     def verify_password(self, plain_password: str=None, hashed_password: str=None):
         return self.pwd_context.verify(plain_password, hashed_password)
 
-    def encode_token(self, user: Dict={}, device_token: str = None):
+    def encode_token(self, db: Session, user: Dict={}, device_token: str = None):
         payload = {
             'exp': datetime.now() + timedelta(days=365, minutes=5),
             'iat': datetime.now(),
@@ -115,8 +116,8 @@ class AuthHandler():
         expired_at = (datetime.now() + timedelta(days=365, minutes=5)).strftime("%Y/%m/%d %H:%M:%S")
         token = jwt.encode(payload, self.secret, algorithm="HS256")
         user_id = user['id']
-        au = create_auth_token(db=self.db, user_id=user_id, token=token, device_token=device_token, status=1, expired_at=expired_at)
-        return [token, au]
+        create_auth_token(db=db, user_id=user_id, token=token, device_token=device_token, status=1, expired_at=expired_at)
+        return token
 
     def decode_token(self, token: str = None):
         try:
