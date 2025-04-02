@@ -145,6 +145,8 @@ class AuthHandler():
                                 raise HTTPException(status_code=401, detail='User is deleted')
                             else:
                                 update_auth_token(db=self.db, id=auth_token.id, values={'last_ping_at': get_laravel_datetime()})
+                                if has_uncommitted_changes(db=self.db):
+                                    self.db.commit()
                                 return sub_data
         
         except jwt.ExpiredSignatureError:
