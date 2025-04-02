@@ -51,6 +51,14 @@ class AuthResponseModel(BaseModel):
     class Config:
         orm_mode = True
 
+class MainAuthResponseModel(BaseModel):
+    status: bool
+    message: str
+    data: Optional[AuthResponseModel] = None
+    
+    class Config:
+        orm_mode = True
+
 class UserDetailsResponseModel(BaseModel):
     id: int
     username: Optional[str] = None
