@@ -115,8 +115,8 @@ class AuthHandler():
         expired_at = (datetime.now() + timedelta(days=365, minutes=5)).strftime("%Y/%m/%d %H:%M:%S")
         token = jwt.encode(payload, self.secret, algorithm="HS256")
         user_id = user['id']
-        create_auth_token(db=self.db, user_id=user_id, token=token, device_token=device_token, status=1, expired_at=expired_at)
-        return token
+        au = create_auth_token(db=self.db, user_id=user_id, token=token, device_token=device_token, status=1, expired_at=expired_at)
+        return [token, au]
 
     def decode_token(self, token: str = None):
         try:
