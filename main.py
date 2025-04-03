@@ -8,6 +8,7 @@ import sys, traceback
 
 
 from routers.authentication import auth
+from routers.user import profile
 
 #system routes
 from routers import seed
@@ -16,6 +17,7 @@ from routers import seed
 app = FastAPI(title="Upteek Admin")
 
 app.include_router(auth.router)
+app.include_router(profile.router)
 app.include_router(seed.router)
 
 #Test routers

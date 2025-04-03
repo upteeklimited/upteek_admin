@@ -1,6 +1,6 @@
 from typing import Dict
 from fastapi import Request
-from database.model import get_single_user_by_email_and_user_type, get_single_user_by_phone_number_and_user_type, get_single_user_by_username_user_type, get_single_user_by_any_main_details, get_single_profile_by_user_id, get_single_setting_by_user_id, update_user, create_token, get_latest_user_token_by_type, update_token_by_user_id_and_token_type, get_latest_user_token_by_type_and_status, get_single_user_by_id, update_token
+from database.model import get_single_user_by_email_and_user_type, get_single_user_by_phone_number_and_user_type, get_single_user_by_username_user_type, get_single_user_by_any_main_details, get_single_profile_by_user_id, get_single_setting_by_user_id, update_user, create_token, get_latest_user_token_by_type, update_token_by_user_id_and_token_type, update_token_email, get_latest_user_token_by_type_and_status, get_single_user_by_id, update_token
 from modules.utils.net import get_ip_info, process_phone_number
 from modules.utils.tools import process_schema_dictionary
 from modules.utils.auth import AuthHandler, get_next_few_minutes, check_if_time_as_pass_now
@@ -83,6 +83,18 @@ def login_with_email(db: Session, email: str=None, password: str=None, fbt: str=
         }
 
 def send_email_token(db: Session, email: str=None):
+    update_token_email(db=db, email=email, values={'status': 2})
+    minutes = 10
+    expired_at = get_next_few_minutes(minutes=minutes)
+    token = str(random.randint(100000,999999))
+    create_token(db=db, email=email, token_type="email", token_value=token, status=0, expired_at=expired_at)
+    e_send_token(username="Upteek User", email=email, token=token, minutes=minutes)
+    return {
+        'status': True,
+        'message': 'Success',
+    }
+    
+def send_user_email_token(db: Session, email: str=None):
     user = get_single_user_by_email_and_user_type(db=db, email=email, user_type=USER_TYPES['admin']['num'])
     if user is None:
         return {

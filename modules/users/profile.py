@@ -38,3 +38,11 @@ def update_user_password(db: Session, user_id: int=0, password: str=None, old_pa
                 'status': True,
                 'message': 'Success'
             }
+
+def update_user_settings(db: Session, user_id: int=0, values: Dict={}):
+    passvalues = process_schema_dictionary(info=values)
+    update_setting_by_user_id(db=db, user_id=user_id, values=passvalues)
+    return {
+        'status': True,
+        'message': 'Success'
+    }

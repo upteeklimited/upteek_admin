@@ -62,6 +62,14 @@ def update_token_by_user_id_and_token_type(db: Session, user_id: int=0, token_ty
         db.commit()
     return True
 
+def update_token_email(db: Session, email: str=None, values: Dict={}, commit: bool=False):
+    values['updated_at'] = get_laravel_datetime()
+    db.query(Token).filter(Token.email == email).update(values)
+    if commit == False:
+        db.flush()
+    else:
+        db.commit()
+    return True
 
 def delete_token(db: Session, id: int=0, commit: bool=False):
     values = {
