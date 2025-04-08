@@ -6,7 +6,7 @@ seed = [
     {
         'name': 'Nigeria',
         'code': 'NG',
-        'code': 'NGA',
+        'code_two': 'NGA',
         'language': 'English',
         'area_code': '+234',
         'base_timezone': 'Africa/Lagos',
@@ -19,7 +19,7 @@ seed = [
     {
         'name': 'Ghana',
         'code': 'GH',
-        'code': 'GHA',
+        'code_two': 'GHA',
         'language': 'English',
         'area_code': '+233',
         'base_timezone': 'Africa/Accra',
@@ -32,7 +32,7 @@ seed = [
     {
         'name': 'United States',
         'code': 'US',
-        'code': 'USA',
+        'code_two': 'USA',
         'language': 'English',
         'area_code': '+1',
         'base_timezone': 'America/New_York',
