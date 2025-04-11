@@ -41,6 +41,8 @@ from models.services import Service, create_service, update_service, delete_serv
 from models.settings import Setting, create_setting, update_setting, update_setting_by_user_id, delete_setting, force_delete_setting, get_single_setting_by_id, get_single_setting_by_user_id
 from models.states import State, create_state, update_state, delete_state, force_delete_state, get_single_state_by_id, get_states, get_states_by_country_id
 from models.system_configurations import SystemConfiguration, create_system_configuration, update_system_configuration, delete_system_configuration, force_delete_system_configuration, get_single_system_configuration_by_id, get_single_system_configuration_by_name, get_system_configurations
+from models.tags_products import TagProduct, create_tag_product, update_tag_product, delete_tag_product, force_delete_tag_product, get_single_tag_product_by_id, get_tags_products
+from models.tags import Tag, create_tag, update_tag, delete_tag, force_delete_tag, get_single_tag_by_id, get_tags
 from models.tokens import Token, create_token, update_token, update_token_by_user_id, update_token_by_user_id_and_token_type, update_token_email, delete_token, force_delete_token, get_single_token_by_id, get_tokens, get_tokens_by_user_id, get_latest_user_token, get_latest_user_token_by_type, get_latest_user_token_by_type_and_status
 from models.transaction_fees import TransactionFee, create_transaction_fee, update_transaction_fee, delete_transaction_fee, force_delete_transaction_fee, get_all_transaction_fees
 from models.transaction_types import TransactionType, create_transaction_type, update_transaction_type, delete_transaction_type, force_delete_transaction_type, get_single_transaction_type_by_id, get_transaction_types
