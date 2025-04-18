@@ -23,7 +23,7 @@ class Group(Base):
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
-    products = relationship("Product", secondary="tags_products", back_populates="tags")
+    products = relationship("Product", secondary="groups_products", back_populates="groups")
 
 def create_group(db: Session, merchant_id: int = 0, name: str = None, description: str = None, slug: str = None, status: int = 0, created_by: int = 0, commit: bool=False):
     group = Group(merchant_id=merchant_id, name=name, description=description, slug=slug, status=status, created_by=created_by, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())

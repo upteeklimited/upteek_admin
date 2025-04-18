@@ -44,6 +44,7 @@ class Product(Base):
     categories = relationship("Category", secondary="products_categories", back_populates="products")
     currency = relationship("Currency")
     tags = relationship("Tag", secondary="tags_products", back_populates="products")
+    groups = relationship("Group", secondary="groups_products", back_populates="products")
 
 def create_product(db: Session, merchant_id: int = 0, category_id: int = 0, currency_id: int = 0, name: str = None, description: str = None, slug: str = None, units: int = 0, weight: float = 0, cost_price: float = 0, price: float = 0, discount_price: float = 0, discount: float = 0, discount_type: int = 0, special_note: str = None, unit_low_level: int = 0, files_meta_data: Any=None, meta_data: str = None, notify_if_available: int = 0, status: int = 0, created_by: int = 0, authorized_by: int = 0, authorized_at: str = None, commit: bool=False):
     product = Product(merchant_id=merchant_id, category_id=category_id, currency_id=currency_id, name=name, description=description, slug=slug, units=units, weight=weight, cost_price=cost_price, price=price, discount_price=discount_price, discount=discount, discount_type=discount_type, special_note=special_note, unit_low_level=unit_low_level, files_meta_data=files_meta_data, meta_data=meta_data, notify_if_available=notify_if_available, status=status, created_by=created_by, authorized_by=authorized_by, authorized_at=authorized_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
