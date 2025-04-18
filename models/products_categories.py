@@ -21,8 +21,6 @@ class ProductCategory(Base):
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
-    products = relationship("Product", secondary="products_categories", back_populates="categories")
-
 def create_product_category(db: Session, category_id: int = 0, product_id: int = 0, meta_data: str = None, status: int = 0, commit: bool=False):
     product_category = ProductCategory(category_id=category_id, product_id=product_id, meta_data=meta_data, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(product_category)
