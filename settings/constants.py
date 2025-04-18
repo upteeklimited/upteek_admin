@@ -58,3 +58,49 @@ USER_TYPES={
         'name': 'Customer',
     },
 }
+
+FINANCIAL_PRODUCT_TYPES = {
+    'savings': {
+        'num': 1,
+        'name': 'Savings Products',
+    },
+    'current': {
+        'num': 2,
+        'name': 'Current Products',
+    },
+    'deposit': {
+        'num': 3,
+        'name': 'Deposit Products',
+    },
+    'loan': {
+        'num': 4,
+        'name': 'Loan Products',
+    },
+}
+
+GL_ACCOUNT_TYPE_NUM = {
+    'asset': {
+        'num': 1,
+        'name': 'Assets',
+    },
+    'liability': {
+        'num': 2,
+        'name': 'Liabilities',
+    },
+    'equity': {
+        'num': 3,
+        'name': 'Equities',
+    },
+    'income': {
+        'num': 4,
+        'name': 'Income/Revenue',
+    },
+    'expense': {
+        'num': 5,
+        'name': 'Expenses',
+    },
+    'suspense': {
+        'num': 7,
+        'name': 'Suspense',
+    },
+}

@@ -186,3 +186,9 @@ def truncate_all_tables(db: Session):
 #             "status": "error", 
 #             "message": str(e)
 #         }
+
+def generate_product_sku(prefix: str=None, last_id: int=0):
+    return f"{prefix.upper()}-{str(last_id + 1).zfill(10)}"
+
+def generate_product_random_sku(length: int=8):
+    return ''.join(random.choices(string.ascii_uppercase + string.digits, k=length))

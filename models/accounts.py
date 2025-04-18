@@ -76,6 +76,9 @@ def force_delete_account(db: Session, id: int=0, commit: bool=False):
 def get_single_account_by_id(db: Session, id: int=0):
     return db.query(Account).filter_by(id = id).first()
 
+def get_last_account(db: Session):
+    return db.query(Account).order_by(desc(Account.id)).first()
+
 def get_accounts(db: Session, filters: Dict={}):
     query = db.query(Account)
     if 'account_type_id' in filters:

@@ -4,6 +4,10 @@ from seeders.currency_seed import run_currency_seeder
 from seeders.geo_seed import run_geo_seeder
 from seeders.category_seed import run_category_seeder
 from seeders.user_seeder import run_user_seeder
+from seeders.sp_seed import seed_services, seed_providers
+from seeders.gl_type_seed import seed_gl_type
+from seeders.fin_product_seed import seed_financial_products
+from seeders.config_seeder import run_config_seeder
 import traceback
 
 def run_seed(db: Session):
@@ -13,6 +17,11 @@ def run_seed(db: Session):
         print(run_geo_seeder(db=db))
         print(run_category_seeder(db=db))
         print(run_user_seeder(db=db))
+        print(seed_services(db=db))
+        print(seed_providers(db=db))
+        print(seed_gl_type(db=db))
+        print(seed_financial_products(db=db))
+        print(run_config_seeder(db=db))
         return {
             'status': True,
             'message': 'Seeders ran successfully!'

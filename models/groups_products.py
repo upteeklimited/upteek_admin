@@ -8,65 +8,66 @@ from database.db import Base, get_laravel_datetime, get_added_laravel_datetime, 
 from sqlalchemy.orm import relationship
 
 
-class ProductCategory(Base):
+class GroupProduct(Base):
 
-    __tablename__ = "products_categories"
+    __tablename__ = "groups_products"
      
     id = Column(BigInteger, primary_key=True, index=True)
-    category_id = Column(BigInteger, ForeignKey('categories.id'))
     product_id = Column(BigInteger, ForeignKey('products.id'))
-    meta_data = Column(Text, nullable=True)
+    group_id = Column(BigInteger, ForeignKey('groups.id'))
     status = Column(SmallInteger, default=0)
     deleted_at = Column(TIMESTAMP(timezone=True), nullable=True)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
-    products = relationship("Product", secondary="products_categories", back_populates="categories")
-
-def create_product_category(db: Session, category_id: int = 0, product_id: int = 0, meta_data: str = None, status: int = 0, commit: bool=False):
-    product_category = ProductCategory(category_id=category_id, product_id=product_id, meta_data=meta_data, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
-    db.add(product_category)
+def create_group_product(db: Session, product_id: int = 0, group_id: int = 0, status: int = 0, commit: bool=False):
+    group_product = GroupProduct(product_id=product_id, group_id=group_id, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
+    db.add(group_product)
     if commit == False:
         db.flush()
     else:
         db.commit()
-        db.refresh(product_category)
-    return product_category
+        db.refresh(group_product)
+    return group_product
 
-def update_product_category(db: Session, id: int=0, values: Dict={}, commit: bool=False):
+def update_group_product(db: Session, id: int=0, values: Dict={}, commit: bool=False):
     values['updated_at'] = get_laravel_datetime()
-    db.query(ProductCategory).filter_by(id = id).update(values)
+    db.query(GroupProduct).filter_by(id = id).update(values)
     if commit == False:
         db.flush()
     else:
         db.commit()
     return True
 
-def delete_product_category(db: Session, id: int=0, commit: bool=False):
+def delete_group_product(db: Session, id: int=0, commit: bool=False):
     values = {
         'updated_at': get_laravel_datetime(),
         'deleted_at': get_laravel_datetime(),
     }
-    db.query(ProductCategory).filter_by(id = id).update(values)
+    db.query(GroupProduct).filter_by(id = id).update(values)
     if commit == False:
         db.flush()
     else:
         db.commit()
     return True
 
-def force_delete_product_category(db: Session, id: int=0, commit: bool=False):
-    db.query(ProductCategory).filter_by(id = id).delete()
+def force_delete_group_product(db: Session, id: int=0, commit: bool=False):
+    db.query(GroupProduct).filter_by(id = id).delete()
     if commit == False:
         db.flush()
     else:
         db.commit()
     return True
 
-def get_all_products_categories(db: Session, filters: Dict={}):
-    query = db.query(ProductCategory)
-    if 'category_id' in filters:
-        query = query.filter_by(category_id = filters['category_id'])
+def get_single_group_product_by_id(db: Session, id: int=0):
+    return db.query(GroupProduct).filter_by(id = id).first()
+
+def get_groups_products(db: Session, filters: Dict={}):
+    query = db.query(GroupProduct)
     if 'product_id' in filters:
         query = query.filter_by(product_id = filters['product_id'])
-    return query.order_by(desc(ProductCategory.created_at))
-
+    if 'tag_id' in filters:
+        query = query.filter_by(tag_id = filters['tag_id'])
+    if 'status' in filters:
+        query = query.filter_by(status = filters['status'])
+    return query.order_by(desc(GroupProduct.created_at))

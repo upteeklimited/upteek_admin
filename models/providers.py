@@ -69,3 +69,6 @@ def get_single_provider_by_code(db: Session, code: str=None):
 
 def get_providers(db: Session):
     return db.query(Provider).order_by(desc(Provider.created_at))
+
+def check_provider_exist(db: Session, code: str=None):
+    return db.query(Provider).filter_by(code = code).count()
