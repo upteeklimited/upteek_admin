@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from database.model import create_merchant_industry, create_merchant_category
+from database.model import create_merchant_industry, create_merchant_category, create_category
 
 seed_arr = [
     {
@@ -58,4 +58,35 @@ def run_category_seeder(db: Session):
         industry = create_merchant_industry(db=db, name=data['name'], status=1)
         for category in data['categories']:
             create_merchant_category(db=db, name=category, industry_id=industry.id, status=1)
+    return True
+
+
+def run_product_categories_seeder(db: Session):
+    categories = [
+        "Gym and Fitness",
+        "Makeup and Cosmetics",
+        "Food & Beverages",
+        "Kids Fashion",
+        "Professional Services",
+        "Womens Fashion",
+        "Gaming",
+        "Mobile and Tablets",
+        "Baby Products",
+        "Arts and Crafts",
+        "Beauty and Skincare",
+        "Electronics",
+        "Health & Pharmaceuticals",
+        "Personal Care",
+        "Home & Kitchen",
+        "Restaurant",
+        "Books and Media",
+        "Mens Fashion",
+        "Supermarket",
+        "Education",
+        "Groceries",
+        "Drinks",
+        "Toys & Games"
+    ]
+    for i in range(len(categories)):
+        create_category(db=db, name=categories[i], status=1, created_by=1, authorized_by=1)
     return True

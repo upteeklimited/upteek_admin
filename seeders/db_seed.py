@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from seeders.country_seed import run_country_seeder
 from seeders.currency_seed import run_currency_seeder
 from seeders.geo_seed import run_geo_seeder
-from seeders.category_seed import run_category_seeder
+from seeders.category_seed import run_category_seeder, run_product_categories_seeder
 from seeders.user_seeder import run_user_seeder
 from seeders.sp_seed import seed_services, seed_providers
 from seeders.gl_type_seed import seed_gl_type
@@ -16,6 +16,7 @@ def run_seed(db: Session):
         print(run_currency_seeder(db=db))
         print(run_geo_seeder(db=db))
         print(run_category_seeder(db=db))
+        print(run_product_categories_seeder(db=db))
         print(run_user_seeder(db=db))
         print(seed_services(db=db))
         print(seed_providers(db=db))
