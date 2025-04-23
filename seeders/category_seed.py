@@ -1,5 +1,6 @@
 from sqlalchemy.orm import Session
 from database.model import create_merchant_industry, create_merchant_category, create_category
+from modules.utils.tools import generate_slug
 
 seed_arr = [
     {
@@ -88,5 +89,6 @@ def run_product_categories_seeder(db: Session):
         "Toys & Games"
     ]
     for i in range(len(categories)):
-        create_category(db=db, name=categories[i], status=1, created_by=1, authorized_by=1)
+        slug = generate_slug(categories[i])
+        create_category(db=db, name=categories[i], slug=slug, status=1, created_by=1, authorized_by=1)
     return True

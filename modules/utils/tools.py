@@ -192,3 +192,42 @@ def generate_product_sku(prefix: str=None, last_id: int=0):
 
 def generate_product_random_sku(length: int=8):
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=length))
+
+def generate_slug(text: str=None):
+    """
+    Generate a slug from a string by converting to lowercase, replacing spaces and
+    special characters with hyphens, and removing non-alphanumeric characters.
+    
+    Args:
+        text (str): The input string to convert to a slug.
+        
+    Returns:
+        str: The generated slug.
+    """
+    # Convert to lowercase and strip whitespace
+    text = text.lower().strip()
+    # Replace spaces and special characters with hyphens
+    text = re.sub(r'[\s+]', '-', text)
+    # Remove all non-alphanumeric characters except hyphens
+    text = re.sub(r'[^a-z0-9\-]', '', text)
+    # Remove consecutive hyphens
+    text = re.sub(r'-+', '-', text)
+    # Remove leading/trailing hyphens
+    text = text.strip('-')
+    return text if text else 'slug'
+
+def comma_to_list(text: str=None):
+    """
+    Convert a comma-separated string to a list, stripping whitespace from each item.
+    
+    Args:
+        text (str): The comma-separated string to convert.
+        
+    Returns:
+        list: A list of strings from the input.
+    """
+    # Split by comma and strip whitespace from each item
+    if text is None:
+        return []
+    else:
+        return [item.strip() for item in text.split(',') if item.strip()]
