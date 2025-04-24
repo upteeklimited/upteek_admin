@@ -73,6 +73,9 @@ def get_last_account_type(db: Session):
 def get_single_account_type_by_product_id(db: Session, product_id: int=0):
     return db.query(AccountType).filter_by(product_id = product_id).first()
 
+def get_single_account_type_by_account_code(db: Session, account_code: str=None):
+    return db.query(AccountType).filter_by(account_code = account_code).first()
+
 def get_account_types(db: Session, filters: Dict={}):
     query = db.query(AccountType)
     if 'product_id' in filters:
