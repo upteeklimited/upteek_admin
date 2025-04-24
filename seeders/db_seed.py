@@ -18,10 +18,10 @@ def run_seed(db: Session):
         print(run_category_seeder(db=db))
         print(run_product_categories_seeder(db=db))
         print(run_user_seeder(db=db))
-        print(seed_services(db=db))
-        print(seed_providers(db=db))
         print(seed_gl_type(db=db))
         print(seed_financial_products(db=db))
+        print(seed_services(db=db))
+        print(seed_providers(db=db))
         print(run_config_seeder(db=db))
         return {
             'status': True,

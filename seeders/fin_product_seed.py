@@ -5,23 +5,43 @@ from settings.constants import FINANCIAL_PRODUCT_TYPES
 def seed_financial_products(db: Session):
     seed = [
         {
-            'name': 'Savings Account',
-            'description': 'Savings Account Product',
+            'name': 'Customer Savings Account',
+            'description': 'Customer Savings Account Product',
             'product_type': FINANCIAL_PRODUCT_TYPES['savings']['num'],
         },
         {
-            'name': 'Current Account',
-            'description': 'Current Account Product',
+            'name': 'Merchant Savings Account',
+            'description': 'Merchant Savings Account Product',
+            'product_type': FINANCIAL_PRODUCT_TYPES['savings']['num'],
+        },
+        {
+            'name': 'Customer Current Account',
+            'description': 'Customer Current Account Product',
             'product_type': FINANCIAL_PRODUCT_TYPES['current']['num'],
         },
         {
-            'name': 'Deposit',
-            'description': 'Deposit Product',
+            'name': 'Merchant Current Account',
+            'description': 'Merchant Current Account Product',
+            'product_type': FINANCIAL_PRODUCT_TYPES['current']['num'],
+        },
+        {
+            'name': 'Customer Deposit Account',
+            'description': 'Customer Deposit Account Product',
             'product_type': FINANCIAL_PRODUCT_TYPES['deposit']['num'],
         },
         {
-            'name': 'Loan',
-            'description': 'Loan Product',
+            'name': 'Merchant Deposit Account',
+            'description': 'Merchant Deposit Account Product',
+            'product_type': FINANCIAL_PRODUCT_TYPES['deposit']['num'],
+        },
+        {
+            'name': 'Customer Loan Account',
+            'description': 'Customer Loan Account Product',
+            'product_type': FINANCIAL_PRODUCT_TYPES['loan']['num'],
+        },
+        {
+            'name': 'Merchant Loan Account',
+            'description': 'Merchant Loan Account Product',
             'product_type': FINANCIAL_PRODUCT_TYPES['loan']['num'],
         },
     ]

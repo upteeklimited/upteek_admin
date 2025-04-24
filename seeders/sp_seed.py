@@ -1,5 +1,6 @@
 from sqlalchemy.orm import Session
-from database.model import create_provider, check_provider_exist, create_service, check_service_exist
+from database.model import create_provider, check_provider_exist, create_service, check_service_exist, get_last_general_ledger_account, get_single_general_ledger_account_type_by_account_code, create_general_ledger_account
+from modules.utils.acct import generate_internal_gl_number
 
 def seed_services(db: Session):
 	data = [
@@ -98,8 +99,20 @@ def seed_providers(db: Session):
 			'status': 1,
 		},
 	]
+	last_gl_id = 0
+	last_gl = get_last_general_ledger_account(db=db)
+	if last_gl is not None:
+		last_gl_id = last_gl.id
+	liability_account_code = "20000000"
+	liability_type_id = 0
+	liability_type = get_single_general_ledger_account_type_by_account_code(db=db, account_code=liability_account_code)
+	if liability_type is not None:
+		liability_type_id = liability_type.id
 	if len(data) > 0:
 		for i in range(len(data)):
 			if check_provider_exist(db=db, code=data[i]['code']) == False:
-				create_provider(db=db, name=data[i]['name'], code=data[i]['code'], status=data[i]['status'])
+				provider_account_name = data[i]['name'] + " Provider Account"
+				gl_account = create_general_ledger_account(db=db, type_id=liability_type_id, name=provider_account_name, account_number=generate_internal_gl_number(type_code=liability_account_code, last_id=last_gl_id), created_by=1, authorized_by=1)
+				create_provider(db=db, gl_account_id=gl_account.id, name=data[i]['name'], code=data[i]['code'], status=data[i]['status'])
+				last_gl_id = gl_account.id
 	return True
