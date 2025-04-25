@@ -78,6 +78,9 @@ def get_single_account_by_id(db: Session, id: int=0):
 def get_last_account(db: Session):
     return db.query(Account).order_by(desc(Account.id)).first()
 
+def get_single_user_primary_account(db: Session, user_id: int=0):
+    return db.query(Account).filter_by(user_id = user_id, is_primary = 1).first()
+
 def get_accounts(db: Session, filters: Dict={}):
     query = db.query(Account)
     if 'account_type_id' in filters:
