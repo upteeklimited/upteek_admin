@@ -12,4 +12,6 @@ def run_config_seeder(db: Session):
     if merchant_savings_account_type is not None:
         merchant_savings_account_code = merchant_savings_account_type.account_code
     create_system_configuration(db=db, name="merchant_default_savings_account_code", single_value=merchant_savings_account_code)
+    create_system_configuration(db=db, name="merchant_sales_commission_percentage", single_value="0.5")
+    create_system_configuration(db=db, name="customer_purchase_commission_percentage", single_value="0.5")
     return True
