@@ -2,6 +2,25 @@ from sqlalchemy.orm import Session
 from database.model import create_financial_product, FinancialProduct, create_general_ledger_account, get_single_general_ledger_account_type_by_account_code, get_last_general_ledger_account, update_financial_product, get_single_product_by_id, create_account_type, get_last_account_type
 from modules.utils.acct import generate_internal_gl_number, generate_account_type_code
 
+def create_gl(db: Session, account_type_code: str=None, account_name: str=None, created_by: int=0, authorized_by: int=0):
+    last_gl = get_last_general_ledger_account(db=db)
+    account_type = get_single_general_ledger_account_type_by_account_code(db=db, account_code=account_type_code)
+    if account_type is None:
+        return {
+            'status': False,
+            'message': 'Account type not found',
+            'data': None
+        }
+    else:
+        account_type_id = account_type.id
+        account_number = generate_internal_gl_number(type_code=account_type_code, last_id=last_gl.id)
+        gl = create_general_ledger_account(db=db, type_id=account_type_id, name=account_name, account_number=account_number, created_by=created_by, authorized_by=authorized_by)
+        return {
+            'status': True,
+            'message': 'Success',
+            'data': gl
+        }
+
 def create_product_gls(db: Session, product: FinancialProduct, created_by: int=0, authorized_by: int=0):
     product_type = product.product_type
     product_name = product.name

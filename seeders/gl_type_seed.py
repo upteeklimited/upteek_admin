@@ -220,6 +220,12 @@ def seed_gl_type(db: Session):
             'type_num': 7,
         },
         {
+            'account_code': '70000700',
+            'name': 'Order Suspense Account',
+            'desc': 'Order Suspense Account Description',
+            'type_num': 7,
+        },
+        {
             'account_code': '41090000',
             'name': 'General Revenue Account',
             'desc': 'General Revenue Account Description',

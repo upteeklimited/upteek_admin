@@ -7,6 +7,7 @@ from seeders.user_seeder import run_user_seeder
 from seeders.sp_seed import seed_services, seed_providers
 from seeders.gl_type_seed import seed_gl_type
 from seeders.fin_product_seed import seed_financial_products
+from seeders.trans_type_seed import seed_trans_type
 from seeders.config_seeder import run_config_seeder
 import traceback
 
@@ -22,6 +23,7 @@ def run_seed(db: Session):
         print(seed_financial_products(db=db))
         print(seed_services(db=db))
         print(seed_providers(db=db))
+        print(seed_trans_type(db=db))
         print(run_config_seeder(db=db))
         return {
             'status': True,

@@ -10,8 +10,8 @@ class JSONText(TypeDecorator):
 
     def process_result_value(self, value, dialect):
         if not value:
-            return {}
+            return None
         try:
             return json.loads(value)
         except (json.JSONDecodeError, TypeError):
-            return {}
+            return None
