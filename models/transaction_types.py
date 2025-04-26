@@ -77,6 +77,9 @@ def force_delete_transaction_type(db: Session, id: int=0, commit: bool=False):
 def get_single_transaction_type_by_id(db: Session, id: int=0):
     return db.query(TransactionType).filter_by(id = id).first()
 
+def get_single_transaction_type_by_code(db: Session, code: str=None):
+    return db.query(TransactionType).filter_by(code = code).first()
+
 def get_transaction_types(db: Session, filters: Dict={}):
     query = db.query(TransactionType)
     if 'corresponding_gl_id' in filters:

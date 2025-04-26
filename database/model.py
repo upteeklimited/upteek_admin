@@ -18,7 +18,7 @@ from models.deposits import Deposit, create_deposit, update_deposit, delete_depo
 from models.financial_institutions import FinancialInstitution, create_financial_institution, update_financial_institution, delete_financial_institution, force_delete_financial_institution, get_single_financial_institution_by_id, get_financial_institutions
 from models.financial_products import FinancialProduct, create_financial_product, update_financial_product, delete_financial_product, force_delete_financial_product, get_single_financial_product_by_id, get_financial_products
 from models.general_ledger_account_types import GeneralLedgerAccountType, create_general_ledger_account_type, update_general_ledger_account_type, delete_general_ledger_account_type, force_delete_general_ledger_account_type, get_single_general_ledger_account_type_by_id, get_single_general_ledger_account_type_by_account_code, get_last_general_ledger_account_type, get_general_ledger_account_types
-from models.general_ledger_accounts import GeneralLedgerAccount, create_general_ledger_account, update_general_ledger_account, delete_general_ledger_account, force_delete_general_ledger_account, get_single_general_ledger_account_by_id, get_last_general_ledger_account, get_general_ledger_accounts
+from models.general_ledger_accounts import GeneralLedgerAccount, create_general_ledger_account, update_general_ledger_account, delete_general_ledger_account, force_delete_general_ledger_account, get_single_general_ledger_account_by_id, get_single_general_ledger_account_by_account_number, get_last_general_ledger_account, get_general_ledger_accounts
 from models.groups_products import GroupProduct, create_group_product, update_group_product, delete_group_product, force_delete_group_product, get_single_group_product_by_id, get_groups_products
 from models.groups import Group, create_group, update_group, delete_group, force_delete_group, get_single_group_by_id, get_single_group_by_slug, get_groups
 from models.l_g_a_s import LGA, create_lga, update_lga, delete_lga, force_delete_lga, get_single_lga_by_id, get_lgas, get_lgas_by_state_id
@@ -48,7 +48,7 @@ from models.tags_products import TagProduct, create_tag_product, update_tag_prod
 from models.tags import Tag, create_tag, update_tag, delete_tag, force_delete_tag, get_single_tag_by_id, get_single_tag_by_slug, get_tags
 from models.tokens import Token, create_token, update_token, update_token_by_user_id, update_token_by_user_id_and_token_type, update_token_email, delete_token, force_delete_token, get_single_token_by_id, get_tokens, get_tokens_by_user_id, get_latest_user_token, get_latest_user_token_by_type, get_latest_user_token_by_type_and_status
 from models.transaction_fees import TransactionFee, create_transaction_fee, update_transaction_fee, delete_transaction_fee, force_delete_transaction_fee, get_all_transaction_fees
-from models.transaction_types import TransactionType, create_transaction_type, update_transaction_type, delete_transaction_type, force_delete_transaction_type, get_single_transaction_type_by_id, get_transaction_types
+from models.transaction_types import TransactionType, create_transaction_type, update_transaction_type, delete_transaction_type, force_delete_transaction_type, get_single_transaction_type_by_id, get_single_transaction_type_by_code, get_transaction_types
 from models.transactions import Transaction, create_transaction, update_transaction, delete_transaction, force_delete_transaction, get_single_transaction_by_id, get_transactions
 from models.user_device_logs import UserDeviceLog, create_user_device_log, update_user_device_log, delete_user_device_log, force_delete_user_device_log, get_single_user_device_log_by_id, get_user_devices_logs, get_user_device_logs_by_user_device_id
 from models.user_devices import UserDevice, create_user_device, update_user_device, delete_user_device, force_delete_user_device, get_single_user_device_by_id, get_user_devices, get_user_devices_by_user_id
@@ -103,3 +103,85 @@ def registration_unique_field_check(db: Session, phone_number: str=None, usernam
             'status': True,
             'message': 'Validation successful'
         }
+
+def debit_account(db: Session, account_id: int=0, amount: float=0):
+    account = get_single_account_by_id(db=db, id=account_id)
+    if account is None:
+        return {
+            'status': False,
+            'message': 'Account not found',
+            'data': None,
+        }
+    if account.available_balance < amount:
+        return {
+            'status': False,
+            'message': 'Insufficient balance',
+            'data': None,
+        }
+    available_balance = account.available_balance - amount
+    ledger_balance = account.ledger_balance - amount
+    update_account(db=db, id=account_id, values={'available_balance': available_balance, 'ledger_balance': ledger_balance})
+    return {
+        'status': True,
+        'message': 'Account debited successfully',
+        'data': {
+            'available_balance': available_balance,
+            'ledger_balance': ledger_balance
+        }
+    }
+
+def credit_account(db: Session, account_id: int=0, amount: float=0):
+    account = get_single_account_by_id(db=db, id=account_id)
+    if account is None:
+        return {
+            'status': False,
+            'message': 'Account not found',
+            'data': None,
+        }
+    available_balance = account.available_balance + amount
+    ledger_balance = account.ledger_balance + amount
+    update_account(db=db, id=account_id, values={'available_balance': available_balance, 'ledger_balance': ledger_balance})
+    return {
+        'status': True,
+        'message': 'Account credited successfully',
+        'data': {
+            'available_balance': available_balance,
+            'ledger_balance': ledger_balance
+        }
+    }
+
+def debit_general_ledger_account(db: Session, general_ledger_account_id: int=0, amount: float=0):
+    general_ledger_account = get_single_general_ledger_account_by_id(db=db, id=general_ledger_account_id)
+    if general_ledger_account is None:
+        return {
+            'status': False,
+            'message': 'General ledger account not found',
+            'data': None,
+        }
+    balance = general_ledger_account.balance - amount
+    update_general_ledger_account(db=db, id=general_ledger_account_id, values={'balance': balance})
+    return {
+        'status': True,
+        'message': 'General ledger account debited successfully',
+        'data': {
+            'balance': balance
+        }
+    }
+
+def credit_general_ledger_account(db: Session, general_ledger_account_id: int=0, amount: float=0):
+    general_ledger_account = get_single_general_ledger_account_by_id(db=db, id=general_ledger_account_id)
+    if general_ledger_account is None:
+        return {
+            'status': False,
+            'message': 'General ledger account not found',
+            'data': None,
+        }
+    balance = general_ledger_account.balance + amount
+    update_general_ledger_account(db=db, id=general_ledger_account_id, values={'balance': balance})
+    return {
+        'status': True,
+        'message': 'General ledger account credited successfully',
+        'data': {
+            'balance': balance
+        }
+    }
