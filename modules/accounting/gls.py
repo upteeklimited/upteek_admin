@@ -14,7 +14,7 @@ def create_gl(db: Session, account_type_code: str=None, account_name: str=None, 
     else:
         account_type_id = account_type.id
         account_number = generate_internal_gl_number(type_code=account_type_code, last_id=last_gl.id)
-        gl = create_general_ledger_account(db=db, type_id=account_type_id, name=account_name, account_number=account_number, created_by=created_by, authorized_by=authorized_by)
+        gl = create_general_ledger_account(db=db, type_id=account_type_id, name=account_name, account_number=account_number, status=1, created_by=created_by, authorized_by=authorized_by)
         return {
             'status': True,
             'message': 'Success',

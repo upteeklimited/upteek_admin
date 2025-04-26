@@ -16,13 +16,13 @@ def run_config_seeder(db: Session):
     create_system_configuration(db=db, name="merchant_sales_commission_percentage", single_value="0.5")
     create_system_configuration(db=db, name="customer_purchase_commission_percentage", single_value="0.5")
     order_fee_account_code = "41090000"
-    order_fee_resp = create_gl(db=db, account_code=order_fee_account_code, name="Order Fee", 
+    order_fee_resp = create_gl(db=db, account_type_code=order_fee_account_code, name="Order Fee", 
     created_by=1, authorized_by=1)
     if order_fee_resp['status'] == True:
         order_gl = order_fee_resp['data']
         create_system_configuration(db=db, name="order_fee_account_number", single_value=order_gl.account_number)
     order_suspense_account_code = "70000700"
-    order_susp_resp = create_gl(db=db, account_code=order_suspense_account_code, name="Order Suspense Account", created_by=1, authorized_by=1)
+    order_susp_resp = create_gl(db=db, account_type_code=order_suspense_account_code, name="Order Suspense Account", created_by=1, authorized_by=1)
     if order_susp_resp['status'] == True:
         order_susp_gl = order_susp_resp['data']
         create_system_configuration(db=db, name="order_suspense_account_number", single_value=order_susp_gl.account_number)
