@@ -98,6 +98,12 @@ def seed_providers(db: Session):
 			'code': 'bankone',
 			'status': 1,
 		},
+		{
+			'name': 'SmileID',
+			'description': 'SmileID',
+			'code': 'smileid',
+			'status': 1,
+		},
 	]
 	last_gl_id = 0
 	last_gl = get_last_general_ledger_account(db=db)

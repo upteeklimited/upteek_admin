@@ -26,4 +26,14 @@ def run_config_seeder(db: Session):
     if order_susp_resp['status'] == True:
         order_susp_gl = order_susp_resp['data']
         create_system_configuration(db=db, name="order_suspense_account_number", single_value=order_susp_gl.account_number)
+    vat_account_code = "20000000"
+    vat_resp = create_gl(db=db, account_type_code=vat_account_code, account_name="VAT Account", created_by=1, authorized_by=1)
+    if vat_resp['status'] == True:
+        vat_resp_gl = vat_resp['data']
+        create_system_configuration(db=db, name="vat_account_number", single_value=vat_resp_gl.account_number)
+    wht_account_code = "20000000"
+    wht_resp = create_gl(db=db, account_type_code=wht_account_code, account_name="WHT Account", created_by=1, authorized_by=1)
+    if wht_resp['status'] == True:
+        wht_resp_gl = wht_resp['data']
+        create_system_configuration(db=db, name="wht_account_number", single_value=wht_resp_gl.account_number)
     return True
