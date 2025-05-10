@@ -1,6 +1,6 @@
 from typing import Dict
 from sqlalchemy import Column, Integer, String, DateTime, BigInteger, DECIMAL, Float, TIMESTAMP, SmallInteger, Text, desc
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 from sqlalchemy.sql import func
 from sqlalchemy.sql.expression import and_, or_
 from sqlalchemy.sql.schema import ForeignKey
@@ -13,9 +13,9 @@ class Merchant(Base):
     __tablename__ = "merchants"
      
     id = Column(BigInteger, primary_key=True, index=True)
-    user_id = Column(BigInteger, default=0)
-    category_id = Column(BigInteger, default=0)
-    currency_id = Column(BigInteger, default=0)
+    user_id = Column(Integer, ForeignKey('users.id'))
+    category_id = Column(BigInteger, ForeignKey('merchant_categories.id'))
+    currency_id = Column(BigInteger, ForeignKey('currencies.id'))
     compliance_provider_id = Column(BigInteger, default=0)
     compliance_external_reference = Column(String, nullable=True)
     name = Column(String, nullable=True)
@@ -48,6 +48,10 @@ class Merchant(Base):
     deleted_at = Column(TIMESTAMP(timezone=True), nullable=True)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
+
+    owner = relationship('User')
+    category = relationship('MerchantCategory')
+    currency = relationship('Currency')
 
 
 def create_merchant(db: Session, user_id: int = 0, category_id: int = 0, currency_id: int = 0, compliance_provider_id: int = 0, compliance_external_reference: str = None, name: str = None, trading_name: str = None, slug: str = None, description: str = None, email: str = None, phone_number_one: str = None, phone_number_two: str = None, opening_hours: str = None, closing_hours: str = None, logo: str = None, thumbnail: str = None, certificate: str = None, memorandum: str = None, utility_bill: str = None, building: str = None, tax_id: str = None, registration_type: str = None, registration_number: str = None, compliance_request_data: str = None, compliance_response_data: str = None, compliance_status: int = 0, compliance_approved_by: int = 0, compliance_approved_at: str = None, compliance_rejected_by: int = 0, compliance_rejected_at: str = None, meta_data: str = None, status: int = 0, commit: bool=False):
@@ -92,11 +96,14 @@ def force_delete_merchant(db: Session, id: int=0, commit: bool=False):
 def get_single_merchant_by_id(db: Session, id: int=0):
     return db.query(Merchant).filter_by(id = id).first()
 
+def get_main_single_merchant_by_id(db: Session, id: int=0):
+    return db.query(Merchant).options(joinedload(Merchant.owner), joinedload(Merchant.category), joinedload(Merchant.currency)).filter_by(id = id).first()
+
 def get_single_merchant_by_user_id(db: Session, user_id: int=0):
     return db.query(Merchant).filter_by(user_id = user_id).first()
 
 def get_merchants(db: Session):
-    return db.query(Merchant).filter(Merchant.deleted_at == None).order_by(desc(Merchant.id))
+    return db.query(Merchant).options(joinedload(Merchant.owner), joinedload(Merchant.category), joinedload(Merchant.currency)).filter(Merchant.deleted_at == None).order_by(desc(Merchant.id))
 
 def get_merchants_by_category_id(db: Session, category_id: int=0):
     return db.query(Merchant).filter_by(category_id = category_id).filter(Merchant.deleted_at == None).order_by(desc(Merchant.id))

@@ -30,7 +30,7 @@ from models.media_pivots import Medium_Pivot, create_medium_pivot, update_medium
 from models.media import Medium, create_medium, update_medium, delete_medium, force_delete_medium, get_single_medium_by_id, get_media, get_media_by_mediumable_type, get_mediumable
 from models.merchant_categories import MerchantCategory, create_merchant_category, update_merchant_category, delete_merchant_category, force_delete_merchant_category, get_single_merchant_category_by_id, get_merchant_categories, get_merchant_categories_by_industry_id
 from models.merchant_industries import MerchantIndustry, create_merchant_industry, update_merchant_industry, delete_merchant_industry, force_delete_merchant_industry, get_single_merchant_industry_by_id, get_merchant_industries
-from models.merchants import Merchant, create_merchant, update_merchant, delete_merchant, force_delete_merchant, get_single_merchant_by_id, get_single_merchant_by_user_id, get_merchants, get_merchants_by_category_id
+from models.merchants import Merchant, create_merchant, update_merchant, delete_merchant, force_delete_merchant, get_single_merchant_by_id, get_main_single_merchant_by_id, get_single_merchant_by_user_id, get_merchants, get_merchants_by_category_id
 from models.messages import Message, create_message, update_message, delete_message, force_delete_message, get_all_messages
 from models.notifications import Notification, create_notification, update_notification, delete_notification, force_delete_notification, get_all_notifications
 from models.operators import Operator, create_operator, update_operator, delete_operator, force_delete_operator, get_single_operator_by_id, get_operators
@@ -54,7 +54,7 @@ from models.transaction_types import TransactionType, create_transaction_type, u
 from models.transactions import Transaction, create_transaction, update_transaction, delete_transaction, force_delete_transaction, get_single_transaction_by_id, get_single_transaction_by_reference, get_single_transaction_by_external_reference, get_transactions
 from models.user_device_logs import UserDeviceLog, create_user_device_log, update_user_device_log, delete_user_device_log, force_delete_user_device_log, get_single_user_device_log_by_id, get_user_devices_logs, get_user_device_logs_by_user_device_id
 from models.user_devices import UserDevice, create_user_device, update_user_device, delete_user_device, force_delete_user_device, get_single_user_device_by_id, get_user_devices, get_user_devices_by_user_id
-from models.users import User, create_user, update_user, delete_user, force_delete_user, get_single_user_by_id, get_single_user_by_email, get_single_user_by_email_and_user_type, get_single_user_by_phone_number, get_single_user_by_phone_number_and_user_type, get_single_user_by_username, get_single_user_by_username_user_type, get_single_user_by_any_main_details, get_users, get_users_by_country_id, get_users_by_merchant_id, get_users_by_user_type, get_users_by_role, get_users_by_user_type_and_role
+from models.users import User, create_user, update_user, delete_user, force_delete_user, get_single_user_by_id, get_main_single_user_by_id, get_single_user_by_email, get_single_user_by_email_and_user_type, get_single_user_by_phone_number, get_single_user_by_phone_number_and_user_type, get_single_user_by_username, get_single_user_by_username_user_type, get_single_user_by_any_main_details, get_users, get_users_by_country_id, get_users_by_merchant_id, get_users_by_user_type, get_users_by_role, get_users_by_user_type_and_role, search_users
 from models.virtual_accounts import VirtualAccount, create_virtual_account, update_virtual_account, delete_virtual_account, force_delete_virtual_account, get_single_virtual_account_by_id, get_virtual_accounts
 import string
 import random
@@ -68,7 +68,7 @@ def id_generator(size=15, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
 
-def create_user_with_relevant_rows(db: Session, country_id: int = 0, currency_id: int = 0, username: str = None, email: str = None, phone_number: str = None, password: str = None, device_token: str = None, external_provider: str = None, external_reference: str = None, user_type: int = 0, role: int = 0, first_name: str = None, other_name: str = None, last_name: str = None, is_merchant: bool=False, merchant_name: str = None):
+def create_user_with_relevant_rows(db: Session, country_id: int = 0, currency_id: int = 0, merchant_id: int = 0, username: str = None, email: str = None, phone_number: str = None, password: str = None, device_token: str = None, external_provider: str = None, external_reference: str = None, user_type: int = 0, role: int = 0, first_name: str = None, other_name: str = None, last_name: str = None, is_merchant: bool=False, merchant_name: str = None):
     hashed_password = None
     if password is not None:
         hashed_password = auth.get_password_hash(password=password)
@@ -78,6 +78,8 @@ def create_user_with_relevant_rows(db: Session, country_id: int = 0, currency_id
     if is_merchant == True:
         slug = generate_slug(text=merchant_name)
         merchant = create_merchant(db=db, user_id=user.id, currency_id=currency_id, name=merchant_name, slug=slug, status=1)
+        merchant_id = merchant.id
+    if merchant_id > 0:
         update_user(db=db, id=user.id, values={'merchant_id': merchant.id})
     return user
 

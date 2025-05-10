@@ -14,7 +14,7 @@ class Product(Base):
     __tablename__ = "products"
      
     id = Column(BigInteger, primary_key=True, index=True)
-    merchant_id = Column(BigInteger, default=0)
+    merchant_id = Column(BigInteger, ForeignKey('merchants.id'))
     category_id = Column(BigInteger, ForeignKey('categories.id'))
     currency_id = Column(BigInteger, ForeignKey('currencies.id'))
     name = Column(String, nullable=True)
@@ -42,6 +42,7 @@ class Product(Base):
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
+    merchant = relationship("Merchant")
     category = relationship("Category")
     categories = relationship("Category", secondary="products_categories", back_populates="products")
     currency = relationship("Currency")
@@ -88,13 +89,13 @@ def force_delete_product(db: Session, id: int=0, commit: bool=False):
     return True
 
 def get_single_product_by_id(db: Session, id: int=0):
-    return db.query(Product).options(joinedload(Product.category), joinedload(Product.categories), joinedload(Product.currency), joinedload(Product.tags)).filter_by(id = id).first()
+    return db.query(Product).options(joinedload(Product.merchant), joinedload(Product.category), joinedload(Product.categories), joinedload(Product.currency), joinedload(Product.tags)).filter_by(id = id).first()
 
 def get_single_product_by_slug(db: Session, slug: str=None):
-    return db.query(Product).options(joinedload(Product.category), joinedload(Product.categories), joinedload(Product.currency), joinedload(Product.tags)).filter_by(slug = slug).first()
+    return db.query(Product).options(joinedload(Product.merchant), joinedload(Product.category), joinedload(Product.categories), joinedload(Product.currency), joinedload(Product.tags)).filter_by(slug = slug).first()
 
 def get_products(db: Session, filters: Dict={}):
-    query = db.query(Product).options(joinedload(Product.category), joinedload(Product.categories), joinedload(Product.currency), joinedload(Product.tags))
+    query = db.query(Product).options(joinedload(Product.merchant), joinedload(Product.category), joinedload(Product.categories), joinedload(Product.currency), joinedload(Product.tags))
     if 'merchant_id' in filters:
         query = query.filter_by(merchant_id = filters['merchant_id'])
     if 'category_id' in filters:
