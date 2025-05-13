@@ -30,7 +30,7 @@ class User(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
     country = relationship("Country", back_populates='users')
-    merchant = relationship("Merchant", back_populates='user')
+    merchant = relationship('Merchant', back_populates='user', foreign_keys=[merchant_id])
     profile = relationship('Profile', back_populates='user', uselist=False)
 
 
