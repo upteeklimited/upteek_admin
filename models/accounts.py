@@ -75,6 +75,9 @@ def force_delete_account(db: Session, id: int=0, commit: bool=False):
 def get_single_account_by_id(db: Session, id: int=0):
     return db.query(Account).filter_by(id = id).first()
 
+def get_single_account_by_account_number(db: Session, account_number: str = None):
+    return db.query(Account).filter(or_(Account.account_number == account_number, Account.nuban == account_number)).first()
+
 def get_last_account(db: Session):
     return db.query(Account).order_by(desc(Account.id)).first()
 
