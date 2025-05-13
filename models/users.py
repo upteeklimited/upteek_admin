@@ -29,8 +29,8 @@ class User(Base):
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
-    country = relationship("Country")
-    merchant = relationship("Merchant")
+    country = relationship("Country", back_populates='users')
+    merchant = relationship("Merchant", back_populates='user')
     profile = relationship('Profile', back_populates='user', uselist=False)
 
 
