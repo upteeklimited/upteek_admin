@@ -49,7 +49,7 @@ class Merchant(Base):
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
-    owner = relationship('User')
+    user = relationship('User')
     category = relationship('MerchantCategory')
     currency = relationship('Currency')
 
@@ -97,13 +97,13 @@ def get_single_merchant_by_id(db: Session, id: int=0):
     return db.query(Merchant).filter_by(id = id).first()
 
 def get_main_single_merchant_by_id(db: Session, id: int=0):
-    return db.query(Merchant).options(joinedload(Merchant.owner), joinedload(Merchant.category), joinedload(Merchant.currency)).filter_by(id = id).first()
+    return db.query(Merchant).options(joinedload(Merchant.user), joinedload(Merchant.category), joinedload(Merchant.currency)).filter_by(id = id).first()
 
 def get_single_merchant_by_user_id(db: Session, user_id: int=0):
     return db.query(Merchant).filter_by(user_id = user_id).first()
 
 def get_merchants(db: Session):
-    return db.query(Merchant).options(joinedload(Merchant.owner), joinedload(Merchant.category), joinedload(Merchant.currency)).filter(Merchant.deleted_at == None).order_by(desc(Merchant.id))
+    return db.query(Merchant).options(joinedload(Merchant.user), joinedload(Merchant.category), joinedload(Merchant.currency)).filter(Merchant.deleted_at == None).order_by(desc(Merchant.id))
 
 def get_merchants_by_category_id(db: Session, category_id: int=0):
     return db.query(Merchant).filter_by(category_id = category_id).filter(Merchant.deleted_at == None).order_by(desc(Merchant.id))
