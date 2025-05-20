@@ -271,6 +271,6 @@ def execute_sql_file(session: Session, file_path: str):
 def recreate_db(db: Session):
     current_dir = os.path.dirname(os.path.abspath(__file__))
     base_dir = os.path.abspath(os.path.join(current_dir, "../../"))
-    referesh_db_sql = os.path.join(base_dir, "other_files", "referesh_db.sql")
+    referesh_db_sql = os.path.join(base_dir, "templates", "referesh_db.sql")
     return execute_sql_file(session=db, file_path=referesh_db_sql)
 
