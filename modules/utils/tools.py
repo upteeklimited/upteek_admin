@@ -16,6 +16,7 @@ import pkgutil
 import inspect
 import models
 import traceback
+from pathlib import Path
 
 config = load_env_config()
 
@@ -231,3 +232,42 @@ def comma_to_list(text: str=None):
         return []
     else:
         return [item.strip() for item in text.split(',') if item.strip()]
+
+
+def execute_sql_file(session: Session, file_path: str):
+    """
+    Execute raw SQL from a file using SQLAlchemy session.
+
+    Args:
+        session (Session): SQLAlchemy session object.
+        file_path (str): Path to the SQL file.
+    """
+    sql_file = Path(file_path)
+
+    if not sql_file.exists():
+        raise FileNotFoundError(f"SQL file not found: {file_path}")
+
+    with sql_file.open('r', encoding='utf-8') as f:
+        sql_content = f.read()
+
+    try:
+        # Using SQLAlchemy's text() for safe execution
+        session.execute(text(sql_content))
+        session.commit()
+        return {
+            'status': True,
+            'message': 'Success',
+        }
+    except Exception as e:
+        session.rollback()
+        return {
+            'status': False,
+            'message': str(e)
+        }
+    
+def recreate_db(db: Session):
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    base_dir = os.path.abspath(os.path.join(current_dir, "../../"))
+    referesh_db_sql = os.path.join(base_dir, "other_files", "referesh_db.sql")
+    return execute_sql_file(session=db, file_path=referesh_db_sql)
+
