@@ -242,27 +242,30 @@ def execute_sql_file(session: Session, file_path: str):
         session (Session): SQLAlchemy session object.
         file_path (str): Path to the SQL file.
     """
-    sql_file = Path(file_path)
-
-    if not sql_file.exists():
-        raise FileNotFoundError(f"SQL file not found: {file_path}")
-
-    with sql_file.open('r', encoding='utf-8') as f:
-        sql_content = f.read()
+    
 
     try:
+        sql_file = Path(file_path)
+
+        if not sql_file.exists():
+            raise FileNotFoundError(f"SQL file not found: {file_path}")
+
+        with sql_file.open('r', encoding='utf-8') as f:
+            sql_content = f.read()
         # Using SQLAlchemy's text() for safe execution
         session.execute(text(sql_content))
         session.commit()
         return {
             'status': True,
             'message': 'Success',
+            'data': file_path,
         }
     except Exception as e:
         session.rollback()
         return {
             'status': False,
-            'message': str(e)
+            'message': str(e),
+            'data': file_path,
         }
     
 def recreate_db(db: Session):
