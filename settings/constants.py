@@ -104,3 +104,9 @@ GL_ACCOUNT_TYPE_NUM = {
         'name': 'Suspense',
     },
 }
+
+TRANSACTION_ACTIONS = {
+    'no_action': 0,
+    'debit': 1,
+    'credit': 2,
+}
