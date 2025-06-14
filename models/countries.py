@@ -23,6 +23,8 @@ class Country(Base):
     longitude = Column(String, nullable=True)
     flag = Column(Text, nullable=True)
     visibility = Column(SmallInteger, default=0)
+    vat = Column(Float, default=0)
+    wht = Column(Float, default=0)
     status = Column(SmallInteger, default=0)
     deleted_at = Column(TIMESTAMP(timezone=True), nullable=True)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
@@ -31,8 +33,8 @@ class Country(Base):
     users = relationship("User", back_populates='country')
 
 
-def create_country(db: Session, name: str = None, language: str = None, code: str = None, code_two: str = None, area_code: str = None, base_timezone: str = None, latitude: str = None,  longitude: str = None, flag: str = None, visibility: int = 0, status: int = 0, commit: bool=False):
-    country = Country(name=name, language=language, code=code, code_two=code_two, area_code=area_code, base_timezone=base_timezone, latitude=latitude, longitude=longitude, flag=flag, visibility=visibility, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
+def create_country(db: Session, name: str = None, language: str = None, code: str = None, code_two: str = None, area_code: str = None, base_timezone: str = None, latitude: str = None,  longitude: str = None, flag: str = None, visibility: int = 0, vat: float = 0, wht: float = 0, status: int = 0, commit: bool=False):
+    country = Country(name=name, language=language, code=code, code_two=code_two, area_code=area_code, base_timezone=base_timezone, latitude=latitude, longitude=longitude, flag=flag, visibility=visibility, vat=vat, wht=wht, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(country)
     if commit == False:
         db.flush()
