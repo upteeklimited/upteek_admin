@@ -176,7 +176,10 @@ def create_product_gls(db: Session, product: FinancialProduct, created_by: int=0
     }
 
 def create_new_product(db: Session, name: str=None, description: str=None, product_type: int=0, created_by: int=0, authorized_by: int=0):
-    product = create_financial_product(db=db, name=name, description=description, country_id=1, currency_id=1, product_type=product_type, status=1, created_by=created_by, authorized_by=authorized_by)
+    interest_tenure_type = 0
+    if product_type == 4:
+        interest_tenure_type = 1
+    product = create_financial_product(db=db, name=name, description=description, country_id=1, currency_id=1, product_type=product_type, interest_tenure_type=interest_tenure_type, user_type=1, status=1, created_by=created_by, authorized_by=authorized_by)
     resp = create_product_gls(db=db, product=product, created_by=created_by, authorized_by=authorized_by)
     resp_data = resp['data']
     values = {
