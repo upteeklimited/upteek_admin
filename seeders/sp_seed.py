@@ -104,6 +104,12 @@ def seed_providers(db: Session):
 			'code': 'smileid',
 			'status': 1,
 		},
+		{
+			'name': 'SquadCo',
+			'description': 'SquadCo',
+			'code': 'squadco',
+			'status': 1,
+		},
 	]
 	last_gl_id = 0
 	last_gl = get_last_general_ledger_account(db=db)

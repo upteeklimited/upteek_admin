@@ -19,6 +19,7 @@ from models.countries import Country, create_country, update_country, delete_cou
 from models.currencies import Currency, create_currency, update_currency, delete_currency, force_delete_currency, get_single_currency_by_id, get_single_currency_by_code, get_currencies
 from models.deposits import Deposit, create_deposit, update_deposit, delete_deposit, force_delete_deposit, get_single_deposit_by_id, get_deposits
 from models.entities import Entity, create_entity, update_entity, delete_entity, force_delete_entity, get_single_entity_by_id, get_entities, get_people_by_entitiable_type, get_entitable
+from models.favorites import Favorite, create_favorite, update_favorite, delete_favorite, force_delete_favorite, get_single_favorite_by_id, get_favorites
 from models.financial_institutions import FinancialInstitution, create_financial_institution, update_financial_institution, delete_financial_institution, force_delete_financial_institution, get_single_financial_institution_by_id, get_financial_institutions
 from models.financial_products import FinancialProduct, create_financial_product, update_financial_product, delete_financial_product, force_delete_financial_product, get_single_financial_product_by_id, get_financial_products
 from models.general_ledger_account_types import GeneralLedgerAccountType, create_general_ledger_account_type, update_general_ledger_account_type, delete_general_ledger_account_type, force_delete_general_ledger_account_type, get_single_general_ledger_account_type_by_id, get_single_general_ledger_account_type_by_account_code, get_last_general_ledger_account_type, get_general_ledger_account_types
@@ -50,6 +51,7 @@ from models.products_categories import ProductCategory, create_product_category,
 from models.products import Product, create_product, update_product, delete_product, force_delete_product, get_single_product_by_id, get_single_product_by_slug, get_products
 from models.profiles import Profile, create_profile, update_profile, update_profile_by_user_id, delete_profile, force_delete_profile, get_single_profile_by_id, get_single_profile_by_user_id
 from models.providers import Provider, create_provider, update_provider, delete_provider, force_delete_provider, get_single_provider_by_id, get_single_provider_by_code, check_provider_exist, get_providers
+from models.reviews import Review, create_review, update_review, delete_review, force_delete_review, get_single_review_by_id, get_reviews
 from models.services import Service, create_service, update_service, delete_service, force_delete_service, get_single_service_by_id, get_single_service_by_code, get_services, check_service_exist
 from models.settings import Setting, create_setting, update_setting, update_setting_by_user_id, delete_setting, force_delete_setting, get_single_setting_by_id, get_single_setting_by_user_id
 from models.statement_headers import Statement_Header, create_statement_header, update_statement_header, delete_statement_header, force_delete_statement_header, get_single_statement_header_by_id, get_statement_headers

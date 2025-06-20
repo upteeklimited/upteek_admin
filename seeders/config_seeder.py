@@ -36,4 +36,5 @@ def run_config_seeder(db: Session):
     if wht_resp['status'] == True:
         wht_resp_gl = wht_resp['data']
         create_system_configuration(db=db, name="wht_account_number", single_value=wht_resp_gl.account_number)
+    create_system_configuration(db=db, name="default_transfer_provider", single_value="squadco")
     return True

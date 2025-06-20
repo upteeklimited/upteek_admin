@@ -19,6 +19,7 @@ class LoanApplication(Base):
     account_id = Column(BigInteger, default=0)
     card_id = Column(BigInteger, default=0)
     amount = Column(Float, default=0)
+    top_up_amount = Column(Float, default=0)
     purpose = Column(Text, nullable=True)
     tenure = Column(Integer, default=0)
     interest_rate = Column(Float, default=0)
@@ -41,16 +42,18 @@ class LoanApplication(Base):
     payment_data = Column(Text, nullable=True)
     approval_level = Column(Integer, default=0)
     decline_reason = Column(Text, nullable=True)
+    top_up_status = Column(SmallInteger, default=0)
     status = Column(SmallInteger, default=0)
     created_by = Column(BigInteger, default=0)
     authorized_by = Column(BigInteger, default=0)
     authorized_at = Column(TIMESTAMP(timezone=True), nullable=True)
+    last_collected_at = Column(TIMESTAMP(timezone=True), nullable=True)
     deleted_at = Column(TIMESTAMP(timezone=True), nullable=True)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
-def create_loan_application(db: Session, product_id: int = 0, user_id: int = 0, merchant_id: int = 0, account_id: int = 0, card_id: int = 0, amount: float = 0, purpose: str = None, tenure: int = 0, interest_rate: float = 0, moratorium: int = 0, amount_after_moratorium: float = 0, insurance: float = 0, management_fee: float = 0, loan_form_fee: float = 0, loan_repayment_frequency: int = 0, loan_savings_amount: float = 0, loan_frequency_of_collection: int = 0, installment_type: int = 0, schedule_type: int = 0, loan_data: str = None, character_data: str = None, capacity_data: str = None, capital_data: str = None, collateral_data: str = None, condition_data: str = None, payment_data: str = None, approval_level: int = 0, decline_reason: str = None, status: int = 0, created_by: int = 0, authorized_by: int = 0, authorized_at: str = None, commit: bool=False):
-    loan_application = LoanApplication(product_id=product_id, user_id=user_id, merchant_id=merchant_id, account_id=account_id, card_id=card_id, amount=amount, purpose=purpose, tenure=tenure, interest_rate=interest_rate, moratorium=moratorium, amount_after_moratorium=amount_after_moratorium, insurance=insurance, management_fee=management_fee, loan_form_fee=loan_form_fee, loan_repayment_frequency=loan_repayment_frequency, loan_savings_amount=loan_savings_amount, loan_frequency_of_collection=loan_frequency_of_collection, installment_type=installment_type, schedule_type=schedule_type, loan_data=loan_data, character_data=character_data, capacity_data=capacity_data, capital_data=capital_data, collateral_data=collateral_data, condition_data=condition_data, payment_data=payment_data, approval_level=approval_level, decline_reason=decline_reason, status=status, created_by=created_by, authorized_by=authorized_by, authorized_at=authorized_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
+def create_loan_application(db: Session, product_id: int = 0, user_id: int = 0, merchant_id: int = 0, account_id: int = 0, card_id: int = 0, amount: float = 0, top_up_amount: float = 0, purpose: str = None, tenure: int = 0, interest_rate: float = 0, moratorium: int = 0, amount_after_moratorium: float = 0, insurance: float = 0, management_fee: float = 0, loan_form_fee: float = 0, loan_repayment_frequency: int = 0, loan_savings_amount: float = 0, loan_frequency_of_collection: int = 0, installment_type: int = 0, schedule_type: int = 0, loan_data: str = None, character_data: str = None, capacity_data: str = None, capital_data: str = None, collateral_data: str = None, condition_data: str = None, payment_data: str = None, approval_level: int = 0, decline_reason: str = None, top_up_status: int = 0, status: int = 0, created_by: int = 0, authorized_by: int = 0, authorized_at: str = None, last_collected_at: str = None, commit: bool=False):
+    loan_application = LoanApplication(product_id=product_id, user_id=user_id, merchant_id=merchant_id, account_id=account_id, card_id=card_id, amount=amount, top_up_amount=top_up_amount, purpose=purpose, tenure=tenure, interest_rate=interest_rate, moratorium=moratorium, amount_after_moratorium=amount_after_moratorium, insurance=insurance, management_fee=management_fee, loan_form_fee=loan_form_fee, loan_repayment_frequency=loan_repayment_frequency, loan_savings_amount=loan_savings_amount, loan_frequency_of_collection=loan_frequency_of_collection, installment_type=installment_type, schedule_type=schedule_type, loan_data=loan_data, character_data=character_data, capacity_data=capacity_data, capital_data=capital_data, collateral_data=collateral_data, condition_data=condition_data, payment_data=payment_data, approval_level=approval_level, decline_reason=decline_reason, top_up_status=top_up_status, status=status, created_by=created_by, authorized_by=authorized_by, authorized_at=authorized_at, last_collected_at=last_collected_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(loan_application)
     if commit == False:
         db.flush()
