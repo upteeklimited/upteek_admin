@@ -30,6 +30,7 @@ from models.invoice_items import InvoiceItem, create_invoice_item, update_invoic
 from models.invoice_requests import InvoiceRequest, create_invoice_request, update_invoice_request, delete_invoice_request, force_delete_invoice_request, get_single_invoice_request_by_id, get_invoice_requests
 from models.invoices import Invoice, create_invoice, update_invoice, delete_invoice, force_delete_invoice, get_single_invoice_by_id, get_invoices
 from models.l_g_a_s import LGA, create_lga, update_lga, delete_lga, force_delete_lga, get_single_lga_by_id, get_lgas, get_lgas_by_state_id
+from models.loan_application_logs import LoanApplicationLog, create_loan_application_log, update_loan_application_log, delete_loan_application_log, force_delete_loan_application_log, get_single_loan_application_log_by_id, get_loan_application_logs
 from models.loan_applications import LoanApplication, create_loan_application, update_loan_application, delete_loan_application, force_delete_loan_application, get_single_loan_application_by_id
 from models.loans import Loan, create_loan, update_loan, delete_loan, force_delete_loan, get_single_loan_by_id, get_loans
 from models.media_pivots import Medium_Pivot, create_medium_pivot, update_medium_pivot, delete_medium_pivot, force_delete_medium_pivot, get_medium_pivot, get_medium_pivot_by_medium_id, get_medium_pivot_by_mediumable_type_and_mediumable_id, get_medium_pivot_by_mediumable_type_and_mediumable_id_and_status, get_media_pivots
