@@ -14,19 +14,19 @@ import traceback
 
 def run_seed(db: Session):
     try:
-        print(run_country_seeder(db=db))
-        print(run_currency_seeder(db=db))
-        print(run_geo_seeder(db=db))
-        print(run_category_seeder(db=db))
-        print(run_product_categories_seeder(db=db))
-        print(run_user_seeder(db=db))
-        print(seed_gl_type(db=db))
-        print(seed_financial_products(db=db))
-        print(seed_services(db=db))
-        print(seed_providers(db=db))
-        print(seed_trans_type(db=db))
+        # print(run_country_seeder(db=db))
+        # print(run_currency_seeder(db=db))
+        # print(run_geo_seeder(db=db))
+        # print(run_category_seeder(db=db))
+        # print(run_product_categories_seeder(db=db))
+        # print(run_user_seeder(db=db))
+        # print(seed_gl_type(db=db))
+        # print(seed_financial_products(db=db))
+        # print(seed_services(db=db))
+        # print(seed_providers(db=db))
+        # print(seed_trans_type(db=db))
         print(run_config_seeder(db=db))
-        print(seed_financial_institutions(db=db))
+        # print(seed_financial_institutions(db=db))
         return {
             'status': True,
             'message': 'Seeders ran successfully!'
