@@ -10,6 +10,7 @@ from seeders.fin_product_seed import seed_financial_products
 from seeders.trans_type_seed import seed_trans_type
 from seeders.config_seeder import run_config_seeder
 from seeders.fin_inst_seed import seed_financial_institutions
+from seeders.mock_seed import run_mock_seeder
 import traceback
 
 def run_seed(db: Session):
@@ -23,10 +24,11 @@ def run_seed(db: Session):
         # print(seed_gl_type(db=db))
         # print(seed_financial_products(db=db))
         # print(seed_services(db=db))
-        print(seed_providers(db=db))
+        # print(seed_providers(db=db))
         # print(seed_trans_type(db=db))
-        print(run_config_seeder(db=db))
-        print(seed_financial_institutions(db=db))
+        # print(run_config_seeder(db=db))
+        # print(seed_financial_institutions(db=db))
+        print(run_mock_seeder(db=db))
         return {
             'status': True,
             'message': 'Seeders ran successfully!'

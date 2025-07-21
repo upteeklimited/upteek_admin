@@ -85,19 +85,26 @@ def id_generator(size=15, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
 
-def create_user_with_relevant_rows(db: Session, country_id: int = 0, currency_id: int = 0, merchant_id: int = 0, username: str = None, email: str = None, phone_number: str = None, password: str = None, device_token: str = None, external_provider: str = None, external_reference: str = None, user_type: int = 0, role: int = 0, first_name: str = None, other_name: str = None, last_name: str = None, is_merchant: bool=False, merchant_name: str = None):
+def create_user_with_relevant_rows(db: Session, country_id: int = 0, currency_id: int = 0, merchant_id: int = 0, username: str = None, email: str = None, phone_number: str = None, password: str = None, device_token: str = None, external_provider: str = None, external_reference: str = None, user_type: int = 0, role: int = 0, first_name: str = None, other_name: str = None, last_name: str = None, date_of_birth: str = None, gender: str = None, bio: str = None, is_merchant: bool=False, merchant_name: str = None, merchant_trading_name: str = None, merchant_description: str = None, merchant_category_id: int = 0, merchant_currency_id: int = 0, merchant_phone_number: str = None, merchant_email: str = None):
     hashed_password = None
     if password is not None:
         hashed_password = auth.get_password_hash(password=password)
     user = create_user(db=db, country_id=country_id, username=username, email=email, phone_number=phone_number, password=hashed_password, device_token=device_token, external_provider=external_provider, external_reference=external_reference, user_type=user_type, role=role, status=1)
-    create_profile(db=db, user_id=user.id, first_name=first_name, other_name=other_name, last_name=last_name, level_one_approved_by=1, level_one_approved_at=get_laravel_datetime())
+    create_profile(db=db, user_id=user.id, first_name=first_name, other_name=other_name, last_name=last_name, date_of_birth=date_of_birth, gender=gender, bio=bio, level_one_approved_by=1, level_one_approved_at=get_laravel_datetime())
     create_setting(db=db, user_id=user.id)
     if is_merchant == True:
         slug = generate_slug(text=merchant_name)
-        merchant = create_merchant(db=db, user_id=user.id, currency_id=currency_id, name=merchant_name, slug=slug, status=1)
+        if merchant_currency_id > 0:
+            currency_id = merchant_currency_id
+        trading_name = None
+        if merchant_trading_name is not None:
+            trading_name = merchant_trading_name
+        else:
+            trading_name = merchant_name
+        merchant = create_merchant(db=db, user_id=user.id, currency_id=currency_id, category_id=merchant_category_id, name=merchant_name, trading_name=trading_name, description=merchant_description, phone_number_one=merchant_phone_number, email=merchant_email, slug=slug, status=1)
         merchant_id = merchant.id
     if merchant_id > 0:
-        update_user(db=db, id=user.id, values={'merchant_id': merchant.id})
+        update_user(db=db, id=user.id, values={'merchant_id': merchant_id})
     return user
 
 def registration_unique_field_check(db: Session, phone_number: str=None, username: str=None, email: str=None, user_type: int=0):
