@@ -1,9 +1,10 @@
 from typing import Dict
 from fastapi import Request
-from database.model import get_single_user_by_email_and_user_type, get_single_user_by_phone_number_and_user_type, get_single_user_by_username_user_type, get_single_user_by_any_main_details, get_single_profile_by_user_id, get_single_setting_by_user_id, update_user, create_token, get_latest_user_token_by_type, update_token_by_user_id_and_token_type, update_token_email, get_latest_user_token_by_type_and_status, get_single_user_by_id, update_token
+from database.model import get_single_user_by_email_and_user_type, get_single_user_by_phone_number_and_user_type, get_single_user_by_username_user_type, get_single_user_by_any_main_details, get_single_profile_by_user_id, get_single_setting_by_user_id, update_user, create_token, get_latest_user_token_by_type, update_token_by_user_id_and_token_type, update_token_email, get_latest_user_token_by_type_and_status, get_single_user_by_id, update_token, get_single_system_configuration_by_name, get_single_account_type_by_account_code, get_single_financial_product_by_id, create_account
 from modules.utils.net import get_ip_info, process_phone_number
 from modules.utils.tools import process_schema_dictionary
 from modules.utils.auth import AuthHandler, get_next_few_minutes, check_if_time_as_pass_now
+from modules.utils.acct import generate_internal_account_number
 from modules.messaging.email import e_send_token
 from sqlalchemy.orm import Session
 import random
@@ -13,6 +14,50 @@ import sys, traceback
 from settings.constants import USER_TYPES
 
 auth = AuthHandler()
+
+def generate_new_user_account(db: Session, user_id: int=0, account_name: str=None, is_merchant: bool=False):
+    system_config = None
+    if is_merchant == True:
+        system_config = get_single_system_configuration_by_name(db=db, name="merchant_default_savings_account_code")
+    else:
+        pass
+        system_config = get_single_system_configuration_by_name(db=db, name="customer_default_savings_account_code")
+    if system_config is None:
+        return {
+            'status': False,
+            'message': 'System Configuration not found',
+            'data': None,
+        }
+    else:
+        account_type_code = system_config.single_value
+        account_type = get_single_account_type_by_account_code(db=db, account_code=account_type_code)
+        if account_type is None:
+            return {
+                'status': False,
+                'message': 'Account Type not found',
+                'data': None,
+            }
+        else:
+            account_type_id = account_type.id
+            financial_product = get_single_financial_product_by_id(db=db, id=account_type.product_id)
+            if financial_product is None:
+                return {
+                    'status': False,
+                    'message': 'Financial Product not found',
+                    'data': None
+                }
+            else:
+                last_account_id = 0
+                last_account = get_last_account(db=db)
+                if last_account is not None:
+                    last_account_id = last_account.id
+                account_number = generate_internal_account_number(product_type=financial_product.product_type, last_id=last_account_id)
+                account = create_account(db=db, user_id=user_id, account_type_id=account_type_id, account_name=account_name, account_number=account_number, is_primary=1, status=1)
+                return {
+                    'status': True,
+                    'message': 'Account Created',
+                    'data': account
+                }
 
 def login_with_email(db: Session, email: str=None, password: str=None, fbt: str=None):
     try:

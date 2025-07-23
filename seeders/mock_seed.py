@@ -2,6 +2,7 @@ from typing import Dict, List
 from database.model import create_user_with_relevant_rows, create_product, get_single_user_by_id, get_single_user_by_email
 from modules.utils.tools import generate_slug
 from sqlalchemy.orm import Session
+from modules.authentication.auth import generate_new_user_account
 import os
 import json
 
@@ -27,6 +28,8 @@ def run_mock_seeder(db: Session):
                 else:
                     reguser = create_user_with_relevant_rows(db=db, country_id=1, currency_id=mdata['merchant_currency_id'], username=mdata['merchant_email'], email=mdata['merchant_email'], phone_number=mdata['phone_number'], password="secret", user_type=3, role=1, first_name=mdata['first_name'], other_name=mdata['other_name'], last_name=mdata['last_name'], date_of_birth=mdata['date_of_birth'], gender=mdata['gender'], bio=mdata['bio'], is_merchant=True, merchant_category_id=mdata['merchant_category_id'], merchant_currency_id=mdata['merchant_currency_id'], merchant_name=mdata['merchant_name'], merchant_trading_name=mdata['merchant_trading_name'], merchant_description=mdata['merchant_description'], merchant_email=mdata['merchant_email'], merchant_phone_number=mdata['merchant_phone_number'])
                     user = get_single_user_by_id(db=db, id=reguser.id)
+                    acct_name1 = mdata['merchant_name']
+                    print(generate_new_user_account(db=db, user_id=user.id, account_name=acct_name1))
                     merchant_id = user.merchant_id
                     merchant_currency_id = mdata['merchant_currency_id']
                     products = mdata['products']

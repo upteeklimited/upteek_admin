@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from database.model import get_users_by_user_type, get_single_system_configuration_by_name, get_single_user_by_id, get_single_user_primary_account, get_single_general_ledger_account_by_account_number, get_single_transaction_type_by_code, get_products_by_merchant_id, get_random_merchant_product, get_random_user_by_user_type
 from modules.transactions.trans import create_general_posting
 from modules.orders.post import create_new_order
+from modules.authentication.auth import generate_new_user_account
 from settings.constants import USER_TYPES
 
 def fund_user(db: Session, user_id: int=0, amount: float=0):
