@@ -15,12 +15,11 @@ from settings.constants import USER_TYPES
 
 auth = AuthHandler()
 
-def generate_new_user_account(db: Session, user_id: int=0, account_name: str=None, is_merchant: bool=False):
+def generate_new_user_account(db: Session, user_id: int=0, merchant_id: int=0, account_name: str=None, is_merchant: bool=False):
     system_config = None
     if is_merchant == True:
         system_config = get_single_system_configuration_by_name(db=db, name="merchant_default_savings_account_code")
     else:
-        pass
         system_config = get_single_system_configuration_by_name(db=db, name="customer_default_savings_account_code")
     if system_config is None:
         return {
@@ -52,7 +51,7 @@ def generate_new_user_account(db: Session, user_id: int=0, account_name: str=Non
                 if last_account is not None:
                     last_account_id = last_account.id
                 account_number = generate_internal_account_number(product_type=financial_product.product_type, last_id=last_account_id)
-                account = create_account(db=db, user_id=user_id, account_type_id=account_type_id, account_name=account_name, account_number=account_number, is_primary=1, status=1)
+                account = create_account(db=db, user_id=user_id, merchant_id=merchant_id, account_type_id=account_type_id, account_name=account_name, account_number=account_number, is_primary=1, status=1)
                 return {
                     'status': True,
                     'message': 'Account Created',

@@ -29,7 +29,7 @@ def run_mock_seeder(db: Session):
                     reguser = create_user_with_relevant_rows(db=db, country_id=1, currency_id=mdata['merchant_currency_id'], username=mdata['merchant_email'], email=mdata['merchant_email'], phone_number=mdata['phone_number'], password="secret", user_type=3, role=1, first_name=mdata['first_name'], other_name=mdata['other_name'], last_name=mdata['last_name'], date_of_birth=mdata['date_of_birth'], gender=mdata['gender'], bio=mdata['bio'], is_merchant=True, merchant_category_id=mdata['merchant_category_id'], merchant_currency_id=mdata['merchant_currency_id'], merchant_name=mdata['merchant_name'], merchant_trading_name=mdata['merchant_trading_name'], merchant_description=mdata['merchant_description'], merchant_email=mdata['merchant_email'], merchant_phone_number=mdata['merchant_phone_number'])
                     user = get_single_user_by_id(db=db, id=reguser.id)
                     acct_name1 = mdata['merchant_name']
-                    print(generate_new_user_account(db=db, user_id=user.id, account_name=acct_name1))
+                    print(generate_new_user_account(db=db, user_id=user.id, merchant_id=user.merchant_id, account_name=acct_name1, is_merchant=True))
                     merchant_id = user.merchant_id
                     merchant_currency_id = mdata['merchant_currency_id']
                     products = mdata['products']
