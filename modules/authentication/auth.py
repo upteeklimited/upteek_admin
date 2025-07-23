@@ -21,6 +21,7 @@ def generate_new_user_account(db: Session, user_id: int=0, merchant_id: int=0, a
         system_config = get_single_system_configuration_by_name(db=db, name="merchant_default_savings_account_code")
     else:
         system_config = get_single_system_configuration_by_name(db=db, name="customer_default_savings_account_code")
+    print(system_config)
     if system_config is None:
         return {
             'status': False,
