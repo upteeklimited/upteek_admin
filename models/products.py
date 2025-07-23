@@ -129,6 +129,7 @@ def count_products(db: Session):
     return db.query(Product).count()
 
 def count_products_by_merchant_id(db: Session, merchant_id: int = 0):
+    print(merchant_id)
     return db.query(Product).filter_by(merchant_id = merchant_id).count()
 
 def get_random_merchant_product(db: Session, merchant_id: int=0):
