@@ -3,10 +3,10 @@ from modules.miscelleanous.ghost import fund_all_seeded_customers, customer_user
 
 
 def run_fund_seed(db: Session):
-	fund_all_seeded_customers(db=db, amount=100000)
+	print(fund_all_seeded_customers(db=db, amount=100000))
 	return True
 
 
 def run_purchase_seed(db: Session):
-	customer_users_random_purchase(db=db)
+	print(customer_users_random_purchase(db=db))
 	return True

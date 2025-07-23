@@ -40,18 +40,23 @@ def fund_user(db: Session, user_id: int=0, amount: float=0):
 
 def fund_all_seeded_customers(db: Session, amount: float=0):
 	customer_users = get_users_by_user_type(db=db, user_type=USER_TYPES['customer']['num'])
+	print(customer_users)
 	if len(customer_users) > 0:
 		for user in customer_users:
-			fund_user(db=db, user_id=user.id, amount=amount)
+			print(user)
+			print(fund_user(db=db, user_id=user.id, amount=amount))
 	return True
 
 def customer_users_random_purchase(db: Session):
 	customer_users = get_users_by_user_type(db=db, user_type=USER_TYPES['customer']['num'])
 	if len(customer_users) > 0:
 		for user in customer_users:
+			print(user)
 			random_merchant = get_random_user_by_user_type(db=db, user_type=USER_TYPES['merchant']['num'])
+			print(random_merchant)
 			if random_merchant is not None:
 				random_product = get_random_merchant_product(db=db, merchant_id=random_merchant.merchant_id)
+				print(random_product)
 				if random_product is not None:
 					amount = random_product.price
 					products = [{
@@ -59,5 +64,6 @@ def customer_users_random_purchase(db: Session):
 					'quantity': 1,
 					'amount': amount,
 					}]
-					create_new_order(db=db, user_id=user.id, country_id=user.country_id, is_account=True, products=products, amount=amount, total_amount=amount, delivery_status=1, status=1)
+					print(products)
+					print(create_new_order(db=db, user_id=user.id, country_id=user.country_id, is_account=True, products=products, amount=amount, total_amount=amount, delivery_status=1, status=1))
 	return True
