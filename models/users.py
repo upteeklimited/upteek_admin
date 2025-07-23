@@ -145,6 +145,7 @@ def count_users_by_user_type(db: Session, user_type: int=0):
 
 def get_random_user_by_user_type(db: Session, user_type: int=0):
     count = count_users_by_user_type(db=db, user_type=user_type)
+    print(count)
     if count > 0:
         offset = random.randint(0, count - 1)
         return db.query(User).offset(offset).limit(1).first()

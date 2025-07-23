@@ -133,6 +133,7 @@ def count_products_by_merchant_id(db: Session, merchant_id: int = 0):
 
 def get_random_merchant_product(db: Session, merchant_id: int=0):
     count = count_products_by_merchant_id(db=db, merchant_id=merchant_id)
+    print(count)
     if count > 0:
         offset = random.randint(0, count - 1)
         return db.query(Product).offset(offset).limit(1).first()
