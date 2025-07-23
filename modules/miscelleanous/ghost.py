@@ -56,6 +56,8 @@ def customer_users_random_purchase(db: Session):
 			random_merchant = get_random_user_by_user_type(db=db, user_type=USER_TYPES['merchant']['num'])
 			print(random_merchant)
 			if random_merchant is not None:
+				print(random_merchant.id)
+				print(random_merchant.merchant_id)
 				random_product = get_random_merchant_product(db=db, merchant_id=random_merchant.merchant_id)
 				print(random_product)
 				if random_product is not None:
