@@ -74,42 +74,42 @@ def seed_services(db: Session):
 
 def seed_providers(db: Session):
 	data = [
-		# {
-		# 	'name': 'Quickteller',
-		# 	'description': 'Quickteller',
-		# 	'code': 'quickteller',
-		# 	'status': 1,
-		# },
-		# {
-		# 	'name': 'Paystack',
-		# 	'description': 'Paystack',
-		# 	'code': 'paystack',
-		# 	'status': 1,
-		# },
-		# {
-		# 	'name': 'Flutterwave',
-		# 	'description': 'Flutterwave',
-		# 	'code': 'flutterwave',
-		# 	'status': 1,
-		# },
-		# {
-		# 	'name': 'BankOne',
-		# 	'description': 'BankOne',
-		# 	'code': 'bankone',
-		# 	'status': 1,
-		# },
-		# {
-		# 	'name': 'SmileID',
-		# 	'description': 'SmileID',
-		# 	'code': 'smileid',
-		# 	'status': 1,
-		# },
-		# {
-		# 	'name': 'SquadCo',
-		# 	'description': 'SquadCo',
-		# 	'code': 'squadco',
-		# 	'status': 1,
-		# },
+		{
+			'name': 'Quickteller',
+			'description': 'Quickteller',
+			'code': 'quickteller',
+			'status': 1,
+		},
+		{
+			'name': 'Paystack',
+			'description': 'Paystack',
+			'code': 'paystack',
+			'status': 1,
+		},
+		{
+			'name': 'Flutterwave',
+			'description': 'Flutterwave',
+			'code': 'flutterwave',
+			'status': 1,
+		},
+		{
+			'name': 'BankOne',
+			'description': 'BankOne',
+			'code': 'bankone',
+			'status': 1,
+		},
+		{
+			'name': 'SmileID',
+			'description': 'SmileID',
+			'code': 'smileid',
+			'status': 1,
+		},
+		{
+			'name': 'SquadCo',
+			'description': 'SquadCo',
+			'code': 'squadco',
+			'status': 1,
+		},
 		{
 			'name': 'Fincra',
 			'description': 'Fincra',

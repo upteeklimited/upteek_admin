@@ -17,13 +17,13 @@ def seed_trans_type(db: Session):
         },
         {
             'type_code': '003',
-            'type_action': 2,
+            'type_action': 1,
             'name': 'Cash Deposit',
             'desc': 'Cash Deposit Description',
         },
         {
             'type_code': '004',
-            'type_action': 1,
+            'type_action': 2,
             'name': 'Cash Withdrawal',
             'desc': 'Cash Withdrawal Description',
         },

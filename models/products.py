@@ -7,6 +7,7 @@ from sqlalchemy.sql.schema import ForeignKey
 from database.db import Base, get_laravel_datetime, get_added_laravel_datetime, compare_laravel_datetime_with_today
 from database.custom_types import JSONText
 from sqlalchemy.orm import relationship
+import random
 
 
 class Product(Base):
@@ -105,6 +106,9 @@ def get_single_product_by_id(db: Session, id: int=0):
 def get_single_product_by_slug(db: Session, slug: str=None):
     return db.query(Product).options(joinedload(Product.merchant), joinedload(Product.category), joinedload(Product.categories), joinedload(Product.currency), joinedload(Product.tags)).filter_by(slug = slug).first()
 
+def get_products_by_merchant_id(db: Session, merchant_id: int = 0):
+    return db.query(Product).filter_by(merchant_id = merchant_id).all()
+
 def get_products(db: Session, filters: Dict={}):
     query = db.query(Product).options(joinedload(Product.merchant), joinedload(Product.category), joinedload(Product.categories), joinedload(Product.currency), joinedload(Product.tags))
     if 'merchant_id' in filters:
@@ -121,3 +125,16 @@ def get_products(db: Session, filters: Dict={}):
         query = query.filter(Product.slug.like('%' + filters['slug'] + '%'))
     return query.order_by(desc(Product.created_at))
 
+def count_products(db: Session):
+    return db.query(Product).count()
+
+def count_products_by_merchant_id(db: Session, merchant_id: int = 0):
+    return db.query(Product).filter_by(merchant_id = merchant_id).count()
+
+def get_random_merchant_product(db: Session, merchant_id: int=0):
+    count = count_products_by_merchant_id(db=db, merchant_id=merchant_id)
+    if count > 0:
+        offset = random.randint(0, count - 1)
+        return db.query(Product).offset(offset).limit(1).first()
+    else:
+        return None

@@ -6,6 +6,7 @@ from sqlalchemy.sql.expression import and_, or_
 from sqlalchemy.sql.schema import ForeignKey
 from database.db import Base, get_laravel_datetime, get_added_laravel_datetime, compare_laravel_datetime_with_today
 from sqlalchemy.orm import relationship
+import random
 
 
 class User(Base):
@@ -112,7 +113,7 @@ def get_users_by_merchant_id(db: Session, merchant_id: int = 0):
     return db.query(User).filter_by(merchant_id = merchant_id).filter(User.deleted_at == None).order_by(desc(User.id))
 
 def get_users_by_user_type(db: Session, user_type: int = 0):
-    return db.query(User).filter_by(user_type = user_type).filter(User.deleted_at == None).order_by(desc(User.id))
+    return db.query(User).filter_by(user_type = user_type).filter(User.deleted_at == None).order_by(desc(User.id)).all()
 
 def get_users_by_role(db: Session, role: int = 0):
     return db.query(User).filter_by(role = role).filter(User.deleted_at == None).order_by(desc(User.id))
@@ -135,3 +136,17 @@ def search_users(db: Session, filters: Dict={}):
     if 'status' in filters:
         query = query.filter(User.status == filters['status'])
     return query.filter(User.deleted_at == None).order_by(desc(User.id))
+
+def count_users(db: Session):
+    return db.query(User).count()
+
+def count_users_by_user_type(db: Session, user_type: int=0):
+    return db.query(User).filter_by(user_type = user_type).filter(User.deleted_at == None).count()
+
+def get_random_user_by_user_type(db: Session, user_type: int=0):
+    count = count_users_by_user_type(db=db, user_type=user_type)
+    if count > 0:
+        offset = random.randint(0, count - 1)
+        return db.query(User).offset(offset).limit(1).first()
+    else:
+        return None
