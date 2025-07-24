@@ -144,10 +144,18 @@ def count_users_by_user_type(db: Session, user_type: int=0):
     return db.query(User).filter_by(user_type = user_type).filter(User.deleted_at == None).count()
 
 def get_random_user_by_user_type(db: Session, user_type: int=0):
-    count = count_users_by_user_type(db=db, user_type=user_type)
-    print(count)
-    if count > 0:
-        offset = random.randint(0, count - 1)
-        return db.query(User).offset(offset).limit(1).first()
+    # count = count_users_by_user_type(db=db, user_type=user_type)
+    # print(count)
+    # if count > 0:
+    #     offset = random.randint(0, count - 1)
+    #     return db.query(User).offset(offset).limit(1).first()
+    # else:
+    #     return None
+    ids = session.query(User.id).filter_by(user_type = user_type).filter(User.deleted_at == None).scalars().all()
+    print(ids)
+    if ids:
+        random_id = random.choice(ids)
+        print(random_id)
+        return db.query(User).filter_by(id = id).first()
     else:
         return None
