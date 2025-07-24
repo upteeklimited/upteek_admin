@@ -16,7 +16,7 @@
     "merchant_phone_number": "+2348012345678",
     "products": [
       {
-        "category_id": 65,
+        "category_id": 6,
         "currency_id": 1,
         "name": "Full Car Wash",
         "description": "Comprehensive exterior and interior car wash service.",
@@ -42,7 +42,7 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=400&fit=crop",
@@ -50,7 +50,7 @@
         ]
       },
       {
-        "category_id": 65,
+        "category_id": 24,
         "currency_id": 1,
         "name": "Engine Detailing",
         "description": "Thorough cleaning and detailing of car engine.",
@@ -76,15 +76,15 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1615906655593-ad0386982a0f?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
         ]
       },
       {
-        "category_id": 65,
+        "category_id": 5,
         "currency_id": 1,
         "name": "Interior Shampoo",
         "description": "Deep cleaning of car seats and carpets.",
@@ -110,15 +110,15 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
+          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1615906655593-ad0386982a0f?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
         ]
       },
       {
-        "category_id": 65,
+        "category_id": 24,
         "currency_id": 1,
         "name": "Headlight Restoration",
         "description": "Restores clarity to foggy headlights.",
@@ -144,15 +144,15 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
         ]
       },
       {
-        "category_id": 65,
+        "category_id": 24,
         "currency_id": 1,
         "name": "Paint Protection",
         "description": "Application of ceramic coating for paint protection.",
@@ -178,15 +178,15 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
         ]
       },
       {
-        "category_id": 65,
+        "category_id": 8,
         "currency_id": 1,
         "name": "Wheel Polishing",
         "description": "Professional cleaning and polishing of car wheels.",
@@ -212,11 +212,113 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 1,
+        "currency_id": 1,
+        "name": "Premium Financial Services & Tax Consultants Service",
+        "description": "Professional financial services & tax consultants service with high-quality standards.",
+        "product_type": 3,
+        "service_pricing": 1,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 15535,
+        "price": 34457,
+        "discount_price": 31011,
+        "discount": 10,
+        "minimum_price": 15535,
+        "maximum_price": 41348,
+        "discount_type": 1,
+        "special_note": "Customized service to meet your specific needs.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 3,
+        "service_is_time_sensitive": 2,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Premium Package\",\"price\":2000}]",
+        "service_available_days_data": "Online",
+        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\"]",
+        "status": 1,
+        "notify_if_available": 0,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 2,
+        "currency_id": 1,
+        "name": "Tattoo & Piercing Studios Consultation",
+        "description": "Expert consultation service for tattoo & piercing studios needs.",
+        "product_type": 3,
+        "service_pricing": 1,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 15372,
+        "price": 23429,
+        "discount_price": 21788,
+        "discount": 7,
+        "minimum_price": 15372,
+        "maximum_price": 28114,
+        "discount_type": 1,
+        "special_note": "Includes detailed recommendations and planning.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 3,
+        "service_is_time_sensitive": 2,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Follow-up Session\",\"price\":1500}]",
+        "service_available_days_data": "Online",
+        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 0,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 3,
+        "currency_id": 1,
+        "name": "Party Supplies & Event Rentals Package Deal",
+        "description": "Comprehensive party supplies & event rentals package with multiple services.",
+        "product_type": 3,
+        "service_pricing": 2,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 14761,
+        "price": 31460,
+        "discount_price": 28943,
+        "discount": 8,
+        "minimum_price": 14761,
+        "maximum_price": 37752,
+        "discount_type": 1,
+        "special_note": "Best value for multiple service requirements.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 3,
+        "service_is_time_sensitive": 1,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Extended Service\",\"price\":3000}]",
+        "service_available_days_data": "Online",
+        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 1,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
         ]
       }
     ]
@@ -238,7 +340,7 @@
     "merchant_phone_number": "+2348123456789",
     "products": [
       {
-        "category_id": 45,
+        "category_id": 22,
         "currency_id": 1,
         "name": "Social Media Management",
         "description": "Comprehensive management of social media platforms.",
@@ -272,7 +374,7 @@
         ]
       },
       {
-        "category_id": 45,
+        "category_id": 6,
         "currency_id": 1,
         "name": "Brand Strategy Session",
         "description": "One-on-one brand strategy consultation.",
@@ -306,7 +408,7 @@
         ]
       },
       {
-        "category_id": 45,
+        "category_id": 6,
         "currency_id": 1,
         "name": "Logo Design Package",
         "description": "Custom logo design with 3 concepts.",
@@ -332,15 +434,15 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1558655146-d09347e92766?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
         ]
       },
       {
-        "category_id": 45,
+        "category_id": 22,
         "currency_id": 1,
         "name": "Website Audit",
         "description": "Detailed audit of your business website.",
@@ -366,15 +468,15 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
         ]
       },
       {
-        "category_id": 45,
+        "category_id": 4,
         "currency_id": 1,
         "name": "Content Creation",
         "description": "Professional content writing for blogs and websites.",
@@ -400,15 +502,15 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
         ]
       },
       {
-        "category_id": 45,
+        "category_id": 4,
         "currency_id": 1,
         "name": "Email Marketing Campaign",
         "description": "End-to-end email marketing campaign setup.",
@@ -439,6 +541,108 @@
           "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 4,
+        "currency_id": 1,
+        "name": "Premium Digital Marketing & Branding Service",
+        "description": "Professional digital marketing & branding service with high-quality standards.",
+        "product_type": 3,
+        "service_pricing": 1,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 13580,
+        "price": 20495,
+        "discount_price": 17010,
+        "discount": 17,
+        "minimum_price": 13580,
+        "maximum_price": 24594,
+        "discount_type": 1,
+        "special_note": "Customized service to meet your specific needs.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 3,
+        "service_is_time_sensitive": 2,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Premium Package\",\"price\":2000}]",
+        "service_available_days_data": "Online",
+        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 1,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 5,
+        "currency_id": 1,
+        "name": "Home Cleaning & Maid Services Consultation",
+        "description": "Expert consultation service for home cleaning & maid services needs.",
+        "product_type": 3,
+        "service_pricing": 1,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 15453,
+        "price": 31873,
+        "discount_price": 30279,
+        "discount": 5,
+        "minimum_price": 15453,
+        "maximum_price": 38247,
+        "discount_type": 1,
+        "special_note": "Includes detailed recommendations and planning.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 2,
+        "service_is_time_sensitive": 1,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Follow-up Session\",\"price\":1500}]",
+        "service_available_days_data": "Online",
+        "service_available_time_data": "[\"Monday\",\"Thursday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 1,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 6,
+        "currency_id": 1,
+        "name": "Interior Design & Home Decor Package Deal",
+        "description": "Comprehensive interior design & home decor package with multiple services.",
+        "product_type": 3,
+        "service_pricing": 2,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 6731,
+        "price": 14827,
+        "discount_price": 13196,
+        "discount": 11,
+        "minimum_price": 6731,
+        "maximum_price": 17792,
+        "discount_type": 1,
+        "special_note": "Best value for multiple service requirements.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 2,
+        "service_is_time_sensitive": 2,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Extended Service\",\"price\":3000}]",
+        "service_available_days_data": "Online",
+        "service_available_time_data": "[\"Wednesday\",\"Thursday\"]",
+        "status": 1,
+        "notify_if_available": 0,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
         ]
       }
     ]
@@ -628,6 +832,108 @@
           "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=400&fit=crop"
         ]
+      },
+      {
+        "category_id": 7,
+        "currency_id": 1,
+        "name": "Premium Laundry & Dry Cleaning Service",
+        "description": "Professional laundry & dry cleaning service with high-quality standards.",
+        "product_type": 3,
+        "service_pricing": 2,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 9466,
+        "price": 16802,
+        "discount_price": 15625,
+        "discount": 7,
+        "minimum_price": 9466,
+        "maximum_price": 20162,
+        "discount_type": 1,
+        "special_note": "Customized service to meet your specific needs.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 3,
+        "service_is_time_sensitive": 2,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Premium Package\",\"price\":2000}]",
+        "service_available_days_data": "Online",
+        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\"]",
+        "status": 1,
+        "notify_if_available": 1,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 8,
+        "currency_id": 1,
+        "name": "Pet Boarding & Daycare Consultation",
+        "description": "Expert consultation service for pet boarding & daycare needs.",
+        "product_type": 3,
+        "service_pricing": 1,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 14407,
+        "price": 29901,
+        "discount_price": 24817,
+        "discount": 17,
+        "minimum_price": 14407,
+        "maximum_price": 35881,
+        "discount_type": 1,
+        "special_note": "Includes detailed recommendations and planning.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 3,
+        "service_is_time_sensitive": 1,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Follow-up Session\",\"price\":1500}]",
+        "service_available_days_data": "On-site",
+        "service_available_time_data": "[\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 0,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 9,
+        "currency_id": 1,
+        "name": "Virtual Assistants & Freelancers Package Deal",
+        "description": "Comprehensive virtual assistants & freelancers package with multiple services.",
+        "product_type": 3,
+        "service_pricing": 1,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 10687,
+        "price": 19085,
+        "discount_price": 16985,
+        "discount": 11,
+        "minimum_price": 10687,
+        "maximum_price": 22902,
+        "discount_type": 1,
+        "special_note": "Best value for multiple service requirements.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 1,
+        "service_is_time_sensitive": 1,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Extended Service\",\"price\":3000}]",
+        "service_available_days_data": "Online",
+        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Thursday\"]",
+        "status": 1,
+        "notify_if_available": 0,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+        ]
       }
     ]
   },
@@ -678,7 +984,7 @@
           "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
         ]
       },
       {
@@ -742,7 +1048,7 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
@@ -780,7 +1086,7 @@
           "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
         ]
       },
       {
@@ -814,7 +1120,7 @@
           "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
         ]
       },
       {
@@ -848,7 +1154,109 @@
           "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 10,
+        "currency_id": 1,
+        "name": "Premium Grooming Package",
+        "description": "Complete grooming service including haircut, beard trim, and styling.",
+        "product_type": 3,
+        "service_pricing": 2,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 5398,
+        "price": 9239,
+        "discount_price": 8222,
+        "discount": 11,
+        "minimum_price": 5398,
+        "maximum_price": 11086,
+        "discount_type": 1,
+        "special_note": "Includes premium grooming products.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 1,
+        "service_is_time_sensitive": 1,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Hot Towel Treatment\",\"price\":800}]",
+        "service_available_days_data": "On-site",
+        "service_available_time_data": "[\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 0,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1562004760-aceed7bb0fe3?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 11,
+        "currency_id": 1,
+        "name": "Event Planning & Coordination Consultation",
+        "description": "Expert consultation service for event planning & coordination needs.",
+        "product_type": 3,
+        "service_pricing": 1,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 6592,
+        "price": 13104,
+        "discount_price": 11662,
+        "discount": 11,
+        "minimum_price": 6592,
+        "maximum_price": 15724,
+        "discount_type": 1,
+        "special_note": "Includes detailed recommendations and planning.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 3,
+        "service_is_time_sensitive": 2,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Follow-up Session\",\"price\":1500}]",
+        "service_available_days_data": "On-site",
+        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 0,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 12,
+        "currency_id": 1,
+        "name": "Catering & Meal Prep Services Package Deal",
+        "description": "Comprehensive catering & meal prep services package with multiple services.",
+        "product_type": 3,
+        "service_pricing": 2,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 13656,
+        "price": 26941,
+        "discount_price": 22899,
+        "discount": 15,
+        "minimum_price": 13656,
+        "maximum_price": 32329,
+        "discount_type": 1,
+        "special_note": "Best value for multiple service requirements.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 2,
+        "service_is_time_sensitive": 2,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Extended Service\",\"price\":3000}]",
+        "service_available_days_data": "On-site",
+        "service_available_time_data": "[\"Tuesday\",\"Wednesday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 1,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
         ]
       }
     ]
@@ -900,7 +1308,7 @@
           "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
         ]
       },
       {
@@ -934,7 +1342,7 @@
           "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
         ]
       },
       {
@@ -966,7 +1374,7 @@
         "images": [
           "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop"
         ]
@@ -1001,7 +1409,7 @@
           "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop"
         ]
       },
@@ -1036,7 +1444,7 @@
           "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
         ]
       },
       {
@@ -1070,7 +1478,109 @@
           "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 13,
+        "currency_id": 1,
+        "name": "Premium Craft Beers & Specialty Alcohol Service",
+        "description": "Professional craft beers & specialty alcohol service with high-quality standards.",
+        "product_type": 3,
+        "service_pricing": 2,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 19225,
+        "price": 43424,
+        "discount_price": 36910,
+        "discount": 15,
+        "minimum_price": 19225,
+        "maximum_price": 52108,
+        "discount_type": 1,
+        "special_note": "Customized service to meet your specific needs.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 3,
+        "service_is_time_sensitive": 1,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Premium Package\",\"price\":2000}]",
+        "service_available_days_data": "On-site",
+        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 0,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 14,
+        "currency_id": 1,
+        "name": "Photography & Videography Services Consultation",
+        "description": "Expert consultation service for photography & videography services needs.",
+        "product_type": 3,
+        "service_pricing": 2,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 11032,
+        "price": 20263,
+        "discount_price": 17020,
+        "discount": 16,
+        "minimum_price": 11032,
+        "maximum_price": 24315,
+        "discount_type": 1,
+        "special_note": "Includes detailed recommendations and planning.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 1,
+        "service_is_time_sensitive": 2,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Follow-up Session\",\"price\":1500}]",
+        "service_available_days_data": "On-site",
+        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Thursday\"]",
+        "status": 1,
+        "notify_if_available": 0,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 15,
+        "currency_id": 1,
+        "name": "Kitchen Design Service",
+        "description": "Custom kitchen design and renovation planning.",
+        "product_type": 3,
+        "service_pricing": 2,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 21741,
+        "price": 45748,
+        "discount_price": 43003,
+        "discount": 6,
+        "minimum_price": 21741,
+        "maximum_price": 54897,
+        "discount_type": 1,
+        "special_note": "Includes cabinet and countertop selection.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 3,
+        "service_is_time_sensitive": 2,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Appliance Selection\",\"price\":2000}]",
+        "service_available_days_data": "Online",
+        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 1,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
         ]
       }
     ]
@@ -1092,7 +1602,7 @@
     "merchant_phone_number": "+2348156789012",
     "products": [
       {
-        "category_id": 45,
+        "category_id": 22,
         "currency_id": 1,
         "name": "Social Media Management",
         "description": "Comprehensive management of social media platforms.",
@@ -1126,7 +1636,7 @@
         ]
       },
       {
-        "category_id": 45,
+        "category_id": 6,
         "currency_id": 1,
         "name": "Brand Strategy Session",
         "description": "One-on-one brand strategy consultation.",
@@ -1160,7 +1670,7 @@
         ]
       },
       {
-        "category_id": 45,
+        "category_id": 6,
         "currency_id": 1,
         "name": "Logo Design Package",
         "description": "Custom logo design with 3 concepts.",
@@ -1186,15 +1696,15 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1558655146-d09347e92766?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
         ]
       },
       {
-        "category_id": 45,
+        "category_id": 22,
         "currency_id": 1,
         "name": "Website Audit",
         "description": "Detailed audit of your business website.",
@@ -1220,15 +1730,15 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
         ]
       },
       {
-        "category_id": 45,
+        "category_id": 4,
         "currency_id": 1,
         "name": "Content Creation",
         "description": "Professional content writing for blogs and websites.",
@@ -1254,15 +1764,15 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
         ]
       },
       {
-        "category_id": 45,
+        "category_id": 4,
         "currency_id": 1,
         "name": "Email Marketing Campaign",
         "description": "End-to-end email marketing campaign setup.",
@@ -1293,6 +1803,108 @@
           "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 16,
+        "currency_id": 1,
+        "name": "Premium Plumbing & Electrical Services Service",
+        "description": "Professional plumbing & electrical services service with high-quality standards.",
+        "product_type": 3,
+        "service_pricing": 1,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 10146,
+        "price": 18047,
+        "discount_price": 16783,
+        "discount": 7,
+        "minimum_price": 10146,
+        "maximum_price": 21656,
+        "discount_type": 1,
+        "special_note": "Customized service to meet your specific needs.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 1,
+        "service_is_time_sensitive": 2,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Premium Package\",\"price\":2000}]",
+        "service_available_days_data": "On-site",
+        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 1,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 17,
+        "currency_id": 1,
+        "name": "Tech Repair & Device Services Consultation",
+        "description": "Expert consultation service for tech repair & device services needs.",
+        "product_type": 3,
+        "service_pricing": 1,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 14619,
+        "price": 22699,
+        "discount_price": 18386,
+        "discount": 19,
+        "minimum_price": 14619,
+        "maximum_price": 27238,
+        "discount_type": 1,
+        "special_note": "Includes detailed recommendations and planning.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 3,
+        "service_is_time_sensitive": 2,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Follow-up Session\",\"price\":1500}]",
+        "service_available_days_data": "On-site",
+        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 1,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 18,
+        "currency_id": 1,
+        "name": "Legal & Notary Services Package Deal",
+        "description": "Comprehensive legal & notary services package with multiple services.",
+        "product_type": 3,
+        "service_pricing": 1,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 9438,
+        "price": 19654,
+        "discount_price": 18671,
+        "discount": 5,
+        "minimum_price": 9438,
+        "maximum_price": 23584,
+        "discount_type": 1,
+        "special_note": "Best value for multiple service requirements.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 2,
+        "service_is_time_sensitive": 2,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Extended Service\",\"price\":3000}]",
+        "service_available_days_data": "On-site",
+        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Thursday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 1,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
         ]
       }
     ]
@@ -1482,6 +2094,108 @@
           "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=400&fit=crop"
         ]
+      },
+      {
+        "category_id": 19,
+        "currency_id": 1,
+        "name": "Premium Home Security & Smart Systems Service",
+        "description": "Professional home security & smart systems service with high-quality standards.",
+        "product_type": 3,
+        "service_pricing": 2,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 18392,
+        "price": 38073,
+        "discount_price": 35407,
+        "discount": 7,
+        "minimum_price": 18392,
+        "maximum_price": 45687,
+        "discount_type": 1,
+        "special_note": "Customized service to meet your specific needs.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 2,
+        "service_is_time_sensitive": 2,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Premium Package\",\"price\":2000}]",
+        "service_available_days_data": "Online",
+        "service_available_time_data": "[\"Wednesday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 1,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 20,
+        "currency_id": 1,
+        "name": "Wedding Reception Catering",
+        "description": "Complete wedding reception catering with multiple course options.",
+        "product_type": 3,
+        "service_pricing": 1,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 32941,
+        "price": 63916,
+        "discount_price": 58163,
+        "discount": 9,
+        "minimum_price": 32941,
+        "maximum_price": 76699,
+        "discount_type": 1,
+        "special_note": "Customizable menu for dietary restrictions.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 1,
+        "service_is_time_sensitive": 1,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Cake Service\",\"price\":15000}]",
+        "service_available_days_data": "On-site",
+        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\"]",
+        "status": 1,
+        "notify_if_available": 1,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 21,
+        "currency_id": 1,
+        "name": "Music Instruments & Lessons Package Deal",
+        "description": "Comprehensive music instruments & lessons package with multiple services.",
+        "product_type": 3,
+        "service_pricing": 2,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 12627,
+        "price": 22006,
+        "discount_price": 18705,
+        "discount": 15,
+        "minimum_price": 12627,
+        "maximum_price": 26407,
+        "discount_type": 1,
+        "special_note": "Best value for multiple service requirements.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 1,
+        "service_is_time_sensitive": 2,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Extended Service\",\"price\":3000}]",
+        "service_available_days_data": "Online",
+        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 0,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+        ]
       }
     ]
   },
@@ -1532,7 +2246,7 @@
           "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
         ]
       },
       {
@@ -1596,7 +2310,7 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
@@ -1634,7 +2348,7 @@
           "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
         ]
       },
       {
@@ -1668,7 +2382,7 @@
           "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
         ]
       },
       {
@@ -1702,7 +2416,109 @@
           "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 22,
+        "currency_id": 1,
+        "name": "Premium Online Courses & Skill Training Service",
+        "description": "Professional online courses & skill training service with high-quality standards.",
+        "product_type": 3,
+        "service_pricing": 2,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 18617,
+        "price": 36366,
+        "discount_price": 30911,
+        "discount": 15,
+        "minimum_price": 18617,
+        "maximum_price": 43639,
+        "discount_type": 1,
+        "special_note": "Customized service to meet your specific needs.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 1,
+        "service_is_time_sensitive": 2,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Premium Package\",\"price\":2000}]",
+        "service_available_days_data": "Online",
+        "service_available_time_data": "[\"Monday\"]",
+        "status": 1,
+        "notify_if_available": 0,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 23,
+        "currency_id": 1,
+        "name": "Outdoor Gear & Adventure Equipment Consultation",
+        "description": "Expert consultation service for outdoor gear & adventure equipment needs.",
+        "product_type": 3,
+        "service_pricing": 1,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 18399,
+        "price": 38185,
+        "discount_price": 35130,
+        "discount": 8,
+        "minimum_price": 18399,
+        "maximum_price": 45822,
+        "discount_type": 1,
+        "special_note": "Includes detailed recommendations and planning.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 3,
+        "service_is_time_sensitive": 1,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Follow-up Session\",\"price\":1500}]",
+        "service_available_days_data": "On-site",
+        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 1,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 24,
+        "currency_id": 1,
+        "name": "Car Wash & Auto Detailing Package Deal",
+        "description": "Comprehensive car wash & auto detailing package with multiple services.",
+        "product_type": 3,
+        "service_pricing": 2,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 12627,
+        "price": 19724,
+        "discount_price": 16370,
+        "discount": 17,
+        "minimum_price": 12627,
+        "maximum_price": 23668,
+        "discount_type": 1,
+        "special_note": "Best value for multiple service requirements.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 2,
+        "service_is_time_sensitive": 2,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Extended Service\",\"price\":3000}]",
+        "service_available_days_data": "Online",
+        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 1,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&h=400&fit=crop"
         ]
       }
     ]
@@ -1754,7 +2570,7 @@
           "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
         ]
       },
       {
@@ -1788,7 +2604,7 @@
           "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
         ]
       },
       {
@@ -1820,7 +2636,7 @@
         "images": [
           "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop"
         ]
@@ -1855,7 +2671,7 @@
           "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop"
         ]
       },
@@ -1890,7 +2706,7 @@
           "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
         ]
       },
       {
@@ -1924,7 +2740,109 @@
           "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 1,
+        "currency_id": 1,
+        "name": "Premium Financial Services & Tax Consultants Service",
+        "description": "Professional financial services & tax consultants service with high-quality standards.",
+        "product_type": 3,
+        "service_pricing": 2,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 5085,
+        "price": 8301,
+        "discount_price": 7885,
+        "discount": 5,
+        "minimum_price": 5085,
+        "maximum_price": 9961,
+        "discount_type": 1,
+        "special_note": "Customized service to meet your specific needs.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 3,
+        "service_is_time_sensitive": 2,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Premium Package\",\"price\":2000}]",
+        "service_available_days_data": "Online",
+        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 0,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 2,
+        "currency_id": 1,
+        "name": "Tattoo & Piercing Studios Consultation",
+        "description": "Expert consultation service for tattoo & piercing studios needs.",
+        "product_type": 3,
+        "service_pricing": 1,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 17298,
+        "price": 38209,
+        "discount_price": 31331,
+        "discount": 18,
+        "minimum_price": 17298,
+        "maximum_price": 45850,
+        "discount_type": 1,
+        "special_note": "Includes detailed recommendations and planning.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 2,
+        "service_is_time_sensitive": 1,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Follow-up Session\",\"price\":1500}]",
+        "service_available_days_data": "On-site",
+        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 0,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+        ]
+      },
+      {
+        "category_id": 3,
+        "currency_id": 1,
+        "name": "Party Supplies & Event Rentals Package Deal",
+        "description": "Comprehensive party supplies & event rentals package with multiple services.",
+        "product_type": 3,
+        "service_pricing": 1,
+        "units": 1,
+        "weight": 0,
+        "cost_price": 7040,
+        "price": 10590,
+        "discount_price": 9001,
+        "discount": 15,
+        "minimum_price": 7040,
+        "maximum_price": 12708,
+        "discount_type": 1,
+        "special_note": "Best value for multiple service requirements.",
+        "unit_low_level": 1,
+        "service_delivery_mode": 3,
+        "service_is_time_sensitive": 1,
+        "service_addon_extra_charge_meta_data": "[{\"name\":\"Extended Service\",\"price\":3000}]",
+        "service_available_days_data": "Online",
+        "service_available_time_data": "[\"Tuesday\",\"Wednesday\",\"Friday\"]",
+        "status": 1,
+        "notify_if_available": 0,
+        "condition_status": 1,
+        "images": [
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
         ]
       }
     ]
