@@ -151,7 +151,7 @@ def get_random_user_by_user_type(db: Session, user_type: int=0):
     #     return db.query(User).offset(offset).limit(1).first()
     # else:
     #     return None
-    ids = session.query(User.id).filter_by(user_type = user_type).filter(User.deleted_at == None).scalars().all()
+    ids = db.query(User.id).filter_by(user_type = user_type).filter(User.deleted_at == None).scalars().all()
     print(ids)
     if ids:
         random_id = random.choice(ids)
