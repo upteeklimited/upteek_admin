@@ -140,11 +140,13 @@ def get_random_merchant_product(db: Session, merchant_id: int=0):
     #     return db.query(Product).offset(offset).limit(1).first()
     # else:
     #     return None
-    ids = db.query(Product.id).filter_by(merchant_id = merchant_id).scalars().all()
+    # ids = db.query(Product.id).filter_by(merchant_id = merchant_id).scalars().all()
+    results = db.query(Product.id).filter_by(merchant_id = merchant_id).all()
+    ids = [row[0] for row in results]
     print(ids)
     if ids:
         random_id = random.choice(ids)
         print(random_id)
-        return db.query(Product).filter_by(id = id).first()
+        return db.query(Product).filter_by(id = random_id).first()
     else:
         return None
