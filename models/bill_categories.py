@@ -66,6 +66,9 @@ def force_delete_bill_category(db: Session, id: int=0, commit: bool=False):
 def get_single_bill_category_by_id(db: Session, id: int=0):
     return db.query(BillCategory).filter_by(id = id).first()
 
+def get_single_bill_category_by_code(db: Session, code: str=None):
+    return db.query(BillCategory).filter_by(code = code).first()
+
 def get_bill_categories(db: Session, filters: Dict={}):
     query = db.query(BillCategory)
     if 'country_id' in filters:
@@ -77,3 +80,16 @@ def get_bill_categories(db: Session, filters: Dict={}):
     if 'status' in filters:
         query = query.filter_by(status = filters['status'])
     return query.order_by(desc(BillCategory.created_at))
+
+def count_bill_categories(db: Session):
+    return db.query(BillCategory).count()
+
+def count_bill_categories_by_code(db: Session, code: str=None):
+    return db.query(BillCategory).filter_by(code = code).count()
+
+def check_bill_category_exist(db: Session, code: str = None):
+    coun = count_bill_categories_by_code(db=db, code=code)
+    if coun > 0:
+        return True
+    else:
+        return False

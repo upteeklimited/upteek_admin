@@ -7,8 +7,8 @@ from models.activity_logs import Activity_Log, create_activity_log, update_activ
 from models.addresses import Address, create_address, update_address, delete_address, force_delete_address, get_single_address_by_id, get_addresses, get_addresses_by_addressable_type, get_addressable
 from models.auth_tokens import AuthToken, create_auth_token, update_auth_token, update_user_auth_token, delete_auth_token, force_delete_auth_token, get_single_auth_token_by_id, get_auth_tokens, get_auth_tokens_by_user_id, get_latest_user_auth_token
 from models.beneficiaries import Beneficiary, create_beneficiary, update_beneficiary, delete_beneficiary, force_delete_beneficiary, get_single_beneficiary_by_id, get_beneficiaries
-from models.bill_categories import BillCategory, create_bill_category, update_bill_category, delete_bill_category, force_delete_bill_category, get_single_bill_category_by_id, get_bill_categories
-from models.bills import Bill, create_bill, update_bill, delete_bill, force_delete_bill, get_single_bill_by_id, get_bills
+from models.bill_categories import BillCategory, create_bill_category, update_bill_category, delete_bill_category, force_delete_bill_category, get_single_bill_category_by_id, get_single_bill_category_by_code, get_bill_categories, count_bill_categories, count_bill_categories_by_code, check_bill_category_exist
+from models.bills import Bill, create_bill, update_bill, delete_bill, force_delete_bill, get_single_bill_by_id, get_bills, count_bills, count_bills_by_code, check_if_bill_exists
 from models.cards import Card, create_card, update_card, delete_card, force_delete_card, get_single_card_by_id, get_cards
 from models.categories import Category, create_category, update_category, delete_category, force_delete_category, get_single_category_by_id, get_single_category_by_slug, get_categories
 from models.cities import City, create_city, update_city, delete_city, force_delete_city, get_single_city_by_id, get_capital_city, get_cities, get_cities_by_state_id

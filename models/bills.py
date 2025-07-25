@@ -97,3 +97,16 @@ def get_bills(db: Session, filters: Dict={}):
     if 'status' in filters:
         query = query.filter_by(status = filters['status'])
     return query.order_by(desc(Bill.created_at))
+
+def count_bills(db: Session):
+    return db.query(Bill).count()
+
+def count_bills_by_code(db: Session, code: str=None):
+    return db.query(Bill).filter_by(code = code).count()
+
+def check_if_bill_exists(db: Session, code: str=None):
+    count = count_bills_by_code(db=db, code=code)
+    if count > 0:
+        return True
+    else:
+        return False
