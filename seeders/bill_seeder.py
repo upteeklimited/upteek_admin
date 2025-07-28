@@ -1,5 +1,6 @@
 from sqlalchemy.orm import Session
 from database.model import create_bill_category, create_bill, get_single_provider_by_code, get_single_bill_category_by_code, check_bill_category_exist, check_if_bill_exists, get_single_service_by_code
+import json
 
 def seed_bill_categories(db: Session):
 	data = [
@@ -76,7 +77,7 @@ def seed_bills(db: Session):
 			'provider': 'squadco',
 			'name': 'MTN Airtime',
 			'description': 'MTN Airtime',
-			'short_name': 'MTN Airtime',
+			'short_name': 'MTN',
 			'label_name': 'Mobile Number',
 			'code': 'bp_ng_mtn_airtime',
 			'amount': 0,
@@ -87,6 +88,7 @@ def seed_bills(db: Session):
 			'is_airtime': 1,
 			'is_data': 0,
 			'is_flat': 0,
+			'meta_data': {},
 		},
 		{
 			'category': 'ng_airtime',
@@ -94,7 +96,7 @@ def seed_bills(db: Session):
 			'provider': 'squadco',
 			'name': 'Airtel Airtime',
 			'description': 'Airtel Airtime',
-			'short_name': 'Airtel Airtime',
+			'short_name': 'Airtel',
 			'label_name': 'Mobile Number',
 			'code': 'bp_ng_airtel_airtime',
 			'amount': 0,
@@ -105,6 +107,7 @@ def seed_bills(db: Session):
 			'is_airtime': 1,
 			'is_data': 0,
 			'is_flat': 0,
+			'meta_data': {},
 		},
 		{
 			'category': 'ng_airtime',
@@ -112,7 +115,7 @@ def seed_bills(db: Session):
 			'provider': 'squadco',
 			'name': 'Glo Airtime',
 			'description': 'Glo Airtime',
-			'short_name': 'Glo Airtime',
+			'short_name': 'Glo',
 			'label_name': 'Mobile Number',
 			'code': 'bp_ng_glo_airtime',
 			'amount': 0,
@@ -123,6 +126,7 @@ def seed_bills(db: Session):
 			'is_airtime': 1,
 			'is_data': 0,
 			'is_flat': 0,
+			'meta_data': {},
 		},
 		{
 			'category': 'ng_airtime',
@@ -130,7 +134,7 @@ def seed_bills(db: Session):
 			'provider': 'squadco',
 			'name': '9mobile Airtime',
 			'description': '9mobile Airtime',
-			'short_name': '9mobile Airtime',
+			'short_name': '9mobile',
 			'label_name': 'Mobile Number',
 			'code': 'bp_ng_9mobile_airtime',
 			'amount': 0,
@@ -141,6 +145,7 @@ def seed_bills(db: Session):
 			'is_airtime': 1,
 			'is_data': 0,
 			'is_flat': 0,
+			'meta_data': {},
 		},
 		{
 			'category': 'ng_data',
@@ -159,6 +164,11 @@ def seed_bills(db: Session):
 			'is_airtime': 1,
 			'is_data': 0,
 			'is_flat': 0,
+			'meta_data': {
+				'squadco': {
+					'biller_name': 'MTN',
+				},
+			},
 		},
 		{
 			'category': 'ng_data',
@@ -177,6 +187,11 @@ def seed_bills(db: Session):
 			'is_airtime': 1,
 			'is_data': 0,
 			'is_flat': 0,
+			'meta_data': {
+				'squadco': {
+					'biller_name': 'Airtel',
+				},
+			},
 		},
 		{
 			'category': 'ng_data',
@@ -195,6 +210,11 @@ def seed_bills(db: Session):
 			'is_airtime': 1,
 			'is_data': 0,
 			'is_flat': 0,
+			'meta_data': {
+				'squadco': {
+					'biller_name': 'GLO',
+				},
+			},
 		},
 		{
 			'category': 'ng_data',
@@ -213,6 +233,11 @@ def seed_bills(db: Session):
 			'is_airtime': 1,
 			'is_data': 0,
 			'is_flat': 0,
+			'meta_data': {
+				'squadco': {
+					'biller_name': '9mobile',
+				},
+			},
 		},
 	]
 	print(data)
@@ -230,5 +255,5 @@ def seed_bills(db: Session):
 			provider = get_single_provider_by_code(db=db, code=data[i]['provider'])
 			if provider is not None:
 				provider_id = provider.id
-			create_bill(db=db, country_id=1, currency_id=1, category_id=category_id, service_id=service_id, provider_id=provider_id, name=data[i]['name'], description=data[i]['description'], short_name=data[i]['short_name'], label=data[i]['label_name'], code=data[i]['code'], amount=data[i]['amount'], minimum_amount=data[i]['minimum_amount'], maximum_amount=data[i]['maximum_amount'], fee=data[i]['fee'], commission=data[i]['commission'], is_airtime=data[i]['is_airtime'], is_data=data[i]['is_data'], is_flat=data[i]['is_flat'], status=1)
+			create_bill(db=db, country_id=1, currency_id=1, category_id=category_id, service_id=service_id, provider_id=provider_id, name=data[i]['name'], description=data[i]['description'], short_name=data[i]['short_name'], label=data[i]['label_name'], code=data[i]['code'], amount=data[i]['amount'], minimum_amount=data[i]['minimum_amount'], maximum_amount=data[i]['maximum_amount'], fee=data[i]['fee'], commission=data[i]['commission'], is_airtime=data[i]['is_airtime'], is_data=data[i]['is_data'], is_flat=data[i]['is_flat'], meta_data=json.dumps(data[i]['meta_data']), status=1)
 	True

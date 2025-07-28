@@ -33,7 +33,7 @@ def run_seed(db: Session):
         # print(run_mock_seeder(db=db))
         # print(run_fund_seed(db=db))
         # print(run_purchase_seed(db=db))
-        print(seed_bill_categories(db=db))
+        # print(seed_bill_categories(db=db))
         print(seed_bills(db=db))
         return {
             'status': True,
