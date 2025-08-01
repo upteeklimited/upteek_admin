@@ -85,7 +85,7 @@ def run_config_seeder(db: Session):
     create_system_configuration(db=db, name="external_transfer_provider_code", single_value="fincra")
     create_system_configuration(db=db, name="external_transfer_fee_type", single_value="2")
     liability_account_code = "20000000"
-    general_deposit_resp = create_gl(db=db, account_type_code=revenue_account_code, account_name="General Deposit Account", created_by=1, authorized_by=1)
+    general_deposit_resp = create_gl(db=db, account_type_code=liability_account_code, account_name="General Deposit Account", created_by=1, authorized_by=1)
     if general_deposit_resp['status'] == True:
         general_deposit_resp_gl = general_deposit_resp['data']
         create_system_configuration(db=db, name="general_deposit_gl", single_value=general_deposit_resp_gl.account_number)

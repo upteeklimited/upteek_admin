@@ -161,8 +161,8 @@ def seed_bills(db: Session):
 			'maximum_amount': 10000000,
 			'fee': 0,
 			'commission': 0.02,
-			'is_airtime': 1,
-			'is_data': 0,
+			'is_airtime': 0,
+			'is_data': 1,
 			'is_flat': 0,
 			'meta_data': {
 				'squadco': {
@@ -184,8 +184,8 @@ def seed_bills(db: Session):
 			'maximum_amount': 10000000,
 			'fee': 0,
 			'commission': 0.02,
-			'is_airtime': 1,
-			'is_data': 0,
+			'is_airtime': 0,
+			'is_data': 1,
 			'is_flat': 0,
 			'meta_data': {
 				'squadco': {
@@ -207,8 +207,8 @@ def seed_bills(db: Session):
 			'maximum_amount': 10000000,
 			'fee': 0,
 			'commission': 0.02,
-			'is_airtime': 1,
-			'is_data': 0,
+			'is_airtime': 0,
+			'is_data': 1,
 			'is_flat': 0,
 			'meta_data': {
 				'squadco': {
@@ -230,8 +230,8 @@ def seed_bills(db: Session):
 			'maximum_amount': 10000000,
 			'fee': 0,
 			'commission': 0.02,
-			'is_airtime': 1,
-			'is_data': 0,
+			'is_airtime': 0,
+			'is_data': 1,
 			'is_flat': 0,
 			'meta_data': {
 				'squadco': {

@@ -202,6 +202,18 @@ def seed_trans_type(db: Session):
             'name': 'Loan Payment Debit',
             'desc': 'Loan Payment Debit Description',
         },
+        {
+            'type_code': '034',
+            'type_action': 1,
+            'name': 'Bill Payment Debit',
+            'desc': 'Bill Payment Debit Description',
+        },
+        {
+            'type_code': '035',
+            'type_action': 2,
+            'name': 'Bill Payment Credit',
+            'desc': 'Bill Payment Credit Description',
+        },
     ]
     if len(seed) > 0:
         for i in range(len(seed)):
