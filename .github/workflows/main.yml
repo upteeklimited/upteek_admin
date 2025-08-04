@@ -18,6 +18,6 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Debug path access
+      - name: Replace /var/www/adminapi/libs files
         run: |
-          whoami
+          cd /var/www/adminapi/libs && ls -al
