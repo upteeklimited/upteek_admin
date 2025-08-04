@@ -46,7 +46,7 @@ jobs:
           fi
 
           # Write the new report
-          echo -e "Deployment Count: $COUNT\nTimestamp: $TIMESTAMP\nStatus: Success" | sudo tee "$REPORT_FILE" > /dev/null
+          echo -e "Deployment Count: $COUNT\nTimestamp: $TIMESTAMP\nStatus: Success" | tee "$REPORT_FILE" > /dev/null
 
       - name: Cleanup Actions workspace
         run: |
