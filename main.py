@@ -7,12 +7,12 @@ from fastapi_pagination import add_pagination
 import sys, traceback
 
 
-from routers.authentication import auth
-from routers.user import profile
-from routers.misc import geo
-from routers.misc import merch
-from routers.inventory import category
-from routers.user import main as users
+from .routers.authentication import auth
+from .routers.user import profile
+from .routers.misc import geo
+from .routers.misc import merch
+from .routers.inventory import category
+from .routers.user import main as users
 
 #system routes
 from routers import seed
