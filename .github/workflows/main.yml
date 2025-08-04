@@ -20,6 +20,4 @@ jobs:
 
       - name: Debug path access
         run: |
-          ls -la /var/www/
-          ls -la /var/www/adminapi/
           whoami
