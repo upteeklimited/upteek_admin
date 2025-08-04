@@ -23,3 +23,4 @@ jobs:
           echo "User: $(whoami)"
           touch /var/www/adminapi/libs/test.txt
           echo "✓ Permissions confirmed"
+          
