@@ -1,0 +1,52 @@
+name: Upteek admin Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # or self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Replace /var/www/adminapi/libs files
+        run: |
+          sudo rm -rf /var/www/adminapi/libs/*
+          sudo cp -r ./* /var/www/adminapi/libs/
+
+      - name: Update deployment report
+        run: |
+          REPORT_FILE="/var/www/adminapi/tmp/restart.txt"
+          TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
+
+          # Ensure the tmp folder exists
+          sudo mkdir -p /var/www/adminapi/tmp
+
+          # Read current deployment count if file exists
+          if [ -f "$REPORT_FILE" ]; then
+            LAST_COUNT=$(grep -oP '^Deployment Count: \K\d+' "$REPORT_FILE" | head -n 1)
+            if [ -z "$LAST_COUNT" ]; then
+              COUNT=1
+            else
+              COUNT=$((LAST_COUNT + 1))
+            fi
+          else
+            COUNT=1
+          fi
+
+          # Write the new report
+          echo -e "Deployment Count: $COUNT\nTimestamp: $TIMESTAMP\nStatus: Success" | sudo tee "$REPORT_FILE" > /dev/null
+
+      - name: Cleanup Actions workspace
+        run: |
+          echo "Cleaning up workspace..."
+          sudo find . -mindepth 1 ! -name '.git' -exec rm -rf {} +
