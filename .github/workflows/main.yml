@@ -11,10 +11,18 @@ jobs:
 
     runs-on: self-hosted
 
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+    strategy:
+      matrix:
+        node-version: [22.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-      - name: Test
-        run: |
-            echo "Good"
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - name: Delete necessary files and folders
+      run: |
+        cd /var/www/adminapi && ls -al
