@@ -18,6 +18,8 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Replace /var/www/adminapi/libs files
+      - name: Confirm permission
         run: |
-          cd /var/www/adminapi/libs && ls -al
+          echo "User: $(whoami)"
+          touch /var/www/adminapi/libs/test.txt
+          echo "✓ Permissions confirmed"
