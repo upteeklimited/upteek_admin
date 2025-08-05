@@ -5,6 +5,7 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi_pagination import add_pagination
 import sys, traceback
+import os
 
 BASEDIR = os.path.abspath(os.path.dirname(__file__))
 
