@@ -70,8 +70,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Protective Coating\",\"price\":1500}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -79,7 +79,7 @@
           "https://images.pexels.com/photos/3689314/pexels-photo-3689314.jpeg",
           "https://images.pexels.com/photos/15496927/pexels-photo-15496927.jpeg",
           "https://images.pexels.com/photos/10866831/pexels-photo-10866831.jpeg",
-          "https://images.pexels.com/photos/8478224/pexels-photo-8478224.jpeg",
+          "https://images.pexels.com/photos/8478224/pexels-photo-8478224.jpeg"
         ]
       },
       {
@@ -103,8 +103,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Leather Treatment\",\"price\":1000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\",\"Saturday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\",\"Saturday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -112,7 +112,7 @@
           "https://images.pexels.com/photos/5233285/pexels-photo-5233285.jpeg",
           "https://images.pexels.com/photos/9971841/pexels-photo-9971841.jpeg",
           "https://images.pexels.com/photos/9971830/pexels-photo-9971830.jpeg",
-          "https://images.pexels.com/photos/5233264/pexels-photo-5233264.jpeg",
+          "https://images.pexels.com/photos/5233264/pexels-photo-5233264.jpeg"
         ]
       },
       {
@@ -136,8 +136,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"UV Protection\",\"price\":500}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -145,7 +145,7 @@
           "https://images.pexels.com/photos/25580655/pexels-photo-25580655.jpeg",
           "https://images.pexels.com/photos/2343500/pexels-photo-2343500.jpeg",
           "https://images.pexels.com/photos/2343499/pexels-photo-2343499.jpeg",
-          "https://images.pexels.com/photos/27317277/pexels-photo-27317277.jpeg",
+          "https://images.pexels.com/photos/27317277/pexels-photo-27317277.jpeg"
         ]
       },
       {
@@ -169,8 +169,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extra Layer\",\"price\":3000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Wednesday\",\"Saturday\"]",
+        "service_available_days_data": "[\"Wednesday\",\"Saturday\"]", 
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -178,7 +178,7 @@
           "https://images.pexels.com/photos/14542677/pexels-photo-14542677.jpeg",
           "https://images.pexels.com/photos/5233262/pexels-photo-5233262.jpeg",
           "https://images.pexels.com/photos/7154633/pexels-photo-7154633.jpeg",
-          "https://images.pexels.com/photos/7154635/pexels-photo-7154635.jpeg",
+          "https://images.pexels.com/photos/7154635/pexels-photo-7154635.jpeg"
         ]
       },
       {
@@ -202,8 +202,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Tire Shine\",\"price\":500}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\",\"Saturday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\",\"Saturday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -236,8 +236,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Premium Package\",\"price\":2000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -270,8 +270,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Follow-up Session\",\"price\":1500}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -279,7 +279,7 @@
           "https://images.pexels.com/photos/5711242/pexels-photo-5711242.jpeghoto-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
           "https://images.pexels.com/photos/5711239/pexels-photo-5711239.jpeg",
           "https://images.pexels.com/photos/4125507/pexels-photo-4125507.jpeg",
-          "https://images.pexels.com/photos/4125500/pexels-photo-4125500.jpeg",
+          "https://images.pexels.com/photos/4125500/pexels-photo-4125500.jpeg"
       ]
       },
       {
@@ -303,15 +303,15 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extended Service\",\"price\":3000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
           "https://images.pexels.com/photos/18845888/pexels-photo-18845888.jpeg",
           "https://images.pexels.com/photos/6591147/pexels-photo-6591147.jpeg",
-          "https://images.pexels.com/photos/27176163/pexels-photo-27176163.jpeg",
+          "https://images.pexels.com/photos/27176163/pexels-photo-27176163.jpeg"
       ]
       }
     ]
@@ -421,8 +421,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extra Revision\",\"price\":2000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -430,7 +430,7 @@
           "https://images.pexels.com/photos/17845/pexels-photo.jpg",
           "https://images.pexels.com/photos/57690/pexels-photo-57690.jpeg",
           "https://images.pexels.com/photos/7661590/pexels-photo-7661590.jpeg",
-          "https://images.pexels.com/photos/5104700/pexels-photo-5104700.jpeg",
+          "https://images.pexels.com/photos/5104700/pexels-photo-5104700.jpeg"
         ]
       },
       {
@@ -454,8 +454,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Follow-up Call\",\"price\":1500}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -488,8 +488,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extra 500 words\",\"price\":2000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -522,8 +522,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extra List\",\"price\":2500}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -555,8 +555,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Premium Package\",\"price\":2000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -564,7 +564,7 @@
           "https://images.pexels.com/photos/6956303/pexels-photo-6956303.jpeg",
           "https://images.pexels.com/photos/7279706/pexels-photo-7279706.jpeg",
           "https://images.pexels.com/photos/7651801/pexels-photo-7651801.jpeg",
-          "https://images.pexels.com/photos/7414207/pexels-photo-7414207.jpeg",
+          "https://images.pexels.com/photos/7414207/pexels-photo-7414207.jpeg"
         ]
       },
       {
@@ -588,8 +588,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Follow-up Session\",\"price\":1500}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Thursday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Thursday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -597,7 +597,7 @@
           "https://images.pexels.com/photos/9462667/pexels-photo-9462667.jpeg",
           "https://images.pexels.com/photos/9462162/pexels-photo-9462162.jpeg",
           "https://images.pexels.com/photos/9462333/pexels-photo-9462333.jpeg",
-          "https://images.pexels.com/photos/6195118/pexels-photo-6195118.jpeg",
+          "https://images.pexels.com/photos/6195118/pexels-photo-6195118.jpeg"
         ]
       },
       {
@@ -621,8 +621,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extended Service\",\"price\":3000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Wednesday\",\"Thursday\"]",
+        "service_available_days_data": "[\"Wednesday\",\"Thursday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -706,8 +706,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Aftercare Kit\",\"price\":500}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -740,15 +740,15 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Styling Products\",\"price\":1000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\",\"Saturday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\",\"Saturday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
           "https://images.pexels.com/photos/39250/pretty-woman-makeup-mirror-glamour-39250.jpeg",
           "https://images.pexels.com/photos/8467963/pexels-photo-8467963.jpeg",
-          "https://images.pexels.com/photos/7142691/pexels-photo-7142691.jpeg",
+          "https://images.pexels.com/photos/7142691/pexels-photo-7142691.jpeg"
         ]
       },
       {
@@ -772,8 +772,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Consultation\",\"price\":1000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -806,8 +806,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Consultation\",\"price\":1000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\",\"Saturday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\",\"Saturday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -840,8 +840,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Premium Package\",\"price\":2000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -874,8 +874,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Follow-up Session\",\"price\":1500}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -883,7 +883,7 @@
           "https://images.pexels.com/photos/6235017/pexels-photo-6235017.jpeg",
           "https://i.pinimg.com/736x/c9/62/59/c962590932ae5bd16e7329ce2f83d717.jpg",
           "https://i.pinimg.com/736x/5f/08/b6/5f08b63b1a37761cfe06ea8e5c848844.jpg",
-          "https://i.pinimg.com/1200x/90/bf/43/90bf432054a472150967c14685a6269a.jpg",
+          "https://i.pinimg.com/1200x/90/bf/43/90bf432054a472150967c14685a6269a.jpg"
         ]
       },
       {
@@ -907,8 +907,8 @@
         "service_delivery_mode": 1,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extended Service\",\"price\":3000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Thursday\"]",
+        "service_available_days_data": "[\"Monday\",\"Wednesday\",\"Thursday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -993,15 +993,15 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Consultation\",\"price\":1000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
           "https://i.pinimg.com/736x/07/d6/1b/07d61b95c2831a042052989a11093eb8.jpg",
           "https://i.pinimg.com/736x/b3/9b/71/b39b71ecfdc75b9de5dcb6380fe2983f.jpg",
-          "https://i.pinimg.com/736x/a7/c2/db/a7c2db5cbd14e8441f2601baf030cabb.jpg",
+          "https://i.pinimg.com/736x/a7/c2/db/a7c2db5cbd14e8441f2601baf030cabb.jpg"
         ]
       },
       {
@@ -1034,7 +1034,7 @@
           "https://images.pexels.com/photos/24366011/pexels-photo-24366011.jpeg",
           "https://images.pexels.com/photos/8293672/pexels-photo-8293672.jpeg",
           "https://i.pinimg.com/1200x/3d/84/3c/3d843c9a1adc6875049c65e385d0628c.jpg",
-          "https://i.pinimg.com/736x/a1/a5/79/a1a579aaaf00be839f69a0e55dd6624b.jpg",
+          "https://i.pinimg.com/736x/a1/a5/79/a1a579aaaf00be839f69a0e55dd6624b.jpg"
         ]
       },
       {
@@ -1058,8 +1058,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Consultation\",\"price\":1000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -1067,7 +1067,7 @@
           "https://images.pexels.com/photos/4792491/pexels-photo-4792491.jpeg",
           "https://images.pexels.com/photos/8978578/pexels-photo-8978578.jpeg",
           "https://images.pexels.com/photos/8978566/pexels-photo-8978566.jpeg",
-          "https://images.pexels.com/photos/7937963/pexels-photo-7937963.jpeg",
+          "https://images.pexels.com/photos/7937963/pexels-photo-7937963.jpeg"
         ]
       },
       {
@@ -1091,8 +1091,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Consultation\",\"price\":1000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -1125,8 +1125,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Consultation\",\"price\":1000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -1159,8 +1159,8 @@
         "service_delivery_mode": 1,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Hot Towel Treatment\",\"price\":800}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_days_data": "[\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -1168,7 +1168,7 @@
           "https://i.pinimg.com/736x/d2/e9/4e/d2e94e960b816d1e0e780d44d79c57de.jpg",
           "https://i.pinimg.com/1200x/18/2e/36/182e36ab9148a7c198032a527bb94de0.jpg",
           "https://i.pinimg.com/736x/a9/30/8a/a9308a7468d5399d4b90921af49695eb.jpg",
-          "https://i.pinimg.com/1200x/d5/8c/0d/d58c0dcee3be07f59aeb43b507765445.jpg",
+          "https://i.pinimg.com/1200x/d5/8c/0d/d58c0dcee3be07f59aeb43b507765445.jpg"
         ]
       },
       {
@@ -1192,8 +1192,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Follow-up Session\",\"price\":1500}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -1201,7 +1201,7 @@
           "https://images.pexels.com/photos/6919750/pexels-photo-6919750.jpeg",
           "https://i.pinimg.com/736x/3d/a1/4f/3da14ff34cc46a56677f8ec537a4c504.jpg",
           "https://images.pexels.com/photos/8171217/pexels-photo-8171217.jpeg",
-          "https://i.pinimg.com/736x/84/cd/18/84cd18b5fb9ff267b5021a182cb3f075.jpg",
+          "https://i.pinimg.com/736x/84/cd/18/84cd18b5fb9ff267b5021a182cb3f075.jpg"
         ]
       },
       {
@@ -1225,8 +1225,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extended Service\",\"price\":3000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Tuesday\",\"Wednesday\",\"Friday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Wednesday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -1345,8 +1345,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Buffet Setup\",\"price\":5000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\",\"Saturday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\",\"Saturday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -1354,7 +1354,7 @@
           "https://i.pinimg.com/1200x/0a/22/1a/0a221a94ec305e9903f0f493f4ce0b55.jpg",
           "https://i.pinimg.com/736x/92/78/8e/92788ed42c7739b3fcba624d10289387.jpg",
           "https://images.pexels.com/photos/29040915/pexels-photo-29040915.jpeg",
-          "https://images.pexels.com/photos/5835333/pexels-photo-5835333.jpeg",
+          "https://images.pexels.com/photos/5835333/pexels-photo-5835333.jpeg"
         ]
       },
       {
@@ -1378,8 +1378,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Consultation\",\"price\":2000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -1387,7 +1387,7 @@
           "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop",
           "https://images.pexels.com/photos/6647063/pexels-photo-6647063.jpeg",
-          "https://images.pexels.com/photos/2814828/pexels-photo-2814828.jpeg",
+          "https://images.pexels.com/photos/2814828/pexels-photo-2814828.jpeg"
         ]
       },
       {
@@ -1411,8 +1411,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Vendor Coordination\",\"price\":5000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -1445,8 +1445,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Delivery\",\"price\":2000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -1454,7 +1454,7 @@
           "https://images.pexels.com/photos/5745651/pexels-photo-5745651.jpeg",
           "https://i.pinimg.com/736x/36/39/49/363949af2657a037c30911a7579e3209.jpg",
           "https://i.pinimg.com/1200x/5b/5d/b3/5b5db35912940dccc72ca1c284509207.jpg",
-          "https://i.pinimg.com/736x/67/08/f3/6708f3233b5e84d05f8a44dd2cc4aed7.jpg",
+          "https://i.pinimg.com/736x/67/08/f3/6708f3233b5e84d05f8a44dd2cc4aed7.jpg"
         ]
       },
       {
@@ -1478,8 +1478,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Premium Package\",\"price\":2000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -1487,7 +1487,7 @@
           "https://images.pexels.com/photos/32418223/pexels-photo-32418223.jpeg",
           "https://images.pexels.com/photos/28128757/pexels-photo-28128757.jpeg",
           "https://images.pexels.com/photos/2537608/pexels-photo-2537608.jpeg",
-          "vhttps://images.pexels.com/photos/1718384/pexels-photo-1718384.jpeg",
+          "https://images.pexels.com/photos/1718384/pexels-photo-1718384.jpeg"
         ]
       },
       {
@@ -1511,8 +1511,8 @@
         "service_delivery_mode": 1,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Follow-up Session\",\"price\":1500}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Thursday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Thursday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -1545,12 +1545,13 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Appliance Selection\",\"price\":2000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
+          
           "https://images.pexels.com/photos/4947388/pexels-photo-4947388.jpeg",
           "https://images.pexels.com/photos/17555544/pexels-photo-17555544.jpeg",
           "https://images.pexels.com/photos/28999502/pexels-photo-28999502.jpeg",
@@ -1665,15 +1666,15 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extra Revision\",\"price\":2000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
           "https://images.pexels.com/photos/17845/pexels-photo.jpg",
           "https://images.pexels.com/photos/57690/pexels-photo-57690.jpeg",
-          "https://images.pexels.com/photos/355952/pexels-photo-355952.jpeg",
+          "https://images.pexels.com/photos/355952/pexels-photo-355952.jpeg"
         ]
       },
       {
@@ -1697,8 +1698,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Follow-up Call\",\"price\":1500}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -1731,8 +1732,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extra 500 words\",\"price\":2000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -1765,8 +1766,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extra List\",\"price\":2500}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -1799,8 +1800,8 @@
         "service_delivery_mode": 1,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Premium Package\",\"price\":2000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -1833,8 +1834,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Follow-up Session\",\"price\":1500}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -1842,7 +1843,7 @@
           "https://images.pexels.com/photos/6755133/pexels-photo-6755133.jpeg",
           "https://images.pexels.com/photos/3825581/pexels-photo-3825581.jpeg",
           "https://images.pexels.com/photos/4792719/pexels-photo-4792719.jpeg",
-          "https://images.pexels.com/photos/6755142/pexels-photo-6755142.jpeg",
+          "https://images.pexels.com/photos/6755142/pexels-photo-6755142.jpeg"
         ]
       },
       {
@@ -1866,8 +1867,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extended Service\",\"price\":3000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Thursday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Thursday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -1875,7 +1876,7 @@
           "https://images.pexels.com/photos/8729928/pexels-photo-8729928.jpeg",
           "https://images.pexels.com/photos/8729814/pexels-photo-8729814.jpeg",
           "https://images.pexels.com/photos/11296101/pexels-photo-11296101.jpeg",
-          "https://images.pexels.com/photos/7731402/pexels-photo-7731402.jpeg",
+          "https://images.pexels.com/photos/7731402/pexels-photo-7731402.jpeg"
         ]
       }
     ]
@@ -1985,8 +1986,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Styling Products\",\"price\":1000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\",\"Saturday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\",\"Saturday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -2019,8 +2020,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Consultation\",\"price\":1000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -2053,8 +2054,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Consultation\",\"price\":1000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\",\"Saturday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\",\"Saturday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -2062,7 +2063,7 @@
           "https://images.pexels.com/photos/28994394/pexels-photo-28994394.jpeg",
           "https://images.pexels.com/photos/8467963/pexels-photo-8467963.jpeg",
           "https://images.pexels.com/photos/7320791/pexels-photo-7320791.jpeg",
-          "https://images.pexels.com/photos/8467976/pexels-photo-8467976.jpeg",
+          "https://images.pexels.com/photos/8467976/pexels-photo-8467976.jpeg"
         ]
       },
       {
@@ -2086,8 +2087,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Premium Package\",\"price\":2000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Wednesday\",\"Friday\"]",
+        "service_available_days_data": "[\"Wednesday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -2095,7 +2096,7 @@
           "https://images.pexels.com/photos/24503710/pexels-photo-24503710.jpeg",
           "https://images.pexels.com/photos/16423104/pexels-photo-16423104.jpeg",
           "https://images.pexels.com/photos/24783389/pexels-photo-24783389.jpeg",
-          "https://i.pinimg.com/1200x/e8/05/e5/e805e540fb1bd0b267f1500ed041c2b3.jpg",
+          "https://i.pinimg.com/1200x/e8/05/e5/e805e540fb1bd0b267f1500ed041c2b3.jpg"
         ]
       },
       {
@@ -2119,8 +2120,8 @@
         "service_delivery_mode": 1,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Cake Service\",\"price\":15000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -2128,7 +2129,7 @@
           "https://i.pinimg.com/736x/bc/ea/76/bcea760141e7680cf4f436b445f1a2b0.jpg",
           "https://i.pinimg.com/1200x/78/bc/8f/78bc8f9fcc6f93ae570a60bffc8345d6.jpg",
           "https://i.pinimg.com/736x/88/d9/8f/88d98fb9fc80e47f102db77a2f85183c.jpg",
-          "https://i.pinimg.com/736x/be/39/93/be399331cd6bcbde1a0ffc4972a604d3.jpg",
+          "https://i.pinimg.com/736x/be/39/93/be399331cd6bcbde1a0ffc4972a604d3.jpg"
         ]
       },
       {
@@ -2152,8 +2153,8 @@
         "service_delivery_mode": 1,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extended Service\",\"price\":3000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -2271,8 +2272,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Consultation\",\"price\":1000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -2304,8 +2305,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Consultation\",\"price\":1000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -2313,7 +2314,7 @@
           "https://images.pexels.com/photos/4792491/pexels-photo-4792491.jpeg",
           "https://images.pexels.com/photos/8978578/pexels-photo-8978578.jpeg",
           "https://images.pexels.com/photos/8978566/pexels-photo-8978566.jpeg",
-          "https://images.pexels.com/photos/7937963/pexels-photo-7937963.jpeg",
+          "https://images.pexels.com/photos/7937963/pexels-photo-7937963.jpeg"
         ]
       },
       {
@@ -2337,8 +2338,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Consultation\",\"price\":1000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -2371,8 +2372,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Consultation\",\"price\":1000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -2405,15 +2406,15 @@
         "service_delivery_mode": 1,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Premium Package\",\"price\":2000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\"]",
+        "service_available_days_data": "[\"Monday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
           "https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           "https://images.unsplash.com/photo-1627685317111-5133a227c0e4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          "https://images.unsplash.com/photo-1550622824-c11e494a4b65?q=80&w=873&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "https://images.unsplash.com/photo-1550622824-c11e494a4b65?q=80&w=873&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ]
       },
       {
@@ -2437,8 +2438,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Follow-up Session\",\"price\":1500}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -2446,7 +2447,7 @@
           "https://i.pinimg.com/1200x/00/5d/9f/005d9f0f2611c1dd0bcb65135d358f0b.jpg",
           "https://i.pinimg.com/736x/e8/44/d7/e844d7a7de0b9a903c57375ebcef2b6a.jpg",
           "https://i.pinimg.com/1200x/a3/53/17/a35317542bbecae37d86b9d53eed82bb.jpg",
-          "https://i.pinimg.com/736x/b6/b9/be/b6b9be67ebcf759611c30dcbeb679174.jpg",
+          "https://i.pinimg.com/736x/b6/b9/be/b6b9be67ebcf759611c30dcbeb679174.jpg"
         ]
       },
       {
@@ -2470,8 +2471,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extended Service\",\"price\":3000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -2590,8 +2591,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Buffet Setup\",\"price\":5000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\",\"Saturday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\",\"Saturday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -2599,7 +2600,7 @@
           "https://i.pinimg.com/1200x/0a/22/1a/0a221a94ec305e9903f0f493f4ce0b55.jpg",
           "https://i.pinimg.com/736x/92/78/8e/92788ed42c7739b3fcba624d10289387.jpg",
           "https://images.pexels.com/photos/29040915/pexels-photo-29040915.jpeg",
-          "https://images.pexels.com/photos/5835333/pexels-photo-5835333.jpeg",
+          "https://images.pexels.com/photos/5835333/pexels-photo-5835333.jpeg"
         ]
       },
       {
@@ -2623,8 +2624,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Consultation\",\"price\":2000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -2632,7 +2633,7 @@
           "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop",
           "https://images.pexels.com/photos/6647063/pexels-photo-6647063.jpeg",
-          "https://images.pexels.com/photos/2814828/pexels-photo-2814828.jpeg",
+          "https://images.pexels.com/photos/2814828/pexels-photo-2814828.jpeg"
         ]
       },
       {
@@ -2656,8 +2657,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Vendor Coordination\",\"price\":5000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -2690,8 +2691,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Delivery\",\"price\":2000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -2699,7 +2700,7 @@
           "https://images.pexels.com/photos/5745651/pexels-photo-5745651.jpeg",
           "https://i.pinimg.com/736x/36/39/49/363949af2657a037c30911a7579e3209.jpg",
           "https://i.pinimg.com/1200x/5b/5d/b3/5b5db35912940dccc72ca1c284509207.jpg",
-          "https://i.pinimg.com/736x/67/08/f3/6708f3233b5e84d05f8a44dd2cc4aed7.jpg",
+          "https://i.pinimg.com/736x/67/08/f3/6708f3233b5e84d05f8a44dd2cc4aed7.jpg"
         ]
       },
       {
@@ -2723,8 +2724,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Premium Package\",\"price\":2000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -2757,8 +2758,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Follow-up Session\",\"price\":1500}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -2766,7 +2767,7 @@
          "https://images.pexels.com/photos/5711242/pexels-photo-5711242.jpeghoto-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
           "https://images.pexels.com/photos/5711239/pexels-photo-5711239.jpeg",
           "https://images.pexels.com/photos/4125507/pexels-photo-4125507.jpeg",
-          "https://images.pexels.com/photos/4125500/pexels-photo-4125500.jpeg",
+          "https://images.pexels.com/photos/4125500/pexels-photo-4125500.jpeg"
         ]
       },
       {
@@ -2790,15 +2791,15 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extended Service\",\"price\":3000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Tuesday\",\"Wednesday\",\"Friday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Wednesday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
             "https://images.pexels.com/photos/18845888/pexels-photo-18845888.jpeg",
           "https://images.pexels.com/photos/6591147/pexels-photo-6591147.jpeg",
-          "https://images.pexels.com/photos/27176163/pexels-photo-27176163.jpeg",
+          "https://images.pexels.com/photos/27176163/pexels-photo-27176163.jpeg"
         ]
       }
     ]
