@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from database.model import create_transaction_type
 
-def seed_trans_type(db: Session):
+def seed_trans_type(db: Session, commit: bool=False):
     seed = [
         {
             'type_code': '001',
@@ -217,6 +217,6 @@ def seed_trans_type(db: Session):
     ]
     if len(seed) > 0:
         for i in range(len(seed)):
-            create_transaction_type(db=db, code=seed[i]['type_code'], action=seed[i]['type_action'], name=seed[i]['name'], description=seed[i]['desc'], created_by=1, authorized_by=1)
+            create_transaction_type(db=db, code=seed[i]['type_code'], action=seed[i]['type_action'], name=seed[i]['name'], description=seed[i]['desc'], created_by=1, authorized_by=1, commit=commit)
     return True
 

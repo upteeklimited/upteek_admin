@@ -6,7 +6,7 @@ from modules.orders.post import create_new_order
 from modules.authentication.auth import generate_new_user_account
 from settings.constants import USER_TYPES
 
-def fund_user(db: Session, user_id: int=0, amount: float=0):
+def fund_user(db: Session, user_id: int=0, amount: float=0, commit: bool=False):
 	user = get_single_user_by_id(db=db, id=user_id)
 	if user is None:
 		return {
@@ -37,18 +37,18 @@ def fund_user(db: Session, user_id: int=0, amount: float=0):
 			'status': False,
 			'message': 'Transaction type not found',
 		}
-	return create_general_posting(db=db, transaction_type_id=trans_type.id, from_account_number=general_deposit_gl.account_number, to_account_number=primary_account.account_number, amount=amount, narration="Seed deposit")
+	return create_general_posting(db=db, transaction_type_id=trans_type.id, from_account_number=general_deposit_gl.account_number, to_account_number=primary_account.account_number, amount=amount, narration="Seed deposit", commit=commit)
 
-def fund_all_seeded_customers(db: Session, amount: float=0):
+def fund_all_seeded_customers(db: Session, amount: float=0, commit: bool=False):
 	customer_users = get_users_by_user_type(db=db, user_type=USER_TYPES['customer']['num'])
 	print(customer_users)
 	if len(customer_users) > 0:
 		for user in customer_users:
 			print(user)
-			print(fund_user(db=db, user_id=user.id, amount=amount))
+			print(fund_user(db=db, user_id=user.id, amount=amount, commit=commit))
 	return True
 
-def customer_users_random_purchase(db: Session):
+def customer_users_random_purchase(db: Session, commit: bool=False):
 	customer_users = get_users_by_user_type(db=db, user_type=USER_TYPES['customer']['num'])
 	if len(customer_users) > 0:
 		for user in customer_users:
@@ -68,5 +68,5 @@ def customer_users_random_purchase(db: Session):
 					'amount': amount,
 					}]
 					print(products)
-					print(create_new_order(db=db, user_id=user.id, country_id=user.country_id, is_account=True, products=products, amount=amount, total_amount=amount, delivery_status=1, status=1))
+					print(create_new_order(db=db, user_id=user.id, country_id=user.country_id, is_account=True, products=products, amount=amount, total_amount=amount, delivery_status=1, status=1, commit=commit))
 	return True

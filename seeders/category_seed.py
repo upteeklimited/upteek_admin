@@ -53,16 +53,16 @@ seed_arr = [
     },
 ]
 
-def run_category_seeder(db: Session):
+def run_category_seeder(db: Session, commit: bool=False):
     global seed_arr
     for data in seed_arr:
-        industry = create_merchant_industry(db=db, name=data['name'], status=1)
+        industry = create_merchant_industry(db=db, name=data['name'], status=1, commit=commit)
         for category in data['categories']:
-            create_merchant_category(db=db, name=category, industry_id=industry.id, status=1)
+            create_merchant_category(db=db, name=category, industry_id=industry.id, status=1, commit=commit)
     return True
 
 
-def run_product_categories_seeder(db: Session):
+def run_product_categories_seeder(db: Session, commit: bool=False):
     # categories = [
     #     "Gym and Fitness",
     #     "Makeup and Cosmetics",
@@ -116,5 +116,5 @@ def run_product_categories_seeder(db: Session):
     ]
     for i in range(len(categories)):
         slug = generate_slug(categories[i]['name'])
-        create_category(db=db, name=categories[i]['name'], slug=slug, icon=categories[i]['url'], status=1, created_by=1, authorized_by=1)
+        create_category(db=db, name=categories[i]['name'], slug=slug, icon=categories[i]['url'], status=1, created_by=1, authorized_by=1, commit=commit)
     return True

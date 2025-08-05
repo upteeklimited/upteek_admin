@@ -16,8 +16,8 @@ seed = [
     },
 ]
 
-def run_currency_seeder(db: Session):
+def run_currency_seeder(db: Session, commit: bool=False):
     global seed
     for data in seed:
-        create_currency(db=db, name=data['name'], code=data['code'], symbol=data['symbol'], status=data['status'])
+        create_currency(db=db, name=data['name'], code=data['code'], symbol=data['symbol'], status=data['status'], commit=commit)
     return True

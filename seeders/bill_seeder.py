@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from database.model import create_bill_category, create_bill, get_single_provider_by_code, get_single_bill_category_by_code, check_bill_category_exist, check_if_bill_exists, get_single_service_by_code
 import json
 
-def seed_bill_categories(db: Session):
+def seed_bill_categories(db: Session, commit: bool=False):
 	data = [
 		{
 			'country_id': 1,
@@ -65,11 +65,11 @@ def seed_bill_categories(db: Session):
 	if len(data) > 0:
 		for i in range(len(data)):
 			if check_bill_category_exist(db=db, code=data[i]['code']) == False:
-				create_bill_category(db=db, country_id=data[i]['country_id'], name=data[i]['name'], description=data[i]['description'], code=data[i]['code'], status=data[i]['status'])
+				create_bill_category(db=db, country_id=data[i]['country_id'], name=data[i]['name'], description=data[i]['description'], code=data[i]['code'], status=data[i]['status'], commit=commit)
 	return True
 
 
-def seed_bills(db: Session):
+def seed_bills(db: Session, commit: bool=False):
 	data = [
 		{
 			'category': 'ng_airtime',
@@ -255,5 +255,5 @@ def seed_bills(db: Session):
 			provider = get_single_provider_by_code(db=db, code=data[i]['provider'])
 			if provider is not None:
 				provider_id = provider.id
-			create_bill(db=db, country_id=1, currency_id=1, category_id=category_id, service_id=service_id, provider_id=provider_id, name=data[i]['name'], description=data[i]['description'], short_name=data[i]['short_name'], label=data[i]['label_name'], code=data[i]['code'], amount=data[i]['amount'], minimum_amount=data[i]['minimum_amount'], maximum_amount=data[i]['maximum_amount'], fee=data[i]['fee'], commission=data[i]['commission'], is_airtime=data[i]['is_airtime'], is_data=data[i]['is_data'], is_flat=data[i]['is_flat'], meta_data=json.dumps(data[i]['meta_data']), status=1)
+			create_bill(db=db, country_id=1, currency_id=1, category_id=category_id, service_id=service_id, provider_id=provider_id, name=data[i]['name'], description=data[i]['description'], short_name=data[i]['short_name'], label=data[i]['label_name'], code=data[i]['code'], amount=data[i]['amount'], minimum_amount=data[i]['minimum_amount'], maximum_amount=data[i]['maximum_amount'], fee=data[i]['fee'], commission=data[i]['commission'], is_airtime=data[i]['is_airtime'], is_data=data[i]['is_data'], is_flat=data[i]['is_flat'], meta_data=json.dumps(data[i]['meta_data']), status=1, commit=commit)
 	True

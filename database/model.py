@@ -85,13 +85,13 @@ def id_generator(size=15, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
 
-def create_user_with_relevant_rows(db: Session, country_id: int = 0, currency_id: int = 0, merchant_id: int = 0, username: str = None, email: str = None, phone_number: str = None, password: str = None, device_token: str = None, external_provider: str = None, external_reference: str = None, user_type: int = 0, role: int = 0, first_name: str = None, other_name: str = None, last_name: str = None, date_of_birth: str = None, gender: str = None, bio: str = None, is_merchant: bool=False, merchant_name: str = None, merchant_trading_name: str = None, merchant_description: str = None, merchant_category_id: int = 0, merchant_currency_id: int = 0, merchant_phone_number: str = None, merchant_email: str = None):
+def create_user_with_relevant_rows(db: Session, country_id: int = 0, currency_id: int = 0, merchant_id: int = 0, username: str = None, email: str = None, phone_number: str = None, password: str = None, device_token: str = None, external_provider: str = None, external_reference: str = None, user_type: int = 0, role: int = 0, first_name: str = None, other_name: str = None, last_name: str = None, date_of_birth: str = None, gender: str = None, bio: str = None, is_merchant: bool=False, merchant_name: str = None, merchant_trading_name: str = None, merchant_description: str = None, merchant_category_id: int = 0, merchant_currency_id: int = 0, merchant_phone_number: str = None, merchant_email: str = None, commit: bool=False):
     hashed_password = None
     if password is not None:
         hashed_password = auth.get_password_hash(password=password)
-    user = create_user(db=db, country_id=country_id, username=username, email=email, phone_number=phone_number, password=hashed_password, device_token=device_token, external_provider=external_provider, external_reference=external_reference, user_type=user_type, role=role, status=1)
-    create_profile(db=db, user_id=user.id, first_name=first_name, other_name=other_name, last_name=last_name, date_of_birth=date_of_birth, gender=gender, bio=bio, level_one_approved_by=1, level_one_approved_at=get_laravel_datetime())
-    create_setting(db=db, user_id=user.id)
+    user = create_user(db=db, country_id=country_id, username=username, email=email, phone_number=phone_number, password=hashed_password, device_token=device_token, external_provider=external_provider, external_reference=external_reference, user_type=user_type, role=role, status=1, commit=commit)
+    create_profile(db=db, user_id=user.id, first_name=first_name, other_name=other_name, last_name=last_name, date_of_birth=date_of_birth, gender=gender, bio=bio, level_one_approved_by=1, level_one_approved_at=get_laravel_datetime(), commit=commit)
+    create_setting(db=db, user_id=user.id, commit=commit)
     if is_merchant == True:
         slug = generate_slug(text=merchant_name)
         if merchant_currency_id > 0:
@@ -101,7 +101,7 @@ def create_user_with_relevant_rows(db: Session, country_id: int = 0, currency_id
             trading_name = merchant_trading_name
         else:
             trading_name = merchant_name
-        merchant = create_merchant(db=db, user_id=user.id, currency_id=currency_id, category_id=merchant_category_id, name=merchant_name, trading_name=trading_name, description=merchant_description, phone_number_one=merchant_phone_number, email=merchant_email, slug=slug, status=1)
+        merchant = create_merchant(db=db, user_id=user.id, currency_id=currency_id, category_id=merchant_category_id, name=merchant_name, trading_name=trading_name, description=merchant_description, phone_number_one=merchant_phone_number, email=merchant_email, slug=slug, status=1, commit=commit)
         merchant_id = merchant.id
     if merchant_id > 0:
         update_user(db=db, id=user.id, values={'merchant_id': merchant_id})
@@ -132,7 +132,7 @@ def registration_unique_field_check(db: Session, phone_number: str=None, usernam
             'message': 'Validation successful'
         }
 
-def debit_account(db: Session, account_id: int=0, amount: float=0):
+def debit_account(db: Session, account_id: int=0, amount: float=0, override: bool=False, commit: bool=False):
     account = get_single_account_by_id(db=db, id=account_id)
     if account is None:
         return {
@@ -140,7 +140,7 @@ def debit_account(db: Session, account_id: int=0, amount: float=0):
             'message': 'Account not found',
             'data': None,
         }
-    if account.available_balance < amount:
+    if (account.available_balance < amount) and override == False:
         return {
             'status': False,
             'message': 'Insufficient balance',
@@ -148,7 +148,7 @@ def debit_account(db: Session, account_id: int=0, amount: float=0):
         }
     available_balance = account.available_balance - amount
     ledger_balance = account.ledger_balance - amount
-    update_account(db=db, id=account_id, values={'available_balance': available_balance, 'ledger_balance': ledger_balance})
+    update_account(db=db, id=account_id, values={'available_balance': available_balance, 'ledger_balance': ledger_balance}, commit=commit)
     return {
         'status': True,
         'message': 'Account debited successfully',
@@ -158,7 +158,7 @@ def debit_account(db: Session, account_id: int=0, amount: float=0):
         }
     }
 
-def credit_account(db: Session, account_id: int=0, amount: float=0):
+def credit_account(db: Session, account_id: int=0, amount: float=0, commit: bool=False):
     account = get_single_account_by_id(db=db, id=account_id)
     if account is None:
         return {
@@ -168,7 +168,7 @@ def credit_account(db: Session, account_id: int=0, amount: float=0):
         }
     available_balance = account.available_balance + amount
     ledger_balance = account.ledger_balance + amount
-    update_account(db=db, id=account_id, values={'available_balance': available_balance, 'ledger_balance': ledger_balance})
+    update_account(db=db, id=account_id, values={'available_balance': available_balance, 'ledger_balance': ledger_balance}, commit=commit)
     return {
         'status': True,
         'message': 'Account credited successfully',
@@ -178,7 +178,7 @@ def credit_account(db: Session, account_id: int=0, amount: float=0):
         }
     }
 
-def debit_general_ledger_account(db: Session, general_ledger_account_id: int=0, amount: float=0):
+def debit_general_ledger_account(db: Session, general_ledger_account_id: int=0, amount: float=0, commit: bool=False):
     general_ledger_account = get_single_general_ledger_account_by_id(db=db, id=general_ledger_account_id)
     if general_ledger_account is None:
         return {
@@ -187,7 +187,7 @@ def debit_general_ledger_account(db: Session, general_ledger_account_id: int=0, 
             'data': None,
         }
     balance = general_ledger_account.balance - amount
-    update_general_ledger_account(db=db, id=general_ledger_account_id, values={'balance': balance})
+    update_general_ledger_account(db=db, id=general_ledger_account_id, values={'balance': balance}, commit=commit)
     return {
         'status': True,
         'message': 'General ledger account debited successfully',
@@ -196,7 +196,7 @@ def debit_general_ledger_account(db: Session, general_ledger_account_id: int=0, 
         }
     }
 
-def credit_general_ledger_account(db: Session, general_ledger_account_id: int=0, amount: float=0):
+def credit_general_ledger_account(db: Session, general_ledger_account_id: int=0, amount: float=0, commit: bool=False):
     general_ledger_account = get_single_general_ledger_account_by_id(db=db, id=general_ledger_account_id)
     if general_ledger_account is None:
         return {
@@ -205,7 +205,7 @@ def credit_general_ledger_account(db: Session, general_ledger_account_id: int=0,
             'data': None,
         }
     balance = general_ledger_account.balance + amount
-    update_general_ledger_account(db=db, id=general_ledger_account_id, values={'balance': balance})
+    update_general_ledger_account(db=db, id=general_ledger_account_id, values={'balance': balance}, commit=commit)
     return {
         'status': True,
         'message': 'General ledger account credited successfully',

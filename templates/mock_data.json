@@ -20,10 +20,10 @@
         "currency_id": 1,
         "name": "Full Car Wash",
         "description": "Comprehensive exterior and interior car wash service.",
-        "product_type": 3,
+        "product_type": 1,
         "service_pricing": 1,
-        "units": 1,
-        "weight": 0,
+        "units": 4,
+        "weight": "0.2",
         "cost_price": 3000,
         "price": 5000,
         "discount_price": 4500,
@@ -36,17 +36,17 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Engine Wash\",\"price\":2000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"]",
+        "service_available_days_data": [\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"]
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
-        "images": [
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&h=400&fit=crop"
+        "images" [
+          "https://images.pexels.com/photos/210627/pexels-photo-210627.jpeg",
+          "https://images.pexels.com/photos/6873020/pexels-photo-6873020.jpeg",
+          "https://images.pexels.com/photos/4870705/pexels-photo-4870705.jpeg",
+          "https://images.pexels.com/photos/6872603/pexels-photo-6872603.jpeg",
+          "https://images.pexels.com/photos/4870731/pexels-photo-4870731.jpeg"
         ]
       },
       {
@@ -54,10 +54,10 @@
         "currency_id": 1,
         "name": "Engine Detailing",
         "description": "Thorough cleaning and detailing of car engine.",
-        "product_type": 3,
+        "product_type": 1,
         "service_pricing": 1,
-        "units": 1,
-        "weight": 0,
+        "units": 9,
+        "weight": 0.2,
         "cost_price": 4000,
         "price": 7000,
         "discount_price": 6500,
@@ -76,11 +76,10 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/3689314/pexels-photo-3689314.jpeg",
+          "https://images.pexels.com/photos/15496927/pexels-photo-15496927.jpeg",
+          "https://images.pexels.com/photos/10866831/pexels-photo-10866831.jpeg",
+          "https://images.pexels.com/photos/8478224/pexels-photo-8478224.jpeg",
         ]
       },
       {
@@ -110,11 +109,10 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/5233285/pexels-photo-5233285.jpeg",
+          "https://images.pexels.com/photos/9971841/pexels-photo-9971841.jpeg",
+          "https://images.pexels.com/photos/9971830/pexels-photo-9971830.jpeg",
+          "https://images.pexels.com/photos/5233264/pexels-photo-5233264.jpeg",
         ]
       },
       {
@@ -144,11 +142,10 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/25580655/pexels-photo-25580655.jpeg",
+          "https://images.pexels.com/photos/2343500/pexels-photo-2343500.jpeg",
+          "https://images.pexels.com/photos/2343499/pexels-photo-2343499.jpeg",
+          "https://images.pexels.com/photos/27317277/pexels-photo-27317277.jpeg",
         ]
       },
       {
@@ -178,11 +175,10 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/14542677/pexels-photo-14542677.jpeg",
+          "https://images.pexels.com/photos/5233262/pexels-photo-5233262.jpeg",
+          "https://images.pexels.com/photos/7154633/pexels-photo-7154633.jpeg",
+          "https://images.pexels.com/photos/7154635/pexels-photo-7154635.jpeg",
         ]
       },
       {
@@ -212,11 +208,11 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/9380971/pexels-photo-9380971.jpeg",
+          "https://images.pexels.com/photos/4870705/pexels-photo-4870705.jpeg",
+          "https://images.pexels.com/photos/17623850/pexels-photo-17623850.jpeg",
+          "https://images.pexels.com/photos/17623847/pexels-photo-17623847.jpeg",
+          "https://images.pexels.com/photos/6872175/pexels-photo-6872175.jpeg"
         ]
       },
       {
@@ -246,11 +242,11 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/6863259/pexels-photo-6863259.jpeg",
+          "https://images.pexels.com/photos/6863183/pexels-photo-6863183.jpeg",
+          "https://images.pexels.com/photos/6863332/pexels-photo-6863332.jpeg",
+          "https://images.pexels.com/photos/6863254/pexels-photo-6863254.jpeg",
+          "https://images.pexels.com/photos/6863323/pexels-photo-6863323.jpeg"
         ]
       },
       {
@@ -280,12 +276,11 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
-        ]
+          "https://images.pexels.com/photos/5711242/pexels-photo-5711242.jpeghoto-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.pexels.com/photos/5711239/pexels-photo-5711239.jpeg",
+          "https://images.pexels.com/photos/4125507/pexels-photo-4125507.jpeg",
+          "https://images.pexels.com/photos/4125500/pexels-photo-4125500.jpeg",
+      ]
       },
       {
         "category_id": 3,
@@ -314,12 +309,10 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
-        ]
+          "https://images.pexels.com/photos/18845888/pexels-photo-18845888.jpeg",
+          "https://images.pexels.com/photos/6591147/pexels-photo-6591147.jpeg",
+          "https://images.pexels.com/photos/27176163/pexels-photo-27176163.jpeg",
+      ]
       }
     ]
   },
@@ -344,10 +337,10 @@
         "currency_id": 1,
         "name": "Social Media Management",
         "description": "Comprehensive management of social media platforms.",
-        "product_type": 3,
+        "product_type": 1,
         "service_pricing": 2,
-        "units": 1,
-        "weight": 0,
+        "units": 10,
+        "weight": 0.6,
         "cost_price": 20000,
         "price": 30000,
         "discount_price": 27000,
@@ -360,8 +353,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Ad Campaign\",\"price\":5000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_time_data": ,"[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]"
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -369,8 +362,8 @@
           "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/4549414/pexels-photo-4549414.jpeg",
+          "https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg"
         ]
       },
       {
@@ -378,10 +371,10 @@
         "currency_id": 1,
         "name": "Brand Strategy Session",
         "description": "One-on-one brand strategy consultation.",
-        "product_type": 3,
+        "product_type": 1,
         "service_pricing": 1,
-        "units": 1,
-        "weight": 0,
+        "units": 8,
+        "weight": 0.3,
         "cost_price": 10000,
         "price": 15000,
         "discount_price": 14000,
@@ -394,17 +387,17 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extra Hour\",\"price\":3000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_time_data": ""[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
           "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/6914632/pexels-photo-6914632.jpeg",
+          "https://images.pexels.com/photos/8117415/pexels-photo-8117415.jpeg",
+          "https://images.pexels.com/photos/935977/pexels-photo-935977.jpeg"
         ]
       },
       {
@@ -434,11 +427,10 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/17845/pexels-photo.jpg",
+          "https://images.pexels.com/photos/57690/pexels-photo-57690.jpeg",
+          "https://images.pexels.com/photos/7661590/pexels-photo-7661590.jpeg",
+          "https://images.pexels.com/photos/5104700/pexels-photo-5104700.jpeg",
         ]
       },
       {
@@ -468,11 +460,11 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/38519/macbook-laptop-ipad-apple-38519.jpeg",
+          "https://images.pexels.com/photos/5632397/pexels-photo-5632397.jpeg",
+          "https://images.pexels.com/photos/5077049/pexels-photo-5077049.jpeg",
+          "https://images.pexels.com/photos/326514/pexels-photo-326514.jpeg",
+          "https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg"
         ]
       },
       {
@@ -502,11 +494,11 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/755416/pexels-photo-755416.jpeg",
+          "https://images.pexels.com/photos/6964860/pexels-photo-6964860.jpeg",
+          "https://images.pexels.com/photos/2041396/pexels-photo-2041396.jpeg",
+          "https://images.pexels.com/photos/6953672/pexels-photo-6953672.jpeg",
+          "https://images.pexels.com/photos/5054208/pexels-photo-5054208.jpeg"
         ]
       },
       {
@@ -536,11 +528,10 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop"
+          "https://i.pinimg.com/1200x/8c/3c/5c/8c3c5c02210e92bbe2afff9484badcec.jpg",
+          "https://i.pinimg.com/736x/60/b5/b7/60b5b7635eec5c7c8e353eb09b23b9d0.jpg",
+          "https://i.pinimg.com/1200x/13/8f/b7/138fb764a994b10a7e20c3e871c438ba.jpg",
+          "https://i.pinimg.com/736x/84/c4/80/84c48064418cdcd182998e04ffcf11c7.jpg"
         ]
       },
       {
@@ -570,11 +561,10 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/6956303/pexels-photo-6956303.jpeg",
+          "https://images.pexels.com/photos/7279706/pexels-photo-7279706.jpeg",
+          "https://images.pexels.com/photos/7651801/pexels-photo-7651801.jpeg",
+          "https://images.pexels.com/photos/7414207/pexels-photo-7414207.jpeg",
         ]
       },
       {
@@ -604,11 +594,10 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/9462667/pexels-photo-9462667.jpeg",
+          "https://images.pexels.com/photos/9462162/pexels-photo-9462162.jpeg",
+          "https://images.pexels.com/photos/9462333/pexels-photo-9462333.jpeg",
+          "https://images.pexels.com/photos/6195118/pexels-photo-6195118.jpeg",
         ]
       },
       {
@@ -638,11 +627,10 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg",
+          "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg",
+          "https://images.pexels.com/photos/33197289/pexels-photo-33197289.jpeg",
+          "https://images.pexels.com/photos/7415036/pexels-photo-7415036.jpeg"
         ]
       }
     ]
@@ -668,7 +656,7 @@
         "currency_id": 1,
         "name": "Haircut",
         "description": "Classic haircut for men.",
-        "product_type": 3,
+        "product_type": 1,
         "service_pricing": 1,
         "units": 1,
         "weight": 0,
@@ -684,8 +672,8 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Beard Trim\",\"price\":1000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -702,7 +690,7 @@
         "currency_id": 1,
         "name": "Beard Trim",
         "description": "Professional beard trimming and shaping.",
-        "product_type": 3,
+        "product_type": 1,
         "service_pricing": 1,
         "units": 1,
         "weight": 0,
@@ -726,9 +714,9 @@
         "images": [
           "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/19287847/pexels-photo-19287847.jpeg",
+          "https://images.pexels.com/photos/5853394/pexels-photo-5853394.jpeg",
+          "https://images.pexels.com/photos/9153970/pexels-photo-9153970.jpeg"
         ]
       },
       {
@@ -758,11 +746,9 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1562004760-aceed7bb0fe3?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/39250/pretty-woman-makeup-mirror-glamour-39250.jpeg",
+          "https://images.pexels.com/photos/8467963/pexels-photo-8467963.jpeg",
+          "https://images.pexels.com/photos/7142691/pexels-photo-7142691.jpeg",
         ]
       },
       {
@@ -792,11 +778,11 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1562004760-aceed7bb0fe3?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/8468142/pexels-photo-8468142.jpeg",
+          "https://images.pexels.com/photos/7388937/pexels-photo-7388937.jpeg",
+          "https://images.pexels.com/photos/7388925/pexels-photo-7388925.jpeg",
+          "https://images.pexels.com/photos/4123782/pexels-photo-4123782.jpeg",
+          "https://images.pexels.com/photos/4981460/pexels-photo-4981460.jpeg"
         ]
       },
       {
@@ -826,11 +812,11 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=400&fit=crop",
+          "https://images.pexels.com/photos/7755534/pexels-photo-7755534.jpeg",
+          "https://images.pexels.com/photos/7440054/pexels-photo-7440054.jpeg",
           "https://images.unsplash.com/photo-1562004760-aceed7bb0fe3?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/8834044/pexels-photo-8834044.jpeg",
+          "https://images.pexels.com/photos/28994394/pexels-photo-28994394.jpeg"
         ]
       },
       {
@@ -860,11 +846,11 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/11213210/pexels-photo-11213210.jpeg",
+          "https://images.pexels.com/photos/8774420/pexels-photo-8774420.jpeg",
+          "https://images.pexels.com/photos/5901622/pexels-photo-5901622.jpeg",
+          "https://i.pinimg.com/736x/f7/07/da/f707da400db0dcfda38dc545b67327e8.jpg",
+          "https://images.pexels.com/photos/6466227/pexels-photo-6466227.jpeg"
         ]
       },
       {
@@ -894,11 +880,10 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/6235017/pexels-photo-6235017.jpeg",
+          "https://i.pinimg.com/736x/c9/62/59/c962590932ae5bd16e7329ce2f83d717.jpg",
+          "https://i.pinimg.com/736x/5f/08/b6/5f08b63b1a37761cfe06ea8e5c848844.jpg",
+          "https://i.pinimg.com/1200x/90/bf/43/90bf432054a472150967c14685a6269a.jpg",
         ]
       },
       {
@@ -958,10 +943,10 @@
         "currency_id": 1,
         "name": "Interior Design Consultation",
         "description": "Comprehensive interior design consultation.",
-        "product_type": 3,
+        "product_type": 1,
         "service_pricing": 1,
-        "units": 1,
-        "weight": 0,
+        "units": 12,
+        "weight": 0.6,
         "cost_price": 10000,
         "price": 15000,
         "discount_price": 14000,
@@ -974,8 +959,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extra Hour\",\"price\":3000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -983,8 +968,8 @@
           "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/1090638/pexels-photo-1090638.jpeg",
+          "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg"
         ]
       },
       {
@@ -1014,11 +999,9 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop"
+          "https://i.pinimg.com/736x/07/d6/1b/07d61b95c2831a042052989a11093eb8.jpg",
+          "https://i.pinimg.com/736x/b3/9b/71/b39b71ecfdc75b9de5dcb6380fe2983f.jpg",
+          "https://i.pinimg.com/736x/a7/c2/db/a7c2db5cbd14e8441f2601baf030cabb.jpg",
         ]
       },
       {
@@ -1026,10 +1009,10 @@
         "currency_id": 1,
         "name": "Color Consultation",
         "description": "Expert color consultation for your home.",
-        "product_type": 3,
+        "product_type": 1,
         "service_pricing": 1,
-        "units": 1,
-        "weight": 0,
+        "units": 10,
+        "weight": 0.4,
         "cost_price": 8000,
         "price": 12000,
         "discount_price": 11000,
@@ -1042,17 +1025,16 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Consultation\",\"price\":1000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/24366011/pexels-photo-24366011.jpeg",
+          "https://images.pexels.com/photos/8293672/pexels-photo-8293672.jpeg",
+          "https://i.pinimg.com/1200x/3d/84/3c/3d843c9a1adc6875049c65e385d0628c.jpg",
+          "https://i.pinimg.com/736x/a1/a5/79/a1a579aaaf00be839f69a0e55dd6624b.jpg",
         ]
       },
       {
@@ -1082,11 +1064,10 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/4792491/pexels-photo-4792491.jpeg",
+          "https://images.pexels.com/photos/8978578/pexels-photo-8978578.jpeg",
+          "https://images.pexels.com/photos/8978566/pexels-photo-8978566.jpeg",
+          "https://images.pexels.com/photos/7937963/pexels-photo-7937963.jpeg",
         ]
       },
       {
@@ -1116,11 +1097,11 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/5486108/pexels-photo-5486108.jpeg",
+          "https://images.pexels.com/photos/6827338/pexels-photo-6827338.jpeg",
+          "https://images.pexels.com/photos/5486120/pexels-photo-5486120.jpeg",
+          "https://images.pexels.com/photos/6826792/pexels-photo-6826792.jpeg",
+          "https://i.pinimg.com/736x/7c/35/e1/7c35e1e8cd4624708bfaf5236c189ba0.jpg"
         ]
       },
       {
@@ -1150,11 +1131,11 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://i.pinimg.com/736x/e3/97/77/e39777ada4d770df5997c9f85a1b2f57.jpg",
+          "https://i.pinimg.com/1200x/28/a1/01/28a10169ecbf89c489b6b360a041d246.jpg",
+          "https://i.pinimg.com/1200x/d8/20/d3/d820d313197857e4c3af934767396b6a.jpg",
+          "https://i.pinimg.com/1200x/dc/c2/d8/dcc2d857999a74e4f6d0e41d85713c85.jpg",
+          "https://i.pinimg.com/1200x/bd/7e/74/bd7e747be95dacb1ef3056bc6a84edc5.jpg"
         ]
       },
       {
@@ -1184,11 +1165,10 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1562004760-aceed7bb0fe3?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&h=400&fit=crop"
+          "https://i.pinimg.com/736x/d2/e9/4e/d2e94e960b816d1e0e780d44d79c57de.jpg",
+          "https://i.pinimg.com/1200x/18/2e/36/182e36ab9148a7c198032a527bb94de0.jpg",
+          "https://i.pinimg.com/736x/a9/30/8a/a9308a7468d5399d4b90921af49695eb.jpg",
+          "https://i.pinimg.com/1200x/d5/8c/0d/d58c0dcee3be07f59aeb43b507765445.jpg",
         ]
       },
       {
@@ -1218,11 +1198,10 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/6919750/pexels-photo-6919750.jpeg",
+          "https://i.pinimg.com/736x/3d/a1/4f/3da14ff34cc46a56677f8ec537a4c504.jpg",
+          "https://images.pexels.com/photos/8171217/pexels-photo-8171217.jpeg",
+          "https://i.pinimg.com/736x/84/cd/18/84cd18b5fb9ff267b5021a182cb3f075.jpg",
         ]
       },
       {
@@ -1252,11 +1231,11 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/8250184/pexels-photo-8250184.jpeg",
+          "https://images.pexels.com/photos/6995260/pexels-photo-6995260.jpeg",
+          "https://i.pinimg.com/736x/54/7b/76/547b7634647ced491f8ab19f4504ced1.jpg",
+          "https://i.pinimg.com/1200x/20/c4/00/20c4000ad13e8c89ceb5b0747df148d2.jpg",
+          "https://images.pexels.com/photos/4393660/pexels-photo-4393660.jpeg"
         ]
       }
     ]
@@ -1282,10 +1261,10 @@
         "currency_id": 1,
         "name": "Italian Dinner Party",
         "description": "Authentic Italian dinner party catering.",
-        "product_type": 3,
+        "product_type": 1,
         "service_pricing": 2,
-        "units": 1,
-        "weight": 0,
+        "units": 9,
+        "weight": 0.5,
         "cost_price": 50000,
         "price": 70000,
         "discount_price": 65000,
@@ -1298,8 +1277,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Wine Pairing\",\"price\":10000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -1308,7 +1287,7 @@
           "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://i.pinimg.com/1200x/00/c8/a9/00c8a9ed39118068621788d25481d98f.jpg"
         ]
       },
       {
@@ -1316,10 +1295,10 @@
         "currency_id": 1,
         "name": "Catering Service",
         "description": "Customized catering services for any event.",
-        "product_type": 3,
+        "product_type": 1,
         "service_pricing": 1,
-        "units": 1,
-        "weight": 0,
+        "units": 10,
+        "weight": 0.2,
         "cost_price": 15000,
         "price": 25000,
         "discount_price": 23000,
@@ -1332,17 +1311,17 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Setup Fee\",\"price\":3000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://i.pinimg.com/1200x/1f/b9/d5/1fb9d5bdcb2d83b634498ef36e5e4e33.jpg",
+          "https://images.pexels.com/photos/5531638/pexels-photo-5531638.jpeg",
+          "https://images.pexels.com/photos/7648322/pexels-photo-7648322.jpeg",
+          "https://i.pinimg.com/736x/99/91/c2/9991c20d1b47768922bcf8bd0e3c3acf.jpg",
+          "https://images.pexels.com/photos/3217157/pexels-photo-3217157.jpeg"
         ]
       },
       {
@@ -1372,11 +1351,10 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop"
+          "https://i.pinimg.com/1200x/0a/22/1a/0a221a94ec305e9903f0f493f4ce0b55.jpg",
+          "https://i.pinimg.com/736x/92/78/8e/92788ed42c7739b3fcba624d10289387.jpg",
+          "https://images.pexels.com/photos/29040915/pexels-photo-29040915.jpeg",
+          "https://images.pexels.com/photos/5835333/pexels-photo-5835333.jpeg",
         ]
       },
       {
@@ -1408,9 +1386,8 @@
         "images": [
           "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/6647063/pexels-photo-6647063.jpeg",
+          "https://images.pexels.com/photos/2814828/pexels-photo-2814828.jpeg",
         ]
       },
       {
@@ -1440,11 +1417,11 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://i.pinimg.com/1200x/20/79/d8/2079d89eab0415c663aababbe618931f.jpg",
+          "https://images.pexels.com/photos/811572/pexels-photo-811572.jpeg",
+          "https://images.pexels.com/photos/50675/banquet-wedding-society-deco-50675.jpeg",
+          "https://images.pexels.com/photos/669986/pexels-photo-669986.jpeg",
+          "https://images.pexels.com/photos/33162637/pexels-photo-33162637.jpeg"
         ]
       },
       {
@@ -1474,11 +1451,10 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/5745651/pexels-photo-5745651.jpeg",
+          "https://i.pinimg.com/736x/36/39/49/363949af2657a037c30911a7579e3209.jpg",
+          "https://i.pinimg.com/1200x/5b/5d/b3/5b5db35912940dccc72ca1c284509207.jpg",
+          "https://i.pinimg.com/736x/67/08/f3/6708f3233b5e84d05f8a44dd2cc4aed7.jpg",
         ]
       },
       {
@@ -1508,11 +1484,10 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/32418223/pexels-photo-32418223.jpeg",
+          "https://images.pexels.com/photos/28128757/pexels-photo-28128757.jpeg",
+          "https://images.pexels.com/photos/2537608/pexels-photo-2537608.jpeg",
+          "vhttps://images.pexels.com/photos/1718384/pexels-photo-1718384.jpeg",
         ]
       },
       {
@@ -1542,11 +1517,11 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/3379934/pexels-photo-3379934.jpeg",
+          "https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg",
+          "https://images.pexels.com/photos/3062541/pexels-photo-3062541.jpeg",
+          "https://images.pexels.com/photos/403495/pexels-photo-403495.jpeg",
+          "https://images.pexels.com/photos/2608519/pexels-photo-2608519.jpeg"
         ]
       },
       {
@@ -1576,11 +1551,11 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/4947388/pexels-photo-4947388.jpeg",
+          "https://images.pexels.com/photos/17555544/pexels-photo-17555544.jpeg",
+          "https://images.pexels.com/photos/28999502/pexels-photo-28999502.jpeg",
+          "https://i.pinimg.com/1200x/ef/dd/cb/efddcb0683c72923093a7487d70eee5b.jpg",
+          "https://i.pinimg.com/736x/b4/4d/1d/b44d1db0075d9700ad8d361b38f24b20.jpg"
         ]
       }
     ]
@@ -1606,10 +1581,10 @@
         "currency_id": 1,
         "name": "Social Media Management",
         "description": "Comprehensive management of social media platforms.",
-        "product_type": 3,
+        "product_type": 1,
         "service_pricing": 2,
-        "units": 1,
-        "weight": 0,
+        "units": 8,
+        "weight": 0.5,
         "cost_price": 20000,
         "price": 30000,
         "discount_price": 27000,
@@ -1622,8 +1597,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Ad Campaign\",\"price\":5000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -1631,7 +1606,7 @@
           "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+          "https://i.pinimg.com/736x/6a/2a/02/6a2a028b78fc1b9f89d2299c9ae58d4b.jpg",
           "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop"
         ]
       },
@@ -1640,10 +1615,10 @@
         "currency_id": 1,
         "name": "Brand Strategy Session",
         "description": "One-on-one brand strategy consultation.",
-        "product_type": 3,
+        "product_type": 1,
         "service_pricing": 1,
-        "units": 1,
-        "weight": 0,
+        "units": 10,
+        "weight": 0.5,
         "cost_price": 10000,
         "price": 15000,
         "discount_price": 14000,
@@ -1656,17 +1631,17 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extra Hour\",\"price\":3000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
           "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
+          "https://i.pinimg.com/736x/6e/ae/57/6eae5711d2594376333d992dc65a8244.jpg",
           "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://i.pinimg.com/1200x/b1/4c/c1/b14cc161cce4383a47cfaebca0af04cb.jpg"
         ]
       },
       {
@@ -1696,11 +1671,9 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/17845/pexels-photo.jpg",
+          "https://images.pexels.com/photos/57690/pexels-photo-57690.jpeg",
+          "https://images.pexels.com/photos/355952/pexels-photo-355952.jpeg",
         ]
       },
       {
@@ -1730,11 +1703,11 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://i.pinimg.com/1200x/44/09/f3/4409f36659f44eb7bca9acc5c46ffb9e.jpg",
+          "https://i.pinimg.com/736x/6c/00/14/6c0014ac8349da5d7762fb7076d63260.jpg",
+          "https://i.pinimg.com/736x/77/d4/30/77d430a161a18188f02a884573683eb2.jpg",
+          "https://i.pinimg.com/1200x/c4/38/7f/c4387f6f2c17d8663d345b88b84236b5.jpg",
+          "https://i.pinimg.com/736x/a9/87/7e/a9877ec05d29bf663ffb416c6216fdcf.jpg"
         ]
       },
       {
@@ -1764,11 +1737,11 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg",
+          "https://images.pexels.com/photos/6964860/pexels-photo-6964860.jpeg",
+          "https://images.pexels.com/photos/2041396/pexels-photo-2041396.jpeg",
+          "https://images.pexels.com/photos/6953672/pexels-photo-6953672.jpeg",
+          "https://images.pexels.com/photos/755416/pexels-photo-755416.jpeg"
         ]
       },
       {
@@ -1799,10 +1772,10 @@
         "condition_status": 1,
         "images": [
           "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop"
+          "https://i.pinimg.com/736x/b4/1c/39/b41c3938f92c278f07eea4c1e21ceea2.jpg",
+          "https://i.pinimg.com/736x/ea/b5/c5/eab5c58d883dea73288b808e8de2679f.jpg",
+          "https://i.pinimg.com/1200x/c6/8c/6c/c68c6c3edca713f7574dd104ccf45f87.jpg",
+          "https://i.pinimg.com/736x/f5/e2/2e/f5e22e0162c3ac65c2ec38e77d55387f.jpg"
         ]
       },
       {
@@ -1832,11 +1805,11 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/18323990/pexels-photo-18323990.jpeg",
+          "https://images.pexels.com/photos/7641361/pexels-photo-7641361.jpeg",
+          "https://images.pexels.com/photos/5691633/pexels-photo-5691633.jpeg",
+          "https://images.pexels.com/photos/27928761/pexels-photo-27928761.jpeg",
+          "https://images.pexels.com/photos/9194143/pexels-photo-9194143.jpeg"
         ]
       },
       {
@@ -1866,11 +1839,10 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/6755133/pexels-photo-6755133.jpeg",
+          "https://images.pexels.com/photos/3825581/pexels-photo-3825581.jpeg",
+          "https://images.pexels.com/photos/4792719/pexels-photo-4792719.jpeg",
+          "https://images.pexels.com/photos/6755142/pexels-photo-6755142.jpeg",
         ]
       },
       {
@@ -1900,11 +1872,10 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/8729928/pexels-photo-8729928.jpeg",
+          "https://images.pexels.com/photos/8729814/pexels-photo-8729814.jpeg",
+          "https://images.pexels.com/photos/11296101/pexels-photo-11296101.jpeg",
+          "https://images.pexels.com/photos/7731402/pexels-photo-7731402.jpeg",
         ]
       }
     ]
@@ -1930,10 +1901,10 @@
         "currency_id": 1,
         "name": "Haircut",
         "description": "Classic haircut for men.",
-        "product_type": 3,
+        "product_type": 1,
         "service_pricing": 1,
-        "units": 1,
-        "weight": 0,
+        "units": 15,
+        "weight": 0.5,
         "cost_price": 2000,
         "price": 4000,
         "discount_price": 3800,
@@ -1946,13 +1917,13 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Beard Trim\",\"price\":1000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=600&h=400&fit=crop",
+          "https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg",
           "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1562004760-aceed7bb0fe3?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=400&fit=crop",
@@ -1964,10 +1935,10 @@
         "currency_id": 1,
         "name": "Beard Trim",
         "description": "Professional beard trimming and shaping.",
-        "product_type": 3,
+        "product_type": 1,
         "service_pricing": 1,
-        "units": 1,
-        "weight": 0,
+        "units": 6,
+        "weight": 0.5,
         "cost_price": 1500,
         "price": 3000,
         "discount_price": 2800,
@@ -1980,17 +1951,17 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Aftercare Kit\",\"price\":500}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
           "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/7697481/pexels-photo-7697481.jpeg",
+          "https://images.pexels.com/photos/1319461/pexels-photo-1319461.jpeg",
+          "https://images.pexels.com/photos/7697315/pexels-photo-7697315.jpeg"
         ]
       },
       {
@@ -2021,9 +1992,9 @@
         "condition_status": 1,
         "images": [
           "https://images.unsplash.com/photo-1562004760-aceed7bb0fe3?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&h=400&fit=crop",
+          "https://i.pinimg.com/736x/81/d6/c3/81d6c364d6ea41f2604dc6f50856fed8.jpg",
+          "https://i.pinimg.com/736x/61/80/78/6180789af4f5b1c81cc36b458dcb0cf6.jpg",
+          "https://i.pinimg.com/736x/88/ef/4b/88ef4beb88a3d67075d95cd2007846ca.jpg",
           "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=400&fit=crop"
         ]
       },
@@ -2055,10 +2026,10 @@
         "condition_status": 1,
         "images": [
           "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1562004760-aceed7bb0fe3?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=600&h=400&fit=crop",
+          "https://images.pexels.com/photos/8468142/pexels-photo-8468142.jpeg",
+          "https://images.pexels.com/photos/7388937/pexels-photo-7388937.jpeg",
           "https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/8419235/pexels-photo-8419235.jpeg"
         ]
       },
       {
@@ -2088,11 +2059,10 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1562004760-aceed7bb0fe3?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/28994394/pexels-photo-28994394.jpeg",
+          "https://images.pexels.com/photos/8467963/pexels-photo-8467963.jpeg",
+          "https://images.pexels.com/photos/7320791/pexels-photo-7320791.jpeg",
+          "https://images.pexels.com/photos/8467976/pexels-photo-8467976.jpeg",
         ]
       },
       {
@@ -2122,11 +2092,10 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/24503710/pexels-photo-24503710.jpeg",
+          "https://images.pexels.com/photos/16423104/pexels-photo-16423104.jpeg",
+          "https://images.pexels.com/photos/24783389/pexels-photo-24783389.jpeg",
+          "https://i.pinimg.com/1200x/e8/05/e5/e805e540fb1bd0b267f1500ed041c2b3.jpg",
         ]
       },
       {
@@ -2156,11 +2125,10 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://i.pinimg.com/736x/bc/ea/76/bcea760141e7680cf4f436b445f1a2b0.jpg",
+          "https://i.pinimg.com/1200x/78/bc/8f/78bc8f9fcc6f93ae570a60bffc8345d6.jpg",
+          "https://i.pinimg.com/736x/88/d9/8f/88d98fb9fc80e47f102db77a2f85183c.jpg",
+          "https://i.pinimg.com/736x/be/39/93/be399331cd6bcbde1a0ffc4972a604d3.jpg",
         ]
       },
       {
@@ -2190,11 +2158,10 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1477233534935-f5e6fe7c1159?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "https://plus.unsplash.com/premium_photo-1703618157206-3568d94cc168?q=80&w=898&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "https://i.pinimg.com/736x/44/69/53/446953b507132aef6964f64fec55cd38.jpg",
+          "https://plus.unsplash.com/premium_photo-1703618159183-0e34e2304a5c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
         ]
       }
     ]
@@ -2220,10 +2187,10 @@
         "currency_id": 1,
         "name": "Interior Design Consultation",
         "description": "Comprehensive interior design consultation.",
-        "product_type": 3,
+        "product_type": 1,
         "service_pricing": 1,
-        "units": 1,
-        "weight": 0,
+        "units": 14,
+        "weight": 0.7,
         "cost_price": 10000,
         "price": 15000,
         "discount_price": 14000,
@@ -2236,8 +2203,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extra Hour\",\"price\":3000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -2245,8 +2212,8 @@
           "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://i.pinimg.com/736x/9c/87/c6/9c87c6999ab9bc6bbaf620b0a3fb204c.jpg",
+          "https://i.pinimg.com/736x/9c/03/ec/9c03ecdabd7f143af6338b3664289ebb.jpg"
         ]
       },
       {
@@ -2254,10 +2221,10 @@
         "currency_id": 1,
         "name": "Home Staging",
         "description": "Professional home staging for real estate listings.",
-        "product_type": 3,
+        "product_type": 1,
         "service_pricing": 2,
-        "units": 1,
-        "weight": 0,
+        "units": 12,
+        "weight": 0.4,
         "cost_price": 5000,
         "price": 10000,
         "discount_price": 9500,
@@ -2270,8 +2237,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Consultation\",\"price\":1000}]",
-        "service_available_days_data": "Online",
-        "service_available_time_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_days_data": "[\"Tuesday\",\"Thursday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -2279,8 +2246,8 @@
           "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop"
+          "https://i.pinimg.com/1200x/37/59/74/375974bc35083fc4744543ca4ecf5c16.jpg",
+          "https://i.pinimg.com/736x/01/37/42/013742bc168c920bad58c503dd99e7f1.jpg"
         ]
       },
       {
@@ -2310,11 +2277,10 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/24366011/pexels-photo-24366011.jpeg",
+          "https://images.pexels.com/photos/8293672/pexels-photo-8293672.jpeg",
+          "https://i.pinimg.com/1200x/3d/84/3c/3d843c9a1adc6875049c65e385d0628c.jpg",
+          "https://i.pinimg.com/736x/a1/a5/79/a1a579aaaf00be839f69a0e55dd6624b.jpg"
         ]
       },
       {
@@ -2344,11 +2310,10 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/4792491/pexels-photo-4792491.jpeg",
+          "https://images.pexels.com/photos/8978578/pexels-photo-8978578.jpeg",
+          "https://images.pexels.com/photos/8978566/pexels-photo-8978566.jpeg",
+          "https://images.pexels.com/photos/7937963/pexels-photo-7937963.jpeg",
         ]
       },
       {
@@ -2378,11 +2343,11 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/5486108/pexels-photo-5486108.jpeg",
+          "https://images.pexels.com/photos/6827338/pexels-photo-6827338.jpeg",
+          "https://images.pexels.com/photos/5486120/pexels-photo-5486120.jpeg",
+          "https://images.pexels.com/photos/6826792/pexels-photo-6826792.jpeg",
+          "https://i.pinimg.com/736x/7c/35/e1/7c35e1e8cd4624708bfaf5236c189ba0.jpg"
         ]
       },
       {
@@ -2412,11 +2377,11 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+           "https://i.pinimg.com/736x/e3/97/77/e39777ada4d770df5997c9f85a1b2f57.jpg",
+          "https://i.pinimg.com/1200x/28/a1/01/28a10169ecbf89c489b6b360a041d246.jpg",
+          "https://i.pinimg.com/1200x/d8/20/d3/d820d313197857e4c3af934767396b6a.jpg",
+          "https://i.pinimg.com/1200x/dc/c2/d8/dcc2d857999a74e4f6d0e41d85713c85.jpg",
+          "https://i.pinimg.com/1200x/bd/7e/74/bd7e747be95dacb1ef3056bc6a84edc5.jpg"
         ]
       },
       {
@@ -2446,11 +2411,9 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "https://images.unsplash.com/photo-1627685317111-5133a227c0e4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "https://images.unsplash.com/photo-1550622824-c11e494a4b65?q=80&w=873&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         ]
       },
       {
@@ -2480,11 +2443,10 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://i.pinimg.com/1200x/00/5d/9f/005d9f0f2611c1dd0bcb65135d358f0b.jpg",
+          "https://i.pinimg.com/736x/e8/44/d7/e844d7a7de0b9a903c57375ebcef2b6a.jpg",
+          "https://i.pinimg.com/1200x/a3/53/17/a35317542bbecae37d86b9d53eed82bb.jpg",
+          "https://i.pinimg.com/736x/b6/b9/be/b6b9be67ebcf759611c30dcbeb679174.jpg",
         ]
       },
       {
@@ -2514,11 +2476,11 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&h=400&fit=crop"
+         "https://images.pexels.com/photos/210627/pexels-photo-210627.jpeg",
+          "https://images.pexels.com/photos/6873020/pexels-photo-6873020.jpeg",
+          "https://images.pexels.com/photos/4870705/pexels-photo-4870705.jpeg",
+          "https://images.pexels.com/photos/6872603/pexels-photo-6872603.jpeg",
+          "https://images.pexels.com/photos/4870731/pexels-photo-4870731.jpeg"
         ]
       }
     ]
@@ -2544,10 +2506,10 @@
         "currency_id": 1,
         "name": "Italian Dinner Party",
         "description": "Authentic Italian dinner party catering.",
-        "product_type": 3,
+        "product_type": 1,
         "service_pricing": 2,
-        "units": 1,
-        "weight": 0,
+        "units": 9,
+        "weight": 0.3,
         "cost_price": 50000,
         "price": 70000,
         "discount_price": 65000,
@@ -2560,8 +2522,8 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Wine Pairing\",\"price\":10000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"]",
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]"
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -2570,7 +2532,7 @@
           "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://i.pinimg.com/1200x/00/c8/a9/00c8a9ed39118068621788d25481d98f.jpg"
         ]
       },
       {
@@ -2578,10 +2540,10 @@
         "currency_id": 1,
         "name": "Catering Service",
         "description": "Customized catering services for any event.",
-        "product_type": 3,
+        "product_type": 1,
         "service_pricing": 1,
-        "units": 1,
-        "weight": 0,
+        "units": 17,
+        "weight": 0.5,
         "cost_price": 15000,
         "price": 25000,
         "discount_price": 23000,
@@ -2594,17 +2556,17 @@
         "service_delivery_mode": 2,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Setup Fee\",\"price\":3000}]",
-        "service_available_days_data": "On-site",
-        "service_available_time_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_days_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://i.pinimg.com/1200x/1f/b9/d5/1fb9d5bdcb2d83b634498ef36e5e4e33.jpg",
+          "https://images.pexels.com/photos/5531638/pexels-photo-5531638.jpeg",
+          "https://images.pexels.com/photos/7648322/pexels-photo-7648322.jpeg",
+          "https://i.pinimg.com/736x/99/91/c2/9991c20d1b47768922bcf8bd0e3c3acf.jpg",
+          "https://images.pexels.com/photos/3217157/pexels-photo-3217157.jpeg"
         ]
       },
       {
@@ -2634,11 +2596,10 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop"
+          "https://i.pinimg.com/1200x/0a/22/1a/0a221a94ec305e9903f0f493f4ce0b55.jpg",
+          "https://i.pinimg.com/736x/92/78/8e/92788ed42c7739b3fcba624d10289387.jpg",
+          "https://images.pexels.com/photos/29040915/pexels-photo-29040915.jpeg",
+          "https://images.pexels.com/photos/5835333/pexels-photo-5835333.jpeg",
         ]
       },
       {
@@ -2670,9 +2631,8 @@
         "images": [
           "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&h=400&fit=crop",
           "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/6647063/pexels-photo-6647063.jpeg",
+          "https://images.pexels.com/photos/2814828/pexels-photo-2814828.jpeg",
         ]
       },
       {
@@ -2702,11 +2662,11 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://i.pinimg.com/1200x/20/79/d8/2079d89eab0415c663aababbe618931f.jpg",
+          "https://images.pexels.com/photos/811572/pexels-photo-811572.jpeg",
+          "https://images.pexels.com/photos/50675/banquet-wedding-society-deco-50675.jpeg",
+          "https://images.pexels.com/photos/669986/pexels-photo-669986.jpeg",
+          "https://images.pexels.com/photos/33162637/pexels-photo-33162637.jpeg"
         ]
       },
       {
@@ -2736,11 +2696,10 @@
         "notify_if_available": 1,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/5745651/pexels-photo-5745651.jpeg",
+          "https://i.pinimg.com/736x/36/39/49/363949af2657a037c30911a7579e3209.jpg",
+          "https://i.pinimg.com/1200x/5b/5d/b3/5b5db35912940dccc72ca1c284509207.jpg",
+          "https://i.pinimg.com/736x/67/08/f3/6708f3233b5e84d05f8a44dd2cc4aed7.jpg",
         ]
       },
       {
@@ -2770,11 +2729,11 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+          "https://images.pexels.com/photos/6863259/pexels-photo-6863259.jpeg",
+          "https://images.pexels.com/photos/6863183/pexels-photo-6863183.jpeg",
+          "https://images.pexels.com/photos/6863332/pexels-photo-6863332.jpeg",
+          "https://images.pexels.com/photos/6863254/pexels-photo-6863254.jpeg",
+          "https://images.pexels.com/photos/6863323/pexels-photo-6863323.jpeg"
         ]
       },
       {
@@ -2804,11 +2763,10 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+         "https://images.pexels.com/photos/5711242/pexels-photo-5711242.jpeghoto-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
+          "https://images.pexels.com/photos/5711239/pexels-photo-5711239.jpeg",
+          "https://images.pexels.com/photos/4125507/pexels-photo-4125507.jpeg",
+          "https://images.pexels.com/photos/4125500/pexels-photo-4125500.jpeg",
         ]
       },
       {
@@ -2838,11 +2796,9 @@
         "notify_if_available": 0,
         "condition_status": 1,
         "images": [
-          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+            "https://images.pexels.com/photos/18845888/pexels-photo-18845888.jpeg",
+          "https://images.pexels.com/photos/6591147/pexels-photo-6591147.jpeg",
+          "https://images.pexels.com/photos/27176163/pexels-photo-27176163.jpeg",
         ]
       }
     ]

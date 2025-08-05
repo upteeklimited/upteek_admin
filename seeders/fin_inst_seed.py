@@ -443,7 +443,7 @@ banks = [
     {"bank_name": "SmartCash PSB", "nibbs_code": "120004", "cbn_code": ""}
 ]
 
-def seed_financial_institutions(db: Session):
+def seed_financial_institutions(db: Session, commit: bool=False):
     global banks
     provider_id = 0
     provider = get_single_provider_by_code(db=db, code="squadco")
@@ -451,5 +451,5 @@ def seed_financial_institutions(db: Session):
         provider_id = provider.id
     if len(banks) > 0:
         for bank in banks:
-            create_financial_institution(db=db, provider_id=provider_id, name=bank['bank_name'], code=bank['cbn_code'], nibss_code=bank['nibbs_code'], status=1)
+            create_financial_institution(db=db, provider_id=provider_id, name=bank['bank_name'], code=bank['cbn_code'], nibss_code=bank['nibbs_code'], status=1, commit=commit)
     return True

@@ -44,8 +44,8 @@ seed = [
     },
 ]
 
-def run_country_seeder(db: Session):
+def run_country_seeder(db: Session, commit: bool=False):
     global seed
     for data in seed:
-        create_country(db=db, name=data['name'], code=data['code'], code_two=data['code_two'], language=data['language'], area_code=data['area_code'], base_timezone=data['base_timezone'], latitude=data['latitude'], longitude=data['longitude'], flag=data['flag'], visibility=data['visibility'], status=data['status'])
+        create_country(db=db, name=data['name'], code=data['code'], code_two=data['code_two'], language=data['language'], area_code=data['area_code'], base_timezone=data['base_timezone'], latitude=data['latitude'], longitude=data['longitude'], flag=data['flag'], visibility=data['visibility'], status=data['status'], commit=commit)
     return True

@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from database.model import create_general_ledger_account_type
 
-def seed_gl_type(db: Session):
+def seed_gl_type(db: Session, commit: bool=False):
     seed = [
         {
             'account_code': '10000000',
@@ -234,5 +234,5 @@ def seed_gl_type(db: Session):
     ]
     if len(seed) > 0:
         for i in range(len(seed)):
-            create_general_ledger_account_type(db=db, country_id=1, currency_id=1, name=seed[i]['name'], description=seed[i]['desc'], account_code=seed[i]['account_code'], type_number=seed[i]['type_num'], status=1, created_by=1, authorized_by=1)
+            create_general_ledger_account_type(db=db, country_id=1, currency_id=1, name=seed[i]['name'], description=seed[i]['desc'], account_code=seed[i]['account_code'], type_number=seed[i]['type_num'], status=1, created_by=1, authorized_by=1, commit=commit)
     return True

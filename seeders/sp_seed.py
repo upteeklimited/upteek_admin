@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from database.model import create_provider, check_provider_exist, create_service, check_service_exist, get_last_general_ledger_account, get_single_general_ledger_account_type_by_account_code, create_general_ledger_account
 from modules.utils.acct import generate_internal_gl_number
 
-def seed_services(db: Session):
+def seed_services(db: Session, commit: bool=False):
 	data = [
 		{
 			'name': 'Nigerian Bank Transfer Name Validation',
@@ -69,10 +69,10 @@ def seed_services(db: Session):
 	if len(data) > 0:
 		for i in range(len(data)):
 			if check_service_exist(db=db, code=data[i]['code']) == 0:
-				create_service(db=db, name=data[i]['name'], code=data[i]['code'], status=data[i]['status'])
+				create_service(db=db, name=data[i]['name'], code=data[i]['code'], status=data[i]['status'], commit=commit)
 	return True
 
-def seed_providers(db: Session):
+def seed_providers(db: Session, commit: bool=False):
 	data = [
 		{
 			'name': 'Quickteller',
@@ -130,7 +130,7 @@ def seed_providers(db: Session):
 		for i in range(len(data)):
 			if check_provider_exist(db=db, code=data[i]['code']) == False:
 				provider_account_name = data[i]['name'] + " Provider Account"
-				gl_account = create_general_ledger_account(db=db, type_id=liability_type_id, name=provider_account_name, account_number=generate_internal_gl_number(type_code=liability_account_code, last_id=last_gl_id), created_by=1, authorized_by=1)
-				create_provider(db=db, gl_account_id=gl_account.id, name=data[i]['name'], code=data[i]['code'], status=data[i]['status'])
+				gl_account = create_general_ledger_account(db=db, type_id=liability_type_id, name=provider_account_name, account_number=generate_internal_gl_number(type_code=liability_account_code, last_id=last_gl_id), created_by=1, authorized_by=1, commit=commit)
+				create_provider(db=db, gl_account_id=gl_account.id, name=data[i]['name'], code=data[i]['code'], status=data[i]['status'], commit=commit)
 				last_gl_id = gl_account.id
 	return True

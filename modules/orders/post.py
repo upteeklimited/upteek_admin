@@ -5,7 +5,7 @@ from modules.utils.tools import process_schema_dictionary, generate_transaction_
 from modules.transactions.trans import process_account_order
 
 
-def create_new_order(db: Session, user_id: int=0, country_id: int=0, merchant_id: int=0, address_id: int=0, is_account: bool=False, is_card: bool=False, card_id: int=0, card_transaction_reference: str=None, save_card: bool=False, provider_code: str=None, products: List=[], amount: float=0, discount: float=0, total_amount: float=0, delivery_status: int=0, status: int=0):
+def create_new_order(db: Session, user_id: int=0, country_id: int=0, merchant_id: int=0, address_id: int=0, is_account: bool=False, is_card: bool=False, card_id: int=0, card_transaction_reference: str=None, save_card: bool=False, provider_code: str=None, products: List=[], amount: float=0, discount: float=0, total_amount: float=0, delivery_status: int=0, status: int=0, commit: bool=False):
     # merchant = get_single_merchant_by_id(db=db, id=merchant_id)
     currency = get_single_currency_by_code(db=db, code="NGN")
     currency_id = 0
@@ -24,7 +24,7 @@ def create_new_order(db: Session, user_id: int=0, country_id: int=0, merchant_id
     payment_type = 0
     processor = None
     if is_account == True:
-        processor = process_account_order(db=db, user_id=user_id, country_id=country_id, merchant_id=merchant_id, amount=total_amount)
+        processor = process_account_order(db=db, user_id=user_id, country_id=country_id, merchant_id=merchant_id, amount=total_amount, commit=commit)
         payment_type = 2
     # elif is_card == True:
     #     processor = process_card_order(db=db, user_id=user_id, country_id=country_id, merchant_id=merchant_id, provider_code=provider_code, amount=total_amount, external_reference=card_transaction_reference, save_card=save_card, card_id=card_id)
@@ -43,13 +43,13 @@ def create_new_order(db: Session, user_id: int=0, country_id: int=0, merchant_id
         }
     main_trans = processor['data']
     reference = generate_order_reference()
-    order = create_order(db=db, user_id=user_id, merchant_id=merchant_id, currency_id=currency_id, card_id=main_trans.card_id, account_id=main_trans.account_id, reference=reference, sub_total=amount, total_amount=total_amount, discount=discount, address_id=address_id, payment_type=payment_type, pick_up_pin=order_pin(), delivery_pin=order_pin(), payment_status=1, delivery_status=delivery_status, status=status)
+    order = create_order(db=db, user_id=user_id, merchant_id=merchant_id, currency_id=currency_id, card_id=main_trans.card_id, account_id=main_trans.account_id, reference=reference, sub_total=amount, total_amount=total_amount, discount=discount, address_id=address_id, payment_type=payment_type, pick_up_pin=order_pin(), delivery_pin=order_pin(), payment_status=1, delivery_status=delivery_status, status=status, commit=commit)
     # product_ids = []
     if len(products) > 0:
         for product in products:
             # product_ids.append(product['product_id'])
-            create_order_product(db=db, product_id=product['product_id'], order_id=order.id, quantity=product['quantity'], amount=product['amount'], status=1)
-    update_transaction(db=db, id=main_trans.id, values={'order_id': order.id})
+            create_order_product(db=db, product_id=product['product_id'], order_id=order.id, quantity=product['quantity'], amount=product['amount'], status=1, commit=commit)
+    update_transaction(db=db, id=main_trans.id, values={'order_id': order.id}, commit=commit)
     data = get_single_order_by_id(db=db, id=order.id)
     return {
         'status': True,

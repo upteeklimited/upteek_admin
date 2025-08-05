@@ -15,26 +15,26 @@ from seeders.order_and_trans_seed import run_fund_seed, run_purchase_seed
 from seeders.bill_seeder import seed_bill_categories, seed_bills
 import traceback
 
-def run_seed(db: Session):
+def run_seed(db: Session, commit: bool=False):
     try:
-        print(run_country_seeder(db=db))
-        print(run_currency_seeder(db=db))
-        print(run_geo_seeder(db=db))
-        print(run_category_seeder(db=db))
-        print(run_product_categories_seeder(db=db))
-        print(seed_gl_type(db=db))
-        print(seed_financial_products(db=db))
-        print(seed_services(db=db))
-        print(seed_providers(db=db))
-        print(seed_trans_type(db=db))
-        print(run_config_seeder(db=db))
-        print(seed_financial_institutions(db=db))
-        print(run_user_seeder(db=db))
-        print(run_mock_seeder(db=db))
-        print(run_fund_seed(db=db))
-        print(run_purchase_seed(db=db))
-        print(seed_bill_categories(db=db))
-        print(seed_bills(db=db))
+        print(run_country_seeder(db=db, commit=commit))
+        print(run_currency_seeder(db=db, commit=commit))
+        print(run_geo_seeder(db=db, commit=commit))
+        print(run_category_seeder(db=db, commit=commit))
+        print(run_product_categories_seeder(db=db, commit=commit))
+        print(seed_gl_type(db=db, commit=commit))
+        print(seed_financial_products(db=db, commit=commit))
+        print(seed_services(db=db, commit=commit))
+        print(seed_providers(db=db, commit=commit))
+        print(seed_trans_type(db=db, commit=commit))
+        print(run_config_seeder(db=db, commit=commit))
+        print(seed_financial_institutions(db=db, commit=commit))
+        print(run_user_seeder(db=db, commit=commit))
+        print(run_mock_seeder(db=db, commit=commit))
+        print(run_fund_seed(db=db, commit=commit))
+        print(run_purchase_seed(db=db, commit=commit))
+        print(seed_bill_categories(db=db, commit=commit))
+        print(seed_bills(db=db, commit=commit))
         return {
             'status': True,
             'message': 'Seeders ran successfully!'
