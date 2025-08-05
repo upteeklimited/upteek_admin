@@ -36,12 +36,12 @@
         "service_delivery_mode": 3,
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Engine Wash\",\"price\":2000}]",
-        "service_available_days_data": [\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"]
+        "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"]",
         "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
-        "images" [
+        "images": [
           "https://images.pexels.com/photos/210627/pexels-photo-210627.jpeg",
           "https://images.pexels.com/photos/6873020/pexels-photo-6873020.jpeg",
           "https://images.pexels.com/photos/4870705/pexels-photo-4870705.jpeg",
@@ -354,7 +354,7 @@
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Ad Campaign\",\"price\":5000}]",
         "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"]",
-        "service_available_time_data": ,"[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]"
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
@@ -388,7 +388,7 @@
         "service_is_time_sensitive": 2,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Extra Hour\",\"price\":3000}]",
         "service_available_days_data": "[\"Monday\",\"Wednesday\",\"Friday\"]",
-        "service_available_time_data": ""[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 0,
         "condition_status": 1,
@@ -2161,7 +2161,7 @@
           "https://images.unsplash.com/photo-1477233534935-f5e6fe7c1159?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           "https://plus.unsplash.com/premium_photo-1703618157206-3568d94cc168?q=80&w=898&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           "https://i.pinimg.com/736x/44/69/53/446953b507132aef6964f64fec55cd38.jpg",
-          "https://plus.unsplash.com/premium_photo-1703618159183-0e34e2304a5c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+          "https://plus.unsplash.com/premium_photo-1703618159183-0e34e2304a5c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ]
       }
     ]
@@ -2523,7 +2523,7 @@
         "service_is_time_sensitive": 1,
         "service_addon_extra_charge_meta_data": "[{\"name\":\"Wine Pairing\",\"price\":10000}]",
         "service_available_days_data": "[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"]",
-        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]"
+        "service_available_time_data": "[\"9:00AM\",\"10:00AM\",\"11:00AM\",\"12:00PM\",\"12:30PM\",\"1:00PM\",\"4:00PM\"]",
         "status": 1,
         "notify_if_available": 1,
         "condition_status": 1,
