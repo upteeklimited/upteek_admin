@@ -1,11 +1,11 @@
 from dotenv import load_dotenv
 import os
 
-# BASEDIR = os.path.abspath(os.path.dirname(__file__))
+BASEDIR = os.path.abspath(os.path.dirname(__file__)) + "/../.."
 
-# path = os.path.join(BASEDIR, '.env')
+path = os.path.join(BASEDIR, '.env')
 
-path = "/var/www/adminapi/configs/.env"
+# path = "/var/www/adminapi/configs/.env"
 
 load_dotenv(path)
 
