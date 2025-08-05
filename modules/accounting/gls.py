@@ -21,7 +21,7 @@ def create_gl(db: Session, account_type_code: str=None, account_name: str=None, 
             'data': gl
         }
 
-def create_product_gls(db: Session, product: FinancialProduct, created_by: int=0, authorized_by: int=0):
+def create_product_gls(db: Session, product: FinancialProduct, created_by: int=0, authorized_by: int=0, commit: bool=False):
     product_type = product.product_type
     product_name = product.name
     reporting_gl_id = 0
@@ -70,90 +70,90 @@ def create_product_gls(db: Session, product: FinancialProduct, created_by: int=0
     insurance_holding = product_name + " Insurance Holding "
     if product_type == 1:
         #savings        
-        reporting_gl = create_general_ledger_account(db=db, type_id=liability_type_id, name=reporting_gl_name, account_number=generate_internal_gl_number(type_code=liability_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        reporting_gl = create_general_ledger_account(db=db, type_id=liability_type_id, name=reporting_gl_name, account_number=generate_internal_gl_number(type_code=liability_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         reporting_gl_id = reporting_gl.id
         last_gl_id = reporting_gl_id
 
-        overdraft_gl = create_general_ledger_account(db=db, type_id=asset_type_id, name=overdraft_gl_name, account_number=generate_internal_gl_number(type_code=asset_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        overdraft_gl = create_general_ledger_account(db=db, type_id=asset_type_id, name=overdraft_gl_name, account_number=generate_internal_gl_number(type_code=asset_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         overdraft_gl_id = overdraft_gl.id
         last_gl_id = overdraft_gl_id
 
-        expense_gl = create_general_ledger_account(db=db, type_id=expense_type_id, name=interest_expense_gl_name, account_number=generate_internal_gl_number(type_code=expense_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        expense_gl = create_general_ledger_account(db=db, type_id=expense_type_id, name=interest_expense_gl_name, account_number=generate_internal_gl_number(type_code=expense_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         expense_gl_id = expense_gl.id
         last_gl_id = expense_gl_id
 
-        overdrawn_interest = create_general_ledger_account(db=db, type_id=income_type_id, name=overdrawn_interest_income_gl_name, account_number=generate_internal_gl_number(type_code=income_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        overdrawn_interest = create_general_ledger_account(db=db, type_id=income_type_id, name=overdrawn_interest_income_gl_name, account_number=generate_internal_gl_number(type_code=income_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         overdrawn_interest_gl_id = overdrawn_interest.id
         last_gl_id = overdrawn_interest_gl_id
 
-        interest_receivable = create_general_ledger_account(db=db, type_id=asset_type_id, name=interest_receivable_gl_name, account_number=generate_internal_gl_number(type_code=asset_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        interest_receivable = create_general_ledger_account(db=db, type_id=asset_type_id, name=interest_receivable_gl_name, account_number=generate_internal_gl_number(type_code=asset_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         interest_receivable_gl_id = interest_receivable.id
         last_gl_id = interest_receivable_gl_id
 
-        interest_payable = create_general_ledger_account(db=db, type_id=liability_type_id, name=interest_payable_gl_name, account_number=generate_internal_gl_number(type_code=liability_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        interest_payable = create_general_ledger_account(db=db, type_id=liability_type_id, name=interest_payable_gl_name, account_number=generate_internal_gl_number(type_code=liability_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         interest_payable_gl_id = interest_payable.id
         last_gl_id = interest_payable_gl_id
     elif product_type == 2:
         #current
-        reporting_gl = create_general_ledger_account(db=db, type_id=liability_type_id, name=reporting_gl_name, account_number=generate_internal_gl_number(type_code=liability_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        reporting_gl = create_general_ledger_account(db=db, type_id=liability_type_id, name=reporting_gl_name, account_number=generate_internal_gl_number(type_code=liability_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         reporting_gl_id = reporting_gl.id
         last_gl_id = reporting_gl_id
 
-        overdraft_gl = create_general_ledger_account(db=db, type_id=asset_type_id, name=overdraft_gl_name, account_number=generate_internal_gl_number(type_code=asset_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        overdraft_gl = create_general_ledger_account(db=db, type_id=asset_type_id, name=overdraft_gl_name, account_number=generate_internal_gl_number(type_code=asset_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         overdraft_gl_id = overdraft_gl.id
         last_gl_id = overdraft_gl_id
 
-        expense_gl = create_general_ledger_account(db=db, type_id=expense_type_id, name=interest_expense_gl_name, account_number=generate_internal_gl_number(type_code=expense_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        expense_gl = create_general_ledger_account(db=db, type_id=expense_type_id, name=interest_expense_gl_name, account_number=generate_internal_gl_number(type_code=expense_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         expense_gl_id = expense_gl.id
         last_gl_id = expense_gl_id
 
-        interest_income = create_general_ledger_account(db=db, type_id=income_type_id, name=interest_income_gl_name, account_number=generate_internal_gl_number(type_code=income_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        interest_income = create_general_ledger_account(db=db, type_id=income_type_id, name=interest_income_gl_name, account_number=generate_internal_gl_number(type_code=income_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         income_gl_id = interest_income.id
         last_gl_id = income_gl_id
 
-        overdrawn_interest = create_general_ledger_account(db=db, type_id=income_type_id, name=overdrawn_interest_income_gl_name, account_number=generate_internal_gl_number(type_code=income_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        overdrawn_interest = create_general_ledger_account(db=db, type_id=income_type_id, name=overdrawn_interest_income_gl_name, account_number=generate_internal_gl_number(type_code=income_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         overdrawn_interest_gl_id = overdrawn_interest.id
         last_gl_id = overdrawn_interest_gl_id
 
-        interest_receivable = create_general_ledger_account(db=db, type_id=asset_type_id, name=interest_receivable_gl_name, account_number=generate_internal_gl_number(type_code=asset_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        interest_receivable = create_general_ledger_account(db=db, type_id=asset_type_id, name=interest_receivable_gl_name, account_number=generate_internal_gl_number(type_code=asset_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         interest_receivable_gl_id = interest_receivable.id
         last_gl_id = interest_receivable_gl_id
 
-        interest_payable = create_general_ledger_account(db=db, type_id=liability_type_id, name=interest_payable_gl_name, account_number=generate_internal_gl_number(type_code=liability_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        interest_payable = create_general_ledger_account(db=db, type_id=liability_type_id, name=interest_payable_gl_name, account_number=generate_internal_gl_number(type_code=liability_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         interest_payable_gl_id = interest_payable.id
         last_gl_id = interest_payable_gl_id
     elif product_type == 3:
         #deposit
-        reporting_gl = create_general_ledger_account(db=db, type_id=liability_type_id, name=reporting_gl_name, account_number=generate_internal_gl_number(type_code=liability_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        reporting_gl = create_general_ledger_account(db=db, type_id=liability_type_id, name=reporting_gl_name, account_number=generate_internal_gl_number(type_code=liability_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         reporting_gl_id = reporting_gl.id
         last_gl_id = reporting_gl_id
 
-        expense_gl = create_general_ledger_account(db=db, type_id=expense_type_id, name=interest_expense_gl_name, account_number=generate_internal_gl_number(type_code=expense_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        expense_gl = create_general_ledger_account(db=db, type_id=expense_type_id, name=interest_expense_gl_name, account_number=generate_internal_gl_number(type_code=expense_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         expense_gl_id = expense_gl.id
         last_gl_id = expense_gl_id
     elif product_type == 4:
         #loan
-        reporting_gl = create_general_ledger_account(db=db, type_id=liability_type_id, name=reporting_gl_name, account_number=generate_internal_gl_number(type_code=liability_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        reporting_gl = create_general_ledger_account(db=db, type_id=liability_type_id, name=reporting_gl_name, account_number=generate_internal_gl_number(type_code=liability_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         reporting_gl_id = reporting_gl.id
         last_gl_id = reporting_gl_id
 
-        expense_gl = create_general_ledger_account(db=db, type_id=expense_type_id, name=interest_expense_gl_name, account_number=generate_internal_gl_number(type_code=expense_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        expense_gl = create_general_ledger_account(db=db, type_id=expense_type_id, name=interest_expense_gl_name, account_number=generate_internal_gl_number(type_code=expense_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         expense_gl_id = expense_gl.id
         last_gl_id = expense_gl_id
 
-        interest_income = create_general_ledger_account(db=db, type_id=income_type_id, name=interest_income_gl_name, account_number=generate_internal_gl_number(type_code=income_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        interest_income = create_general_ledger_account(db=db, type_id=income_type_id, name=interest_income_gl_name, account_number=generate_internal_gl_number(type_code=income_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         income_gl_id = interest_income.id
         last_gl_id = income_gl_id
 
-        unearned_gl = create_general_ledger_account(db=db, type_id=expense_type_id, name=interest_unearned_gl_name, account_number=generate_internal_gl_number(type_code=expense_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        unearned_gl = create_general_ledger_account(db=db, type_id=expense_type_id, name=interest_unearned_gl_name, account_number=generate_internal_gl_number(type_code=expense_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         unearned_gl_id = unearned_gl.id
         last_gl_id = unearned_gl_id
 
-        fixed_gl = create_general_ledger_account(db=db, type_id=income_type_id, name=fixed_charge_gl_name, account_number=generate_internal_gl_number(type_code=income_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        fixed_gl = create_general_ledger_account(db=db, type_id=income_type_id, name=fixed_charge_gl_name, account_number=generate_internal_gl_number(type_code=income_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         fixed_gl_id = fixed_gl.id
         last_gl_id = fixed_gl_id
 
-        insurance_gl = create_general_ledger_account(db=db, type_id=income_type_id, name=insurance_holding, account_number=generate_internal_gl_number(type_code=income_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        insurance_gl = create_general_ledger_account(db=db, type_id=income_type_id, name=insurance_holding, account_number=generate_internal_gl_number(type_code=income_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         insurance_gl_id = insurance_gl.id
         last_gl_id = insurance_gl_id
     
@@ -175,12 +175,12 @@ def create_product_gls(db: Session, product: FinancialProduct, created_by: int=0
         'data': data
     }
 
-def create_new_product(db: Session, name: str=None, description: str=None, product_type: int=0, created_by: int=0, authorized_by: int=0):
+def create_new_product(db: Session, name: str=None, description: str=None, product_type: int=0, created_by: int=0, authorized_by: int=0, commit: bool=False):
     interest_tenure_type = 0
     if product_type == 4:
         interest_tenure_type = 1
-    product = create_financial_product(db=db, name=name, description=description, country_id=1, currency_id=1, product_type=product_type, interest_tenure_type=interest_tenure_type, user_type=1, status=1, created_by=created_by, authorized_by=authorized_by)
-    resp = create_product_gls(db=db, product=product, created_by=created_by, authorized_by=authorized_by)
+    product = create_financial_product(db=db, name=name, description=description, country_id=1, currency_id=1, product_type=product_type, interest_tenure_type=interest_tenure_type, user_type=1, status=1, created_by=created_by, authorized_by=authorized_by, commit=commit)
+    resp = create_product_gls(db=db, product=product, created_by=created_by, authorized_by=authorized_by, commit=commit)
     resp_data = resp['data']
     values = {
         'gl_id': resp_data['reporting_gl_id'],
@@ -195,13 +195,13 @@ def create_new_product(db: Session, name: str=None, description: str=None, produ
         'interest_receivable_gl_id': resp_data['interest_receivable_gl_id'],
         'interest_payable_gl_id': resp_data['interest_payable_gl_id'],
     }
-    update_financial_product(db=db, id=product.id, values=values)
+    update_financial_product(db=db, id=product.id, values=values, commit=commit)
     last_account_type_id = 0
     last_account_type = get_last_account_type(db=db)
     if last_account_type is not None:
         last_account_type_id = last_account_type.id
     account_type_code = generate_account_type_code(product_type=product_type, last_id=last_account_type_id)
-    create_account_type(db=db, product_id=product.id, name=name, account_code=account_type_code, status=1, created_by=created_by, authorized_by=authorized_by)
+    create_account_type(db=db, product_id=product.id, name=name, account_code=account_type_code, status=1, created_by=created_by, authorized_by=authorized_by, commit=commit)
     return {
         'status': True,
         'message': 'Success',
