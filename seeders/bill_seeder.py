@@ -88,6 +88,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 1,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {},
 		},
 		{
@@ -107,6 +108,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 1,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {},
 		},
 		{
@@ -126,6 +128,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 1,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {},
 		},
 		{
@@ -145,6 +148,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 1,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {},
 		},
 		{
@@ -164,6 +168,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 1,
 			'is_flat': 0,
+			'has_bundles': 1,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'MTN',
@@ -187,6 +192,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 1,
 			'is_flat': 0,
+			'has_bundles': 1,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'Airtel',
@@ -210,6 +216,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 1,
 			'is_flat': 0,
+			'has_bundles': 1,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'GLO',
@@ -233,6 +240,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 1,
 			'is_flat': 0,
+			'has_bundles': 1,
 			'meta_data': {
 				'squadco': {
 					'biller_name': '9mobile',
@@ -256,6 +264,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'EKEDC',
@@ -280,6 +289,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'EKEDC',
@@ -304,6 +314,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'IE',
@@ -328,6 +339,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'IE',
@@ -352,6 +364,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'PHED',
@@ -376,6 +389,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'PHED',
@@ -400,6 +414,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'IBEDC',
@@ -424,6 +439,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'IBEDC',
@@ -448,6 +464,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'AEDC',
@@ -472,6 +489,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'AEDC',
@@ -496,6 +514,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'JED',
@@ -520,6 +539,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'JED',
@@ -544,6 +564,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'KEDCO',
@@ -568,6 +589,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'KEDCO',
@@ -592,6 +614,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'KAEDC',
@@ -616,6 +639,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'KAEDC',
@@ -640,6 +664,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'KAEDC',
@@ -664,6 +689,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'EEDC',
@@ -688,6 +714,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'APLE',
@@ -712,6 +739,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'APLE',
@@ -736,6 +764,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'YEDC',
@@ -760,6 +789,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'YEDC',
@@ -784,6 +814,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'BEDC',
@@ -808,6 +839,7 @@ def seed_bills(db: Session, commit: bool=False):
 			'is_airtime': 0,
 			'is_data': 0,
 			'is_flat': 0,
+			'has_bundles': 0,
 			'meta_data': {
 				'squadco': {
 					'biller_name': 'BEDC',
@@ -831,5 +863,5 @@ def seed_bills(db: Session, commit: bool=False):
 			provider = get_single_provider_by_code(db=db, code=data[i]['provider'])
 			if provider is not None:
 				provider_id = provider.id
-			create_bill(db=db, country_id=1, currency_id=1, category_id=category_id, service_id=service_id, provider_id=provider_id, name=data[i]['name'], description=data[i]['description'], short_name=data[i]['short_name'], label=data[i]['label_name'], code=data[i]['code'], amount=data[i]['amount'], minimum_amount=data[i]['minimum_amount'], maximum_amount=data[i]['maximum_amount'], fee=data[i]['fee'], commission=data[i]['commission'], is_airtime=data[i]['is_airtime'], is_data=data[i]['is_data'], is_flat=data[i]['is_flat'], meta_data=json.dumps(data[i]['meta_data']), status=1, commit=commit)
+			create_bill(db=db, country_id=1, currency_id=1, category_id=category_id, service_id=service_id, provider_id=provider_id, name=data[i]['name'], description=data[i]['description'], short_name=data[i]['short_name'], label=data[i]['label_name'], code=data[i]['code'], amount=data[i]['amount'], minimum_amount=data[i]['minimum_amount'], maximum_amount=data[i]['maximum_amount'], fee=data[i]['fee'], commission=data[i]['commission'], is_airtime=data[i]['is_airtime'], is_data=data[i]['is_data'], is_flat=data[i]['is_flat'], has_bundles=data[i]['has_bundles'], meta_data=json.dumps(data[i]['meta_data']), status=1, commit=commit)
 	True
