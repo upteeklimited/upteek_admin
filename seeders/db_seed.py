@@ -27,14 +27,14 @@ def run_seed(db: Session, commit: bool=False):
         # print(seed_services(db=db, commit=commit))
         # print(seed_providers(db=db, commit=commit))
         # print(seed_trans_type(db=db, commit=commit))
-        # print(run_config_seeder(db=db, commit=commit))
+        print(run_config_seeder(db=db, commit=commit))
         # print(seed_financial_institutions(db=db, commit=commit))
         # print(run_user_seeder(db=db, commit=commit))
         # print(run_mock_seeder(db=db, commit=commit))
         # print(run_fund_seed(db=db, commit=commit))
         # print(run_purchase_seed(db=db, commit=commit))
         # print(seed_bill_categories(db=db, commit=commit))
-        print(seed_bills(db=db, commit=commit))
+        # print(seed_bills(db=db, commit=commit))
         return {
             'status': True,
             'message': 'Seeders ran successfully!'
