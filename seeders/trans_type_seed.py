@@ -214,6 +214,12 @@ def seed_trans_type(db: Session, commit: bool=False):
             'name': 'Bill Payment Credit',
             'desc': 'Bill Payment Credit Description',
         },
+        {
+            'type_code': '036',
+            'type_action': 2,
+            'name': 'Virtual Account Credit',
+            'desc': 'Virtual Account Credit Description',
+        },
     ]
     if len(seed) > 0:
         for i in range(len(seed)):
