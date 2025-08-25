@@ -130,6 +130,10 @@ def create_product_gls(db: Session, product: FinancialProduct, created_by: int=0
 
         expense_gl = create_general_ledger_account(db=db, type_id=expense_type_id, name=interest_expense_gl_name, account_number=generate_internal_gl_number(type_code=expense_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by, commit=commit)
         expense_gl_id = expense_gl.id
+
+        interest_payable = create_general_ledger_account(db=db, type_id=liability_type_id, name=interest_payable_gl_name, account_number=generate_internal_gl_number(type_code=liability_account_code, last_id=last_gl_id), created_by=created_by, authorized_by=authorized_by)
+        interest_payable_gl_id = interest_payable.id
+        last_gl_id = interest_payable_gl_id
         last_gl_id = expense_gl_id
     elif product_type == 4:
         #loan

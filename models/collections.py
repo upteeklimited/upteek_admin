@@ -20,7 +20,6 @@ class Collection(Base):
     bal_principal = Column(Float, default=0)
     bal_interest = Column(Float, default=0)
     retrial_num = Column(Integer, default=0)
-    status = Column(SmallInteger, default=0)
     retrial_status = Column(Text, nullable=True)
     status = Column(SmallInteger, default=0)
     collected_at = Column(TIMESTAMP(timezone=True), nullable=True)
