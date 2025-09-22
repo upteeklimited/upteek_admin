@@ -221,12 +221,15 @@ class AddressModel(BaseModel):
 
 
 class AuthResponseModel(BaseModel):
+    id: int
     access_token: Optional[str] = None
-    user: Optional[UserModel] = None
+    username: Optional[str] = None
+    phone_number: Optional[str] = None
+    email: Optional[str] = None
+    user_type: Optional[int] = 0
+    role: Optional[int] = 0
     profile: Optional[ProfileModel] = None
     setting: Optional[SettingModel] = None
-    account: Optional[AuthAccountModel] = None
-    primary_address: Optional[AddressModel] = None
     
     class Config:
         orm_mode = True
@@ -235,6 +238,32 @@ class MainAuthResponseModel(BaseModel):
     status: bool
     message: str
     data: Optional[AuthResponseModel] = None
+    
+    class Config:
+        orm_mode = True
+
+class SSOAuthModel(BaseModel):
+    id: Optional[str] = None
+    email: Optional[str] = None
+    name: Optional[str] = None
+    picture: Optional[str] = None
+    is_user:  Optional[bool] = None
+    
+    class Config:
+        orm_mode = True
+
+class SSOAuthResponseModel(BaseModel):
+    status: bool
+    message: str
+    data: Optional[SSOAuthModel] = None
+    
+    class Config:
+        orm_mode = True
+
+class CheckUserResponseModel(BaseModel):
+    status: bool
+    message: str
+    data: Optional[int] = None
     
     class Config:
         orm_mode = True
@@ -252,6 +281,20 @@ class UserDetailsResponseModel(BaseModel):
     class Config:
         orm_mode = True
 
+class UserSimpleDetailsModel(BaseModel):
+    id: int
+    merchant_id: int
+    username: Optional[str] = None
+    phone_number: Optional[str] = None
+    email: Optional[str] = None
+    user_type: Optional[int] = 0
+    role: Optional[int] = 0
+    profile: Optional[ProfileModel] = None
+    merchant: Optional[MerchantModel] = None
+    
+    class Config:
+        orm_mode = True
+
 class UserResponseModel(BaseModel):
     status: bool
     message: str
@@ -264,6 +307,34 @@ class UserMainResponseModel(BaseModel):
     status: bool
     message: str
     data: Optional[UserMainModel] = None
+    
+    class Config:
+        orm_mode = True
+
+class MerchantResponseModel(BaseModel):
+    status: bool
+    message: str
+    data: Optional[MerchantModel] = None
+    
+    class Config:
+        orm_mode = True
+
+class ReviewModel(BaseModel):
+    id: int
+    title: Optional[str] = None
+    data_value: Optional[str] = None
+    body: Optional[str] = None
+    status: Optional[int] = 0
+    created_at: Optional[datetime] = None
+    user: Optional[UserSimpleDetailsModel] =  None
+    
+    class Config:
+        orm_mode = True
+
+class ReviewResponseModel(BaseModel):
+    status: bool
+    message: str
+    data: Optional[ReviewModel] = None
     
     class Config:
         orm_mode = True
@@ -338,5 +409,22 @@ class MerchantInfoResponseModel(BaseModel):
     message: str
     data: Optional[MerchantInfoModel] = None
     
+    class Config:
+        orm_mode = True
+        
+class CreateReview(BaseModel):
+    product_id: Optional[int] = 0
+    merchant_id: Optional[int] = 0
+    data_value: str
+    body: str
+
+    class Config:
+        orm_mode = True
+        
+
+class ToggleFavorite(BaseModel):
+    product_id: Optional[int] = 0
+    merchant_id: Optional[int] = 0
+
     class Config:
         orm_mode = True
