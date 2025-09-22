@@ -1,7 +1,7 @@
 from typing import Dict
 from fastapi import UploadFile
 from sqlalchemy.orm import Session
-from database.model import create_merchant, update_merchant, delete_merchant, get_single_merchant_info_by_id, get_merchants, create_merchant_user, update_merchant_user, force_delete_merchant_user, check_user_id_merchant_id, get_single_merchant_user_by_user_id_merchant_id
+from database.model import delete_merchant, get_main_single_merchant_by_id, get_merchants
 from modules.utils.tools import process_schema_dictionary, generate_slug
 from modules.utils.files import upload_request_file_to_cloudinary
 from modules.authentication.auth import generate_new_user_account
@@ -19,7 +19,7 @@ def retrieve_merchants(db: Session, filters: Dict={}):
     return paginate(data)
 
 def retrieve_single_merchant(db: Session, merchant_id: int=0):
-    merchant = get_single_merchant_info_by_id(db=db, id=merchant_id)
+    merchant = get_main_single_merchant_by_id(db=db, id=merchant_id)
     if merchant is None:
         return {
             'status': False,
