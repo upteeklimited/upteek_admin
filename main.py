@@ -18,6 +18,7 @@ from routers.misc import geo
 from routers.misc import merch
 from routers.inventory import category
 from routers.user import main as users
+from routers.user import merchant
 
 #system routes
 from routers import seed
@@ -31,6 +32,7 @@ app.include_router(geo.router)
 app.include_router(merch.router)
 app.include_router(category.router)
 app.include_router(users.router)
+app.include_router(merchant.router)
 
 #system routes
 app.include_router(seed.router)
