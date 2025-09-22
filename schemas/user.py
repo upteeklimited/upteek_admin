@@ -1,6 +1,35 @@
 from typing import Optional
 from pydantic import BaseModel
-from schemas.misc import CountryModel
+from schemas.misc import CountryModel, CurrencyModel, MerchantCategoryModel
+from datetime import datetime
+
+class UserVirtualAccountModel(BaseModel):
+    id: int
+    account_id: Optional[int] = 0
+    account_name: Optional[str] = None
+    account_number: Optional[str] = None
+    bank_name: Optional[str] = None
+    status: Optional[int] = 0
+    created_at: Optional[datetime] = None
+
+    class Config:
+        orm_mode = True
+
+class UserAccountInfoModel(BaseModel):
+    id: int
+    user_id: Optional[int] = 0
+    merchant_id: Optional[int] = 0
+    account_name: Optional[str] = None
+    account_number: Optional[str] = None
+    available_balance: Optional[float] = 0
+    ledger_balance: Optional[float] = 0
+    status: Optional[int] = 0
+    created_at: Optional[datetime] = None
+    created_at: Optional[datetime] = None
+    virtual_account: Optional[UserVirtualAccountModel] = None
+
+    class Config:
+        orm_mode = True
 
 class UserModel(BaseModel):
     id: int
@@ -172,5 +201,46 @@ class UpdateUserModel(BaseModel):
 class UpdateUserPasswordModel(BaseModel):
     password: str
 
+    class Config:
+        orm_mode = True
+
+
+class MerchantInfoModel(BaseModel):
+    id: int
+    user_id: int
+    category_id: Optional[int] = 0
+    currency_id: Optional[int] = 0
+    name: Optional[str] = None
+    trading_name: Optional[str] = None
+    slug: Optional[str] = None
+    description: Optional[str] = None
+    email: Optional[str] = None
+    phone_number_one: Optional[str] = None
+    phone_number_two: Optional[str] = None
+    opening_hours: Optional[str] = None
+    closing_hours: Optional[str] = None
+    logo: Optional[str] = None
+    banner: Optional[str] = None
+    thumbnail: Optional[str] = None
+    certificate: Optional[str] = None
+    memorandum: Optional[str] = None
+    utility_bill: Optional[str] = None
+    building: Optional[str] = None
+    accept_vat: Optional[int] = None
+    accept_wht: Optional[int] = None
+    status: Optional[int] = None
+    compliance_status: Optional[int] = None
+    account: Optional[UserAccountInfoModel] = None
+    category: Optional[MerchantCategoryModel] = None
+    currency: Optional[CurrencyModel] = None
+    
+    class Config:
+        orm_mode = True
+
+class MerchantInfoResponseModel(BaseModel):
+    status: bool
+    message: str
+    data: Optional[MerchantInfoModel] = None
+    
     class Config:
         orm_mode = True

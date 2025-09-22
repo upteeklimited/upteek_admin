@@ -54,8 +54,10 @@ class Merchant(Base):
 
     user = relationship('User', back_populates='owned_merchant', foreign_keys=[user_id])
     users = relationship('User', back_populates='merchant', foreign_keys='User.merchant_id')
+    account = relationship('Account', primaryjoin="and_(Merchant.id==Account.merchant_id, Account.is_primary==1)", back_populates='merchant', uselist=False)
     category = relationship('MerchantCategory')
     currency = relationship('Currency')
+    merchant_users = relationship("Merchant_User", back_populates="merchant")
 
 
 def create_merchant(db: Session, user_id: int = 0, category_id: int = 0, currency_id: int = 0, compliance_provider_id: int = 0, compliance_external_reference: str = None, name: str = None, trading_name: str = None, slug: str = None, description: str = None, email: str = None, phone_number_one: str = None, phone_number_two: str = None, opening_hours: str = None, closing_hours: str = None, logo: str = None, banner: str = None, thumbnail: str = None, certificate: str = None, memorandum: str = None, utility_bill: str = None, building: str = None, tax_id: str = None, registration_type: str = None, registration_number: str = None, compliance_request_data: str = None, compliance_response_data: str = None, compliance_status: int = 0, compliance_approved_by: int = 0, compliance_approved_at: str = None, compliance_rejected_by: int = 0, compliance_rejected_at: str = None, accept_vat: int = 0, accept_wht: int = 0, meta_data: str = None, status: int = 0, commit: bool=False):
@@ -106,8 +108,23 @@ def get_main_single_merchant_by_id(db: Session, id: int=0):
 def get_single_merchant_by_user_id(db: Session, user_id: int=0):
     return db.query(Merchant).filter_by(user_id = user_id).first()
 
-def get_merchants(db: Session):
-    return db.query(Merchant).options(joinedload(Merchant.user), joinedload(Merchant.category), joinedload(Merchant.currency)).filter(Merchant.deleted_at == None).order_by(desc(Merchant.id))
+def get_merchants(db: Session, filters: Dict={}):
+    query = db.query(Merchant).options(joinedload(Merchant.category), joinedload(Merchant.currency), joinedload(Merchant.merchant_users).joinedload(Merchant_User.user).joinedload(User.profile), joinedload(Merchant.account).joinedload(Account.virtual_account))
+    if 'user_id' in filters:
+        query = query.filter(Merchant.user_id == filters['user_id'])
+    if 'category_id' in filters:
+        query = query.filter(Merchant.category_id == filters['category_id'])
+    if 'currency_id' in filters:
+        query = query.filter(Merchant.currency_id == filters['currency_id'])
+    if 'name' in filters:
+        query = query.filter(Merchant.name.ilike(f"%{filters['name']}%"))
+    if 'slug' in filters:
+        query = query.filter(Merchant.slug.ilike(f"%{filters['slug']}%"))
+    if 'status' in filters:
+        query = query.filter(Merchant.status == filters['status'])
+    if 'user_ids' in filters:
+        query = query.join(Merchant_User, Merchant_User.merchant_id == Merchant.id).filter(Merchant_User.id.in_(filters['user_ids']))
+    return query.filter(Merchant.deleted_at == None).order_by(desc(Merchant.id))
 
 def get_merchants_by_category_id(db: Session, category_id: int=0):
     return db.query(Merchant).filter_by(category_id = category_id).filter(Merchant.deleted_at == None).order_by(desc(Merchant.id))

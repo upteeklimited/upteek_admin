@@ -14,13 +14,16 @@ class Merchant_User(Base):
     __tablename__ = "merchants_users"
      
     id = Column(BigInteger, primary_key=True, index=True)
-    merchant_id = Column(BigInteger, default=0)
-    user_id = Column(BigInteger, default=0)
+    merchant_id = Column(BigInteger, ForeignKey('merchants.id'))
+    user_id = Column(BigInteger, ForeignKey('users.id'))
     role = Column(Integer, default=0)
     status = Column(SmallInteger, default=0)
     deleted_at = Column(TIMESTAMP(timezone=True), nullable=True)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
+
+    user = relationship('User')
+    merchant = relationship('Merchant')
 
 def create_merchant_user(db: Session, merchant_id: int = 0, user_id: int = 0, role: int = 0, status: int = 0, commit: bool=False):
     merchant_user = Merchant_User(merchant_id=merchant_id, user_id=user_id, role=role, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())

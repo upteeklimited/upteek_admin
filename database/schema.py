@@ -3,4 +3,4 @@ from schemas.inv import CreateCategoryRequest, UpdateCategoryRequest, CategoryMo
 from schemas.misc import CountryModel, CountryResponseModel, CurrencyModel, CurrencyResponseModel, StateModel, StateResponseModel, CityModel, CityResponseModel, LGAModel, LGAResponseModel, CreateMerchantIndustryModel, UpdateMerchantIndustryModel, MerchantIndustryModel, MerchantIndustryResponseModel, CreateMerchantCategoryModel, UpdateMerchantCategoryModel, MerchantCategoryModel, MerchantCategoryResponseModel
 from schemas.pro import UpdateBasicProfileRequestModel, UpdatePasswordRequestModel, UpdateSettingsRequestModel
 from schemas.resp import ErrorResponse, PlainResponse, PlainResponseData
-from schemas.user import UserMainModel, UserMainResponseModel, AuthResponseModel, MainAuthResponseModel, UserDetailsResponseModel, UserResponseModel, CreateUserModel, UpdateUserModel, UpdateUserPasswordModel
+from schemas.user import UserMainModel, UserMainResponseModel, AuthResponseModel, MainAuthResponseModel, UserDetailsResponseModel, UserResponseModel, CreateUserModel, UpdateUserModel, UpdateUserPasswordModel, MerchantInfoModel, MerchantInfoResponseModel
