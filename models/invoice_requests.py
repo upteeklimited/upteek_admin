@@ -14,8 +14,8 @@ class InvoiceRequest(Base):
     __tablename__ = "invoice_requests"
      
     id = Column(BigInteger, primary_key=True, index=True)
-    user_id = Column(BigInteger, default=0)
-    product_id = Column(BigInteger, default=0)
+    user_id = Column(BigInteger, ForeignKey('users.id'))
+    product_id = Column(BigInteger, ForeignKey('products.id'))
     description = Column(Text, nullable=True)
     notes = Column(Text, nullable=True)
     preferred_date_time = Column(String, nullable=True)
@@ -31,6 +31,11 @@ class InvoiceRequest(Base):
     deleted_at = Column(TIMESTAMP(timezone=True), nullable=True)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
+
+    user = relationship("User")
+    product = relationship("Product")
+    invoice = relationship("Invoice", back_populates="invoice_request", uselist=False)
+    messages = relationship('Message', back_populates='invoice_request', foreign_keys='Message.invoice_request_id')
 
 def create_invoice_request(db: Session, user_id: int = 0, product_id: int = 0, description: str = None, notes: str = None, preferred_date_time: str = None, location: str = None, budget_range: str = None, files_meta_data: Any = None, status: int = 0, approved_by: int = 0, approved_at: str = None, rejected_by: int = 0, rejection_reason: str = None, rejected_at: str = None, commit: bool=False):
     inv_req = InvoiceRequest(user_id=user_id, product_id=product_id, description=description, notes=notes, preferred_date_time=preferred_date_time, location=location, budget_range=budget_range, files_meta_data=files_meta_data, status=status, approved_by=approved_by, approved_at=approved_at, rejected_by=rejected_by, rejection_reason=rejection_reason, rejected_at=rejected_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())

@@ -14,7 +14,7 @@ class Favorite(Base):
     __tablename__ = "favorites"
      
     id = Column(BigInteger, primary_key=True, index=True)
-    user_id = Column(BigInteger, default=0)
+    user_id = Column(BigInteger, ForeignKey('users.id'))
     merchant_id = Column(BigInteger, default=0)
     product_id = Column(BigInteger, default=0)
     favoriteable_id = Column(BigInteger, default=0)
@@ -24,6 +24,8 @@ class Favorite(Base):
     deleted_at = Column(TIMESTAMP(timezone=True), nullable=True)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
+
+    user = relationship('User', back_populates='favorites')
 
 def create_favorite(db: Session, user_id: int = 0, merchant_id: int = 0, product_id: int = 0, favoriteable_id: int = 0, favoriteable_type: str = None, data_value: str = None, status: int = 0, commit: bool=False):
     favorite = Favorite(user_id=user_id, merchant_id=merchant_id, product_id=product_id, favoriteable_id=favoriteable_id, favoriteable_type=favoriteable_type, data_value=data_value, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())

@@ -17,8 +17,8 @@ class Message(Base):
     receiver_user_id = Column(BigInteger, default=0)
     previous_message_id = Column(BigInteger, default=0)
     parent_id = Column(BigInteger, default=0)
-    invoice_request_id = Column(BigInteger, default=0)
-    invoice_id = Column(BigInteger, default=0)
+    invoice_request_id = Column(BigInteger, ForeignKey('invoice_requests.id'))
+    invoice_id = Column(BigInteger, ForeignKey('invoices.id'))
     reference = Column(String, nullable=True)
     title = Column(String, nullable=True)
     body = Column(Text, nullable=True)
@@ -27,6 +27,17 @@ class Message(Base):
     deleted_at = Column(TIMESTAMP(timezone=True), nullable=True)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
+
+    media = relationship(
+        "Medium",
+        primaryjoin=lambda: and_(
+            foreign(Medium.mediumable_id) == Message.id,
+            Medium.mediumable_type == 'message'
+        ),
+        viewonly=True
+    )
+    invoice_request = relationship("InvoiceRequest", back_populates='messages', foreign_keys=[invoice_request_id])
+    invoice = relationship("Invoice", back_populates='messages', foreign_keys=[invoice_id])
 
 def create_message(db: Session, sender_user_id: int = 0, receiver_user_id: int = 0, previous_message_id: int = 0, parent_id: int = 0, invoice_request_id: int = 0, invoice_id: int = 0, reference: str = None, title: str = None, body: str = None, attached_file: str = None, status: int = 0, commit: bool=False):
     message = Message(sender_user_id=sender_user_id, receiver_user_id=receiver_user_id, previous_message_id=previous_message_id, parent_id=parent_id, invoice_request_id=invoice_request_id, invoice_id=invoice_id, reference=reference, title=title, body=body, attached_file=attached_file, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())

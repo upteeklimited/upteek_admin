@@ -57,6 +57,8 @@ class Merchant(Base):
     account = relationship('Account', primaryjoin="and_(Merchant.id==Account.merchant_id, Account.is_primary==1)", back_populates='merchant', uselist=False)
     category = relationship('MerchantCategory')
     currency = relationship('Currency')
+    orders = relationship('Order', back_populates='merchant', foreign_keys='Order.merchant_id')
+    payment_links = relationship('PaymentLink', back_populates='merchant', foreign_keys='PaymentLink.merchant_id')
     merchant_users = relationship("Merchant_User", back_populates="merchant")
 
 

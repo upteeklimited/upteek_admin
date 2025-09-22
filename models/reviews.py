@@ -14,7 +14,7 @@ class Review(Base):
     __tablename__ = "reviews"
      
     id = Column(BigInteger, primary_key=True, index=True)
-    user_id = Column(BigInteger, default=0)
+    user_id = Column(BigInteger, ForeignKey('users.id'))
     merchant_id = Column(BigInteger, default=0)
     product_id = Column(BigInteger, default=0)
     reviewable_id = Column(BigInteger, default=0)
@@ -26,6 +26,8 @@ class Review(Base):
     deleted_at = Column(TIMESTAMP(timezone=True), nullable=True)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
+
+    user = relationship('User', back_populates='reviews')
 
 def create_review(db: Session, user_id: int = 0, merchant_id: int = 0, product_id: int = 0, reviewable_id: int = 0, reviewable_type: str = None, title: str = None, data_value: str = None, body: str = None, status: int = 0, commit: bool=False):
     review = Review(user_id=user_id, merchant_id=merchant_id, product_id=product_id, reviewable_id=reviewable_id, reviewable_type=reviewable_type, title=title, data_value=data_value, body=body, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())

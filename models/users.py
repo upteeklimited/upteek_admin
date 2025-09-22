@@ -35,6 +35,9 @@ class User(Base):
     owned_merchant = relationship('Merchant', back_populates='user', uselist=False, foreign_keys="Merchant.user_id")
     merchant = relationship('Merchant', back_populates='users', foreign_keys=[merchant_id])
     profile = relationship('Profile', back_populates='user', uselist=False)
+    orders = relationship('Order', back_populates='user', foreign_keys='Order.user_id')
+    favorites = relationship('Favorite', back_populates='user', foreign_keys='Favorite.user_id')
+    reviews = relationship('Review', back_populates='user', foreign_keys='Review.user_id')
 
 
 def create_user(db: Session, country_id: int = 0, merchant_id: int = 0, username: str = None, email: str = None, phone_number: str = None, password: str = None, pin: str = None, device_token: str = None, external_provider: str = None, external_reference: str = None, user_type: int = 0, role: int = 0, status: int = 0, commit: bool=False):

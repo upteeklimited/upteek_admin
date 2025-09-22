@@ -14,7 +14,7 @@ class ProductVariant(Base):
     __tablename__ = "product_variants"
      
     id = Column(BigInteger, primary_key=True, index=True)
-    product_id = Column(BigInteger, default=0)
+    product_id = Column(BigInteger, ForeignKey('products.id'))
     attributes = Column(Text, nullable=True)
     amount = Column(Float, default=0)
     files_meta_data = Column(JSONText)
@@ -22,6 +22,8 @@ class ProductVariant(Base):
     deleted_at = Column(TIMESTAMP(timezone=True), nullable=True)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
+
+    product = relationship("Product", back_populates="variants")
 
 def create_product_variant(db: Session, product_id: int = 0, attributes: str = None, amount: float = 0, files_meta_data: str = None, status: int = 0, commit: bool=False):
     pv = ProductVariant(product_id=product_id, attributes=attributes, amount=amount, files_meta_data=files_meta_data, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())

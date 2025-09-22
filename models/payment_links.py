@@ -13,8 +13,8 @@ class PaymentLink(Base):
     __tablename__ = "payment_links"
      
     id = Column(BigInteger, primary_key=True, index=True)
-    merchant_id = Column(BigInteger, default=0)
-    product_id = Column(BigInteger, default=0)
+    merchant_id = Column(BigInteger, ForeignKey('merchants.id'))
+    product_id = Column(BigInteger, ForeignKey('products.id'))
     title = Column(String, nullable=True)
     description = Column(Text, nullable=True)
     reference = Column(String, nullable=True)
@@ -29,6 +29,11 @@ class PaymentLink(Base):
     deleted_at = Column(TIMESTAMP(timezone=True), nullable=True)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
+
+    order = relationship("Order", back_populates="payment_link")
+    merchant = relationship('Merchant', back_populates='payment_links', foreign_keys=[merchant_id])
+    product = relationship("Product", back_populates="payment_links")
+    products = relationship("PaymentLinkProduct", back_populates="payment_link", uselist=True)
 
 def create_payment_link(db: Session, merchant_id: int = 0, product_id: int = 0, title: str = None, description: str = None, reference: str = None, url: str = None, amount: float = 0, items_for_sale: int = 0, quantity: int = 0, number_of_uses: int = 0, status: int = 0, expired_at: str = None, paid_at: str = None, commit: bool=False):
     pay_link = PaymentLink(merchant_id=merchant_id, product_id=product_id, title=title, description=description, reference=reference, url=url, amount=amount, items_for_sale=items_for_sale, quantity=quantity, number_of_uses=number_of_uses, status=status, paid_at=paid_at, expired_at=expired_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())

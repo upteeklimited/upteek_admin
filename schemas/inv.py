@@ -114,26 +114,73 @@ class ProductModel(BaseModel):
     description: Optional[str] = None
     slug: Optional[str] = None
     product_type: Optional[int] = 0
+    service_pricing: Optional[int] = None
     units: Optional[int] = 0
     weight: Optional[float] = 0
     cost_price: Optional[float] = 0
     price: Optional[float] = 0
     discount_price: Optional[float] = 0
+    minimum_price: Optional[float] = None
+    maximum_price: Optional[float] = None
     discount: Optional[float] = 0
     discount_type: Optional[int] = 0
     special_note: Optional[str] = None
+    service_delivery_mode: Optional[int] = None
+    service_is_time_sensitive: Optional[int] = None
+    service_invoice_validity_hours: Optional[str] = None
+    service_addon_extra_charge_meta_data: Optional[str] = None
+    service_available_days_data: Optional[str] = None
+    service_available_time_data: Optional[str] = None
+    service_delivery_mode_data: Optional[str] = None
+    service_required_details_data: Optional[str] = None
+    unit_low_level: Optional[int] = 0
+    files_meta_data: Optional[List[ProductFileMetaData]] = None
+    condition_status: Optional[int] = 0
+    status: Optional[int] = 0
+    total_fav_count: Optional[int] = 0
+    customer_fav_count: Optional[int] = 0
+    created_at: Optional[datetime] = None
+    category: Optional[CategoryModel] = None
+    categories: Optional[List[CategoryModel]] = None
+    groups: Optional[List[GroupModel]] = None
+    currency: Optional[CurrencyModel] = None
+    tags: Optional[List[TagModel]] = None
+    merchant: Optional[MerchantModel] = None
+
+    class Config:
+        orm_mode = True
+
+class ProductAloneModel(BaseModel):
+    id: int
+    merchant_id: Optional[int] = 0
+    category_id: Optional[int] = 0
+    currency_id: Optional[int] = 0
+    name: str
+    description: Optional[str] = None
+    slug: Optional[str] = None
+    product_type: Optional[int] = 0
+    service_pricing: Optional[int] = None
+    units: Optional[int] = 0
+    weight: Optional[float] = 0
+    cost_price: Optional[float] = 0
+    price: Optional[float] = 0
+    discount_price: Optional[float] = 0
+    minimum_price: Optional[float] = None
+    maximum_price: Optional[float] = None
+    discount: Optional[float] = 0
+    discount_type: Optional[int] = 0
+    special_note: Optional[str] = None
+    service_delivery_mode: Optional[int] = None
+    service_is_time_sensitive: Optional[int] = None
+    service_addon_extra_charge_meta_data: Optional[str] = None
+    service_available_days_data: Optional[str] = None
+    service_available_time_data: Optional[str] = None
     unit_low_level: Optional[int] = 0
     files_meta_data: Optional[List[ProductFileMetaData]] = None
     condition_status: Optional[int] = 0
     status: Optional[int] = 0
     created_at: Optional[datetime] = None
-    category: Optional[CategoryModel] = None
-    categories: Optional[List[CategoryModel]] = None
-    groups: Optional[List[CategoryModel]] = None
-    currency: Optional[CurrencyModel] = None
-    tags: Optional[List[TagModel]] = None
     merchant: Optional[MerchantModel] = None
-    # variants: Optional[List[VariantModel]] = None
 
     class Config:
         orm_mode = True

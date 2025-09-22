@@ -13,16 +13,16 @@ class Order(Base):
     __tablename__ = "orders"
      
     id = Column(BigInteger, primary_key=True, index=True)
-    user_id = Column(BigInteger, default=0)
-    merchant_id = Column(BigInteger, default=0)
-    currency_id = Column(BigInteger, default=0)
+    user_id = Column(BigInteger, ForeignKey('users.id'))
+    merchant_id = Column(BigInteger, ForeignKey('merchants.id'))
+    currency_id = Column(BigInteger, ForeignKey('currencies.id'))
     card_id = Column(BigInteger, default=0)
     account_id = Column(BigInteger, default=0)
     financial_product_id = Column(BigInteger, default=0)
-    address_id = Column(BigInteger, default=0)
-    payment_link_id = Column(BigInteger, default=0)
-    invoice_id = Column(BigInteger, default=0)
-    cart_id = Column(BigInteger, default=0)
+    address_id = Column(BigInteger, ForeignKey('addresses.id'))
+    payment_link_id = Column(BigInteger, ForeignKey('payment_links.id'))
+    invoice_id = Column(BigInteger, ForeignKey('invoices.id'))
+    cart_id = Column(BigInteger, ForeignKey('carts.id'))
     order_type = Column(Integer, default=0)
     reference = Column(String, nullable=True)
     sub_total = Column(Float, default=0)
@@ -66,6 +66,14 @@ class Order(Base):
     deleted_at = Column(TIMESTAMP(timezone=True), nullable=True)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
+
+    user = relationship('User', back_populates='orders', foreign_keys=[user_id])
+    merchant = relationship('Merchant', back_populates='orders', foreign_keys=[merchant_id])
+    currency = relationship('Currency')
+    order_products = relationship("OrderProduct", back_populates="order")
+    address = relationship("Address", back_populates="orders")
+    invoice = relationship("Invoice", back_populates="order")
+    payment_link = relationship("PaymentLink", back_populates="order")
 
 def create_order(db: Session, user_id: int = 0, merchant_id: int = 0, currency_id: int = 0, card_id: int = 0, account_id: int = 0, financial_product_id: int = 0, address_id: int = 0, payment_link_id: int = 0, invoice_id: int = 0, cart_id: int = 0, order_type: int = 0, reference: str = None, sub_total: float = 0, delivery_fee: float = 0, vat: float = 0, wht: float = 0, discount: float = 0, total_amount: float = 0, estimated_delivery_time: str = None, payment_type: int = 0, order_detail: str = None, pick_up_pin: str = None, delivery_pin: str = None, is_gift: int = 0, receiver_phone_number: str = None, receiver_house_number: str = None, receiver_street: str = None, receiver_nearest_bus_stop: str = None, receiver_city: str = None, receiver_state: str = None, receiver_country: str = None, receiver_latitude: str = None, receiver_longitude: str = None, rejection_reason: str = None, cancellation_reason: str = None, is_scheduled: int = 0, scheduled_at: str = None, payed_at: str = None, preparation_at: str = None, ready_at: str = None, picked_up_at: str = None, delivered_at: str = None, rejected_at: str = None, cancelled_at: str = None, payment_status: int = 0, delivery_status: int = 0, status: int = 0, created_by: int = 0, authorized_by: int = 0, authorized_at: str = None, commit: bool=False):
     order = Order(user_id=user_id, merchant_id=merchant_id, currency_id=currency_id, card_id=card_id, account_id=account_id, financial_product_id=financial_product_id, address_id=address_id, payment_link_id=payment_link_id, invoice_id=invoice_id, cart_id=cart_id, order_type=order_type, reference=reference, sub_total=sub_total, delivery_fee=delivery_fee, vat=vat, wht=wht, discount=discount, total_amount=total_amount, estimated_delivery_time=estimated_delivery_time, payment_type=payment_type, order_detail=order_detail, pick_up_pin=pick_up_pin, delivery_pin=delivery_pin, is_gift=is_gift, receiver_phone_number=receiver_phone_number, receiver_house_number=receiver_house_number, receiver_street=receiver_street, receiver_nearest_bus_stop=receiver_nearest_bus_stop, receiver_city=receiver_city, receiver_state=receiver_state, receiver_country=receiver_country, receiver_latitude=receiver_latitude, receiver_longitude=receiver_longitude, rejection_reason=rejection_reason, cancellation_reason=cancellation_reason, is_scheduled=is_scheduled, scheduled_at=scheduled_at, payed_at=payed_at, preparation_at=preparation_at, ready_at=ready_at, picked_up_at=picked_up_at, delivered_at=delivered_at, rejected_at=rejected_at, cancelled_at=cancelled_at, status=status, payment_status=payment_status, delivery_status=delivery_status, created_by=created_by, authorized_by=authorized_by, authorized_at=authorized_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())

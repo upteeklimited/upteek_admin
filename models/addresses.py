@@ -31,6 +31,8 @@ class Address(Base):
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
+    orders = relationship("Order", back_populates="address")
+
 
 def create_address(db: Session, country_id: int = 0, state_id: int = 0, city_id: int = 0, lga_id: int = 0, addressable_type: str = None, addressable_id: int = 0, house_number: str = None, street: str = None, nearest_bus_stop: str = None, latitude: str = None,  longitude: str = None, meta_data: str = None, is_primary: int = 0, status: int = 0, commit: bool=False):
     address = Address(country_id=country_id, state_id=state_id, city_id=city_id, lga_id=lga_id, addressable_type=addressable_type, addressable_id=addressable_id, house_number=house_number, street=street, nearest_bus_stop=nearest_bus_stop, latitude=latitude, longitude=longitude, meta_data=meta_data, is_primary=is_primary, status=status, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
