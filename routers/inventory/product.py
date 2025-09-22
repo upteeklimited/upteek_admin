@@ -1,7 +1,7 @@
 from typing import Optional, List, Any
 from fastapi import APIRouter, Request, Depends, HTTPException, File, UploadFile, Form, Query
 from modules.authentication.auth import auth
-from modules.inventories.products import create_new_product, create_multi_products, upload_product_media, remove_product_media, add_product_categories, sub_product_categories, add_product_groups, sub_product_groups, add_product_tags, remove_product_tags, update_existing_product, update_multiple_products, update_diverse_products, delete_existing_product, retrieve_products, retrieve_single_product, retrieve_single_product_by_slug, favorite_toggle
+from modules.inventories.products import retrieve_products, retrieve_single_product, retrieve_single_product_by_slug
 from database.schema import ErrorResponse, PlainResponse, ProductModel, ProductResponseModel
 from database.db import get_db
 from sqlalchemy.orm import Session
