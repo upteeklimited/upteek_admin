@@ -2,10 +2,9 @@ from typing import Optional, Any, Dict, List
 from pydantic import BaseModel
 from datetime import datetime
 from schemas.misc import CurrencyModel
-from schemas.user import MerchantModel, ReviewModel
+from schemas.user import MerchantModel
 
 class CreateCategoryRequest(BaseModel):
-    merchant_id: int
     category_id: Optional[int] = 0
     name: str
     description: Optional[str] = None
@@ -23,12 +22,10 @@ class UpdateCategoryRequest(BaseModel):
 
 class CategoryModel(BaseModel):
     id: int
-    merchant_id: Optional[int] = 0
     category_id: Optional[int] = 0
     name: str
     description: Optional[str] = None
     slug: Optional[str] = None
-    icon: Optional[str] = None
     status: Optional[int] = 0
     created_at: Optional[datetime] = None
 
@@ -44,7 +41,6 @@ class CategoryResponse(BaseModel):
         orm_mode = True
 
 class CreateGroupRequest(BaseModel):
-    merchant_id: int
     name: str
     description: Optional[str] = None
     
@@ -118,75 +114,26 @@ class ProductModel(BaseModel):
     description: Optional[str] = None
     slug: Optional[str] = None
     product_type: Optional[int] = 0
-    service_pricing: Optional[int] = None
     units: Optional[int] = 0
     weight: Optional[float] = 0
     cost_price: Optional[float] = 0
     price: Optional[float] = 0
     discount_price: Optional[float] = 0
-    minimum_price: Optional[float] = None
-    maximum_price: Optional[float] = None
     discount: Optional[float] = 0
     discount_type: Optional[int] = 0
     special_note: Optional[str] = None
-    service_delivery_mode: Optional[int] = None
-    service_is_time_sensitive: Optional[int] = None
-    service_invoice_validity_hours: Optional[str] = None
-    service_addon_extra_charge_meta_data: Optional[str] = None
-    service_available_days_data: Optional[str] = None
-    service_available_time_data: Optional[str] = None
-    service_delivery_mode_data: Optional[str] = None
-    service_required_details_data: Optional[str] = None
     unit_low_level: Optional[int] = 0
     files_meta_data: Optional[List[ProductFileMetaData]] = None
     condition_status: Optional[int] = 0
     status: Optional[int] = 0
-    total_fav_count: Optional[int] = 0
-    customer_fav_count: Optional[int] = 0
     created_at: Optional[datetime] = None
     category: Optional[CategoryModel] = None
     categories: Optional[List[CategoryModel]] = None
-    groups: Optional[List[GroupModel]] = None
+    groups: Optional[List[CategoryModel]] = None
     currency: Optional[CurrencyModel] = None
     tags: Optional[List[TagModel]] = None
     merchant: Optional[MerchantModel] = None
-    # reviews: Optional[List[ReviewModel]] = None
     # variants: Optional[List[VariantModel]] = None
-
-    class Config:
-        orm_mode = True
-
-class ProductAloneModel(BaseModel):
-    id: int
-    merchant_id: Optional[int] = 0
-    category_id: Optional[int] = 0
-    currency_id: Optional[int] = 0
-    name: str
-    description: Optional[str] = None
-    slug: Optional[str] = None
-    product_type: Optional[int] = 0
-    service_pricing: Optional[int] = None
-    units: Optional[int] = 0
-    weight: Optional[float] = 0
-    cost_price: Optional[float] = 0
-    price: Optional[float] = 0
-    discount_price: Optional[float] = 0
-    minimum_price: Optional[float] = None
-    maximum_price: Optional[float] = None
-    discount: Optional[float] = 0
-    discount_type: Optional[int] = 0
-    special_note: Optional[str] = None
-    service_delivery_mode: Optional[int] = None
-    service_is_time_sensitive: Optional[int] = None
-    service_addon_extra_charge_meta_data: Optional[str] = None
-    service_available_days_data: Optional[str] = None
-    service_available_time_data: Optional[str] = None
-    unit_low_level: Optional[int] = 0
-    files_meta_data: Optional[List[ProductFileMetaData]] = None
-    condition_status: Optional[int] = 0
-    status: Optional[int] = 0
-    created_at: Optional[datetime] = None
-    merchant: Optional[MerchantModel] = None
 
     class Config:
         orm_mode = True
@@ -197,23 +144,15 @@ class ProductFieldModel(BaseModel):
     name: Optional[str] = None
     description: Optional[str] = None
     product_type: Optional[int] = None
-    service_pricing: Optional[int] = None
     units: Optional[int] = None
     weight: Optional[int] = None
     cost_price: Optional[float] = None
     price: Optional[float] = None
     discount_price: Optional[float] = None
     discount: Optional[float] = None
-    minimum_price: Optional[float] = None
-    maximum_price: Optional[float] = None
     discount_type: Optional[int] = None
     special_note: Optional[str] = None
     unit_low_level: Optional[int] = None
-    service_delivery_mode: Optional[int] = None
-    service_is_time_sensitive: Optional[int] = None
-    service_addon_extra_charge_meta_data: Optional[str] = None
-    service_available_days_data: Optional[str] = None
-    service_available_time_data: Optional[str] = None
     status: Optional[int] = None
     notify_if_available: Optional[int] = None
     condition_status: Optional[int] = None
@@ -235,22 +174,14 @@ class UpdateDiverseProductRequest(BaseModel):
     name: Optional[str] = None
     description: Optional[str] = None
     product_type: Optional[int] = None
-    service_pricing: Optional[int] = None
     units: Optional[int] = None
     weight: Optional[int] = None
     cost_price: Optional[float] = None
     price: Optional[float] = None
     discount_price: Optional[float] = None
-    minimum_price: Optional[float] = None
-    maximum_price: Optional[float] = None
     discount: Optional[float] = None
     discount_type: Optional[int] = None
     special_note: Optional[str] = None
-    service_delivery_mode: Optional[int] = None
-    service_is_time_sensitive: Optional[int] = None
-    service_addon_extra_charge_meta_data: Optional[str] = None
-    service_available_days_data: Optional[str] = None
-    service_available_time_data: Optional[str] = None
     unit_low_level: Optional[int] = None
     status: Optional[int] = None
     notify_if_available: Optional[int] = None
@@ -272,12 +203,8 @@ class MiniProductModel(BaseModel):
     id: int
     name: Optional[str] = None
     description: Optional[str] = None
-    product_type: Optional[int] = None
-    service_pricing: Optional[int] = None
     cost_price: Optional[float] = None
     price: Optional[float] = None
-    minimum_price: Optional[float] = None
-    maximum_price: Optional[float] = None
     discount_price: Optional[float] = None
     units: Optional[int] = None
     status: Optional[int] = None
@@ -289,20 +216,6 @@ class MiniProductResponseModel(BaseModel):
     status: bool
     message: str
     data: Optional[List[MiniProductModel]] = None
-
-    class Config:
-        orm_mode = True
-
-class ToggleProductFavorite(BaseModel):
-    product_id: int
-
-    class Config:
-        orm_mode = True
-
-class CreateProductReview(BaseModel):
-    product_id: int
-    data_value: str
-    body: str
 
     class Config:
         orm_mode = True
