@@ -17,6 +17,8 @@ from routers.user import profile
 from routers.misc import geo
 from routers.misc import merch
 from routers.inventory import category
+from routers.group import group
+from routers.inventory import product
 from routers.user import main as users
 from routers.user import merchant
 from routers.order import base as orders
@@ -32,6 +34,8 @@ app.include_router(profile.router)
 app.include_router(geo.router)
 app.include_router(merch.router)
 app.include_router(category.router)
+app.include_router(group.router)
+app.include_router(product.router)
 app.include_router(users.router)
 app.include_router(merchant.router)
 app.include_router(orders.router)
