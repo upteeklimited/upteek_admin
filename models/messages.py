@@ -5,7 +5,7 @@ from sqlalchemy.sql import func
 from sqlalchemy.sql.expression import and_, or_
 from sqlalchemy.sql.schema import ForeignKey
 from database.db import Base, get_laravel_datetime, get_added_laravel_datetime, compare_laravel_datetime_with_today
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, foreign
 
 
 class Message(Base):
