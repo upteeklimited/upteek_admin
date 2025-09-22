@@ -24,7 +24,7 @@ from routers.user import merchant
 from routers.order import base as orders
 from routers.accounting import gl_type
 from routers.accounting import gl
-from routers.accounting import fin_product
+from routers.accounting import product as fin_product
 from routers.accounting import cust_acct
 
 #system routes
