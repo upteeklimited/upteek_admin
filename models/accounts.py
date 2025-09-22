@@ -125,6 +125,30 @@ def get_accounts(db: Session, filters: Dict={}):
         query = query.filter_by(manager_id = filters['manager_id'])
     return query.order_by(desc(Account.created_at))
 
+def filter_accounts(db: Session, filters: Dict={}):
+    query = db.query(Account)
+    if 'account_type_id' in filters:
+        query = query.filter_by(account_type_id = filters['account_type_id'])
+    if 'product_id' in filters:
+        query = query.join(AccountType).filter(AccountType.product_id == filters['product_id'])
+    if 'user_id' in filters:
+        query = query.filter_by(user_id = filters['user_id'])
+    if 'merchant_id' in filters:
+        query = query.filter_by(merchant_id = filters['merchant_id'])
+    if 'account_name' in filters:
+        query = query.filter(Account.account_name.like("%" + filters['account_name'] + "%"))
+    if 'account_number' in filters:
+        query = query.filter(Account.account_number.like("%" + filters['account_number'] + "%"))
+    if 'nuban' in filters:
+        query = query.filter(Account.nuban.like("%" + filters['nuban'] + "%"))
+    if 'provider' in filters:
+        query = query.filter(Account.provider.like("%" + filters['provider'] + "%"))
+    if 'manager_id' in filters:
+        query = query.filter_by(manager_id = filters['manager_id'])
+    if 'status' in filters:
+        query = query.filter_by(status = filters['status'])
+    return query.order_by(desc(Account.created_at)).all()
+
 def search_accounts(db: Session, search: str = None):
     query = db.query(Account)
     if search is not None:
