@@ -6,6 +6,11 @@ from sqlalchemy.sql.expression import and_, or_
 from sqlalchemy.sql.schema import ForeignKey
 from database.db import Base, get_laravel_datetime, get_added_laravel_datetime, compare_laravel_datetime_with_today
 from sqlalchemy.orm import relationship, foreign
+from models.users import User
+from models.profiles import Profile
+from models.merchants import Merchant
+from models.media import Medium
+from models.invoices import Invoice
 
 
 class Message(Base):
