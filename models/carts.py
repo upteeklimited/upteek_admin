@@ -13,7 +13,7 @@ class Cart(Base):
     __tablename__ = "carts"
      
     id = Column(BigInteger, primary_key=True, index=True)
-    user_id = Column(BigInteger, default=0)
+    user_id = Column(BigInteger, ForeignKey('users.id'))
     reference = Column(String, nullable=True)
     total_amount = Column(Float, default=0)
     status = Column(SmallInteger, default=0)
@@ -21,6 +21,8 @@ class Cart(Base):
     deleted_at = Column(TIMESTAMP(timezone=True), nullable=True)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
+
+    cart_products = relationship("CartProduct", back_populates="cart")
 
 
 def create_cart(db: Session, user_id: int = 0, reference: str = None, total_amount: float = 0, status: int = 0, meta_data: str = None, commit: bool=False):
