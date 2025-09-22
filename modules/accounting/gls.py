@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from database.model import create_financial_product, FinancialProduct, create_general_ledger_account, get_single_general_ledger_account_type_by_account_code, get_last_general_ledger_account, update_financial_product, get_single_product_by_id, create_account_type, get_last_account_type
+from database.model import create_financial_product, FinancialProduct, create_general_ledger_account, get_single_general_ledger_account_type_by_account_code, get_last_general_ledger_account, update_financial_product, get_single_product_by_id, create_account_type, get_last_account_type, get_general_ledger_accounts, get_single_general_ledger_account_by_id, get_single_general_ledger_account_by_account_number
 from modules.utils.acct import generate_internal_gl_number, generate_account_type_code
 
 def create_gl(db: Session, account_type_code: str=None, account_name: str=None, created_by: int=0, authorized_by: int=0, commit: bool=False):
@@ -211,4 +211,37 @@ def create_new_product(db: Session, name: str=None, description: str=None, produ
         'message': 'Success',
         'data': get_single_product_by_id(db=db, id=product.id)
     }
+
+def retrieve_gls(db: Session, filters: Dict={}):
+    data = get_general_ledger_accounts(db=db, filters=filters)
+    return paginate(data)
+
+def retrieve_single_gl(db: Session, gl_id: int=0):
+    gl = get_single_general_ledger_account_by_id(db=db, id=gl_id)
+    if gl is None:
+        return {
+            'status': False,
+            'message': 'General Ledger not found',
+            'data': None,
+        }
+    else:
+        return {
+            'status': True,
+            'message': 'Success',
+            'data': gl,
+        }
     
+def retrieve_single_gl_by_account_number(db: Session, account_number: str=None):
+    gl = get_single_general_ledger_account_by_account_number(db=db, account_number=account_number)
+    if gl is None:
+        return {
+            'status': False,
+            'message': 'General Ledger not found',
+            'data': None,
+        }
+    else:
+        return {
+            'status': True,
+            'message': 'Success',
+            'data': gl,
+        }

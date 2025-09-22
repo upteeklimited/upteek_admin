@@ -22,6 +22,10 @@ from routers.inventory import product
 from routers.user import main as users
 from routers.user import merchant
 from routers.order import base as orders
+from routers.accounting import gl_type
+from routers.accounting import gl
+from routers.accounting import product
+from routers.accounting import cust_acct
 
 #system routes
 from routers import seed
@@ -39,6 +43,10 @@ app.include_router(product.router)
 app.include_router(users.router)
 app.include_router(merchant.router)
 app.include_router(orders.router)
+app.include_router(gl_type.router)
+app.include_router(gl.router)
+app.include_router(product.router)
+app.include_router(cust_acct.router)
 
 #system routes
 app.include_router(seed.router)
