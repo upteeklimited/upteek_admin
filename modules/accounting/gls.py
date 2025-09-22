@@ -1,3 +1,4 @@
+from typing import Dict
 from sqlalchemy.orm import Session
 from database.model import create_financial_product, FinancialProduct, create_general_ledger_account, get_single_general_ledger_account_type_by_account_code, get_last_general_ledger_account, update_financial_product, get_single_product_by_id, create_account_type, get_last_account_type, get_general_ledger_accounts, get_single_general_ledger_account_by_id, get_single_general_ledger_account_by_account_number
 from modules.utils.acct import generate_internal_gl_number, generate_account_type_code
