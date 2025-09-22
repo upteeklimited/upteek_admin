@@ -12,7 +12,6 @@ import requests
 import os
 import shutil
 import gzip
-from PIL import Image
 from settings.config import load_env_config
 
 config = load_env_config()
