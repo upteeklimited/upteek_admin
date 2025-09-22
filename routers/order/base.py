@@ -1,7 +1,7 @@
 from typing import Optional, List, Any
 from fastapi import APIRouter, Request, Depends, HTTPException, Query
 from modules.authentication.auth import auth
-from database.schema import ErrorResponse, PlainResponse, CreateOrderRequest, UpdateOrderRequest, OrderModel, OrderMainModel, NewOrderResponse, OrderResponse
+from database.schema import ErrorResponse, PlainResponse, OrderModel, OrderResponse
 from modules.orders.get import retrieve_orders, retrieve_single_order
 from database.db import get_db
 from sqlalchemy.orm import Session
