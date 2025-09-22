@@ -17,7 +17,7 @@ from routers.user import profile
 from routers.misc import geo
 from routers.misc import merch
 from routers.inventory import category
-from routers.group import group
+from routers.inventory import group
 from routers.inventory import product
 from routers.user import main as users
 from routers.user import merchant
