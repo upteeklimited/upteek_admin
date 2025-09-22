@@ -53,22 +53,6 @@ class ProfileModel(BaseModel):
     first_name: Optional[str] = None
     other_name: Optional[str] = None
     last_name: Optional[str] = None
-    mothers_maiden_name: Optional[str] = None
-    date_of_birth: Optional[str] = None
-    gender: Optional[str] = None
-    bio: Optional[str] = None
-    marital_status: Optional[str] = None
-    avatar: Optional[str] = None
-    id_document_file: Optional[str] = None
-    id_document_type: Optional[str] = None
-    id_document_value: Optional[str] = None
-    selfie: Optional[str] = None
-    bvn: Optional[str] = None
-    bvn_status: Optional[int] = 0
-    nin: Optional[str] = None
-    nin_status: Optional[int] = 0
-    kyc_level: Optional[int] = 0
-    compliance_status: Optional[int] = 0
     
     class Config:
         orm_mode = True
@@ -78,8 +62,6 @@ class SettingModel(BaseModel):
     user_id: int
     email_notification: Optional[int] = 0
     sms_notification: Optional[int] = 0
-    dashboard_state: Optional[str] = None
-    interest_state: Optional[str] = None
     
     class Config:
         orm_mode = True
