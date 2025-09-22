@@ -1,10 +1,6 @@
 from typing import Dict
-from fastapi import UploadFile
 from sqlalchemy.orm import Session
 from database.model import delete_merchant, get_main_single_merchant_by_id, get_merchants
-from modules.utils.tools import process_schema_dictionary, generate_slug
-from modules.utils.files import upload_request_file_to_cloudinary
-from modules.authentication.auth import generate_new_user_account
 from fastapi_pagination.ext.sqlalchemy import paginate
 
 def remove_merchant(db: Session, merchant_id: int=0):
