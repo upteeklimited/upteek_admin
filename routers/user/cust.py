@@ -3,8 +3,8 @@ from fastapi import APIRouter, Request, Depends, HTTPException, Form, Query
 from database.db import get_session, get_db
 from sqlalchemy.orm import Session
 from modules.authentication.auth import auth
-from modules.users.customer import retrieve_single_user, retrieve_merchants_and_customers, retrieve_reviews, retrieve_single_review
-from database.schema import ErrorResponse, PlainResponse, UserInfoModel, UserInfoResponseModel, ReviewModel, ReviewResponseModel
+from modules.users.customer import retrieve_single_user, retrieve_merchants_and_customers, retrieve_reviews, retrieve_single_review, retrieve_customers_stats
+from database.schema import ErrorResponse, PlainResponse, UserInfoModel, UserInfoResponseModel, ReviewModel, ReviewResponseModel, CustomerStatResponse
 from fastapi_pagination import LimitOffsetPage, Page
 
 router = APIRouter(
@@ -39,3 +39,7 @@ async def reviews(request: Request, db: Session = Depends(get_db), merchant_id: 
 @router.get("/reviews/get_single/{review_id}", response_model=ReviewResponseModel, responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
 async def get_single_review(request: Request, db: Session = Depends(get_db), review_id: int = 0):
     return retrieve_single_review(db=db, review_id=review_id)
+
+@router.get("/statistics", response_model=CustomerStatResponse, responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
+async def statistics(request: Request, db: Session = Depends(get_db)):
+    return retrieve_customers_stats(db=db)

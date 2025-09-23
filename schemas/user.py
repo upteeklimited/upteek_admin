@@ -428,3 +428,21 @@ class MerchantStatResponse(BaseModel):
 
     class Config:
         orm_mode = True
+
+class CustomerStatData(BaseModel):
+    total_registered: Optional[int] = 0
+    total_active: Optional[int] = 0
+    total_suspended: Optional[int] = 0
+    total_deactivated: Optional[int] = 0
+    total_compliance_done: Optional[int] = 0
+
+    class Config:
+        orm_mode = True
+
+class CustomerStatResponse(BaseModel):
+    status: bool
+    message: str
+    data: Optional[CustomerStatData] = None
+
+    class Config:
+        orm_mode = True

@@ -48,3 +48,22 @@ def retrieve_single_review(db: Session, review_id: int=0):
             'message': 'Success',
             'data': review
         }
+
+def retrieve_customers_stats(db: Session):
+    total_registered = 0
+    total_active = 0
+    total_suspended = 0
+    total_deactivated = 0
+    total_compliance_done = 0
+    data = {
+        "total_registered": total_registered,
+        "total_active": total_active,
+        "total_suspended": total_suspended,
+        "total_deactivated": total_deactivated,
+        "total_compliance_done": total_compliance_done,
+    }
+    return {
+        "status": True,
+        "message": "Success",
+        "data": data,
+    }
