@@ -1,8 +1,8 @@
 from typing import List
 from fastapi import APIRouter, Request, Depends, HTTPException, Query
 from modules.authentication.auth import auth
-from modules.postings.trans import retrieve_accounts,  retrieve_transactions, retrieve_transaction_by_id
-from database.schema import ErrorResponse, PlainResponse, TransactionAccountModel, TransactionModel, TransactionResponseModel
+from modules.postings.trans import retrieve_accounts,  retrieve_transactions, retrieve_transaction_by_id, retrieve_stats
+from database.schema import ErrorResponse, PlainResponse, TransactionAccountModel, TransactionModel, TransactionResponseModel, TransactionStatResponse
 from database.db import get_db
 from sqlalchemy.orm import Session
 from fastapi_pagination import Page
@@ -46,3 +46,7 @@ async def get_all(request: Request, db: Session = Depends(get_db), user=Depends(
 @router.get("/get_single/{transaction_id}", response_model=TransactionResponseModel, responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
 async def get_single(request: Request, user=Depends(auth.auth_wrapper), db: Session = Depends(get_db), transaction_id: int = 0):
     return retrieve_transaction_by_id(db=db, transaction_id=transaction_id)
+
+@router.get("/statistics", response_model=TransactionStatResponse, responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
+async def statistics(request: Request, user=Depends(auth.auth_wrapper), db: Session = Depends(get_db)):
+    return retrieve_stats(db=db)

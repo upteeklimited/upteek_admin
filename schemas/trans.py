@@ -157,3 +157,22 @@ class NewTransactionResponseModel(BaseModel):
 
     class Config:
         orm_mode = True
+
+class TransactionStatData(BaseModel):
+    incoming: Optional[float] = 0
+    outgoing: Optional[float] = 0
+    commission: Optional[float] = 0
+    promotions: Optional[float] = 0
+    service_charge: Optional[float] = 0
+    withdraw: Optional[float] = 0
+
+    class Config:
+        orm_mode = True
+
+class TransactionStatResponse(BaseModel):
+    status: bool
+    marital_status: str
+    data: Optional[TransactionStatData] = None
+
+    class Config:
+        orm_mode = True

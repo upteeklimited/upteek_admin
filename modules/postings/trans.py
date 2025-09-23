@@ -77,3 +77,23 @@ def retrieve_transaction_by_id(db: Session, transaction_id: int=0):
             'data': trans,
         }
     
+def retrieve_stats(db: Session):
+    incoming = 0
+    outgoing = 0
+    commission = 0
+    promotions = 0
+    service_charge = 0
+    withdraw = 0
+    data = {
+        "incoming": incoming,
+        "outgoing": outgoing,
+        "commission": commission,
+        "promotions": promotions,
+        "service_charge": service_charge,
+        "withdraw": withdraw,
+    }
+    return {
+        "status": True,
+        "message": "Success",
+        "data": data
+    }
