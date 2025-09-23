@@ -21,3 +21,20 @@ def retrieve_single_order(db: Session, id: int=0):
             'message': 'Success',
             'data': order
         }
+
+def retrieve_order_stats(db: Session):
+    total_order = 0
+    pending_order = 0
+    completed_order = 0
+    failed_order = 0
+    data = {
+        "total_order": total_order,
+        "pending_order": pending_order,
+        "completed_order": completed_order,
+        "failed_order": failed_order,
+    }
+    return {
+        "status": True,
+        "message": "Success",
+        "data": data
+    }

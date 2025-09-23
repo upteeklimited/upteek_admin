@@ -186,3 +186,20 @@ class RemoveCartProductModel(BaseModel):
 
     class Config:
         orm_mode = True
+
+class OrderStatData(BaseModel):
+    total_order: Optional[int] = 0
+    pending_order: Optional[int] = 0
+    completed_order: Optional[int] = 0
+    failed_order: Optional[int] = 0
+
+    class Config:
+        orm_mode = True
+
+class OrderStatResponse(BaseModel):
+    status: bool
+    message: str
+    data: Optional[OrderStatData] = None
+
+    class Config:
+        orm_mode = True

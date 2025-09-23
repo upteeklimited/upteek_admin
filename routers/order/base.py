@@ -1,8 +1,8 @@
 from typing import Optional, List, Any
 from fastapi import APIRouter, Request, Depends, HTTPException, Query
 from modules.authentication.auth import auth
-from database.schema import ErrorResponse, PlainResponse, OrderModel, OrderResponse
-from modules.orders.get import retrieve_orders, retrieve_single_order
+from database.schema import ErrorResponse, PlainResponse, OrderModel, OrderResponse, OrderStatResponse
+from modules.orders.get import retrieve_orders, retrieve_single_order, retrieve_order_stats
 from database.db import get_db
 from sqlalchemy.orm import Session
 from fastapi_pagination import LimitOffsetPage, Page
@@ -30,3 +30,7 @@ async def get_all(request: Request, user=Depends(auth.auth_wrapper), db: Session
 @router.get("/get_single/{order_id}", response_model=OrderResponse, responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
 async def get_single(request: Request, user=Depends(auth.auth_wrapper), db: Session = Depends(get_db), order_id: int = 0):
     return retrieve_single_order(db=db, id=order_id)
+
+@router.get("/statistics", response_model=OrderStatResponse, responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
+async def statistics(request: Request, user=Depends(auth.auth_wrapper), db: Session = Depends(get_db)):
+    return retrieve_order_stats(db=db)
