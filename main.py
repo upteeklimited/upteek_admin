@@ -34,7 +34,7 @@ from routers.transaction import postings
 from routers import seed
 
 # Main app section here
-app = FastAPI(title="Upteek Admin")
+app = FastAPI(title="Upteek Admin API Service")
 
 app.include_router(auth.router)
 app.include_router(profile.router)
