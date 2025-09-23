@@ -410,3 +410,21 @@ class ToggleFavorite(BaseModel):
 
     class Config:
         orm_mode = True
+
+class MerchantStatData(BaseModel):
+    total_registered: Optional[int] = 0
+    total_active: Optional[int] = 0
+    total_suspended: Optional[int] = 0
+    total_deactivated: Optional[int] = 0
+    total_compliance_done: Optional[int] = 0
+
+    class Config:
+        orm_mode = True
+
+class MerchantStatResponse(BaseModel):
+    status: bool
+    message: str
+    data: Optional[MerchantStatData] = None
+
+    class Config:
+        orm_mode = True

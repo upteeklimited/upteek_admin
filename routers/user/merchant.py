@@ -3,8 +3,8 @@ from fastapi import APIRouter, Request, Depends, HTTPException, File, UploadFile
 from database.db import get_session, get_db
 from sqlalchemy.orm import Session
 from modules.authentication.auth import auth
-from modules.users.merchant import remove_merchant, retrieve_merchants, retrieve_single_merchant
-from database.schema import MerchantInfoModel, MerchantInfoResponseModel, ErrorResponse, PlainResponse
+from modules.users.merchant import remove_merchant, retrieve_merchants, retrieve_single_merchant, retrieve_merchants_stats
+from database.schema import MerchantInfoModel, MerchantInfoResponseModel, MerchantStatResponse, ErrorResponse, PlainResponse
 from fastapi_pagination import LimitOffsetPage, Page
 
 router = APIRouter(
@@ -36,3 +36,7 @@ async def get_all(request: Request, user=Depends(auth.auth_wrapper), db: Session
 @router.get("/get_single/{merchant_id}", response_model=MerchantInfoResponseModel, responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
 async def get_single(request: Request, db: Session = Depends(get_db), merchant_id: int = 0):
     return retrieve_single_merchant(db=db, merchant_id=merchant_id)
+
+@router.get("/statistics", response_model=MerchantStatResponse, responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
+async def statistics(request: Request, db: Session = Depends(get_db)):
+    return retrieve_merchants_stats(db=db)
