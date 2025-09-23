@@ -20,6 +20,7 @@ from routers.inventory import category
 from routers.inventory import group
 from routers.inventory import product
 from routers.user import main as users
+from routers.user import cust as customer
 from routers.user import merchant
 from routers.order import base as orders
 from routers.accounting import gl_type
@@ -44,6 +45,7 @@ app.include_router(category.router)
 app.include_router(group.router)
 app.include_router(product.router)
 app.include_router(users.router)
+app.include_router(customer.router)
 app.include_router(merchant.router)
 app.include_router(orders.router)
 app.include_router(gl_type.router)

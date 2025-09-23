@@ -81,3 +81,6 @@ def get_favorites(db: Session, filters: Dict={}):
         query = query.filter_by(status = filters['status'])
     return query.order_by(desc(Favorite.created_at))
 
+
+def get_favorites_by_user_id_id_and_type(db: Session, user_id: int=0, favoriteable_id: int=0, favoriteable_type: str = None):
+    return db.query(Favorite).filter(and_(Favorite.favoriteable_id == favoriteable_id, Favorite.favoriteable_type == favoriteable_type, Favorite.deleted_at == None, Favorite.user_id == user_id)).first()
