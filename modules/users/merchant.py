@@ -1,6 +1,6 @@
 from typing import Dict
 from sqlalchemy.orm import Session
-from database.model import delete_merchant, get_main_single_merchant_by_id, get_merchants
+from database.model import delete_merchant, get_main_single_merchant_by_id, get_merchants, count_merchants
 from fastapi_pagination.ext.sqlalchemy import paginate
 
 def remove_merchant(db: Session, merchant_id: int=0):
@@ -30,11 +30,11 @@ def retrieve_single_merchant(db: Session, merchant_id: int=0):
         }
 
 def retrieve_merchants_stats(db: Session):
-    total_registered = 0
-    total_active = 0
-    total_suspended = 0
-    total_deactivated = 0
-    total_compliance_done = 0
+    total_registered = count_merchants(db=db)
+    total_active = count_merchants(db=db, filters={'status': 1})
+    total_suspended = count_merchants(db=db, filters={'status': 0})
+    total_deactivated = count_merchants(db=db, filters={'deleted': 1})
+    total_compliance_done = count_merchants(db=db, filters={'compliance_status': 1})
     data = {
         "total_registered": total_registered,
         "total_active": total_active,

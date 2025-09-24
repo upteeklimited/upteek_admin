@@ -122,11 +122,39 @@ def get_merchants(db: Session, filters: Dict={}):
         query = query.filter(Merchant.name.ilike(f"%{filters['name']}%"))
     if 'slug' in filters:
         query = query.filter(Merchant.slug.ilike(f"%{filters['slug']}%"))
+    if 'compliance_status' in filters:
+        query = query.filter(Merchant.compliance_status == filters['compliance_status'])
     if 'status' in filters:
         query = query.filter(Merchant.status == filters['status'])
     if 'user_ids' in filters:
         query = query.join(Merchant_User, Merchant_User.merchant_id == Merchant.id).filter(Merchant_User.id.in_(filters['user_ids']))
+    if 'deleted' in filters:
+        query = query.filter(Merchant.deleted_at != None)
+    else:
+        query = query.filter(Merchant.deleted_at == None)
     return query.filter(Merchant.deleted_at == None).order_by(desc(Merchant.id))
 
 def get_merchants_by_category_id(db: Session, category_id: int=0):
     return db.query(Merchant).filter_by(category_id = category_id).filter(Merchant.deleted_at == None).order_by(desc(Merchant.id))
+
+def count_merchants(db: Session, filters: Dict={}):
+    query = db.query(Merchant)
+    if 'user_id' in filters:
+        query = query.filter(Merchant.user_id == filters['user_id'])
+    if 'category_id' in filters:
+        query = query.filter(Merchant.category_id == filters['category_id'])
+    if 'currency_id' in filters:
+        query = query.filter(Merchant.currency_id == filters['currency_id'])
+    if 'name' in filters:
+        query = query.filter(Merchant.name.ilike(f"%{filters['name']}%"))
+    if 'slug' in filters:
+        query = query.filter(Merchant.slug.ilike(f"%{filters['slug']}%"))
+    if 'compliance_status' in filters:
+        query = query.filter(Merchant.compliance_status == filters['compliance_status'])
+    if 'status' in filters:
+        query = query.filter(Merchant.status == filters['status'])
+    if 'deleted' in filters:
+        query = query.filter(Merchant.deleted_at != None)
+    else:
+        query = query.filter(Merchant.deleted_at == None)
+    return query.count()

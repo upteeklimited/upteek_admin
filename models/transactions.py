@@ -149,6 +149,8 @@ def get_transactions(db: Session, filters: Dict={}):
         query = query.filter_by(bill_id = filters['bill_id'])
     if 'beneficiary_id' in filters:
         query = query.filter_by(beneficiary_id = filters['beneficiary_id'])
+    if 'action' in filters:
+        query = query.filter_by(action = filters['action'])
     if 'reference' in filters:
         query = query.filter(Transaction.reference.like('%' + filters['reference'] + '%'))
     if 'external_reference' in filters:
@@ -156,3 +158,83 @@ def get_transactions(db: Session, filters: Dict={}):
     if 'status' in filters:
         query = query.filter_by(status = filters['status'])
     return query.order_by(desc(Transaction.created_at))
+
+def count_transactions(db: Session, filters: Dict={}):
+    query = db.query(Transaction)
+    if 'country_id' in filters:
+        query = query.filter_by(country_id = filters['country_id'])
+    if 'currency_id' in filters:
+        query = query.filter_by(currency_id = filters['currency_id'])
+    if 'user_id' in filters:
+        query = query.filter_by(user_id = filters['user_id'])
+    if 'merchant_id' in filters:
+        query = query.filter_by(merchant_id = filters['merchant_id'])
+    if 'gl_id' in filters:
+        query = query.filter_by(gl_id = filters['gl_id'])
+    if 'account_id' in filters:
+        query = query.filter_by(account_id = filters['account_id'])
+    if 'type_id' in filters:
+        query = query.filter_by(type_id = filters['type_id'])
+    if 'order_id' in filters:
+        query = query.filter_by(order_id = filters['order_id'])
+    if 'loan_id' in filters:
+        query = query.filter_by(loan_id = filters['loan_id'])
+    if 'collection_id' in filters:
+        query = query.filter_by(collection_id = filters['collection_id'])
+    if 'card_id' in filters:
+        query = query.filter_by(card_id = filters['card_id'])
+    if 'institution_id' in filters:
+        query = query.filter_by(institution_id = filters['institution_id'])
+    if 'bill_id' in filters:
+        query = query.filter_by(bill_id = filters['bill_id'])
+    if 'beneficiary_id' in filters:
+        query = query.filter_by(beneficiary_id = filters['beneficiary_id'])
+    if 'action' in filters:
+        query = query.filter_by(action = filters['action'])
+    if 'reference' in filters:
+        query = query.filter(Transaction.reference.like('%' + filters['reference'] + '%'))
+    if 'external_reference' in filters:
+        query = query.filter(Transaction.external_reference.like('%' + filters['external_reference'] + '%'))
+    if 'status' in filters:
+        query = query.filter_by(status = filters['status'])
+    return query.count()
+
+def sum_of_transactions(db: Session, filters: Dict={}):
+    query = db.query(func.sum(Transaction.amount))
+    if 'country_id' in filters:
+        query = query.filter_by(country_id = filters['country_id'])
+    if 'currency_id' in filters:
+        query = query.filter_by(currency_id = filters['currency_id'])
+    if 'user_id' in filters:
+        query = query.filter_by(user_id = filters['user_id'])
+    if 'merchant_id' in filters:
+        query = query.filter_by(merchant_id = filters['merchant_id'])
+    if 'gl_id' in filters:
+        query = query.filter_by(gl_id = filters['gl_id'])
+    if 'account_id' in filters:
+        query = query.filter_by(account_id = filters['account_id'])
+    if 'type_id' in filters:
+        query = query.filter_by(type_id = filters['type_id'])
+    if 'order_id' in filters:
+        query = query.filter_by(order_id = filters['order_id'])
+    if 'loan_id' in filters:
+        query = query.filter_by(loan_id = filters['loan_id'])
+    if 'collection_id' in filters:
+        query = query.filter_by(collection_id = filters['collection_id'])
+    if 'card_id' in filters:
+        query = query.filter_by(card_id = filters['card_id'])
+    if 'institution_id' in filters:
+        query = query.filter_by(institution_id = filters['institution_id'])
+    if 'bill_id' in filters:
+        query = query.filter_by(bill_id = filters['bill_id'])
+    if 'beneficiary_id' in filters:
+        query = query.filter_by(beneficiary_id = filters['beneficiary_id'])
+    if 'action' in filters:
+        query = query.filter_by(action = filters['action'])
+    if 'reference' in filters:
+        query = query.filter(Transaction.reference.like('%' + filters['reference'] + '%'))
+    if 'external_reference' in filters:
+        query = query.filter(Transaction.external_reference.like('%' + filters['external_reference'] + '%'))
+    if 'status' in filters:
+        query = query.filter_by(status = filters['status'])
+    return query.scalar() or 0

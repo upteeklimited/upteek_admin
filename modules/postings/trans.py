@@ -1,9 +1,10 @@
 from typing import Dict
 import dateparser
 from sqlalchemy.orm import Session
-from database.model import get_single_account_by_account_number, get_single_general_ledger_account_by_account_number, get_single_transaction_by_id, get_transactions, search_accounts, search_general_ledger_accounts
+from database.model import get_single_account_by_account_number, get_single_general_ledger_account_by_account_number, get_single_transaction_by_id, get_transactions, search_accounts, search_general_ledger_accounts, count_transactions, sum_of_transactions
 from modules.utils.acct import get_gl_ids_by_filters, get_account_ids_by_filters
 from fastapi_pagination.ext.sqlalchemy import paginate
+from settings.constants import TRANSACTION_ACTIONS
 
 def retrieve_accounts(db: Session, search: str=None):
     resp = []
@@ -78,8 +79,8 @@ def retrieve_transaction_by_id(db: Session, transaction_id: int=0):
         }
     
 def retrieve_stats(db: Session):
-    incoming = 0
-    outgoing = 0
+    incoming = sum_of_transactions(db=db, filters={'action': TRANSACTION_ACTIONS['credit'], 'status': 1})
+    outgoing = sum_of_transactions(db=db, filters={'action': TRANSACTION_ACTIONS['debit'], 'status': 1})
     commission = 0
     promotions = 0
     service_charge = 0

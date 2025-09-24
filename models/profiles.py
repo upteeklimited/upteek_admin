@@ -131,3 +131,15 @@ def get_single_profile_by_id(db: Session, id: int=0):
 
 def get_single_profile_by_user_id(db: Session, user_id: int = 0):
     return db.query(Profile).filter_by(user_id = user_id).first()
+
+def count_profiles(db: Session, filters: Dict={}):
+    query = db.query(Profile)
+    if 'user_ids' in filters:
+        query = query.filter(Profile.id.in_(filters['user_ids']))
+    if 'user_id' in filters:
+        query = query.filter(Profile.user_id == filters['user_id'])
+    if 'compliance_status' in filters:
+        query = query.filter(Profile.compliance_status == filters['compliance_status'])
+    if 'status' in filters:
+        query = query.filter(Profile.user_id == filters['status'])
+    return query.count()

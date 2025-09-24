@@ -1,6 +1,6 @@
 from typing import Dict
 from sqlalchemy.orm import Session
-from database.model import search_merchants_and_users, get_reviews, get_single_searched_user_by_id, get_single_review_by_id
+from database.model import search_merchants_and_users, get_reviews, get_single_searched_user_by_id, get_single_review_by_id, count_profiles, count_users
 from fastapi_pagination.ext.sqlalchemy import paginate as sql_paginate
 from fastapi_pagination import paginate
 from settings.constants import USER_TYPES
@@ -50,11 +50,11 @@ def retrieve_single_review(db: Session, review_id: int=0):
         }
 
 def retrieve_customers_stats(db: Session):
-    total_registered = 0
-    total_active = 0
-    total_suspended = 0
-    total_deactivated = 0
-    total_compliance_done = 0
+    total_registered = count_users(db=db, filters={'user_type': 0})
+    total_active = count_users(db=db, filters={'user_type': 0, 'status': 1})
+    total_suspended = count_users(db=db, filters={'user_type': 0, 'status': 0})
+    total_deactivated = count_users(db=db, filters={'user_type': 0, 'deleted': 0})
+    total_compliance_done = count_profiles(db=db, filters={'compliance_status': 1})
     data = {
         "total_registered": total_registered,
         "total_active": total_active,

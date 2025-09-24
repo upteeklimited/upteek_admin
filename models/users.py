@@ -161,8 +161,29 @@ def search_merchants_and_users(db: Session, merchant_type: int = 0, customer_typ
         query = query.filter(User.status == filters['status'])
     return query.filter(User.deleted_at == None).order_by(desc(User.id))
 
-def count_users(db: Session):
-    return db.query(User).count()
+def count_users(db: Session, filters: Dict={}):
+    query = db.query(User)
+    if 'ids' in filters:
+        query = query.filter(User.id.in_(filters['ids']))
+    if 'username' in filters:
+        query = query.filter(User.username.like("%"+filters['username']+"%"))
+    if 'email' in filters:
+        query = query.filter(User.email.like("%"+filters['email']+"%"))
+    if 'phone_number' in filters:
+        query = query.filter(User.phone_number.like("%"+filters['phone_number']+"%"))
+    if 'query' in filters:
+        query = query.join(User.profile).filter(or_(User.username.like("%"+filters['query']+"%"), User.email.like("%"+filters['query']+"%"), User.phone_number.like("%"+filters['query']+"%"), Profile.first_name.like("%"+filters['query']+"%"), Profile.last_name.like("%"+filters['query']+"%")))
+    if 'role' in filters:
+        query = query.filter(User.role == filters['role'])
+    if 'user_type' in filters:
+        query = query.filter(User.user_type == filters['user_type'])
+    if 'status' in filters:
+        query = query.filter(User.status == filters['status'])
+    if 'deleted' in filters:
+        query = query.filter(User.deleted_at != None)
+    else:
+        query = query.filter(User.deleted_at == None)
+    return query.count()
 
 def count_users_by_user_type(db: Session, user_type: int=0):
     return db.query(User).filter_by(user_type = user_type).filter(User.deleted_at == None).count()

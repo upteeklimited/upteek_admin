@@ -142,3 +142,30 @@ def get_orders(db: Session, filters: Dict={}):
     if 'is_scheduled' in filters:
         query = query.filter_by(is_scheduled = filters['is_scheduled'])
     return query.order_by(desc(Order.created_at))
+
+def count_orders(db: Session, filters: Dict={}):
+    query = db.query(Order)
+    if 'user_id' in filters:
+        query = query.filter_by(user_id = filters['user_id'])
+    if 'merchant_id' in filters:
+        query = query.filter_by(merchant_id = filters['merchant_id'])
+    if 'currency_id' in filters:
+        query = query.filter_by(currency_id = filters['currency_id'])
+    if 'card_id' in filters:
+        query = query.filter_by(card_id = filters['card_id'])
+    if 'account_id' in filters:
+        query = query.filter_by(account_id = filters['account_id'])
+    if 'financial_product_id' in filters:
+        query = query.filter_by(financial_product_id = filters['financial_product_id'])
+    if 'order_type' in filters:
+        query = query.filter_by(order_type = filters['order_type'])
+    if 'payment_type' in filters:
+        query = query.filter_by(payment_type = filters['payment_type'])
+    if 'status' in filters:
+        query = query.filter_by(status = filters['status'])
+    if 'is_gift' in filters:
+        query = query.filter_by(is_gift = filters['is_gift'])
+    if 'is_scheduled' in filters:
+        query = query.filter_by(is_scheduled = filters['is_scheduled'])
+    return query.count()
+
