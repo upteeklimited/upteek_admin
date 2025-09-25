@@ -144,7 +144,8 @@ def search_users(db: Session, filters: Dict={}):
     return query.filter(User.deleted_at == None).order_by(desc(User.id))
     
 def search_merchants_and_users(db: Session, merchant_type: int = 0, customer_type: int = 0, filters: Dict={}):
-    query = db.query(User).options(joinedload(User.profile)).filter(or_(User.user_type == merchant_type, User.user_type == customer_type))
+    # query = db.query(User).options(joinedload(User.profile)).filter(or_(User.user_type == merchant_type, User.user_type == customer_type))
+    query = db.query(User).options(joinedload(User.profile)).filter(User.user_type == 0)
     if 'ids' in filters:
         query = query.filter(User.id.in_(filters['ids']))
     if 'username' in filters:
