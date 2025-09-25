@@ -76,6 +76,16 @@ class OrderMainModel(BaseModel):
     class Config:
         orm_mode = True
 
+class OrderLog(BaseModel):
+    id: int
+    order_id: Optional[int] = None
+    event_type: Optional[int] = None
+    status: Optional[int] = None
+    created_at: Optional[datetime] = None
+
+    class Config:
+        orm_mode = True
+
 class OrderModel(BaseModel):
     id: int
     user_id: Optional[int] = 0
@@ -113,6 +123,7 @@ class OrderModel(BaseModel):
     user: Optional[UserSimpleDetailsModel] = None
     address: Optional[AddressModel] = None
     currency: Optional[CurrencyModel] = None
+    order_logs: Optional[List[OrderLog]] = None
 
     class Config:
         orm_mode = True
