@@ -33,7 +33,6 @@ class UserAccountInfoModel(BaseModel):
 
 class UserModel(BaseModel):
     id: int
-    merchant_id: int
     username: Optional[str] = None
     phone_number: Optional[str] = None
     email: Optional[str] = None
@@ -63,6 +62,7 @@ class ProfileModel(BaseModel):
     id_document_file_back: Optional[str] = None
     selfie: Optional[str] = None
     compliance_status: Optional[int] = None
+    created_at: Optional[datetime] = None
     
     class Config:
         orm_mode = True
@@ -103,6 +103,7 @@ class MerchantModel(BaseModel):
     accept_wht: Optional[int] = None
     status: Optional[int] = None
     compliance_status: Optional[int] = None
+    created_at: Optional[datetime] = None
     
     class Config:
         orm_mode = True
@@ -127,7 +128,6 @@ class UserMainModel(BaseModel):
 class UserInfoModel(BaseModel):
     id: int
     country_id: Optional[int] = 0
-    merchant_id: Optional[int] = 0
     username: Optional[str] = None
     phone_number: Optional[str] = None
     email: Optional[str] = None
