@@ -137,5 +137,4 @@ def get_ids_of_general_ledger_accounts(db: Session, filters: Dict={}):
         query = query.filter(GeneralLedgerAccount.account_number.like('%'+filters['account_number']+'%'))
     if 'status' in filters:
         query = query.filter_by(status = filters['status'])
-    return query..scalars().all()
-    
+    return query.scalars().all()

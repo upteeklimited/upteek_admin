@@ -107,4 +107,4 @@ def get_ids_of_general_ledger_account_types(db: Session, filters: Dict={}):
         query = query.filter_by(type_number = filters['type_number'])
     if 'status' in filters:
         query = query.filter_by(status = filters['status'])
-    return query..scalars().all()
+    return query.scalars().all()
