@@ -83,6 +83,8 @@ def get_general_ledger_accounts(db: Session, filters: Dict={}):
     query = db.query(GeneralLedgerAccount)
     if 'type_id' in filters:
         query = query.filter_by(type_id = filters['type_id'])
+    if 'type_ids' in filters:
+        query = query.filter(GeneralLedgerAccount.id.in_(filters['type_ids']))
     if 'parent_id' in filters:
         query = query.filter_by(parent_id = filters['parent_id'])
     if 'manager_id' in filters:
@@ -99,6 +101,8 @@ def filter_general_ledger_accounts(db: Session, filters: Dict={}):
     query = db.query(GeneralLedgerAccount)
     if 'type_id' in filters:
         query = query.filter_by(type_id = filters['type_id'])
+    if 'type_ids' in filters:
+        query = query.filter(GeneralLedgerAccount.id.in_(filters['type_ids']))
     if 'parent_id' in filters:
         query = query.filter_by(parent_id = filters['parent_id'])
     if 'manager_id' in filters:
@@ -116,3 +120,22 @@ def search_general_ledger_accounts(db: Session, search: str = None):
     if search is not None:
         query = query.filter(or_(GeneralLedgerAccount.name.like('%'+search+'%'), GeneralLedgerAccount.account_number.like('%'+search+'%')))
     return query.order_by(desc(GeneralLedgerAccount.created_at)).all()
+
+def get_ids_of_general_ledger_accounts(db: Session, filters: Dict={}):
+    query = db.query(GeneralLedgerAccount)
+    if 'type_id' in filters:
+        query = query.filter_by(type_id = filters['type_id'])
+    if 'type_ids' in filters:
+        query = query.filter(GeneralLedgerAccount.id.in_(filters['type_ids']))
+    if 'parent_id' in filters:
+        query = query.filter_by(parent_id = filters['parent_id'])
+    if 'manager_id' in filters:
+        query = query.filter_by(manager_id = filters['manager_id'])
+    if 'name' in filters:
+        query = query.filter(GeneralLedgerAccount.name.like('%'+filters['name']+'%'))
+    if 'account_number' in filters:
+        query = query.filter(GeneralLedgerAccount.account_number.like('%'+filters['account_number']+'%'))
+    if 'status' in filters:
+        query = query.filter_by(status = filters['status'])
+    return query..scalars().all()
+    

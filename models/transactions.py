@@ -1,7 +1,7 @@
 from typing import Dict
 from sqlalchemy import Column, Integer, String, DateTime, BigInteger, DECIMAL, Float, TIMESTAMP, SmallInteger, Text, desc
 from sqlalchemy.orm import Session
-from sqlalchemy.sql import func
+from sqlalchemy.sql import func, extract
 from sqlalchemy.sql.expression import and_, or_
 from sqlalchemy.sql.schema import ForeignKey
 from database.db import Base, get_laravel_datetime, get_added_laravel_datetime, compare_laravel_datetime_with_today
@@ -238,3 +238,4 @@ def sum_of_transactions(db: Session, filters: Dict={}):
     if 'status' in filters:
         query = query.filter_by(status = filters['status'])
     return query.scalar() or 0
+

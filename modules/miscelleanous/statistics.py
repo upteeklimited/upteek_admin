@@ -1,4 +1,67 @@
 from typing import Dict, List, Any
 from sqlalchemy.orm import Session
-from database.model import count_users, count_merchants
-import dateparser
+from database.model import count_users, count_merchants, get_ids_of_general_ledger_account_types, get_ids_of_general_ledger_accounts
+from datetime import datetime, timedelta
+
+
+def get_user_registration_stats(db: Session, timeline: str=None, days: int=None):
+	today = today = datetime.today()
+	from_day = None
+	if timeline == "day":
+		from_day = today - timedelta(days=1)
+	elif timeline == "week":
+		from_day = today - timedelta(days=7)
+	elif timeline == "month":
+		from_day = today - timedelta(days=30)
+	elif timeline == "six_months":
+		from_day = today - timedelta(days=180)
+	elif timeline == "year":
+		from_day = today - timedelta(days=365)
+	if days is not None:
+		if days > 0:
+			from_day = today - timedelta(days=days)
+	if from_day is None:
+		return {
+			"status": False,
+			"message": "Invalid from days",
+			"data": None
+		}
+	else:
+		from_date = from_day.strftime("%Y-%m-%d %H:%M:%S")
+		to_date = today.strftime("%Y-%m-%d %H:%M:%S")
+		customers_count = count_users(db=db, filters={
+			'user_type': 0,
+			'from_date': from_date,
+			'to_date': to_date,
+		})
+		merchants_count = count_merchants(db=db, filters={
+			'from_date': from_date,
+			'to_date': to_date,
+		})
+		data = {
+			"customers_count": customers_count,
+			"merchants_count": merchants_count,
+		}
+		return {
+			"status": True,
+			"message": "Success",
+			"data": data
+		}
+
+def get_revenue_report_stats(db: Session, timeline: str=None, days: int=None):
+	today = today = datetime.today()
+	input_days = 0
+	if timeline == "day":
+		input_days = 1
+	elif timeline == "week":
+		input_days = 7
+	elif timeline == "month":
+		input_days = 30
+	elif timeline == "six_months":
+		input_days = 180
+	elif timeline == "year":
+		input_days = 365
+	if days is not None:
+		if days > 0:
+			input_days = days
+	

@@ -109,8 +109,21 @@ def get_single_user_by_any_main_details(db: Session, email: str = None, phone_nu
 def get_single_searched_user_by_id(db: Session, id: int = 0):
     return db.query(User).filter_by(id = id).options(joinedload(User.profile)).first()
 
-def get_users(db: Session):
-    return db.query(User).options(joinedload(User.merchant), joinedload(User.country), joinedload(User.profile)).filter(User.deleted_at == None).order_by(desc(User.id))
+def get_users(db: Session, filters: Dict={}):
+    query = db.query(User).options(joinedload(User.merchant), joinedload(User.country), joinedload(User.profile))
+    if 'username' in filters:
+        query = query.filter(User.username.like("%"+filters['username']+"%"))
+    if 'email' in filters:
+        query = query.filter(User.email.like("%"+filters['email']+"%"))
+    if 'phone_number' in filters:
+        query = query.filter(User.phone_number.like("%"+filters['phone_number']+"%"))
+    if 'user_type' in filters:
+        query = query.filter(User.user_type == filters['user_type'])
+    if 'role' in filters:
+        query = query.filter(User.role == filters['role'])
+    if 'status' in filters:
+        query = query.filter(User.status == filters['status'])
+    return query.filter(User.deleted_at == None).order_by(desc(User.id))
 
 def get_users_by_country_id(db: Session, country_id: int = 0):
     return db.query(User).filter_by(country_id = country_id).filter(User.deleted_at == None).order_by(desc(User.id))
