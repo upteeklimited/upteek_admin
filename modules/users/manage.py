@@ -83,7 +83,7 @@ def manage_user_password(db: Session, user_id: int = 0, password: str = None):
     }
 
 def retrieve_users(db: Session):
-    users = get_users(db=db)
+    users = get_users(db=db, filters={'user_type': USER_TYPES['admin']['num']})
     return paginate(users)
 
 def retrieve_users_by_search(db: Session, filters: Dict={}):

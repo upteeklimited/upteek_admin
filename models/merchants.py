@@ -131,6 +131,9 @@ def get_merchants(db: Session, filters: Dict={}):
         query = query.filter(Merchant.status == filters['status'])
     if 'user_ids' in filters:
         query = query.join(Merchant_User, Merchant_User.merchant_id == Merchant.id).filter(Merchant_User.id.in_(filters['user_ids']))
+    if 'from_date' in filters and 'to_date' in filters:
+        if filters['from_date'] != None and filters['to_date'] != None:
+            query = query.filter(and_(Merchant.created_at >= filters['from_date'], Merchant.created_at <= filters['to_date']))
     if 'deleted' in filters:
         query = query.filter(Merchant.deleted_at != None)
     else:
@@ -154,6 +157,9 @@ def count_merchants(db: Session, filters: Dict={}):
         query = query.filter(Merchant.slug.ilike(f"%{filters['slug']}%"))
     if 'compliance_status' in filters:
         query = query.filter(Merchant.compliance_status == filters['compliance_status'])
+    if 'from_date' in filters and 'to_date' in filters:
+        if filters['from_date'] != None and filters['to_date'] != None:
+            query = query.filter(and_(Merchant.created_at >= filters['from_date'], Merchant.created_at <= filters['to_date']))
     if 'status' in filters:
         query = query.filter(Merchant.status == filters['status'])
     if 'deleted' in filters:

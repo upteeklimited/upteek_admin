@@ -139,6 +139,9 @@ def search_users(db: Session, filters: Dict={}):
         query = query.filter(User.user_type == filters['user_type'])
     if 'role' in filters:
         query = query.filter(User.role == filters['role'])
+    if 'from_date' in filters and 'to_date' in filters:
+        if filters['from_date'] != None and filters['to_date'] != None:
+            query = query.filter(and_(User.created_at >= filters['from_date'], User.created_at <= filters['to_date']))
     if 'status' in filters:
         query = query.filter(User.status == filters['status'])
     return query.filter(User.deleted_at == None).order_by(desc(User.id))
@@ -158,6 +161,9 @@ def search_merchants_and_users(db: Session, merchant_type: int = 0, customer_typ
         query = query.join(User.profile).filter(or_(User.username.like("%"+filters['query']+"%"), User.email.like("%"+filters['query']+"%"), User.phone_number.like("%"+filters['query']+"%"), Profile.first_name.like("%"+filters['query']+"%"), Profile.last_name.like("%"+filters['query']+"%")))
     if 'role' in filters:
         query = query.filter(User.role == filters['role'])
+    if 'from_date' in filters and 'to_date' in filters:
+        if filters['from_date'] != None and filters['to_date'] != None:
+            query = query.filter(and_(User.created_at >= filters['from_date'], User.created_at <= filters['to_date']))
     if 'status' in filters:
         query = query.filter(User.status == filters['status'])
     return query.filter(User.deleted_at == None).order_by(desc(User.id))
@@ -178,6 +184,9 @@ def count_users(db: Session, filters: Dict={}):
         query = query.filter(User.role == filters['role'])
     if 'user_type' in filters:
         query = query.filter(User.user_type == filters['user_type'])
+    if 'from_date' in filters and 'to_date' in filters:
+        if filters['from_date'] != None and filters['to_date'] != None:
+            query = query.filter(and_(User.created_at >= filters['from_date'], User.created_at <= filters['to_date']))
     if 'status' in filters:
         query = query.filter(User.status == filters['status'])
     if 'deleted' in filters:
