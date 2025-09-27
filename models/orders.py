@@ -143,7 +143,7 @@ def get_orders(db: Session, filters: Dict={}):
     if 'status' in filters:
         query = query.filter_by(status = filters['status'])
     if 'minimum_amount' in filters:
-        query = query.filter(Order.total_amount <= filters['minimum_amount'])
+        query = query.filter(Order.total_amount >= filters['minimum_amount'])
     if 'maximum_amount' in filters:
         query = query.filter(Order.total_amount <= filters['maximum_amount'])
     if 'is_gift' in filters:

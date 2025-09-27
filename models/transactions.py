@@ -159,7 +159,7 @@ def get_transactions(db: Session, filters: Dict={}):
     if 'external_reference' in filters:
         query = query.filter(Transaction.external_reference.like('%' + filters['external_reference'] + '%'))
     if 'minimum_amount' in filters:
-        query = query.filter(Transaction.amount <= filters['minimum_amount'])
+        query = query.filter(Transaction.amount >= filters['minimum_amount'])
     if 'maximum_amount' in filters:
         query = query.filter(Transaction.amount <= filters['maximum_amount'])
     if 'status' in filters:
