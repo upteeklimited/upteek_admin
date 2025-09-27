@@ -175,3 +175,48 @@ class MerchantCategoryResponseModel(BaseModel):
 
     class Config:
         orm_mode = True
+
+class MainStatsData(BaseModel):
+    total_registered_customers: Optional[int] = 0
+    on_time_delivery_rate: Optional[float] = 0
+    average_deliveries: Optional[float] = 0
+    late_deliveries: Optional[int] = 0
+    delivery_accuracy: Optional[float] = 0
+    wrong_deliveries: Optional[int] = 0
+    customer_ratings: Optional[float] = 0
+    compliants: Optional[int] = 0
+    deliveries_per_hour: Optional[float] = 0
+    delivery_success_rate: Optional[float] = 0
+    rider_availability: Optional[int] = 0
+    incident_reports: Optional[int] = 0
+    top_performers: Optional[int] = 0
+    low_performers: Optional[int] = 0
+    fast_moving_categories: Optional[int] = 0
+    slowest_moving_categories: Optional[int] = 0
+    top_selling_month: Optional[int] = 0
+
+    class Config:
+        orm_mode = True
+
+class MainStatsResponseModel(BaseModel):
+    status: bool
+    message: str
+    data: Optional[MainStatsData] = None
+
+    class Config:
+        orm_mode = True
+
+class UserRegStatsData(BaseModel):
+    customers_count: Optional[int] = 0
+    merchants_count: Optional[int] = 0
+
+    class Config:
+        orm_mode = True
+
+class UserRegStatResponseModel(BaseModel):
+    status: bool
+    message: str
+    data: Optional[UserRegStatsData] = None
+
+    class Config:
+        orm_mode = True

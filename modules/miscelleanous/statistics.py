@@ -10,7 +10,40 @@ def get_main_statistics(db: Session):
 	late_deliveries = 0
 	delivery_accuracy = 0.0
 	wrong_deliveries = 0
-	customer_ratings = 0
+	customer_ratings = 0.0
+	compliants = 0
+	deliveries_per_hour = 0.0
+	delivery_success_rate = 0.0
+	rider_availability = 0
+	incident_reports = 0
+	top_performers = 0
+	low_performers = 0
+	fast_moving_categories = 0
+	slowest_moving_categories = 0
+	top_selling_month = 0
+	data = {
+		"total_registered_customers": total_registered_customers,
+		"on_time_delivery_rate": on_time_delivery_rate,
+		"average_deliveries": average_deliveries,
+		"late_deliveries": late_deliveries,
+		"delivery_accuracy": delivery_accuracy,
+		"wrong_deliveries": wrong_deliveries,
+		"customer_ratings": customer_ratings,
+		"compliants": compliants,
+		"deliveries_per_hour": deliveries_per_hour,
+		"rider_availability": rider_availability,
+		"incident_reports": incident_reports,
+		"top_performers": top_performers,
+		"low_performers": low_performers,
+		"fast_moving_categories": fast_moving_categories,
+		"slowest_moving_categories": slowest_moving_categories,
+		"top_selling_month": top_selling_month,
+	}
+	return {
+		"status": True,
+		"message": "Success",
+		"data": data,
+	}
 
 
 def get_user_registration_stats(db: Session, timeline: str=None, days: int=None):

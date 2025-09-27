@@ -29,6 +29,7 @@ from routers.accounting import product as fin_product
 from routers.accounting import cust_acct
 from routers.transaction import type
 from routers.transaction import postings
+from routers.misc import stats
 
 
 #system routes
@@ -54,6 +55,7 @@ app.include_router(fin_product.router)
 app.include_router(cust_acct.router)
 app.include_router(type.router)
 app.include_router(postings.router)
+app.include_router(stats.router)
 
 #system routes
 app.include_router(seed.router)
