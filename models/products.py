@@ -157,14 +157,6 @@ def count_products_by_merchant_id(db: Session, merchant_id: int = 0):
     return db.query(Product).filter_by(merchant_id = merchant_id).count()
 
 def get_random_merchant_product(db: Session, merchant_id: int=0):
-    # count = count_products_by_merchant_id(db=db, merchant_id=merchant_id)
-    # print(count)
-    # if count > 0:
-    #     offset = random.randint(0, count - 1)
-    #     return db.query(Product).offset(offset).limit(1).first()
-    # else:
-    #     return None
-    # ids = db.query(Product.id).filter_by(merchant_id = merchant_id).scalars().all()
     results = db.query(Product.id).filter_by(merchant_id = merchant_id).all()
     ids = [row[0] for row in results]
     print(ids)

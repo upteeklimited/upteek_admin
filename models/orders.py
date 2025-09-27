@@ -140,12 +140,12 @@ def get_orders(db: Session, filters: Dict={}):
         query = query.filter_by(payment_type = filters['payment_type'])
     if 'reference' in filters:
         query = query.filter_by(reference = filters['reference'])
+    if 'status' in filters:
+        query = query.filter_by(status = filters['status'])
     if 'minimum_amount' in filters:
         query = query.filter(Order.total_amount <= filters['minimum_amount'])
     if 'maximum_amount' in filters:
         query = query.filter(Order.total_amount <= filters['maximum_amount'])
-    if 'status' in filters:
-        query = query.filter_by(status = filters['status'])
     if 'is_gift' in filters:
         query = query.filter_by(is_gift = filters['is_gift'])
     if 'is_scheduled' in filters:

@@ -1,6 +1,6 @@
 from typing import Dict
 from sqlalchemy.orm import Session
-from database.model import delete_merchant, get_main_single_merchant_by_id, get_merchants, count_merchants
+from database.model import delete_merchant, get_main_single_merchant_by_id, get_merchants, count_merchants, count_products_by_merchant_id
 from fastapi_pagination.ext.sqlalchemy import paginate
 
 def remove_merchant(db: Session, merchant_id: int=0):
@@ -47,3 +47,4 @@ def retrieve_merchants_stats(db: Session):
         "message": "Success",
         "data": data,
     }
+
