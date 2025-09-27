@@ -122,6 +122,8 @@ def get_single_transaction_by_external_reference(db: Session, external_reference
 
 def get_transactions(db: Session, filters: Dict={}):
     query = db.query(Transaction)
+    if 'transaction_id' in filters:
+        query = query.filter_by(id = filters['transaction_id'])
     if 'country_id' in filters:
         query = query.filter_by(country_id = filters['country_id'])
     if 'currency_id' in filters:

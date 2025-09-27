@@ -17,8 +17,10 @@ async def search_accounts(request: Request, user=Depends(auth.auth_wrapper), db:
     return retrieve_accounts(db=db, search=search)
 
 @router.get("/", response_model=Page[TransactionModel], responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
-async def get_all(request: Request, db: Session = Depends(get_db), user=Depends(auth.auth_wrapper), user_id: int = Query(None), merchant_id: int = Query(None), type_id: int = Query(None), action: int = Query(None), reference: str = Query(None), external_reference: str = Query(None), account_number: str = Query(None), account_name: str = Query(None), from_date: str = Query(None), to_date: str = Query(None), minimum_amount: float = Query(None), maximum_amount: float = Query(None), user_query: str = Query(None), status: int = Query(None)):
+async def get_all(request: Request, db: Session = Depends(get_db), user=Depends(auth.auth_wrapper), transaction_id: int = Query(None), user_id: int = Query(None), merchant_id: int = Query(None), type_id: int = Query(None), action: int = Query(None), reference: str = Query(None), external_reference: str = Query(None), account_number: str = Query(None), account_name: str = Query(None), from_date: str = Query(None), to_date: str = Query(None), minimum_amount: float = Query(None), maximum_amount: float = Query(None), user_query: str = Query(None), status: int = Query(None)):
     filters = {}
+    if transaction_id:
+        filters['transaction_id'] = transaction_id
     if user_id:
         filters['user_id'] = user_id
     if merchant_id:

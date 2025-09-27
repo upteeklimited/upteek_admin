@@ -120,6 +120,8 @@ def get_single_order_by_id(db: Session, id: int=0):
 
 def get_orders(db: Session, filters: Dict={}):
     query = db.query(Order)
+    if 'order_id' in filters:
+        query = query.filter_by(id = filters['order_id'])
     if 'user_id' in filters:
         query = query.filter_by(user_id = filters['user_id'])
     if 'merchant_id' in filters:
@@ -136,6 +138,8 @@ def get_orders(db: Session, filters: Dict={}):
         query = query.filter_by(order_type = filters['order_type'])
     if 'payment_type' in filters:
         query = query.filter_by(payment_type = filters['payment_type'])
+    if 'reference' in filters:
+        query = query.filter_by(reference = filters['reference'])
     if 'minimum_amount' in filters:
         query = query.filter(Order.total_amount <= filters['minimum_amount'])
     if 'maximum_amount' in filters:

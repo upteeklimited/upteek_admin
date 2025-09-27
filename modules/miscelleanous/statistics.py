@@ -3,6 +3,15 @@ from sqlalchemy.orm import Session
 from database.model import count_users, count_merchants, get_ids_of_general_ledger_account_types, get_ids_of_general_ledger_accounts
 from datetime import datetime, timedelta
 
+def get_main_statistics(db: Session):
+	total_registered_customers = 0
+	on_time_delivery_rate = 0.0
+	average_deliveries = 0.0
+	late_deliveries = 0
+	delivery_accuracy = 0.0
+	wrong_deliveries = 0
+	customer_ratings = 0
+
 
 def get_user_registration_stats(db: Session, timeline: str=None, days: int=None):
 	today = today = datetime.today()
@@ -64,4 +73,4 @@ def get_revenue_report_stats(db: Session, timeline: str=None, days: int=None):
 	if days is not None:
 		if days > 0:
 			input_days = days
-	
+
