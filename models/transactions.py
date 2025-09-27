@@ -6,6 +6,7 @@ from sqlalchemy.sql.expression import and_, or_
 from sqlalchemy.sql.schema import ForeignKey
 from database.db import Base, get_laravel_datetime, get_added_laravel_datetime, compare_laravel_datetime_with_today
 from sqlalchemy.orm import relationship
+from models.users import User
 
 
 class Transaction(Base):
@@ -155,8 +156,17 @@ def get_transactions(db: Session, filters: Dict={}):
         query = query.filter(Transaction.reference.like('%' + filters['reference'] + '%'))
     if 'external_reference' in filters:
         query = query.filter(Transaction.external_reference.like('%' + filters['external_reference'] + '%'))
+    if 'minimum_amount' in filters:
+        query = query.filter(Transaction.amount <= filters['minimum_amount'])
+    if 'maximum_amount' in filters:
+        query = query.filter(Transaction.amount <= filters['maximum_amount'])
     if 'status' in filters:
         query = query.filter_by(status = filters['status'])
+    if 'from_date' in filters and 'to_date' in filters:
+        if filters['from_date'] != None and filters['to_date'] != None:
+            query = query.filter(and_(Transaction.created_at >= filters['from_date'], Transaction.created_at <= filters['to_date']))
+    if 'user_query' in filters:
+        query = query.join(User).filter(or_(User.email.like("%"+filters['user_query']+"%"), User.username.like("%"+filters['user_query']+"%"), User.phone_number.like("%"+filters['user_query']+"%")))
     return query.order_by(desc(Transaction.created_at))
 
 def count_transactions(db: Session, filters: Dict={}):

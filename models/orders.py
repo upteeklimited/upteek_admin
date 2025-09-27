@@ -6,6 +6,7 @@ from sqlalchemy.sql.expression import and_, or_
 from sqlalchemy.sql.schema import ForeignKey
 from database.db import Base, get_laravel_datetime, get_added_laravel_datetime, compare_laravel_datetime_with_today
 from sqlalchemy.orm import relationship
+from models.users import User
 
 
 class Order(Base):
@@ -135,12 +136,21 @@ def get_orders(db: Session, filters: Dict={}):
         query = query.filter_by(order_type = filters['order_type'])
     if 'payment_type' in filters:
         query = query.filter_by(payment_type = filters['payment_type'])
+    if 'minimum_amount' in filters:
+        query = query.filter(Order.total_amount <= filters['minimum_amount'])
+    if 'maximum_amount' in filters:
+        query = query.filter(Order.total_amount <= filters['maximum_amount'])
     if 'status' in filters:
         query = query.filter_by(status = filters['status'])
     if 'is_gift' in filters:
         query = query.filter_by(is_gift = filters['is_gift'])
     if 'is_scheduled' in filters:
         query = query.filter_by(is_scheduled = filters['is_scheduled'])
+    if 'from_date' in filters and 'to_date' in filters:
+        if filters['from_date'] != None and filters['to_date'] != None:
+            query = query.filter(and_(Order.created_at >= filters['from_date'], Order.created_at <= filters['to_date']))
+    if 'user_query' in filters:
+        query = query.join(User).filter(or_(User.email.like("%"+filters['user_query']+"%"), User.username.like("%"+filters['user_query']+"%"), User.phone_number.like("%"+filters['user_query']+"%")))
     return query.order_by(desc(Order.created_at))
 
 def count_orders(db: Session, filters: Dict={}):

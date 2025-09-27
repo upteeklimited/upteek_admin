@@ -15,7 +15,7 @@ router = APIRouter(
 )
 
 @router.get("/get_all", response_model=Page[OrderModel], responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
-async def get_all(request: Request, user=Depends(auth.auth_wrapper), db: Session = Depends(get_db), status: int = Query(None), merchant_id: int = Query(None), customer_merchant_id: int = Query(None), user_id: int = Query(None)):
+async def get_all(request: Request, user=Depends(auth.auth_wrapper), db: Session = Depends(get_db), status: int = Query(None), merchant_id: int = Query(None), customer_merchant_id: int = Query(None), user_id: int = Query(None), payment_type: int = Query(None), minimum_amount: float = Query(None), maximum_amount: float = Query(None), from_date: str = Query(None), to_date: str = Query(None), user_query: str = Query(None)):
     filters = {}
     if status:
         filters['status'] = status
@@ -25,6 +25,18 @@ async def get_all(request: Request, user=Depends(auth.auth_wrapper), db: Session
         filters['customer_merchant_id'] = customer_merchant_id
     if user_id:
         filters['user_id'] = user_id
+    if payment_type:
+        filters['payment_type'] = payment_type
+    if minimum_amount:
+        filters['minimum_amount'] = minimum_amount
+    if maximum_amount:
+        filters['maximum_amount'] = maximum_amount
+    if from_date:
+        filters['from_date'] = from_date
+    if to_date:
+        filters['to_date'] = to_date
+    if user_query:
+        filters['user_query'] = user_query
     return retrieve_orders(db=db, filters=filters)
 
 @router.get("/get_single/{order_id}", response_model=OrderResponse, responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})

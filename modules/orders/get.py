@@ -1,9 +1,16 @@
 from typing import Dict, List, Any
+import dateparser
 from sqlalchemy.orm import Session
 from database.model import get_orders, get_single_order_by_id, count_orders
 from fastapi_pagination.ext.sqlalchemy import paginate
 
 def retrieve_orders(db: Session, filters: Dict={}):
+    if 'from_date' in filters:
+        if filters['from_date'] is not None:
+            filters['from_date'] = dateparser.parse(filters['from_date'])
+    if 'to_date' in filters:
+        if filters['to_date'] is not None:
+            filters['to_date'] = dateparser.parse(filters['to_date'])
     data = get_orders(db=db, filters=filters)
     return paginate(data)
 

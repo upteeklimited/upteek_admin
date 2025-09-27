@@ -17,7 +17,7 @@ async def search_accounts(request: Request, user=Depends(auth.auth_wrapper), db:
     return retrieve_accounts(db=db, search=search)
 
 @router.get("/", response_model=Page[TransactionModel], responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
-async def get_all(request: Request, db: Session = Depends(get_db), user=Depends(auth.auth_wrapper), user_id: int = Query(None), merchant_id: int = Query(None), type_id: int = Query(None), action: int = Query(None), reference: str = Query(None), external_reference: str = Query(None), account_number: str = Query(None), account_name: str = Query(None), from_date: str = Query(None), to_date: str = Query(None), status: int = Query(None)):
+async def get_all(request: Request, db: Session = Depends(get_db), user=Depends(auth.auth_wrapper), user_id: int = Query(None), merchant_id: int = Query(None), type_id: int = Query(None), action: int = Query(None), reference: str = Query(None), external_reference: str = Query(None), account_number: str = Query(None), account_name: str = Query(None), from_date: str = Query(None), to_date: str = Query(None), minimum_amount: float = Query(None), maximum_amount: float = Query(None), user_query: str = Query(None), status: int = Query(None)):
     filters = {}
     if user_id:
         filters['user_id'] = user_id
@@ -39,8 +39,14 @@ async def get_all(request: Request, db: Session = Depends(get_db), user=Depends(
         filters['from_date'] = from_date
     if to_date:
         filters['to_date'] = to_date
+    if minimum_amount:
+        filters['minimum_amount'] = minimum_amount
+    if maximum_amount:
+        filters['maximum_amount'] = maximum_amount
     if status:
         filters['status'] = status
+    if user_query:
+        filters['user_query'] = user_query
     return retrieve_transactions(db=db, filters=filters)
 
 @router.get("/get_single/{transaction_id}", response_model=TransactionResponseModel, responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
