@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 from pydantic import BaseModel
 from datetime import datetime
 
@@ -217,6 +217,22 @@ class UserRegStatResponseModel(BaseModel):
     status: bool
     message: str
     data: Optional[UserRegStatsData] = None
+
+    class Config:
+        orm_mode = True
+
+class RevenueReportStatData(BaseModel):
+    month: Optional[str] = None
+    earning: Optional[float] = None
+    expense: Optional[float] = None
+
+    class Config:
+        orm_mode = True
+
+class RevenueReportStatsResponse(BaseModel):
+    status: bool
+    message: str
+    data: Optional[List[RevenueReportStatData]] = None
 
     class Config:
         orm_mode = True

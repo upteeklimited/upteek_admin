@@ -1,5 +1,6 @@
 from typing import Dict
 import dateparser
+from datetime import timezone, timedelta
 from sqlalchemy.orm import Session
 from database.model import get_single_account_by_account_number, get_single_general_ledger_account_by_account_number, get_single_transaction_by_id, get_transactions, search_accounts, search_general_ledger_accounts, count_transactions, sum_of_transactions
 from modules.utils.acct import get_gl_ids_by_filters, get_account_ids_by_filters
@@ -56,10 +57,10 @@ def retrieve_transactions(db: Session, filters: Dict={}):
             filters['gl_ids'] = [999999999]
     if 'from_date' in filters:
         if filters['from_date'] is not None:
-            filters['from_date'] = dateparser.parse(filters['from_date'])
+            filters['from_date'] = dateparser.parse(filters['from_date']).astimezone(timezone.utc)
     if 'to_date' in filters:
         if filters['to_date'] is not None:
-            filters['to_date'] = dateparser.parse(filters['to_date'])
+            filters['to_date'] = dateparser.parse(filters['to_date']).astimezone(timezone.utc) + timedelta(days=1)
     data = get_transactions(db=db, filters=filters)
     return paginate(data)
 

@@ -166,7 +166,7 @@ def get_transactions(db: Session, filters: Dict={}):
         query = query.filter_by(status = filters['status'])
     if 'from_date' in filters and 'to_date' in filters:
         if filters['from_date'] != None and filters['to_date'] != None:
-            query = query.filter(and_(Transaction.created_at >= filters['from_date'], Transaction.created_at <= filters['to_date']))
+            query = query.filter(and_(Transaction.created_at >= filters['from_date'], Transaction.created_at < filters['to_date']))
     if 'user_query' in filters:
         query = query.join(User).filter(or_(User.email.like("%"+filters['user_query']+"%"), User.username.like("%"+filters['user_query']+"%"), User.phone_number.like("%"+filters['user_query']+"%")))
     return query.order_by(desc(Transaction.created_at))
@@ -223,8 +223,12 @@ def sum_of_transactions(db: Session, filters: Dict={}):
         query = query.filter_by(merchant_id = filters['merchant_id'])
     if 'gl_id' in filters:
         query = query.filter_by(gl_id = filters['gl_id'])
+    if 'gl_ids' in filters:
+        query = query.filter(Transaction.gl_id.in_(filters['gl_ids']))
     if 'account_id' in filters:
         query = query.filter_by(account_id = filters['account_id'])
+    if 'account_ids' in filters:
+        query = query.filter(Transaction.account_id.in_(filters['account_ids']))
     if 'type_id' in filters:
         query = query.filter_by(type_id = filters['type_id'])
     if 'order_id' in filters:
@@ -249,5 +253,10 @@ def sum_of_transactions(db: Session, filters: Dict={}):
         query = query.filter(Transaction.external_reference.like('%' + filters['external_reference'] + '%'))
     if 'status' in filters:
         query = query.filter_by(status = filters['status'])
+    if 'from_date' in filters and 'to_date' in filters:
+        if filters['from_date'] != None and filters['to_date'] != None:
+            query = query.filter(and_(Transaction.created_at >= filters['from_date'], Transaction.created_at < filters['to_date']))
+    if 'created_at' in filters:
+        query = query.filter(Transaction.created_at == filters['created_at'])
     return query.scalar() or 0
 
