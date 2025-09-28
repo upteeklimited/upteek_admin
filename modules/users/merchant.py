@@ -1,6 +1,6 @@
 from typing import Dict
 from sqlalchemy.orm import Session
-from database.model import delete_merchant, get_main_single_merchant_by_id, get_merchants, count_merchants, count_products_by_merchant_id
+from database.model import delete_merchant, get_main_single_merchant_by_id, get_merchants, count_merchants, count_products_by_merchant_id, count_orders, sum_orders
 from fastapi_pagination.ext.sqlalchemy import paginate
 
 def remove_merchant(db: Session, merchant_id: int=0):
@@ -48,3 +48,19 @@ def retrieve_merchants_stats(db: Session):
         "data": data,
     }
 
+def retrieve_single_merchant_stats(db: Session, merchant_id: int=0):
+    total_products = count_products_by_merchant_id(db=db, merchant_id=merchant_id)
+    total_sales = sum_orders(db=db, filters={'merchant_id': merchant_id, 'status': 1})
+    total_revenue = 0.0
+    total_completed_orders = count_orders(db=db, filters={'merchant_id': merchant_id, 'status': 1})
+    data = {
+        "total_products": total_products,
+        "total_sales": total_sales,
+        "total_revenue": total_revenue,
+        "total_completed_orders": totat_completed_orders,
+    }
+    return {
+        "status": True,
+        "message": "Success",
+        "data": data,
+    }

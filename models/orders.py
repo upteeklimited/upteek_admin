@@ -7,6 +7,8 @@ from sqlalchemy.sql.schema import ForeignKey
 from database.db import Base, get_laravel_datetime, get_added_laravel_datetime, compare_laravel_datetime_with_today
 from sqlalchemy.orm import relationship
 from models.users import User
+from models.orders_products import OrderProduct
+from models.products import Product
 
 
 class Order(Base):
@@ -124,8 +126,8 @@ def get_orders(db: Session, filters: Dict={}):
         query = query.filter_by(id = filters['order_id'])
     if 'user_id' in filters:
         query = query.filter_by(user_id = filters['user_id'])
-    if 'merchant_id' in filters:
-        query = query.filter_by(merchant_id = filters['merchant_id'])
+    if 'customer_merchant_id' in filters:
+        query = query.filter_by(merchant_id = filters['customer_merchant_id'])
     if 'currency_id' in filters:
         query = query.filter_by(currency_id = filters['currency_id'])
     if 'card_id' in filters:
@@ -153,6 +155,8 @@ def get_orders(db: Session, filters: Dict={}):
     if 'from_date' in filters and 'to_date' in filters:
         if filters['from_date'] != None and filters['to_date'] != None:
             query = query.filter(and_(Order.created_at >= filters['from_date'], Order.created_at <= filters['to_date']))
+    if 'merchant_id' in filters:
+        query = query.join(OrderProduct, OrderProduct.order_id == Order.id).join(Product, Product.id == OrderProduct.product_id).filter(Product.merchant_id == filters['merchant_id'])
     if 'user_query' in filters:
         query = query.join(User).filter(or_(User.email.like("%"+filters['user_query']+"%"), User.username.like("%"+filters['user_query']+"%"), User.phone_number.like("%"+filters['user_query']+"%")))
     return query.order_by(desc(Order.created_at))
@@ -161,8 +165,8 @@ def count_orders(db: Session, filters: Dict={}):
     query = db.query(Order)
     if 'user_id' in filters:
         query = query.filter_by(user_id = filters['user_id'])
-    if 'merchant_id' in filters:
-        query = query.filter_by(merchant_id = filters['merchant_id'])
+    if 'customer_merchant_id' in filters:
+        query = query.filter_by(merchant_id = filters['customer_merchant_id'])
     if 'currency_id' in filters:
         query = query.filter_by(currency_id = filters['currency_id'])
     if 'card_id' in filters:
@@ -181,5 +185,34 @@ def count_orders(db: Session, filters: Dict={}):
         query = query.filter_by(is_gift = filters['is_gift'])
     if 'is_scheduled' in filters:
         query = query.filter_by(is_scheduled = filters['is_scheduled'])
+    if 'merchant_id' in filters:
+        query = query.join(OrderProduct, OrderProduct.order_id == Order.id).join(Product, Product.id == OrderProduct.product_id).filter(Product.merchant_id == filters['merchant_id'])
     return query.count()
 
+def sum_orders(db: Session: filters: Dict={}):
+    query = db.query(func.sum(Order.total_amount))
+    if 'user_id' in filters:
+        query = query.filter_by(user_id = filters['user_id'])
+    if 'customer_merchant_id' in filters:
+        query = query.filter_by(merchant_id = filters['customer_merchant_id'])
+    if 'currency_id' in filters:
+        query = query.filter_by(currency_id = filters['currency_id'])
+    if 'card_id' in filters:
+        query = query.filter_by(card_id = filters['card_id'])
+    if 'account_id' in filters:
+        query = query.filter_by(account_id = filters['account_id'])
+    if 'financial_product_id' in filters:
+        query = query.filter_by(financial_product_id = filters['financial_product_id'])
+    if 'order_type' in filters:
+        query = query.filter_by(order_type = filters['order_type'])
+    if 'payment_type' in filters:
+        query = query.filter_by(payment_type = filters['payment_type'])
+    if 'status' in filters:
+        query = query.filter_by(status = filters['status'])
+    if 'is_gift' in filters:
+        query = query.filter_by(is_gift = filters['is_gift'])
+    if 'is_scheduled' in filters:
+        query = query.filter_by(is_scheduled = filters['is_scheduled'])
+    if 'merchant_id' in filters:
+        query = query.join(OrderProduct, OrderProduct.order_id == Order.id).join(Product, Product.id == OrderProduct.product_id).filter(Product.merchant_id == filters['merchant_id'])
+    return query.scalar() or 0

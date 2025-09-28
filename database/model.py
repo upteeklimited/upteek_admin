@@ -46,7 +46,7 @@ from models.notifications import Notification, create_notification, update_notif
 from models.operators import Operator, create_operator, update_operator, delete_operator, force_delete_operator, get_single_operator_by_id, get_operators
 from models.order_logs import OrderLog, create_order_log, update_order_log, delete_order_log, force_delete_order_log, get_single_order_log_by_id, get_order_logs
 from models.orders_products import OrderProduct, create_order_product, update_order_product, delete_order_product, force_delete_order_product, get_all_orders_products
-from models.orders import Order, create_order, update_order, delete_order, force_delete_order, get_single_order_by_id, get_orders, count_orders
+from models.orders import Order, create_order, update_order, delete_order, force_delete_order, get_single_order_by_id, get_orders, count_orders, sum_orders
 from models.payment_links_products import PaymentLinkProduct, create_payment_link_product, update_payment_link_product, delete_payment_link_product, force_delete_payment_link_product, get_single_payment_link_product_by_id, get_payment_links_products
 from models.payment_links import PaymentLink, create_payment_link, update_payment_link, delete_payment_link, force_delete_payment_link, get_single_payment_link_by_id, get_payment_links
 from models.people import Person, create_person, update_person, delete_person, force_delete_person, get_single_person_by_id, get_people, get_people_by_personable_type, get_personable

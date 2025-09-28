@@ -437,6 +437,24 @@ class MerchantStatResponse(BaseModel):
     class Config:
         orm_mode = True
 
+class MerchantSingleStatData(BaseModel):
+    total_products: Optional[int] = 0
+    total_sales: Optional[float] = 0
+    total_revenue: Optional[float] = 0
+    total_products: Optional[int] = 0
+
+    class Config:
+        orm_mode = True
+
+class MerchantSingleStatResponse(BaseModel):
+    status: bool
+    message: str
+    data: Optional[MerchantSingleStatData] = None
+
+    class Config:
+        orm_mode = True
+    
+
 class CustomerStatData(BaseModel):
     total_registered: Optional[int] = 0
     total_active: Optional[int] = 0
