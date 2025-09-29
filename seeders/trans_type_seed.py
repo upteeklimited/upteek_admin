@@ -226,6 +226,12 @@ def seed_trans_type(db: Session, commit: bool=False):
             'name': 'Card Debit',
             'desc': 'Card Debit Description',
         },
+        {
+            'type_code': '038',
+            'type_action': 2,
+            'name': 'Card Credit',
+            'desc': 'Card Credit Description',
+        },
     ]
     if len(seed) > 0:
         for i in range(len(seed)):
