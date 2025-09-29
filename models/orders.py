@@ -189,7 +189,7 @@ def count_orders(db: Session, filters: Dict={}):
         query = query.join(OrderProduct, OrderProduct.order_id == Order.id).join(Product, Product.id == OrderProduct.product_id).filter(Product.merchant_id == filters['merchant_id'])
     return query.count()
 
-def sum_orders(db: Session: filters: Dict={}):
+def sum_orders(db: Session, filters: Dict={}):
     query = db.query(func.sum(Order.total_amount))
     if 'user_id' in filters:
         query = query.filter_by(user_id = filters['user_id'])
