@@ -16,6 +16,7 @@ from models.categories import Category, create_category, update_category, delete
 from models.cities import City, create_city, update_city, delete_city, force_delete_city, get_single_city_by_id, get_capital_city, get_cities, get_cities_by_state_id
 from models.collections import Collection, create_collection, update_collection, delete_collection, force_delete_collection, get_single_collection_by_id, get_collections
 from models.compliance_usages import ComplianceUsage, create_compliance_usage, update_complaince_usage, delete_compliance_usage, force_delete_compliance_usage, get_single_complaince_usage_by_id, get_complaince_usages
+from models.conversations import Conversation, create_conversation, update_conversation, delete_conversation, force_delete_conversation, get_single_conversation_by_id, get_all_conversations
 from models.countries_currencies import CountryCurrency, create_country_currency, update_country_currency, delete_country_currency, force_delete_country_currency, get_single_country_currency_by_id, get_countries_currencies, get_countries_currencies_by_country_id, get_countries_currencies_by_currency_id
 from models.countries import Country, create_country, update_country, delete_country, force_delete_country, get_single_country_by_id, get_single_country_by_code, get_countries
 from models.currencies import Currency, create_currency, update_currency, delete_currency, force_delete_currency, get_single_currency_by_id, get_single_currency_by_code, get_currencies
