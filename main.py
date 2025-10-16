@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi_pagination import add_pagination
 import sys, traceback
 import os
+from database.redis import redis_client
 
 BASEDIR = os.path.abspath(os.path.dirname(__file__))
 
@@ -89,6 +90,14 @@ app.add_middleware(
 @app.get("/")
 async def root():
     return {"message": "Hello World! Upteek Admin"}
+
+@app.get("/maintenance_mode")
+async def maintenance_mode():
+    flag = redis_client.get("maintenance_mode")
+    if flag is None:
+        redis_client.set("maintenance_mode", "0")
+        flag = "0"
+    return {"maintenance_mode": flag}
 
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exc: RequestValidationError):

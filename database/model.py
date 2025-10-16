@@ -6,6 +6,8 @@ from models.accounts import Account, create_account, update_account, delete_acco
 from models.activity_logs import Activity_Log, create_activity_log, update_activity_log, delete_activity_log, force_delete_activity_log, get_single_activity_log_by_id, get_activity_logs
 from models.addresses import Address, create_address, update_address, delete_address, force_delete_address, get_single_address_by_id, get_addresses, get_addresses_by_addressable_type, get_addressable
 from models.auth_tokens import AuthToken, create_auth_token, update_auth_token, update_user_auth_token, delete_auth_token, force_delete_auth_token, get_single_auth_token_by_id, get_auth_tokens, get_auth_tokens_by_user_id, get_latest_user_auth_token
+from models.batch_logs import Batch_Log, create_batch_log, update_batch_log, delete_batch_log, force_delete_batch_log, get_single_batch_log_by_id, get_batch_logs
+from models.batches import Batch, create_batch, update_batch, delete_batch, force_delete_batch, get_single_batch_by_id, get_batches
 from models.beneficiaries import Beneficiary, create_beneficiary, update_beneficiary, delete_beneficiary, force_delete_beneficiary, get_single_beneficiary_by_id, get_beneficiaries
 from models.bill_categories import BillCategory, create_bill_category, update_bill_category, delete_bill_category, force_delete_bill_category, get_single_bill_category_by_id, get_single_bill_category_by_code, get_bill_categories, count_bill_categories, count_bill_categories_by_code, check_bill_category_exist
 from models.bills import Bill, create_bill, update_bill, delete_bill, force_delete_bill, get_single_bill_by_id, get_bills, count_bills, count_bills_by_code, check_if_bill_exists
@@ -32,6 +34,7 @@ from models.groups import Group, create_group, update_group, delete_group, force
 from models.invoice_items import InvoiceItem, create_invoice_item, update_invoice_item, delete_invoice_item, force_delete_invoice_item, get_single_invoice_item_by_id, get_invoice_items
 from models.invoice_requests import InvoiceRequest, create_invoice_request, update_invoice_request, delete_invoice_request, force_delete_invoice_request, get_single_invoice_request_by_id, get_invoice_requests
 from models.invoices import Invoice, create_invoice, update_invoice, delete_invoice, force_delete_invoice, get_single_invoice_by_id, get_invoices
+from models.jobs import Job, create_job, update_job, delete_job, force_delete_job, get_single_job_by_id, get_jobs
 from models.l_g_a_s import LGA, create_lga, update_lga, delete_lga, force_delete_lga, get_single_lga_by_id, get_lgas, get_lgas_by_state_id
 from models.loan_application_logs import LoanApplicationLog, create_loan_application_log, update_loan_application_log, delete_loan_application_log, force_delete_loan_application_log, get_single_loan_application_log_by_id, get_loan_application_logs
 from models.loan_applications import LoanApplication, create_loan_application, update_loan_application, delete_loan_application, force_delete_loan_application, get_single_loan_application_by_id
