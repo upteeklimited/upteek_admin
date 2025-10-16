@@ -160,7 +160,7 @@ class DatabaseBackup:
             raise FileNotFoundError(f"Backup file {backup_file} not found")
 
         cmd = [
-            "mysql", f"--user={db_user}",, f"--password={db_password}", f"--host={db_host}", db_name
+            "mysql", f"--user={db_user}", f"--password={db_password}", f"--host={db_host}", db_name
         ]
 
         with open(backup_path, 'r') as f:
