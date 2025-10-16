@@ -6,12 +6,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi_pagination import add_pagination
 import sys, traceback
 import os
-from database.redis import redis_client
 
 BASEDIR = os.path.abspath(os.path.dirname(__file__))
 
 sys.path.append(BASEDIR)
 
+from database.redis import redis_client
 
 from routers.authentication import auth
 from routers.user import profile
