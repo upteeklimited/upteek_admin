@@ -65,10 +65,7 @@ def get_session():
     _cached_flag = flag
     _last_check = now
 
-    if flag == "1":
-        session = ShadowSessionLocal()
-    else:
-        session = SessionLocal()
+    session = ShadowSessionLocal()
     try:
         yield session
         session.commit()
