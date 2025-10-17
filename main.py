@@ -99,6 +99,11 @@ async def maintenance_mode():
         flag = "0"
     return {"maintenance_mode": flag}
 
+@app.post("/maintenance_mode/set")
+async def set_cache(value: str):
+    await redis_client.set("maintenance_mode", value)
+    return {"status": "saved"}
+
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exc: RequestValidationError):
     return JSONResponse(
