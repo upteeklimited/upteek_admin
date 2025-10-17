@@ -19,7 +19,7 @@ engine = create_engine(SQLALCHEMY_DATABASE_URL, pool_recycle=60)
 shadow_engine = create_engine(SQLALCHEMY_BACKUP_DATABASE_URL, pool_recycle=60)
 
 SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=True)
-ShadowSessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=True)
+ShadowSessionLocal = sessionmaker(bind=shadow_engine, autocommit=False, autoflush=True)
 
 Base = declarative_base()
 
@@ -58,14 +58,17 @@ def get_session():
     global _last_check, _cached_flag
     now = time.time()
 
-    flag = redis_client.get("maintenance_mode")
-    if flag is None:
-        redis_client.set("maintenance_mode", "0")
-        flag = "0"
-    _cached_flag = flag
-    _last_check = now
+        flag = redis_client.get("maintenance_mode")
+        if flag is None:
+            redis_client.set("maintenance_mode", "0")
+            flag = "0"
+        _cached_flag = flag
+        _last_check = now
 
-    session = ShadowSessionLocal()
+    if _cached_flag == "1":
+        session = ShadowSessionLocal()
+    else:
+        session = SessionLocal()
     try:
         yield session
         session.commit()
