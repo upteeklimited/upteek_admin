@@ -58,15 +58,14 @@ def get_session():
     global _last_check, _cached_flag
     now = time.time()
 
-    if now - _last_check > 5:
-        flag = redis_client.get("maintenance_mode")
-        if flag is None:
-            redis_client.set("maintenance_mode", "0")
-            flag = "0"
-        _cached_flag = flag
-        _last_check = now
+    flag = redis_client.get("maintenance_mode")
+    if flag is None:
+        redis_client.set("maintenance_mode", "0")
+        flag = "0"
+    _cached_flag = flag
+    _last_check = now
 
-    if _cached_flag == "1":
+    if flag == "1":
         session = ShadowSessionLocal()
     else:
         session = SessionLocal()
