@@ -58,6 +58,7 @@ def get_session():
     global _last_check, _cached_flag
     now = time.time()
 
+    if now - _last_check > 5:
         flag = redis_client.get("maintenance_mode")
         if flag is None:
             redis_client.set("maintenance_mode", "0")
