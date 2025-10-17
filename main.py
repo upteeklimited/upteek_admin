@@ -93,11 +93,11 @@ async def root():
 
 @app.get("/maintenance_mode")
 async def maintenance_mode():
-    # flag = await redis_client.get("maintenance_mode")
-    # if flag is None:
-    #     await redis_client.set("maintenance_mode", "0")
-    #     flag = "0"
-    return {"maintenance_mode": config['redis_password']}
+    flag = await redis_client.get("maintenance_mode")
+    if flag is None:
+        await redis_client.set("maintenance_mode", "0")
+        flag = "0"
+    return {"maintenance_mode": flag}
 
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exc: RequestValidationError):
