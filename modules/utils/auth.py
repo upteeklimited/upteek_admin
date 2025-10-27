@@ -51,7 +51,7 @@ class AuthHandler():
             'iat': datetime.utcnow(),
             'sub': json.dumps(user)
         }
-        expired_at = (datetime.utcnow() + timedelta(days=365, minutes=5)).strftime("%Y/%m/%d %H:%M:%S")
+        expired_at = (datetime.utcnow() + timedelta(days=365)).strftime("%Y/%m/%d %H:%M:%S")
         token = jwt.encode(payload, self.secret, algorithm="HS256")
         if isinstance(token, bytes):
             token = token.decode('utf-8')

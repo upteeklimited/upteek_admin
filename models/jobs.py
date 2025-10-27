@@ -13,7 +13,7 @@ class Job(Base):
     __tablename__ = "jobs"
      
     id = Column(BigInteger, primary_key=True, index=True)
-    batch_id = Column(BigInteger, default=0)
+    batch_id = Column(BigInteger, ForeignKey('batches.id'))
     name = Column(String, nullable=True)
     code = Column(String, nullable=True)
     failed_reason = Column(Text, nullable=True)
@@ -24,6 +24,9 @@ class Job(Base):
     deleted_at = Column(TIMESTAMP(timezone=True), nullable=True)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
+
+    batch = relationship("Batch", back_populates="jobs")
+    batch_logs = relationship("Batch_Log", back_populates="job")
 
 def create_job(db: Session, batch_id: int = 0, name: str = None, code: str = None, failed_reason: str = None, status_string: str = None, status: int = 0, started_at: str = None, ended_at: str = None, commit: bool=False):
     job = Job(batch_id=batch_id, name=name, code=code, failed_reason=failed_reason, status_string=status_string, status=status, started_at=started_at, ended_at=ended_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())

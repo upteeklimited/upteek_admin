@@ -30,6 +30,7 @@ from routers.accounting import product as fin_product
 from routers.accounting import cust_acct
 from routers.transaction import type
 from routers.transaction import postings
+from routers.back import base as batches
 from routers.misc import stats
 
 
@@ -56,6 +57,7 @@ app.include_router(fin_product.router)
 app.include_router(cust_acct.router)
 app.include_router(type.router)
 app.include_router(postings.router)
+app.include_router(batches.router)
 app.include_router(stats.router)
 
 #system routes

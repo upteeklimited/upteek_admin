@@ -1,6 +1,6 @@
 from typing import Dict
 from sqlalchemy import Column, Integer, String, DateTime, BigInteger, DECIMAL, Float, TIMESTAMP, SmallInteger, Text, desc
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 from sqlalchemy.sql import func
 from sqlalchemy.sql.expression import and_, or_
 from sqlalchemy.sql.schema import ForeignKey
@@ -13,9 +13,10 @@ class Batch(Base):
     __tablename__ = "batches"
      
     id = Column(BigInteger, primary_key=True, index=True)
-    current_job_id = Column(BigInteger, default=0)
+    current_job_id = Column(BigInteger, ForeignKey('jobs.id'))
     batch_type = Column(Integer, default=0)
     reference = Column(String, nullable=True)
+    last_job_code = Column(String, nullable=True)
     run_date = Column(String, nullable=True)
     failed_reason = Column(Text, nullable=True)
     status_string = Column(String, nullable=True)
@@ -26,8 +27,12 @@ class Batch(Base):
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
-def create_batch(db: Session, current_job_id: int = 0, batch_type: int = 0, reference: str = None, run_date: str = None, failed_reason: str = None, status_string: str = None, status: int = 0, started_at: str = None, ended_at: str = None, commit: bool=False):
-    batch = Batch(current_job_id=current_job_id, batch_type=batch_type, reference=reference, run_date=run_date, failed_reason=failed_reason, status_string=status_string, status=status, started_at=started_at, ended_at=ended_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
+    current_job = relationship("Job", uselist=False)
+    jobs = relationship("Job", back_populates="batch")
+    batch_logs = relationship("Batch_Log", back_populates="batch")
+
+def create_batch(db: Session, current_job_id: int = 0, batch_type: int = 0, reference: str = None, last_job_code: str = None, run_date: str = None, failed_reason: str = None, status_string: str = None, status: int = 0, started_at: str = None, ended_at: str = None, commit: bool=False):
+    batch = Batch(current_job_id=current_job_id, batch_type=batch_type, reference=reference, last_job_code=last_job_code, run_date=run_date, failed_reason=failed_reason, status_string=status_string, status=status, started_at=started_at, ended_at=ended_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
     db.add(batch)
     if commit == False:
         db.flush()
@@ -66,14 +71,16 @@ def force_delete_batch(db: Session, id: int=0, commit: bool=False):
     return True
 
 def get_single_batch_by_id(db: Session, id: int=0):
-    return db.query(Batch).filter_by(id = id).first()
+    return db.query(Batch).options(joinedload(Batch.current_job), joinedload(Batch.jobs), joinedload(Batch.batch_logs)).filter_by(id = id).first()
 
 def get_batches(db: Session, filters: Dict={}):
-    query = db.query(Batch)
+    query = db.query(Batch).options(joinedload(Batch.current_job), joinedload(Batch.jobs), joinedload(Batch.batch_logs))
     if 'current_job_id' in filters:
         query = query.filter_by(current_job_id = filters['current_job_id'])
     if 'batch_type' in filters:
         query = query.filter_by(batch_type = filters['batch_type'])
     if 'reference' in filters:
         query = query.filter_by(reference = filters['reference'])
+    if 'status' in filters:
+        query = query.filter_by(status = filters['status'])
     return query.order_by(desc(Batch.created_at))

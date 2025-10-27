@@ -13,8 +13,8 @@ class Batch_Log(Base):
     __tablename__ = "batch_logs"
      
     id = Column(BigInteger, primary_key=True, index=True)
-    batch_id = Column(BigInteger, default=0)
-    job_id = Column(BigInteger, default=0)
+    batch_id = Column(BigInteger, ForeignKey('batches.id'))
+    job_id = Column(BigInteger, ForeignKey('jobs.id'))
     info = Column(Text, nullable=True)
     status = Column(SmallInteger, default=0)
     started_at = Column(TIMESTAMP(timezone=True), nullable=True)
@@ -22,6 +22,9 @@ class Batch_Log(Base):
     deleted_at = Column(TIMESTAMP(timezone=True), nullable=True)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
+
+    batch = relationship("Batch", back_populates="batch_logs")
+    job = relationship("Job", back_populates="batch_logs")
 
 def create_batch_log(db: Session, batch_id: int = 0, job_id: int = 0, info: str = None, status: int = 0, started_at: str = None, ended_at: str = None, commit: bool=False):
     batch_log = Batch_Log(batch_id=batch_id, name=name, code=code, failed_reason=failed_reason, status_string=status_string, status=status, started_at=started_at, ended_at=ended_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
