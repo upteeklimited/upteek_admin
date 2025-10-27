@@ -18,68 +18,6 @@ from authlib.jose import jwt as auth_jwt
 
 config = load_env_config()
 
-# def generate_apple_client_secret():
-#     global config
-#     now = datetime.now(UTC)
-#     payload = {
-#         'iss': config['apple_team_id'],
-#         'iat': now,
-#         'exp': now + timedelta(days=180),
-#         'aud': 'https://appleid.apple.com',
-#         'sub': config['apple_client_id']
-#     }
-#     headers = {
-#         'alg': 'ES256',
-#         'kid': config['apple_key_id']
-#     }
-#     key = config['apple_private_key']
-#     return auth_jwt.encode(headers, payload, key).decode('utf-8')
-
-# Initialize OAuth
-# oauth = OAuth()
-
-# # Register OAuth providers
-# oauth.register(
-#     name='google',
-#     client_id=config['google_client_id'],
-#     client_secret=config['google_client_secret'],
-#     server_metadata_url='https://accounts.google.com/.well-known/openid-configuration',
-#     client_kwargs={
-#         'scope': 'openid email profile',
-#         'prompt': 'select_account',  # Forces account selection
-#     },
-#     authorize_params={
-#         'access_type': 'offline',  # For refresh tokens
-#     }
-# )
-
-# oauth.register(
-#     name='facebook',
-#     client_id=config['facebook_client_id'],
-#     client_secret=config['facebook_client_secret'],
-#     authorize_url='https://www.facebook.com/v12.0/dialog/oauth',
-#     access_token_url='https://graph.facebook.com/v12.0/oauth/access_token',
-#     api_base_url='https://graph.facebook.com/v12.0/',
-#     client_kwargs={
-#         'scope': 'email public_profile',
-#         'token_endpoint_auth_method': 'client_secret_post'  # Facebook requires this
-#     }
-# )
-
-# # Apple requires special handling
-# oauth.register(
-#     name='apple',
-#     client_id=config['apple_client_id'],  # Service ID from Apple Developer
-#     client_secret=generate_apple_client_secret(),  # Generated JWT (see below)
-#     authorize_url='https://appleid.apple.com/auth/authorize',
-#     access_token_url='https://appleid.apple.com/auth/token',
-#     api_base_url='https://appleid.apple.com',
-#     client_kwargs={
-#         'scope': 'email name',
-#         'response_mode': 'form_post'  # Apple requires POST for auth response
-#     }
-# )
-
 def get_next_few_minutes(minutes: int=0):
     current_time = datetime.now()
     future_time = current_time + timedelta(minutes=minutes)
@@ -109,12 +47,14 @@ class AuthHandler():
 
     def encode_token(self, user: Dict={}, device_token: str = None):
         payload = {
-            'exp': datetime.now() + timedelta(days=365, minutes=5),
-            'iat': datetime.now(),
+            'exp': datetime.utcnow() + timedelta(days=365),
+            'iat': datetime.utcnow(),
             'sub': json.dumps(user)
         }
-        expired_at = (datetime.now() + timedelta(days=365, minutes=5)).strftime("%Y/%m/%d %H:%M:%S")
+        expired_at = (datetime.utcnow() + timedelta(days=365, minutes=5)).strftime("%Y/%m/%d %H:%M:%S")
         token = jwt.encode(payload, self.secret, algorithm="HS256")
+        if isinstance(token, bytes):
+            token = token.decode('utf-8')
         user_id = user['id']
         update_user_auth_token(db=self.db, user_id=user_id, values={'status': 0}, commit=True)
         create_auth_token(db=self.db, user_id=user_id, token=token, device_token=device_token, status=1, expired_at=expired_at, commit=True)
@@ -122,6 +62,8 @@ class AuthHandler():
 
     def decode_token(self, token: str = None):
         try:
+            if isinstance(token, bytes):
+                token = token.decode('utf-8')
             payload = jwt.decode(token, self.secret, algorithms=["HS256"])
             sub_data = json.loads(payload['sub'])
             user_id = sub_data['id']
@@ -150,8 +92,10 @@ class AuthHandler():
         
         except jwt.ExpiredSignatureError:
             raise HTTPException(status_code=401, detail='Signature has expired')
-        except jwt.InvalidTokenError:
-            raise HTTPException(status_code=401, detail="Invalid token")
+        except jwt.InvalidTokenError as e:
+            raise HTTPException(status_code=401, detail=f"Invalid token: {str(e)}")
+        except Exception as e:
+            raise HTTPException(status_code=401, detail=f"Authenticatin error: {str(e)}")
 
     def auth_wrapper(self, auth: HTTPAuthorizationCredentials = Security(security)):
         return self.decode_token(auth.credentials)
