@@ -9,9 +9,9 @@ class BatchLogModel(BaseModel):
 	job_id: Optional[int] = 0
 	info: Optional[str] = None
 	status: Optional[int] = 0
-    started_at: Optional[datetime] = None
-    ended_at: Optional[datetime] = None
-    created_at: Optional[datetime] = None
+	started_at: Optional[datetime] = None
+	ended_at: Optional[datetime] = None
+	created_at: Optional[datetime] = None
 
 	class Config:
 		orm_mode = True
@@ -24,9 +24,9 @@ class JobModel(BaseModel):
 	failed_reason: Optional[str] = None
 	status_string: Optional[str] = None
 	status: Optional[int] = 0
-    started_at: Optional[datetime] = None
-    ended_at: Optional[datetime] = None
-    created_at: Optional[datetime] = None
+	started_at: Optional[datetime] = None
+	ended_at: Optional[datetime] = None
+	created_at: Optional[datetime] = None
 
 	class Config:
 		orm_mode = True
@@ -41,12 +41,12 @@ class BatchModel(BaseModel):
 	failed_reason: Optional[str] = None
 	status_string: Optional[str] = None
 	status: Optional[int] = 0
-    started_at: Optional[datetime] = None
-    ended_at: Optional[datetime] = None
-    created_at: Optional[datetime] = None
-    current_job: Optional[JobModel] = None
-    jobs: Optional[List[JobModel]] = None
-    batch_logs: Optional[List[BatchLogModel]] = None
+	started_at: Optional[datetime] = None
+	ended_at: Optional[datetime] = None
+	created_at: Optional[datetime] = None
+	current_job: Optional[JobModel] = None
+	jobs: Optional[List[JobModel]] = None
+	batch_logs: Optional[List[BatchLogModel]] = None
 
 	class Config:
 		orm_mode = True
