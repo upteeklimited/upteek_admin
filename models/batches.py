@@ -27,9 +27,9 @@ class Batch(Base):
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
-    current_job = relationship("Job", uselist=False, foreign_keys="Job.batch_id")
-    jobs = relationship("Job", back_populates="batch")
-    batch_logs = relationship("Batch_Log", back_populates="batch")
+    current_job = relationship("Job", uselist=False, foreign_keys=[batch_id])
+    jobs = relationship("Job", back_populates="batch", foreign_keys="Job.batch_id")
+    batch_logs = relationship("Batch_Log", back_populates="batch", foreign_keys="Batch_Log.batch_id")
 
 def create_batch(db: Session, current_job_id: int = 0, batch_type: int = 0, reference: str = None, last_job_code: str = None, run_date: str = None, failed_reason: str = None, status_string: str = None, status: int = 0, started_at: str = None, ended_at: str = None, commit: bool=False):
     batch = Batch(current_job_id=current_job_id, batch_type=batch_type, reference=reference, last_job_code=last_job_code, run_date=run_date, failed_reason=failed_reason, status_string=status_string, status=status, started_at=started_at, ended_at=ended_at, created_at=get_laravel_datetime(), updated_at=get_laravel_datetime())
