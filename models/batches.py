@@ -27,7 +27,7 @@ class Batch(Base):
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=True, onupdate=func.now())
 
-    current_job = relationship("Job", uselist=False)
+    current_job = relationship("Job", uselist=False, foreign_keys="Job.batch_id")
     jobs = relationship("Job", back_populates="batch")
     batch_logs = relationship("Batch_Log", back_populates="batch")
 
