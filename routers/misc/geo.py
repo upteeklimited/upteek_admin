@@ -14,7 +14,6 @@ router = APIRouter(
 async def countries(request: Request, db: Session = Depends(get_session)):
     return retrieve_countries(db=db)
 
-
 @router.get("/countries/get_single/{country_id}", response_model=CountryResponseModel, responses={404: {"model": ErrorResponse}, 401: {"model": ErrorResponse}, 403: {"model": ErrorResponse}})
 async def countries_get_single(request: Request, db: Session = Depends(get_session), country_id: int = 0):
     return retrieve_single_country(db=db, id=country_id)

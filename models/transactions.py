@@ -255,7 +255,7 @@ def sum_of_transactions(db: Session, filters: Dict={}):
         query = query.filter_by(status = filters['status'])
     if 'from_date' in filters and 'to_date' in filters:
         if filters['from_date'] != None and filters['to_date'] != None:
-            query = query.filter(and_(Transaction.created_at >= filters['from_date'], Transaction.created_at < filters['to_date']))
+            query = query.filter(and_(Transaction.created_at >= filters['from_date'], Transaction.created_at <= filters['to_date']))
     if 'created_at' in filters:
         query = query.filter(Transaction.created_at == filters['created_at'])
     return query.scalar() or 0

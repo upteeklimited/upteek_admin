@@ -75,6 +75,7 @@ def get_session():
         session.commit()
     except:
         session.rollback()
+        raise
     finally:
         session.close()
 
